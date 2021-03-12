@@ -77,7 +77,7 @@ public class LevelType extends DataType{
 			rootNode.put(eConstants.KEYWORD_MAXIMUM, this.maximum.intValue());
 		
 		if(this.getMultipleOf() != null) {
-			if(this.getMultipleOf().floatValue() > 1) {
+			if(this.getMultipleOf().floatValue() >= 1) {
 				rootNode.put(eConstants.KEYWORD_MULTIPLE_OF, this.getMultipleOf().intValue());
 			} else {
 				rootNode.put(eConstants.KEYWORD_MULTIPLE_OF, this.getMultipleOf().floatValue());
