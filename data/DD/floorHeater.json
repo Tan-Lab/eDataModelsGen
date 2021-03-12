@@ -1,0 +1,2297 @@
+{
+  "deviceType" : "floorHeater",
+  "eoj" : "0x027B",
+  "descriptions" : {
+    "ja" : "床暖房",
+    "en" : "floor heater"
+  },
+  "properties" : {
+    "reservationOfOnTimer" : {
+      "epc" : "0x90",
+      "descriptions" : {
+        "ja" : "ON タイマ予約設定",
+        "en" : "ON timer reservation setting"
+      },
+      "writable" : true,
+      "observable" : false,
+      "schema" : {
+        "type" : "string",
+        "enum" : [ "on", "off" ],
+        "values" : [ {
+          "value" : "on",
+          "descriptions" : {
+            "ja" : "予約入",
+            "en" : "ON"
+          },
+          "edt" : "0x41"
+        }, {
+          "value" : "off",
+          "descriptions" : {
+            "ja" : "予約切",
+            "en" : "OFF"
+          },
+          "edt" : "0x42"
+        } ]
+      }
+    },
+    "timeOfOnTimer" : {
+      "epc" : "0x91",
+      "descriptions" : {
+        "ja" : "ON タイマ時刻設定値",
+        "en" : "Time set by ON timer"
+      },
+      "writable" : true,
+      "observable" : false,
+      "schema" : {
+        "type" : "string",
+        "format" : "time"
+      },
+      "note" : {
+        "ja" : "秒の指定は無視される",
+        "en" : "Number of seconds is ignored"
+      }
+    },
+    "relativeTimeOfOnTimer" : {
+      "epc" : "0x92",
+      "descriptions" : {
+        "ja" : "ON タイマ相対時間設定値",
+        "en" : "Relative ON timer setting"
+      },
+      "writable" : true,
+      "observable" : false,
+      "schema" : {
+        "type" : "string",
+        "format" : "time"
+      },
+      "note" : {
+        "ja" : "秒の指定は無視される",
+        "en" : "Number of seconds is ignored"
+      }
+    },
+    "reservationOfOffTimer" : {
+      "epc" : "0x94",
+      "descriptions" : {
+        "ja" : "OFF タイマ予約設定",
+        "en" : "OFF timer reservation setting"
+      },
+      "writable" : true,
+      "observable" : false,
+      "schema" : {
+        "type" : "string",
+        "enum" : [ "on", "off" ],
+        "values" : [ {
+          "value" : "on",
+          "descriptions" : {
+            "ja" : "予約入",
+            "en" : "ON"
+          },
+          "edt" : "0x41"
+        }, {
+          "value" : "off",
+          "descriptions" : {
+            "ja" : "予約切",
+            "en" : "OFF"
+          },
+          "edt" : "0x42"
+        } ]
+      }
+    },
+    "timeOfOffTimer" : {
+      "epc" : "0x95",
+      "descriptions" : {
+        "ja" : "OFF タイマ時刻設定値",
+        "en" : "Time set by OFF timer"
+      },
+      "writable" : true,
+      "observable" : false,
+      "schema" : {
+        "type" : "string",
+        "format" : "time"
+      },
+      "note" : {
+        "ja" : "秒の指定は無視される",
+        "en" : "Number of seconds is ignored"
+      }
+    },
+    "relativeTimeOfOffTimer" : {
+      "epc" : "0x96",
+      "descriptions" : {
+        "ja" : "OFF タイマ相対時間設定値",
+        "en" : "Relative OFF timer setting"
+      },
+      "writable" : true,
+      "observable" : false,
+      "schema" : {
+        "type" : "string",
+        "format" : "time"
+      },
+      "note" : {
+        "ja" : "秒の指定は無視される",
+        "en" : "Number of seconds is ignored"
+      }
+    },
+    "maximumTargetTemperature2" : {
+      "epc" : "0xD1",
+      "descriptions" : {
+        "ja" : "温度設定2設定可能最大レベル",
+        "en" : "Maximum temperature level"
+      },
+      "writable" : false,
+      "observable" : true,
+      "schema" : {
+        "type" : "number",
+        "minimum" : 1,
+        "maximum" : 15
+      }
+    },
+    "targetTemperature1" : {
+      "epc" : "0xE0",
+      "descriptions" : {
+        "ja" : "温度設定1",
+        "en" : "Set temperature value"
+      },
+      "writable" : true,
+      "observable" : false,
+      "schema" : {
+        "oneOf" : [ {
+          "type" : "number",
+          "unit" : "Celsius",
+          "minimum" : 0,
+          "maximum" : 50
+        }, {
+          "type" : "string",
+          "enum" : [ "auto" ],
+          "values" : [ {
+            "value" : "auto",
+            "descriptions" : {
+              "ja" : "自動",
+              "en" : "Auto"
+            },
+            "edt" : "0x41"
+          } ]
+        } ]
+      }
+    },
+    "targetTemperature2" : {
+      "epc" : "0xE1",
+      "descriptions" : {
+        "ja" : "温度設定2",
+        "en" : "Set temperature level by 15 steps"
+      },
+      "writable" : true,
+      "observable" : false,
+      "schema" : {
+        "oneOf" : [ {
+          "type" : "number",
+          "minimum" : 1,
+          "maximum" : 15
+        }, {
+          "type" : "string",
+          "enum" : [ "auto" ],
+          "values" : [ {
+            "value" : "auto",
+            "descriptions" : {
+              "ja" : "自動",
+              "en" : "Auto"
+            },
+            "edt" : "0x41"
+          } ]
+        } ]
+      }
+    },
+    "measuredRoomTemperature" : {
+      "epc" : "0xE2",
+      "descriptions" : {
+        "ja" : "室内温度計測値",
+        "en" : "Measured room temperature"
+      },
+      "writable" : false,
+      "observable" : false,
+      "schema" : {
+        "oneOf" : [ {
+          "type" : "number",
+          "unit" : "Celsius",
+          "minimum" : -127,
+          "maximum" : 125
+        }, {
+          "type" : "string",
+          "enum" : [ "undefine" ],
+          "values" : [ {
+            "value" : "undefine",
+            "descriptions" : {
+              "ja" : "不明",
+              "en" : "Undefined"
+            },
+            "edt" : "0x7E"
+          } ]
+        } ]
+      }
+    },
+    "measuredFloorTemperature" : {
+      "epc" : "0xE3",
+      "descriptions" : {
+        "ja" : "床温度計測値",
+        "en" : "Measured floor temperature"
+      },
+      "writable" : false,
+      "observable" : false,
+      "schema" : {
+        "oneOf" : [ {
+          "type" : "number",
+          "unit" : "Celsius",
+          "minimum" : -127,
+          "maximum" : 125
+        }, {
+          "type" : "string",
+          "enum" : [ "undefine" ],
+          "values" : [ {
+            "value" : "undefine",
+            "descriptions" : {
+              "ja" : "不明",
+              "en" : "Undefined"
+            },
+            "edt" : "0x7E"
+          } ]
+        } ]
+      }
+    },
+    "controllableZone(MC)" : {
+      "epc" : "0xE4",
+      "descriptions" : {
+        "ja" : "ゾーン切替え設定",
+        "en" : "Zone change setting"
+      },
+      "writable" : true,
+      "observable" : false,
+      "schema" : {
+        "type" : "object",
+        "properties" : {
+          "zone0" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "制御有り",
+                "en" : "With control"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "制御無し",
+                "en" : "Without control"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "zone1" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "制御有り",
+                "en" : "With control"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "制御無し",
+                "en" : "Without control"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "zone2" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "制御有り",
+                "en" : "With control"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "制御無し",
+                "en" : "Without control"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "zone3" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "制御有り",
+                "en" : "With control"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "制御無し",
+                "en" : "Without control"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "zone4" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "制御有り",
+                "en" : "With control"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "制御無し",
+                "en" : "Without control"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "zone5" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "制御有り",
+                "en" : "With control"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "制御無し",
+                "en" : "Without control"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "zone6" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "制御有り",
+                "en" : "With control"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "制御無し",
+                "en" : "Without control"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "zone7" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "制御有り",
+                "en" : "With control"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "制御無し",
+                "en" : "Without control"
+              },
+              "edt" : "0x00"
+            } ]
+          }
+        }
+      },
+      "note" : {
+        "ja" : "対象となるフロアを最大8ゾーンに分割し制御する場合に、制御するゾーンを設定し、設定可能なゾーンを取得する",
+        "en" : "Sets the target zone for control and gets the number of controllable zones. The maximum number of zones for the floor is 8."
+      }
+    },
+    "specialOperationMode" : {
+      "epc" : "0xE5",
+      "descriptions" : {
+        "ja" : "特殊運転設定",
+        "en" : "Special operation setting"
+      },
+      "writable" : true,
+      "observable" : false,
+      "schema" : {
+        "type" : "string",
+        "enum" : [ "normal", "modest", "highPower" ],
+        "values" : [ {
+          "value" : "normal",
+          "descriptions" : {
+            "ja" : "通常運転",
+            "en" : "Normal"
+          },
+          "edt" : "0x41"
+        }, {
+          "value" : "modest",
+          "descriptions" : {
+            "ja" : "ひかえめ運転",
+            "en" : "Modest"
+          },
+          "edt" : "0x42"
+        }, {
+          "value" : "highPower",
+          "descriptions" : {
+            "ja" : "ハイパワー運転",
+            "en" : "Highpower"
+          },
+          "edt" : "0x43"
+        } ]
+      }
+    },
+    "dailyTimer" : {
+      "epc" : "0xE6",
+      "descriptions" : {
+        "ja" : "デイリータイマー設定",
+        "en" : "Daily timer setting"
+      },
+      "writable" : true,
+      "observable" : false,
+      "schema" : {
+        "type" : "string",
+        "enum" : [ "oFF", "timer1", "timer2" ],
+        "values" : [ {
+          "value" : "oFF",
+          "descriptions" : {
+            "ja" : "タイマー切",
+            "en" : "OFF"
+          },
+          "edt" : "0x40"
+        }, {
+          "value" : "timer1",
+          "descriptions" : {
+            "ja" : "タイマー1",
+            "en" : "Timer1"
+          },
+          "edt" : "0x41"
+        }, {
+          "value" : "timer2",
+          "descriptions" : {
+            "ja" : "タイマー2",
+            "en" : "Timer2"
+          },
+          "edt" : "0x42"
+        } ]
+      }
+    },
+    "workedDailyTimer1(MC)" : {
+      "epc" : "0xE7",
+      "descriptions" : {
+        "ja" : "デイリータイマー1設定",
+        "en" : "Daily timer setting 1"
+      },
+      "writable" : true,
+      "observable" : false,
+      "schema" : {
+        "type" : "object",
+        "properties" : {
+          "at0000" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at0030" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at0100" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at0130" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at0200" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at0230" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at0300" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at0330" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at0400" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at0430" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at0500" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at0530" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at0600" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at0630" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at0700" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at0730" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at0800" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at0830" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at0900" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at0930" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at1000" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at1030" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at1100" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at1130" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at1200" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at1230" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at1300" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at1330" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at1400" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at1430" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at1500" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at1530" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at1600" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at1630" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at1700" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at1730" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at1800" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at1830" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at1900" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at1930" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at2000" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at2030" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at2100" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at2130" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at2200" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at2230" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at2300" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at2330" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          }
+        }
+      }
+    },
+    "workedDailyTimer2(MC)" : {
+      "epc" : "0xE8",
+      "descriptions" : {
+        "ja" : "デイリータイマー2設定",
+        "en" : "Daily timer setting 2"
+      },
+      "writable" : true,
+      "observable" : false,
+      "schema" : {
+        "type" : "object",
+        "properties" : {
+          "at0000" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at0030" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at0100" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at0130" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at0200" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at0230" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at0300" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at0330" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at0400" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at0430" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at0500" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at0530" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at0600" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at0630" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at0700" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at0730" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at0800" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at0830" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at0900" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at0930" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at1000" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at1030" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at1100" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at1130" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at1200" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at1230" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at1300" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at1330" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at1400" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at1430" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at1500" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at1530" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at1600" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at1630" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at1700" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at1730" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at1800" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at1830" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at1900" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at1930" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at2000" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at2030" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at2100" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at2130" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at2200" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at2230" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at2300" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          },
+          "at2330" : {
+            "type" : "boolean",
+            "values" : [ {
+              "value" : true,
+              "descriptions" : {
+                "ja" : "運転",
+                "en" : "Operate"
+              },
+              "edt" : "0x01"
+            }, {
+              "value" : false,
+              "descriptions" : {
+                "ja" : "停止",
+                "en" : "Stop"
+              },
+              "edt" : "0x00"
+            } ]
+          }
+        }
+      }
+    },
+    "ratedPowerConsumption" : {
+      "epc" : "0xE9",
+      "descriptions" : {
+        "ja" : "定格消費電力値",
+        "en" : "Rated power consumption"
+      },
+      "writable" : false,
+      "observable" : false,
+      "schema" : {
+        "type" : "number",
+        "unit" : "W",
+        "minimum" : 0,
+        "maximum" : 65533
+      }
+    },
+    "powerMeasurementMethod" : {
+      "epc" : "0xEA",
+      "descriptions" : {
+        "ja" : "消費電力計測方法",
+        "en" : "Power consumption measurement method"
+      },
+      "writable" : false,
+      "observable" : false,
+      "schema" : {
+        "type" : "string",
+        "enum" : [ "node", "class", "instance" ],
+        "values" : [ {
+          "value" : "node",
+          "descriptions" : {
+            "ja" : "ノード単位",
+            "en" : "Node unit"
+          },
+          "edt" : "0x41"
+        }, {
+          "value" : "class",
+          "descriptions" : {
+            "ja" : "クラス単位",
+            "en" : "Class unit"
+          },
+          "edt" : "0x42"
+        }, {
+          "value" : "instance",
+          "descriptions" : {
+            "ja" : "インスタンス単位",
+            "en" : "Instance unit"
+          },
+          "edt" : "0x43"
+        } ]
+      }
+    }
+  }
+}

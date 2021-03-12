@@ -1,0 +1,483 @@
+{
+  "deviceType" : "tv",
+  "eoj" : "0x0602",
+  "descriptions" : {
+    "ja" : "テレビ",
+    "en" : "Television"
+  },
+  "properties" : {
+    "operationStatus(MC)" : {
+      "epc" : "0x80",
+      "descriptions" : {
+        "ja" : "動作状態",
+        "en" : "Operation status"
+      },
+      "writable" : true,
+      "observable" : true,
+      "schema" : {
+        "type" : "string",
+        "enum" : [ "yes", "no" ],
+        "values" : [ {
+          "value" : "yes",
+          "descriptions" : {
+            "ja" : "ON",
+            "en" : "ON"
+          },
+          "edt" : "0x30"
+        }, {
+          "value" : "no",
+          "descriptions" : {
+            "ja" : "OFF",
+            "en" : "OFF"
+          },
+          "edt" : "0x31"
+        } ]
+      },
+      "note" : {
+        "ja" : "エネルギーサービスに対応する場合、Set搭載は必須",
+        "en" : "In the case where an 'energy service' is to be supported, the implementation of the SET function for this property is mandatory."
+      }
+    },
+    "displayControlStatus" : {
+      "epc" : "0xB0",
+      "descriptions" : {
+        "ja" : "表示制御設定",
+        "en" : "Display control setting"
+      },
+      "writable" : true,
+      "observable" : false,
+      "schema" : {
+        "type" : "string",
+        "enum" : [ "enabled", "disabled" ],
+        "values" : [ {
+          "value" : "enabled",
+          "descriptions" : {
+            "ja" : "表示",
+            "en" : "Displaying enabled"
+          },
+          "edt" : "0x30"
+        }, {
+          "value" : "disabled",
+          "descriptions" : {
+            "ja" : "非表示",
+            "en" : "Displaying disabled"
+          },
+          "edt" : "0x31"
+        } ]
+      }
+    },
+    "stringSettingAcceptanceStatus" : {
+      "epc" : "0xB1",
+      "descriptions" : {
+        "ja" : "文字列設定受付可能状態",
+        "en" : "Character string setting acceptance status"
+      },
+      "writable" : false,
+      "observable" : true,
+      "schema" : {
+        "type" : "string",
+        "enum" : [ "ready", "busy" ],
+        "values" : [ {
+          "value" : "ready",
+          "descriptions" : {
+            "ja" : "Ready",
+            "en" : "Ready"
+          },
+          "edt" : "0x30"
+        }, {
+          "value" : "busy",
+          "descriptions" : {
+            "ja" : "Busy",
+            "en" : "Busy"
+          },
+          "edt" : "0x31"
+        } ]
+      },
+      "note" : {
+        "ja" : "快適支援サービスとセキュリティサービスに対応する場合、本プロパティの搭載は必須とする",
+        "en" : "In the case where a 'home amenity service' or a 'security service' is to be supported, the implementation of this property is mandatory."
+      }
+    },
+    "supportedCharacterCode" : {
+      "epc" : "0xB2",
+      "descriptions" : {
+        "ja" : "表示可能文字コード",
+        "en" : "Supported character codes"
+      },
+      "writable" : false,
+      "observable" : false,
+      "schema" : {
+        "type" : "object",
+        "properties" : {
+          "ansi_x3_4" : {
+            "type" : "string",
+            "enum" : [ "notImplemented", "implemented" ],
+            "values" : [ {
+              "value" : "notImplemented",
+              "descriptions" : {
+                "ja" : "非搭載",
+                "en" : "Not implemented"
+              },
+              "edt" : "0"
+            }, {
+              "value" : "implemented",
+              "descriptions" : {
+                "ja" : "搭載",
+                "en" : "Implemented"
+              },
+              "edt" : "1"
+            } ]
+          },
+          "shift_jis" : {
+            "type" : "string",
+            "enum" : [ "notImplemented", "implemented" ],
+            "values" : [ {
+              "value" : "notImplemented",
+              "descriptions" : {
+                "ja" : "非搭載",
+                "en" : "Not implemented"
+              },
+              "edt" : "0"
+            }, {
+              "value" : "implemented",
+              "descriptions" : {
+                "ja" : "搭載",
+                "en" : "Implemented"
+              },
+              "edt" : "1"
+            } ]
+          },
+          "jis" : {
+            "type" : "string",
+            "enum" : [ "notImplemented", "implemented" ],
+            "values" : [ {
+              "value" : "notImplemented",
+              "descriptions" : {
+                "ja" : "非搭載",
+                "en" : "Not implemented"
+              },
+              "edt" : "0"
+            }, {
+              "value" : "implemented",
+              "descriptions" : {
+                "ja" : "搭載",
+                "en" : "Implemented"
+              },
+              "edt" : "1"
+            } ]
+          },
+          "japanese_euc" : {
+            "type" : "string",
+            "enum" : [ "notImplemented", "implemented" ],
+            "values" : [ {
+              "value" : "notImplemented",
+              "descriptions" : {
+                "ja" : "非搭載",
+                "en" : "Not implemented"
+              },
+              "edt" : "0"
+            }, {
+              "value" : "implemented",
+              "descriptions" : {
+                "ja" : "搭載",
+                "en" : "Implemented"
+              },
+              "edt" : "1"
+            } ]
+          },
+          "ucs_4" : {
+            "type" : "string",
+            "enum" : [ "notImplemented", "implemented" ],
+            "values" : [ {
+              "value" : "notImplemented",
+              "descriptions" : {
+                "ja" : "非搭載",
+                "en" : "Not implemented"
+              },
+              "edt" : "0"
+            }, {
+              "value" : "implemented",
+              "descriptions" : {
+                "ja" : "搭載",
+                "en" : "Implemented"
+              },
+              "edt" : "1"
+            } ]
+          },
+          "ucs_2" : {
+            "type" : "string",
+            "enum" : [ "notImplemented", "implemented" ],
+            "values" : [ {
+              "value" : "notImplemented",
+              "descriptions" : {
+                "ja" : "非搭載",
+                "en" : "Not implemented"
+              },
+              "edt" : "0"
+            }, {
+              "value" : "implemented",
+              "descriptions" : {
+                "ja" : "搭載",
+                "en" : "Implemented"
+              },
+              "edt" : "1"
+            } ]
+          },
+          "latin_1" : {
+            "type" : "string",
+            "enum" : [ "notImplemented", "implemented" ],
+            "values" : [ {
+              "value" : "notImplemented",
+              "descriptions" : {
+                "ja" : "非搭載",
+                "en" : "Not implemented"
+              },
+              "edt" : "0"
+            }, {
+              "value" : "implemented",
+              "descriptions" : {
+                "ja" : "搭載",
+                "en" : "Implemented"
+              },
+              "edt" : "1"
+            } ]
+          },
+          "utf_8" : {
+            "type" : "string",
+            "enum" : [ "notImplemented", "implemented" ],
+            "values" : [ {
+              "value" : "notImplemented",
+              "descriptions" : {
+                "ja" : "非搭載",
+                "en" : "Not implemented"
+              },
+              "edt" : "0"
+            }, {
+              "value" : "implemented",
+              "descriptions" : {
+                "ja" : "搭載",
+                "en" : "Implemented"
+              },
+              "edt" : "1"
+            } ]
+          }
+        }
+      },
+      "note" : {
+        "ja" : "快適支援サービスとセキュリティサービスに対応する場合、本プロパティの搭載は必須とする",
+        "en" : "In the case where a 'home amenity service' or a 'security service' is to be supported, the implementation of this property is mandatory."
+      }
+    },
+    "characterStringPresented" : {
+      "epc" : "0xB3",
+      "descriptions" : {
+        "ja" : "伝達文字列設定",
+        "en" : "Character string to present to the user."
+      },
+      "writable" : true,
+      "observable" : false,
+      "schema" : {
+        "type" : "object",
+        "properties" : {
+          "length" : {
+            "type" : "number",
+            "minimum" : 0,
+            "maximum" : 255,
+            "descriptions" : {
+              "ja" : "伝達文字バイトコード列データ長の16 進換算値",
+              "en" : "Byte code sequence data length of the character string to present to the user converted to the hexadecimal format."
+            }
+          },
+          "characterCode" : {
+            "type" : "object",
+            "properties" : {
+              "ansi_x3_4" : {
+                "type" : "string",
+                "enum" : [ "notImplemented", "implemented" ],
+                "values" : [ {
+                  "value" : "notImplemented",
+                  "descriptions" : {
+                    "ja" : "非搭載",
+                    "en" : "Not implemented"
+                  },
+                  "edt" : "0"
+                }, {
+                  "value" : "implemented",
+                  "descriptions" : {
+                    "ja" : "搭載",
+                    "en" : "Implemented"
+                  },
+                  "edt" : "1"
+                } ]
+              },
+              "shift_jis" : {
+                "type" : "string",
+                "enum" : [ "notImplemented", "implemented" ],
+                "values" : [ {
+                  "value" : "notImplemented",
+                  "descriptions" : {
+                    "ja" : "非搭載",
+                    "en" : "Not implemented"
+                  },
+                  "edt" : "0"
+                }, {
+                  "value" : "implemented",
+                  "descriptions" : {
+                    "ja" : "搭載",
+                    "en" : "Implemented"
+                  },
+                  "edt" : "1"
+                } ]
+              },
+              "jis" : {
+                "type" : "string",
+                "enum" : [ "notImplemented", "implemented" ],
+                "values" : [ {
+                  "value" : "notImplemented",
+                  "descriptions" : {
+                    "ja" : "非搭載",
+                    "en" : "Not implemented"
+                  },
+                  "edt" : "0"
+                }, {
+                  "value" : "implemented",
+                  "descriptions" : {
+                    "ja" : "搭載",
+                    "en" : "Implemented"
+                  },
+                  "edt" : "1"
+                } ]
+              },
+              "japanese_euc" : {
+                "type" : "string",
+                "enum" : [ "notImplemented", "implemented" ],
+                "values" : [ {
+                  "value" : "notImplemented",
+                  "descriptions" : {
+                    "ja" : "非搭載",
+                    "en" : "Not implemented"
+                  },
+                  "edt" : "0"
+                }, {
+                  "value" : "implemented",
+                  "descriptions" : {
+                    "ja" : "搭載",
+                    "en" : "Implemented"
+                  },
+                  "edt" : "1"
+                } ]
+              },
+              "ucs_4" : {
+                "type" : "string",
+                "enum" : [ "notImplemented", "implemented" ],
+                "values" : [ {
+                  "value" : "notImplemented",
+                  "descriptions" : {
+                    "ja" : "非搭載",
+                    "en" : "Not implemented"
+                  },
+                  "edt" : "0"
+                }, {
+                  "value" : "implemented",
+                  "descriptions" : {
+                    "ja" : "搭載",
+                    "en" : "Implemented"
+                  },
+                  "edt" : "1"
+                } ]
+              },
+              "ucs_2" : {
+                "type" : "string",
+                "enum" : [ "notImplemented", "implemented" ],
+                "values" : [ {
+                  "value" : "notImplemented",
+                  "descriptions" : {
+                    "ja" : "非搭載",
+                    "en" : "Not implemented"
+                  },
+                  "edt" : "0"
+                }, {
+                  "value" : "implemented",
+                  "descriptions" : {
+                    "ja" : "搭載",
+                    "en" : "Implemented"
+                  },
+                  "edt" : "1"
+                } ]
+              },
+              "latin_1" : {
+                "type" : "string",
+                "enum" : [ "notImplemented", "implemented" ],
+                "values" : [ {
+                  "value" : "notImplemented",
+                  "descriptions" : {
+                    "ja" : "非搭載",
+                    "en" : "Not implemented"
+                  },
+                  "edt" : "0"
+                }, {
+                  "value" : "implemented",
+                  "descriptions" : {
+                    "ja" : "搭載",
+                    "en" : "Implemented"
+                  },
+                  "edt" : "1"
+                } ]
+              },
+              "utf_8" : {
+                "type" : "string",
+                "enum" : [ "notImplemented", "implemented" ],
+                "values" : [ {
+                  "value" : "notImplemented",
+                  "descriptions" : {
+                    "ja" : "非搭載",
+                    "en" : "Not implemented"
+                  },
+                  "edt" : "0"
+                }, {
+                  "value" : "implemented",
+                  "descriptions" : {
+                    "ja" : "搭載",
+                    "en" : "Implemented"
+                  },
+                  "edt" : "1"
+                } ]
+              }
+            },
+            "descriptions" : {
+              "ja" : "使用文字コード",
+              "en" : "Character code to use"
+            }
+          }
+        }
+      }
+    },
+    "lengthOfStringAccepted" : {
+      "epc" : "0xB4",
+      "descriptions" : {
+        "ja" : "受付け伝達文字列長",
+        "en" : "Length of character string accepted"
+      },
+      "writable" : false,
+      "observable" : false,
+      "schema" : {
+        "type" : "object",
+        "properties" : {
+          "length" : {
+            "type" : "number",
+            "minimum" : 0,
+            "maximum" : 244,
+            "descriptions" : {
+              "ja" : "0x00-0xF4",
+              "en" : "0x00 to 0xF4"
+            }
+          }
+        }
+      },
+      "note" : {
+        "ja" : "快適支援サービスとセキュリティサービスに対応する場合、本プロパティの搭載は必須とする",
+        "en" : "In the case where a 'home amenity service' or a 'security service' is to be supported, the implementation of this property is mandatory."
+      }
+    }
+  }
+}

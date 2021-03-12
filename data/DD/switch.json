@@ -1,0 +1,53 @@
+{
+  "deviceType" : "switch",
+  "eoj" : "0x05FD",
+  "descriptions" : {
+    "ja" : "スイッチ (JEMA/HA端子対応)",
+    "en" : "switch"
+  },
+  "properties" : {
+    "operationStatus(MC)" : {
+      "epc" : "0x80",
+      "descriptions" : {
+        "ja" : "動作状態",
+        "en" : "Operation status"
+      },
+      "writable" : true,
+      "observable" : true,
+      "schema" : {
+        "type" : "boolean",
+        "values" : [ {
+          "value" : true,
+          "descriptions" : {
+            "ja" : "ON",
+            "en" : "ON"
+          },
+          "edt" : "0x30"
+        }, {
+          "value" : false,
+          "descriptions" : {
+            "ja" : "OFF",
+            "en" : "OFF"
+          },
+          "edt" : "0x31"
+        } ]
+      }
+    },
+    "connectedDevice" : {
+      "epc" : "0xE0",
+      "descriptions" : {
+        "ja" : "接続機器",
+        "en" : "Connected device"
+      },
+      "writable" : true,
+      "observable" : false,
+      "schema" : {
+        "type" : "string"
+      },
+      "note" : {
+        "ja" : "アスキーコードで保持 (12byte)",
+        "en" : "ASCII code (12byte)"
+      }
+    }
+  }
+}

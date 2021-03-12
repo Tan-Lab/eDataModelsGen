@@ -1,0 +1,60 @@
+{
+  "deviceType" : "wattHourMeter",
+  "eoj" : "0x0280",
+  "descriptions" : {
+    "ja" : "電力量メータ",
+    "en" : "Watt-hour meter"
+  },
+  "properties" : {
+    "cumulativeElectricEnergy(MC)" : {
+      "epc" : "0xE0",
+      "descriptions" : {
+        "ja" : "積算電力量計測値",
+        "en" : "Cumulative amounts of electric energy measurement value"
+      },
+      "writable" : false,
+      "observable" : false,
+      "schema" : {
+        "type" : "number",
+        "unit" : "kWh",
+        "minimum" : 0,
+        "maximum" : 99999999,
+        "coefficient" : [ "0xE2" ]
+      }
+    },
+    "cumulativeElectricEnergyLog1(MC)" : {
+      "epc" : "0xE3",
+      "descriptions" : {
+        "ja" : "積算電力量計測値履歴1",
+        "en" : "Cumulative amounts of electric energy measurement log 1"
+      },
+      "writable" : false,
+      "observable" : false,
+      "schema" : {
+        "type" : "array",
+        "minItems" : 48,
+        "maxItems" : 48,
+        "items" : {
+          "oneOf" : [ {
+            "type" : "number",
+            "unit" : "kWh",
+            "minimum" : 0,
+            "maximum" : 99999999,
+            "coefficient" : [ "0xE2" ]
+          }, {
+            "type" : "string",
+            "enum" : [ "noData" ],
+            "values" : [ {
+              "value" : "noData",
+              "descriptions" : {
+                "ja" : "No data",
+                "en" : "No data"
+              },
+              "edt" : "0xFFFFFFFE"
+            } ]
+          } ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,173 @@
+{
+  "deviceType" : "generalLighting",
+  "eoj" : "0x0290",
+  "descriptions" : {
+    "ja" : "一般照明",
+    "en" : "General lighting"
+  },
+  "properties" : {
+    "brightness" : {
+      "epc" : "0xB0",
+      "descriptions" : {
+        "ja" : "照度レベル設定",
+        "en" : "Illuminance level"
+      },
+      "writable" : true,
+      "observable" : false,
+      "schema" : {
+        "type" : "number",
+        "unit" : "%",
+        "minimum" : 0,
+        "maximum" : 100
+      }
+    },
+    "lightColor" : {
+      "epc" : "0xB1",
+      "descriptions" : {
+        "ja" : "光色設定",
+        "en" : "Light color setting"
+      },
+      "writable" : true,
+      "observable" : false,
+      "schema" : {
+        "type" : "string",
+        "enum" : [ "incandescent", "white", "daylightWhite", "daylightColor", "other" ],
+        "values" : [ {
+          "value" : "incandescent",
+          "descriptions" : {
+            "ja" : "電球色",
+            "en" : "Incandescent lamp color"
+          },
+          "edt" : "0x41"
+        }, {
+          "value" : "white",
+          "descriptions" : {
+            "ja" : "白色",
+            "en" : "White"
+          },
+          "edt" : "0x42"
+        }, {
+          "value" : "daylightWhite",
+          "descriptions" : {
+            "ja" : "昼白色",
+            "en" : "Daylight white"
+          },
+          "edt" : "0x43"
+        }, {
+          "value" : "daylightColor",
+          "descriptions" : {
+            "ja" : "昼光色",
+            "en" : "Daylight color"
+          },
+          "edt" : "0x44"
+        }, {
+          "value" : "other",
+          "descriptions" : {
+            "ja" : "その他",
+            "en" : "Other"
+          },
+          "edt" : "0x40"
+        } ]
+      }
+    },
+    "operationMode" : {
+      "epc" : "0xB6",
+      "descriptions" : {
+        "ja" : "点灯モード設定",
+        "en" : "Lighting mode setting"
+      },
+      "writable" : true,
+      "observable" : false,
+      "schema" : {
+        "type" : "string",
+        "enum" : [ "auto", "normal", "night", "color" ],
+        "values" : [ {
+          "value" : "auto",
+          "descriptions" : {
+            "ja" : "自動",
+            "en" : "Automatic"
+          },
+          "edt" : "0x41"
+        }, {
+          "value" : "normal",
+          "descriptions" : {
+            "ja" : "通常灯",
+            "en" : "Main lighting"
+          },
+          "edt" : "0x42"
+        }, {
+          "value" : "night",
+          "descriptions" : {
+            "ja" : "常夜灯",
+            "en" : "Night lighting"
+          },
+          "edt" : "0x43"
+        }, {
+          "value" : "color",
+          "descriptions" : {
+            "ja" : "カラー灯",
+            "en" : "Color lighting"
+          },
+          "edt" : "0x45"
+        } ]
+      }
+    },
+    "brightnessLevelStepForNightLighting" : {
+      "epc" : "0xBA",
+      "descriptions" : {
+        "ja" : "常夜灯モード時照度レベル段数設定",
+        "en" : "Brightness level step setting for night lighting."
+      },
+      "writable" : true,
+      "observable" : false,
+      "schema" : {
+        "type" : "string"
+      },
+      "note" : {
+        "ja" : "0x01～設定可能照度レベル最大値(暗～明)",
+        "en" : "0x01 to the maximum value of settable illuminance level. (dark to bright)"
+      }
+    },
+    "rgb" : {
+      "epc" : "0xC0",
+      "descriptions" : {
+        "ja" : "カラー灯モード時RGB設定",
+        "en" : "RGB setting for color lighting"
+      },
+      "writable" : true,
+      "observable" : false,
+      "schema" : {
+        "type" : "object",
+        "properties" : {
+          "red" : {
+            "type" : "number",
+            "minimum" : 0,
+            "maximum" : 255,
+            "descriptions" : {
+              "ja" : "1Byte目:R",
+              "en" : "Byte 1: R"
+            }
+          },
+          "green" : {
+            "type" : "number",
+            "minimum" : 0,
+            "maximum" : 255,
+            "descriptions" : {
+              "ja" : "2Byte目:G",
+              "en" : "Byte 2: G"
+            }
+          },
+          "blue" : {
+            "type" : "number",
+            "minimum" : 0,
+            "maximum" : 255,
+            "descriptions" : {
+              "ja" : "3Byte目:B",
+              "en" : "Byte 3: B"
+            }
+          }
+        }
+      }
+    }
+  }
+}
