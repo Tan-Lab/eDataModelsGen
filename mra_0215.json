@@ -15742,7 +15742,7 @@
               "type": "level",
               "base": "0x31",
               "maximum": 15,
-              "multiple": 1
+              "multipleOf": 1
             },
             {
               "type": "state",

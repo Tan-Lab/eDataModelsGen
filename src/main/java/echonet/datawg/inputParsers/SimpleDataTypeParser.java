@@ -140,6 +140,8 @@ public class SimpleDataTypeParser {
 			levelType.setMaximum(Integer.valueOf(jsonObj.get(Constants.KEYWORD_MAXIMUM).toString()));
 		if(jsonObj.get(Constants.KEYWORD_MINIMUM) != null)
 			levelType.setMinumum(Integer.valueOf(jsonObj.get(Constants.KEYWORD_MINIMUM).toString()));
+		if(jsonObj.get(Constants.KEYWORD_MULTIPLE_OF) != null)
+			levelType.setMultipleOf(Float.valueOf(jsonObj.get(Constants.KEYWORD_MULTIPLE_OF).toString()));
 		return levelType;
 	}
 	public static DataType toLevelType(JSONObject jsonObj)
