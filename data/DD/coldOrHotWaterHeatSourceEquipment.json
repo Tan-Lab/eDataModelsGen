@@ -216,11 +216,13 @@
         "oneOf" : [ {
           "type" : "number",
           "minimum" : 33,
-          "maximum" : 47
+          "maximum" : 47,
+          "multipleOf" : 1
         }, {
           "type" : "number",
           "minimum" : 49,
-          "maximum" : 63
+          "maximum" : 63,
+          "multipleOf" : 1
         }, {
           "type" : "string",
           "enum" : [ "auto" ],

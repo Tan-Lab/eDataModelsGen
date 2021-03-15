@@ -431,7 +431,8 @@
       "schema" : {
         "type" : "number",
         "minimum" : 49,
-        "maximum" : 63
+        "maximum" : 63,
+        "multipleOf" : 1
       },
       "note" : {
         "ja" : "開度レベルを8段階で指定。0x31が最も開状態、0x38が最も閉状態(全閉ではない)",

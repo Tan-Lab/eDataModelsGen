@@ -784,15 +784,18 @@
         "oneOf" : [ {
           "type" : "number",
           "minimum" : 1,
-          "maximum" : 16
+          "maximum" : 16,
+          "multipleOf" : 1
         }, {
           "type" : "number",
           "minimum" : 1,
-          "maximum" : 8
+          "maximum" : 8,
+          "multipleOf" : 1
         }, {
           "type" : "number",
           "minimum" : 1,
-          "maximum" : 8
+          "maximum" : 8,
+          "multipleOf" : 1
         }, {
           "type" : "string",
           "enum" : [ "auto" ],
@@ -824,11 +827,13 @@
         }, {
           "type" : "number",
           "minimum" : 1,
-          "maximum" : 2048
+          "maximum" : 2048,
+          "multipleOf" : 1
         }, {
           "type" : "number",
           "minimum" : 1,
-          "maximum" : 2048
+          "maximum" : 2048,
+          "multipleOf" : 1
         }, {
           "type" : "string",
           "enum" : [ "auto" ],
@@ -855,15 +860,18 @@
         "oneOf" : [ {
           "type" : "number",
           "minimum" : 1,
-          "maximum" : 16
+          "maximum" : 16,
+          "multipleOf" : 1
         }, {
           "type" : "number",
           "minimum" : 1,
-          "maximum" : 8
+          "maximum" : 8,
+          "multipleOf" : 1
         }, {
           "type" : "number",
           "minimum" : 1,
-          "maximum" : 8
+          "maximum" : 8,
+          "multipleOf" : 1
         }, {
           "type" : "string",
           "enum" : [ "auto" ],
@@ -958,11 +966,13 @@
         }, {
           "type" : "number",
           "minimum" : 1,
-          "maximum" : 60
+          "maximum" : 60,
+          "multipleOf" : 1
         }, {
           "type" : "number",
           "minimum" : 1,
-          "maximum" : 60
+          "maximum" : 60,
+          "multipleOf" : 1
         }, {
           "type" : "string",
           "enum" : [ "auto" ],
@@ -1197,11 +1207,13 @@
         }, {
           "type" : "number",
           "minimum" : 1,
-          "maximum" : 32
+          "maximum" : 32,
+          "multipleOf" : 1
         }, {
           "type" : "number",
           "minimum" : 1,
-          "maximum" : 32
+          "maximum" : 32,
+          "multipleOf" : 1
         }, {
           "type" : "string",
           "enum" : [ "auto" ],
@@ -1232,15 +1244,18 @@
         "oneOf" : [ {
           "type" : "number",
           "minimum" : 1,
-          "maximum" : 16
+          "maximum" : 16,
+          "multipleOf" : 1
         }, {
           "type" : "number",
           "minimum" : 1,
-          "maximum" : 8
+          "maximum" : 8,
+          "multipleOf" : 1
         }, {
           "type" : "number",
           "minimum" : 1,
-          "maximum" : 8
+          "maximum" : 8,
+          "multipleOf" : 1
         }, {
           "type" : "string",
           "enum" : [ "auto" ],
@@ -1270,11 +1285,13 @@
         }, {
           "type" : "number",
           "minimum" : 1,
-          "maximum" : 60
+          "maximum" : 60,
+          "multipleOf" : 1
         }, {
           "type" : "number",
           "minimum" : 1,
-          "maximum" : 60
+          "maximum" : 60,
+          "multipleOf" : 1
         }, {
           "type" : "string",
           "enum" : [ "auto" ],
@@ -1345,11 +1362,13 @@
         }, {
           "type" : "number",
           "minimum" : 1,
-          "maximum" : 32
+          "maximum" : 32,
+          "multipleOf" : 1
         }, {
           "type" : "number",
           "minimum" : 1,
-          "maximum" : 32
+          "maximum" : 32,
+          "multipleOf" : 1
         }, {
           "type" : "string",
           "enum" : [ "auto" ],
@@ -1379,11 +1398,13 @@
         }, {
           "type" : "number",
           "minimum" : 1,
-          "maximum" : 60
+          "maximum" : 60,
+          "multipleOf" : 1
         }, {
           "type" : "number",
           "minimum" : 1,
-          "maximum" : 60
+          "maximum" : 60,
+          "multipleOf" : 1
         }, {
           "type" : "string",
           "enum" : [ "auto" ],

@@ -82,6 +82,8 @@ public class LevelType extends DataType{
 			} else {
 				rootNode.put(eConstants.KEYWORD_MULTIPLE_OF, this.getMultipleOf().floatValue());
 			}
+		}else {
+			rootNode.put(eConstants.KEYWORD_MULTIPLE_OF, 1);
 		}
 		return rootNode;
 	}

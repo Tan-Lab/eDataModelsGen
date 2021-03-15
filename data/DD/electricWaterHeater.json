@@ -1228,7 +1228,8 @@
       "schema" : {
         "type" : "number",
         "minimum" : 1,
-        "maximum" : 8
+        "maximum" : 8,
+        "multipleOf" : 1
       }
     },
     "bathroomPriority" : {

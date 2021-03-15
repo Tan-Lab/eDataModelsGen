@@ -780,7 +780,8 @@
             }, {
               "type" : "number",
               "minimum" : 1,
-              "maximum" : 17
+              "maximum" : 17,
+              "multipleOf" : 1
             }, {
               "type" : "string",
               "enum" : [ "veryLowFlame", "lowFlame", "mediumFlame", "highFlame", "highPower", "noSetting" ],
@@ -842,7 +843,8 @@
             }, {
               "type" : "number",
               "minimum" : 1,
-              "maximum" : 17
+              "maximum" : 17,
+              "multipleOf" : 1
             }, {
               "type" : "string",
               "enum" : [ "veryLowFlame", "lowFlame", "mediumFlame", "highFlame", "highPower", "noSetting" ],
@@ -904,7 +906,8 @@
             }, {
               "type" : "number",
               "minimum" : 1,
-              "maximum" : 17
+              "maximum" : 17,
+              "multipleOf" : 1
             }, {
               "type" : "string",
               "enum" : [ "veryLowFlame", "lowFlame", "mediumFlame", "highFlame", "highPower", "noSetting" ],
@@ -966,7 +969,8 @@
             }, {
               "type" : "number",
               "minimum" : 1,
-              "maximum" : 17
+              "maximum" : 17,
+              "multipleOf" : 1
             }, {
               "type" : "string",
               "enum" : [ "veryLowFlame", "lowFlame", "mediumFlame", "highFlame", "highPower", "noSetting" ],
