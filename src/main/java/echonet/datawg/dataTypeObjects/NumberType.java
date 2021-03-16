@@ -432,12 +432,12 @@ public class NumberType extends DataType{
 					}	
 				}	
 			} else {
-				if(multiple.floatValue() > 1) {
+				if(multiple.floatValue() >= 1) {
 					BigDecimal bigMultiple = new BigDecimal(multiple.intValue());
 					BigDecimal intMultipleNoMultipleOf = val.multiply(bigMultiple);
 					node.put(keyword, intMultipleNoMultipleOf);
 				} else {
-					BigDecimal floatMultipleNoMultipleOf = val.scaleByPowerOfTen(powerOfTen(multiple));
+					BigDecimal floatMultipleNoMultipleOf = val.scaleByPowerOfTen(powerOfTen(multiple));		
 					int scale = scaleFromNumber(multiple);
 					node.put(keyword, floatMultipleNoMultipleOf.setScale(scale,RoundingMode.CEILING));
 				}
@@ -449,8 +449,7 @@ public class NumberType extends DataType{
 					BigDecimal noMultipleIntMultipleOf = val.multiply(bigMultipleOf);
 					node.put(keyword, noMultipleIntMultipleOf);
 				} else {
-					BigDecimal bigMultipleOf = new BigDecimal(multipleOf.floatValue());
-					BigDecimal noMultiplefloatMultipleOf = val.multiply(bigMultipleOf);
+					BigDecimal noMultiplefloatMultipleOf = val.scaleByPowerOfTen(powerOfTen(multipleOf));	
 					int scale = scaleFromNumber(multipleOf);
 					node.put(keyword, noMultiplefloatMultipleOf.setScale(scale,RoundingMode.CEILING));
 				}
