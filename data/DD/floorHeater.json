@@ -268,6 +268,10 @@
         "type" : "object",
         "properties" : {
           "zone0" : {
+            "descriptions" : {
+              "ja" : "ゾーン0",
+              "en" : "Zone 0"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -286,6 +290,10 @@
             } ]
           },
           "zone1" : {
+            "descriptions" : {
+              "ja" : "ゾーン1",
+              "en" : "Zone 1"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -304,6 +312,10 @@
             } ]
           },
           "zone2" : {
+            "descriptions" : {
+              "ja" : "ゾーン2",
+              "en" : "Zone 2"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -322,6 +334,10 @@
             } ]
           },
           "zone3" : {
+            "descriptions" : {
+              "ja" : "ゾーン3",
+              "en" : "Zone 3"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -340,6 +356,10 @@
             } ]
           },
           "zone4" : {
+            "descriptions" : {
+              "ja" : "ゾーン4",
+              "en" : "Zone 4"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -358,6 +378,10 @@
             } ]
           },
           "zone5" : {
+            "descriptions" : {
+              "ja" : "ゾーン5",
+              "en" : "Zone 5"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -376,6 +400,10 @@
             } ]
           },
           "zone6" : {
+            "descriptions" : {
+              "ja" : "ゾーン6",
+              "en" : "Zone 6"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -394,6 +422,10 @@
             } ]
           },
           "zone7" : {
+            "descriptions" : {
+              "ja" : "ゾーン7",
+              "en" : "Zone 7"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -500,6 +532,10 @@
         "type" : "object",
         "properties" : {
           "at0000" : {
+            "descriptions" : {
+              "ja" : "00:00-00:29",
+              "en" : "00:00-00:29"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -518,6 +554,10 @@
             } ]
           },
           "at0030" : {
+            "descriptions" : {
+              "ja" : "00:30-00:59",
+              "en" : "00:30-00:59"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -536,6 +576,10 @@
             } ]
           },
           "at0100" : {
+            "descriptions" : {
+              "ja" : "01:00-01:29",
+              "en" : "01:00-01:29"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -554,6 +598,10 @@
             } ]
           },
           "at0130" : {
+            "descriptions" : {
+              "ja" : "01:30-01:59",
+              "en" : "01:30-01:59"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -572,6 +620,10 @@
             } ]
           },
           "at0200" : {
+            "descriptions" : {
+              "ja" : "02:00-02:29",
+              "en" : "02:00-02:29"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -590,6 +642,10 @@
             } ]
           },
           "at0230" : {
+            "descriptions" : {
+              "ja" : "02:30-02:59",
+              "en" : "02:30-02:59"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -608,6 +664,10 @@
             } ]
           },
           "at0300" : {
+            "descriptions" : {
+              "ja" : "03:00-03:29",
+              "en" : "03:00-03:29"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -626,6 +686,10 @@
             } ]
           },
           "at0330" : {
+            "descriptions" : {
+              "ja" : "03:30-03:59",
+              "en" : "03:30-03:59"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -644,6 +708,10 @@
             } ]
           },
           "at0400" : {
+            "descriptions" : {
+              "ja" : "04:00-04:29",
+              "en" : "04:00-04:29"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -662,6 +730,10 @@
             } ]
           },
           "at0430" : {
+            "descriptions" : {
+              "ja" : "04:30-04:59",
+              "en" : "04:30-04:59"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -680,6 +752,10 @@
             } ]
           },
           "at0500" : {
+            "descriptions" : {
+              "ja" : "05:00-05:29",
+              "en" : "05:00-05:29"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -698,6 +774,10 @@
             } ]
           },
           "at0530" : {
+            "descriptions" : {
+              "ja" : "05:30-05:59",
+              "en" : "05:30-05:59"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -716,6 +796,10 @@
             } ]
           },
           "at0600" : {
+            "descriptions" : {
+              "ja" : "06:00-06:29",
+              "en" : "06:00-06:29"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -734,6 +818,10 @@
             } ]
           },
           "at0630" : {
+            "descriptions" : {
+              "ja" : "06:30-06:59",
+              "en" : "06:30-06:59"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -752,6 +840,10 @@
             } ]
           },
           "at0700" : {
+            "descriptions" : {
+              "ja" : "07:00-07:29",
+              "en" : "07:00-07:29"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -770,6 +862,10 @@
             } ]
           },
           "at0730" : {
+            "descriptions" : {
+              "ja" : "07:30-07:59",
+              "en" : "07:30-07:59"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -788,6 +884,10 @@
             } ]
           },
           "at0800" : {
+            "descriptions" : {
+              "ja" : "08:00-08:29",
+              "en" : "08:00-08:29"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -806,6 +906,10 @@
             } ]
           },
           "at0830" : {
+            "descriptions" : {
+              "ja" : "08:30-08:59",
+              "en" : "08:30-08:59"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -824,6 +928,10 @@
             } ]
           },
           "at0900" : {
+            "descriptions" : {
+              "ja" : "09:00-09:29",
+              "en" : "09:00-09:29"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -842,6 +950,10 @@
             } ]
           },
           "at0930" : {
+            "descriptions" : {
+              "ja" : "09:30-09:59",
+              "en" : "09:30-09:59"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -860,6 +972,10 @@
             } ]
           },
           "at1000" : {
+            "descriptions" : {
+              "ja" : "10:00-10:29",
+              "en" : "10:00-10:29"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -878,6 +994,10 @@
             } ]
           },
           "at1030" : {
+            "descriptions" : {
+              "ja" : "10:30-10:59",
+              "en" : "10:30-10:59"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -896,6 +1016,10 @@
             } ]
           },
           "at1100" : {
+            "descriptions" : {
+              "ja" : "11:00-11:29",
+              "en" : "11:00-11:29"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -914,6 +1038,10 @@
             } ]
           },
           "at1130" : {
+            "descriptions" : {
+              "ja" : "11:30-11:59",
+              "en" : "11:30-11:59"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -932,6 +1060,10 @@
             } ]
           },
           "at1200" : {
+            "descriptions" : {
+              "ja" : "12:00-12:29",
+              "en" : "12:00-12:29"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -950,6 +1082,10 @@
             } ]
           },
           "at1230" : {
+            "descriptions" : {
+              "ja" : "12:30-12:59",
+              "en" : "12:30-12:59"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -968,6 +1104,10 @@
             } ]
           },
           "at1300" : {
+            "descriptions" : {
+              "ja" : "13:00-13:29",
+              "en" : "13:00-13:29"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -986,6 +1126,10 @@
             } ]
           },
           "at1330" : {
+            "descriptions" : {
+              "ja" : "13:30-13:59",
+              "en" : "13:30-13:59"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -1004,6 +1148,10 @@
             } ]
           },
           "at1400" : {
+            "descriptions" : {
+              "ja" : "14:00-14:29",
+              "en" : "14:00-14:29"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -1022,6 +1170,10 @@
             } ]
           },
           "at1430" : {
+            "descriptions" : {
+              "ja" : "14:30-14:59",
+              "en" : "14:30-14:59"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -1040,6 +1192,10 @@
             } ]
           },
           "at1500" : {
+            "descriptions" : {
+              "ja" : "15:00-15:29",
+              "en" : "15:00-15:29"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -1058,6 +1214,10 @@
             } ]
           },
           "at1530" : {
+            "descriptions" : {
+              "ja" : "15:30-15:59",
+              "en" : "15:30-15:59"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -1076,6 +1236,10 @@
             } ]
           },
           "at1600" : {
+            "descriptions" : {
+              "ja" : "16:00-16:29",
+              "en" : "16:00-16:29"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -1094,6 +1258,10 @@
             } ]
           },
           "at1630" : {
+            "descriptions" : {
+              "ja" : "16:30-16:59",
+              "en" : "16:30-16:59"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -1112,6 +1280,10 @@
             } ]
           },
           "at1700" : {
+            "descriptions" : {
+              "ja" : "17:00-17:29",
+              "en" : "17:00-17:29"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -1130,6 +1302,10 @@
             } ]
           },
           "at1730" : {
+            "descriptions" : {
+              "ja" : "17:30-17:59",
+              "en" : "17:30-17:59"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -1148,6 +1324,10 @@
             } ]
           },
           "at1800" : {
+            "descriptions" : {
+              "ja" : "18:00-18:29",
+              "en" : "18:00-18:29"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -1166,6 +1346,10 @@
             } ]
           },
           "at1830" : {
+            "descriptions" : {
+              "ja" : "18:30-18:59",
+              "en" : "18:30-18:59"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -1184,6 +1368,10 @@
             } ]
           },
           "at1900" : {
+            "descriptions" : {
+              "ja" : "19:00-19:29",
+              "en" : "19:00-19:29"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -1202,6 +1390,10 @@
             } ]
           },
           "at1930" : {
+            "descriptions" : {
+              "ja" : "19:30-19:59",
+              "en" : "19:30-19:59"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -1220,6 +1412,10 @@
             } ]
           },
           "at2000" : {
+            "descriptions" : {
+              "ja" : "20:00-20:29",
+              "en" : "20:00-20:29"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -1238,6 +1434,10 @@
             } ]
           },
           "at2030" : {
+            "descriptions" : {
+              "ja" : "20:30-20:59",
+              "en" : "20:30-20:59"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -1256,6 +1456,10 @@
             } ]
           },
           "at2100" : {
+            "descriptions" : {
+              "ja" : "21:00-21:29",
+              "en" : "21:00-21:29"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -1274,6 +1478,10 @@
             } ]
           },
           "at2130" : {
+            "descriptions" : {
+              "ja" : "21:30-21:59",
+              "en" : "21:30-21:59"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -1292,6 +1500,10 @@
             } ]
           },
           "at2200" : {
+            "descriptions" : {
+              "ja" : "22:00-22:29",
+              "en" : "22:00-22:29"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -1310,6 +1522,10 @@
             } ]
           },
           "at2230" : {
+            "descriptions" : {
+              "ja" : "22:30-22:59",
+              "en" : "22:30-22:59"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -1328,6 +1544,10 @@
             } ]
           },
           "at2300" : {
+            "descriptions" : {
+              "ja" : "23:00-23:29",
+              "en" : "23:00-23:29"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -1346,6 +1566,10 @@
             } ]
           },
           "at2330" : {
+            "descriptions" : {
+              "ja" : "23:30-23:59",
+              "en" : "23:30-23:59"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -1378,6 +1602,10 @@
         "type" : "object",
         "properties" : {
           "at0000" : {
+            "descriptions" : {
+              "ja" : "00:00-00:29",
+              "en" : "00:00-00:29"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -1396,6 +1624,10 @@
             } ]
           },
           "at0030" : {
+            "descriptions" : {
+              "ja" : "00:30-00:59",
+              "en" : "00:30-00:59"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -1414,6 +1646,10 @@
             } ]
           },
           "at0100" : {
+            "descriptions" : {
+              "ja" : "01:00-01:29",
+              "en" : "01:00-01:29"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -1432,6 +1668,10 @@
             } ]
           },
           "at0130" : {
+            "descriptions" : {
+              "ja" : "01:30-01:59",
+              "en" : "01:30-01:59"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -1450,6 +1690,10 @@
             } ]
           },
           "at0200" : {
+            "descriptions" : {
+              "ja" : "02:00-02:29",
+              "en" : "02:00-02:29"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -1468,6 +1712,10 @@
             } ]
           },
           "at0230" : {
+            "descriptions" : {
+              "ja" : "02:30-02:59",
+              "en" : "02:30-02:59"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -1486,6 +1734,10 @@
             } ]
           },
           "at0300" : {
+            "descriptions" : {
+              "ja" : "03:00-03:29",
+              "en" : "03:00-03:29"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -1504,6 +1756,10 @@
             } ]
           },
           "at0330" : {
+            "descriptions" : {
+              "ja" : "03:30-03:59",
+              "en" : "03:30-03:59"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -1522,6 +1778,10 @@
             } ]
           },
           "at0400" : {
+            "descriptions" : {
+              "ja" : "04:00-04:29",
+              "en" : "04:00-04:29"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -1540,6 +1800,10 @@
             } ]
           },
           "at0430" : {
+            "descriptions" : {
+              "ja" : "04:30-04:59",
+              "en" : "04:30-04:59"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -1558,6 +1822,10 @@
             } ]
           },
           "at0500" : {
+            "descriptions" : {
+              "ja" : "05:00-05:29",
+              "en" : "05:00-05:29"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -1576,6 +1844,10 @@
             } ]
           },
           "at0530" : {
+            "descriptions" : {
+              "ja" : "05:30-05:59",
+              "en" : "05:30-05:59"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -1594,6 +1866,10 @@
             } ]
           },
           "at0600" : {
+            "descriptions" : {
+              "ja" : "06:00-06:29",
+              "en" : "06:00-06:29"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -1612,6 +1888,10 @@
             } ]
           },
           "at0630" : {
+            "descriptions" : {
+              "ja" : "06:30-06:59",
+              "en" : "06:30-06:59"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -1630,6 +1910,10 @@
             } ]
           },
           "at0700" : {
+            "descriptions" : {
+              "ja" : "07:00-07:29",
+              "en" : "07:00-07:29"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -1648,6 +1932,10 @@
             } ]
           },
           "at0730" : {
+            "descriptions" : {
+              "ja" : "07:30-07:59",
+              "en" : "07:30-07:59"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -1666,6 +1954,10 @@
             } ]
           },
           "at0800" : {
+            "descriptions" : {
+              "ja" : "08:00-08:29",
+              "en" : "08:00-08:29"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -1684,6 +1976,10 @@
             } ]
           },
           "at0830" : {
+            "descriptions" : {
+              "ja" : "08:30-08:59",
+              "en" : "08:30-08:59"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -1702,6 +1998,10 @@
             } ]
           },
           "at0900" : {
+            "descriptions" : {
+              "ja" : "09:00-09:29",
+              "en" : "09:00-09:29"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -1720,6 +2020,10 @@
             } ]
           },
           "at0930" : {
+            "descriptions" : {
+              "ja" : "09:30-09:59",
+              "en" : "09:30-09:59"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -1738,6 +2042,10 @@
             } ]
           },
           "at1000" : {
+            "descriptions" : {
+              "ja" : "10:00-10:29",
+              "en" : "10:00-10:29"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -1756,6 +2064,10 @@
             } ]
           },
           "at1030" : {
+            "descriptions" : {
+              "ja" : "10:30-10:59",
+              "en" : "10:30-10:59"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -1774,6 +2086,10 @@
             } ]
           },
           "at1100" : {
+            "descriptions" : {
+              "ja" : "11:00-11:29",
+              "en" : "11:00-11:29"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -1792,6 +2108,10 @@
             } ]
           },
           "at1130" : {
+            "descriptions" : {
+              "ja" : "11:30-11:59",
+              "en" : "11:30-11:59"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -1810,6 +2130,10 @@
             } ]
           },
           "at1200" : {
+            "descriptions" : {
+              "ja" : "12:00-12:29",
+              "en" : "12:00-12:29"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -1828,6 +2152,10 @@
             } ]
           },
           "at1230" : {
+            "descriptions" : {
+              "ja" : "12:30-12:59",
+              "en" : "12:30-12:59"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -1846,6 +2174,10 @@
             } ]
           },
           "at1300" : {
+            "descriptions" : {
+              "ja" : "13:00-13:29",
+              "en" : "13:00-13:29"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -1864,6 +2196,10 @@
             } ]
           },
           "at1330" : {
+            "descriptions" : {
+              "ja" : "13:30-13:59",
+              "en" : "13:30-13:59"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -1882,6 +2218,10 @@
             } ]
           },
           "at1400" : {
+            "descriptions" : {
+              "ja" : "14:00-14:29",
+              "en" : "14:00-14:29"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -1900,6 +2240,10 @@
             } ]
           },
           "at1430" : {
+            "descriptions" : {
+              "ja" : "14:30-14:59",
+              "en" : "14:30-14:59"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -1918,6 +2262,10 @@
             } ]
           },
           "at1500" : {
+            "descriptions" : {
+              "ja" : "15:00-15:29",
+              "en" : "15:00-15:29"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -1936,6 +2284,10 @@
             } ]
           },
           "at1530" : {
+            "descriptions" : {
+              "ja" : "15:30-15:59",
+              "en" : "15:30-15:59"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -1954,6 +2306,10 @@
             } ]
           },
           "at1600" : {
+            "descriptions" : {
+              "ja" : "16:00-16:29",
+              "en" : "16:00-16:29"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -1972,6 +2328,10 @@
             } ]
           },
           "at1630" : {
+            "descriptions" : {
+              "ja" : "16:30-16:59",
+              "en" : "16:30-16:59"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -1990,6 +2350,10 @@
             } ]
           },
           "at1700" : {
+            "descriptions" : {
+              "ja" : "17:00-17:29",
+              "en" : "17:00-17:29"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -2008,6 +2372,10 @@
             } ]
           },
           "at1730" : {
+            "descriptions" : {
+              "ja" : "17:30-17:59",
+              "en" : "17:30-17:59"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -2026,6 +2394,10 @@
             } ]
           },
           "at1800" : {
+            "descriptions" : {
+              "ja" : "18:00-18:29",
+              "en" : "18:00-18:29"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -2044,6 +2416,10 @@
             } ]
           },
           "at1830" : {
+            "descriptions" : {
+              "ja" : "18:30-18:59",
+              "en" : "18:30-18:59"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -2062,6 +2438,10 @@
             } ]
           },
           "at1900" : {
+            "descriptions" : {
+              "ja" : "19:00-19:29",
+              "en" : "19:00-19:29"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -2080,6 +2460,10 @@
             } ]
           },
           "at1930" : {
+            "descriptions" : {
+              "ja" : "19:30-19:59",
+              "en" : "19:30-19:59"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -2098,6 +2482,10 @@
             } ]
           },
           "at2000" : {
+            "descriptions" : {
+              "ja" : "20:00-20:29",
+              "en" : "20:00-20:29"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -2116,6 +2504,10 @@
             } ]
           },
           "at2030" : {
+            "descriptions" : {
+              "ja" : "20:30-20:59",
+              "en" : "20:30-20:59"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -2134,6 +2526,10 @@
             } ]
           },
           "at2100" : {
+            "descriptions" : {
+              "ja" : "21:00-21:29",
+              "en" : "21:00-21:29"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -2152,6 +2548,10 @@
             } ]
           },
           "at2130" : {
+            "descriptions" : {
+              "ja" : "21:30-21:59",
+              "en" : "21:30-21:59"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -2170,6 +2570,10 @@
             } ]
           },
           "at2200" : {
+            "descriptions" : {
+              "ja" : "22:00-22:29",
+              "en" : "22:00-22:29"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -2188,6 +2592,10 @@
             } ]
           },
           "at2230" : {
+            "descriptions" : {
+              "ja" : "22:30-22:59",
+              "en" : "22:30-22:59"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -2206,6 +2614,10 @@
             } ]
           },
           "at2300" : {
+            "descriptions" : {
+              "ja" : "23:00-23:29",
+              "en" : "23:00-23:29"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,
@@ -2224,6 +2636,10 @@
             } ]
           },
           "at2330" : {
+            "descriptions" : {
+              "ja" : "23:30-23:59",
+              "en" : "23:30-23:59"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : true,

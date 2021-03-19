@@ -301,6 +301,10 @@
         "type" : "object",
         "properties" : {
           "noHotWater" : {
+            "descriptions" : {
+              "ja" : "湯切れ警報",
+              "en" : "No Hot Water"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : false,
@@ -319,6 +323,10 @@
             } ]
           },
           "leaking" : {
+            "descriptions" : {
+              "ja" : "漏水警報",
+              "en" : "Leaking"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : false,
@@ -337,6 +345,10 @@
             } ]
           },
           "freezing" : {
+            "descriptions" : {
+              "ja" : "凍結警報",
+              "en" : "Freezing"
+            },
             "type" : "boolean",
             "values" : [ {
               "value" : false,

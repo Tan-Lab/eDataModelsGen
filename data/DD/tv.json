@@ -110,6 +110,10 @@
         "type" : "object",
         "properties" : {
           "ansi_x3_4" : {
+            "descriptions" : {
+              "ja" : "ANSI X3.4",
+              "en" : "ANSI X3.4"
+            },
             "type" : "string",
             "enum" : [ "notImplemented", "implemented" ],
             "values" : [ {
@@ -129,6 +133,10 @@
             } ]
           },
           "shift_jis" : {
+            "descriptions" : {
+              "ja" : "Shift-JIS",
+              "en" : "Shift-JIS"
+            },
             "type" : "string",
             "enum" : [ "notImplemented", "implemented" ],
             "values" : [ {
@@ -148,6 +156,10 @@
             } ]
           },
           "jis" : {
+            "descriptions" : {
+              "ja" : "JIS",
+              "en" : "JIS"
+            },
             "type" : "string",
             "enum" : [ "notImplemented", "implemented" ],
             "values" : [ {
@@ -167,6 +179,10 @@
             } ]
           },
           "japanese_euc" : {
+            "descriptions" : {
+              "ja" : "日本語EUC",
+              "en" : "Japanese EUC"
+            },
             "type" : "string",
             "enum" : [ "notImplemented", "implemented" ],
             "values" : [ {
@@ -186,6 +202,10 @@
             } ]
           },
           "ucs_4" : {
+            "descriptions" : {
+              "ja" : "UCS-4",
+              "en" : "UCS-4"
+            },
             "type" : "string",
             "enum" : [ "notImplemented", "implemented" ],
             "values" : [ {
@@ -205,6 +225,10 @@
             } ]
           },
           "ucs_2" : {
+            "descriptions" : {
+              "ja" : "UCS-2",
+              "en" : "UCS-2"
+            },
             "type" : "string",
             "enum" : [ "notImplemented", "implemented" ],
             "values" : [ {
@@ -224,6 +248,10 @@
             } ]
           },
           "latin_1" : {
+            "descriptions" : {
+              "ja" : "Latin-1",
+              "en" : "Latin-1"
+            },
             "type" : "string",
             "enum" : [ "notImplemented", "implemented" ],
             "values" : [ {
@@ -243,6 +271,10 @@
             } ]
           },
           "utf_8" : {
+            "descriptions" : {
+              "ja" : "UTF-8",
+              "en" : "UTF-8"
+            },
             "type" : "string",
             "enum" : [ "notImplemented", "implemented" ],
             "values" : [ {
@@ -292,6 +324,10 @@
             "type" : "object",
             "properties" : {
               "ansi_x3_4" : {
+                "descriptions" : {
+                  "ja" : "ANSI X3.4",
+                  "en" : "ANSI X3.4"
+                },
                 "type" : "string",
                 "enum" : [ "notImplemented", "implemented" ],
                 "values" : [ {
@@ -311,6 +347,10 @@
                 } ]
               },
               "shift_jis" : {
+                "descriptions" : {
+                  "ja" : "Shift-JIS",
+                  "en" : "Shift-JIS"
+                },
                 "type" : "string",
                 "enum" : [ "notImplemented", "implemented" ],
                 "values" : [ {
@@ -330,6 +370,10 @@
                 } ]
               },
               "jis" : {
+                "descriptions" : {
+                  "ja" : "JIS",
+                  "en" : "JIS"
+                },
                 "type" : "string",
                 "enum" : [ "notImplemented", "implemented" ],
                 "values" : [ {
@@ -349,6 +393,10 @@
                 } ]
               },
               "japanese_euc" : {
+                "descriptions" : {
+                  "ja" : "日本語EUC",
+                  "en" : "Japanese EUC"
+                },
                 "type" : "string",
                 "enum" : [ "notImplemented", "implemented" ],
                 "values" : [ {
@@ -368,6 +416,10 @@
                 } ]
               },
               "ucs_4" : {
+                "descriptions" : {
+                  "ja" : "UCS-4",
+                  "en" : "UCS-4"
+                },
                 "type" : "string",
                 "enum" : [ "notImplemented", "implemented" ],
                 "values" : [ {
@@ -387,6 +439,10 @@
                 } ]
               },
               "ucs_2" : {
+                "descriptions" : {
+                  "ja" : "UCS-2",
+                  "en" : "UCS-2"
+                },
                 "type" : "string",
                 "enum" : [ "notImplemented", "implemented" ],
                 "values" : [ {
@@ -406,6 +462,10 @@
                 } ]
               },
               "latin_1" : {
+                "descriptions" : {
+                  "ja" : "Latin-1",
+                  "en" : "Latin-1"
+                },
                 "type" : "string",
                 "enum" : [ "notImplemented", "implemented" ],
                 "values" : [ {
@@ -425,6 +485,10 @@
                 } ]
               },
               "utf_8" : {
+                "descriptions" : {
+                  "ja" : "UTF-8",
+                  "en" : "UTF-8"
+                },
                 "type" : "string",
                 "enum" : [ "notImplemented", "implemented" ],
                 "values" : [ {

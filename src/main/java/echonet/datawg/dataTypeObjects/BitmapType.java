@@ -37,10 +37,11 @@ public class BitmapType extends DataType{
 		
 		ObjectNode bitmapProperty = mapper.createObjectNode();
 		for(Bitmap bm : bitmaps) {
-			bitmapProperty.set(bm.getName(), bm.getValue().toWebAPIDeviceDescription());
+			bitmapProperty.set(bm.getName(), bm.toBitMapPPJSON());
 		}
 		if(bitmapProperty.size() != 0)
 			rootNode.set(eConstants.KEYWORD_PROPERTIES, bitmapProperty);
+		
 		return rootNode;
 	}
 	@Override
@@ -51,6 +52,7 @@ public class BitmapType extends DataType{
 		
 		ObjectNode bitmapProperty = mapper.createObjectNode();
 		for(Bitmap bm : bitmaps) {
+			System.out.println(bm.getName());
 			bitmapProperty.set(bm.getName(), bm.getValue().toFiwareSchemaJSON());
 		}
 		if(bitmapProperty.size() != 0)

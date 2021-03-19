@@ -1319,6 +1319,10 @@
         "type" : "object",
         "properties" : {
           "electronic" : {
+            "descriptions" : {
+              "ja" : "電気集塵方式搭載情報",
+              "en" : "Electronic dust collection"
+            },
             "type" : "string",
             "enum" : [ "no", "yes" ],
             "values" : [ {
@@ -1338,6 +1342,10 @@
             } ]
           },
           "clusterIon" : {
+            "descriptions" : {
+              "ja" : "クラスタイオン方式搭載情報",
+              "en" : "Cluster ion"
+            },
             "type" : "string",
             "enum" : [ "no", "yes" ],
             "values" : [ {
@@ -1371,12 +1379,20 @@
         "type" : "object",
         "properties" : {
           "electronicLevel" : {
+            "descriptions" : {
+              "ja" : "電気集塵方式：制御レベル",
+              "en" : "Electronic dust collection:Level"
+            },
             "type" : "number",
             "minimum" : 1,
             "maximum" : 8,
             "multipleOf" : 1
           },
           "electronicMode" : {
+            "descriptions" : {
+              "ja" : "電気集塵方式：動作モード",
+              "en" : "Electronic dust collection:Mode"
+            },
             "type" : "string",
             "enum" : [ "off", "on" ],
             "values" : [ {
@@ -1396,6 +1412,10 @@
             } ]
           },
           "electronicAuto" : {
+            "descriptions" : {
+              "ja" : "電気集塵方式：制御状態",
+              "en" : "Electronic dust collection:Auto function"
+            },
             "type" : "string",
             "enum" : [ "nonAuto", "auto" ],
             "values" : [ {
@@ -1415,12 +1435,20 @@
             } ]
           },
           "clusterIonLevel" : {
+            "descriptions" : {
+              "ja" : "クラスタイオン方式：制御レベル",
+              "en" : "Cluster ion:Level"
+            },
             "type" : "number",
             "minimum" : 1,
             "maximum" : 8,
             "multipleOf" : 1
           },
           "clusterIonMode" : {
+            "descriptions" : {
+              "ja" : "クラスタイオン方式：動作モード",
+              "en" : "Cluster ion:Mode"
+            },
             "type" : "string",
             "enum" : [ "off", "on" ],
             "values" : [ {
@@ -1440,6 +1468,10 @@
             } ]
           },
           "clusterIonAuto" : {
+            "descriptions" : {
+              "ja" : "クラスタイオン方式：制御状態",
+              "en" : "Cluster ion:Auto function"
+            },
             "type" : "string",
             "enum" : [ "nonAuto", "auto" ],
             "values" : [ {
@@ -1473,6 +1505,10 @@
         "type" : "object",
         "properties" : {
           "minusIon" : {
+            "descriptions" : {
+              "ja" : "マイナスイオン方式搭載情報",
+              "en" : "Minus ion collection"
+            },
             "type" : "string",
             "enum" : [ "no", "yes" ],
             "values" : [ {
@@ -1492,6 +1528,10 @@
             } ]
           },
           "clusterIon" : {
+            "descriptions" : {
+              "ja" : "クラスタイオン方式搭載情報",
+              "en" : "Cluster ion"
+            },
             "type" : "string",
             "enum" : [ "no", "yes" ],
             "values" : [ {
@@ -1525,12 +1565,20 @@
         "type" : "object",
         "properties" : {
           "minusIonLevel" : {
+            "descriptions" : {
+              "ja" : "マイナスイオン方式：制御レベル",
+              "en" : "Minus ion:Level"
+            },
             "type" : "number",
             "minimum" : 1,
             "maximum" : 8,
             "multipleOf" : 1
           },
           "minusIonMode" : {
+            "descriptions" : {
+              "ja" : "マイナスイオン方式：動作モード",
+              "en" : "Minus ion:Mode"
+            },
             "type" : "string",
             "enum" : [ "off", "on" ],
             "values" : [ {
@@ -1550,6 +1598,10 @@
             } ]
           },
           "minusIonAuto" : {
+            "descriptions" : {
+              "ja" : "マイナスイオン方式：制御状態",
+              "en" : "Minus ion:Auto function"
+            },
             "type" : "string",
             "enum" : [ "nonAuto", "auto" ],
             "values" : [ {
@@ -1569,12 +1621,20 @@
             } ]
           },
           "clusterIonLevel" : {
+            "descriptions" : {
+              "ja" : "クラスタイオン方式：制御レベル",
+              "en" : "Cluster ion:Level"
+            },
             "type" : "number",
             "minimum" : 1,
             "maximum" : 8,
             "multipleOf" : 1
           },
           "clusterIonMode" : {
+            "descriptions" : {
+              "ja" : "クラスタイオン方式：動作モード",
+              "en" : "Cluster ion:Mode"
+            },
             "type" : "string",
             "enum" : [ "off", "on" ],
             "values" : [ {
@@ -1594,6 +1654,10 @@
             } ]
           },
           "clusterIonAuto" : {
+            "descriptions" : {
+              "ja" : "クラスタイオン方式：制御状態",
+              "en" : "Cluster ion:Auto function"
+            },
             "type" : "string",
             "enum" : [ "nonAuto", "auto" ],
             "values" : [ {
@@ -1627,6 +1691,10 @@
         "type" : "object",
         "properties" : {
           "ozone" : {
+            "descriptions" : {
+              "ja" : "オゾン洗浄方式搭載情報",
+              "en" : "Information about ozone cleaning method mounting"
+            },
             "type" : "string",
             "enum" : [ "no", "yes" ],
             "values" : [ {
@@ -1646,6 +1714,10 @@
             } ]
           },
           "drying" : {
+            "descriptions" : {
+              "ja" : "乾燥方式搭載情報",
+              "en" : "Information about drying method mounting"
+            },
             "type" : "string",
             "enum" : [ "no", "yes" ],
             "values" : [ {
@@ -1679,12 +1751,20 @@
         "type" : "object",
         "properties" : {
           "ozoneLevel" : {
+            "descriptions" : {
+              "ja" : "オゾン洗浄方式：制御レベル",
+              "en" : "Ozone cleaning:Level"
+            },
             "type" : "number",
             "minimum" : 1,
             "maximum" : 8,
             "multipleOf" : 1
           },
           "ozoneMode" : {
+            "descriptions" : {
+              "ja" : "オゾン洗浄方式：動作モード",
+              "en" : "Ozone cleaning:Mode"
+            },
             "type" : "string",
             "enum" : [ "off", "on" ],
             "values" : [ {
@@ -1704,6 +1784,10 @@
             } ]
           },
           "ozoneAuto" : {
+            "descriptions" : {
+              "ja" : "オゾン洗浄方式：制御状態",
+              "en" : "Ozone cleaning:Auto function"
+            },
             "type" : "string",
             "enum" : [ "nonAuto", "auto" ],
             "values" : [ {
@@ -1723,12 +1807,20 @@
             } ]
           },
           "dryingLevel" : {
+            "descriptions" : {
+              "ja" : "乾燥方式：制御レベル",
+              "en" : "Drying:Level"
+            },
             "type" : "number",
             "minimum" : 1,
             "maximum" : 8,
             "multipleOf" : 1
           },
           "dryingMode" : {
+            "descriptions" : {
+              "ja" : "乾燥方式：動作モード",
+              "en" : "Drying:Mode"
+            },
             "type" : "string",
             "enum" : [ "off", "on" ],
             "values" : [ {
@@ -1748,6 +1840,10 @@
             } ]
           },
           "dryingAuto" : {
+            "descriptions" : {
+              "ja" : "乾燥方式：制御状態",
+              "en" : "Drying:Auto function"
+            },
             "type" : "string",
             "enum" : [ "nonAuto", "auto" ],
             "values" : [ {
@@ -1830,6 +1926,10 @@
         "type" : "object",
         "properties" : {
           "compressor" : {
+            "descriptions" : {
+              "ja" : "コンプレッサ動作状態",
+              "en" : "Operation status of the compressor"
+            },
             "type" : "string",
             "enum" : [ "off", "on" ],
             "values" : [ {
@@ -1849,6 +1949,10 @@
             } ]
           },
           "thermostat" : {
+            "descriptions" : {
+              "ja" : "サーモON/OFF状態",
+              "en" : "Operation status of the thermostat"
+            },
             "type" : "string",
             "enum" : [ "off", "on" ],
             "values" : [ {
