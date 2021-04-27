@@ -8334,7 +8334,7 @@
             "note": {
               "ja": "開度レベルを8段階で指定。1が最も開状態、8が最も閉状態(全閉ではない)",
               "en": "Used to specify the degree-of-opening by 8 levels. The property value is 1 for the most open status and 8 for the most closed status (not fully closed)."
-            },
+            }
           },
           "0xEE": {
             "validRelease": {
@@ -14213,7 +14213,7 @@
           "ja": "ECHONET LiteではSet only property",
           "en": "Access rule of the corresponding ECHONET Lite property is Set only"
         },
-        "note": {
+        "mote": {
           "ja": "ECHONET LiteではSet only property",
           "en": "Access rule of the corresponding ECHONET Lite property is Set only"
         }
