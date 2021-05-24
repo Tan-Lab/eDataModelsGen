@@ -121,11 +121,11 @@ public class DDExporter {
 	}
 	public static void fileTypeFromNames() {
 		for(String fileName: inputFiles) {
-			if(fileName.contains("mra.json")) {
+			if(fileName.toLowerCase().contains("mra.json".toLowerCase())) {
 				full_MRA_File_Name = fileName;
-			} else if(fileName.contains("MCRules.json")) {
+			} else if(fileName.toLowerCase().contains("MCRules.json".toLowerCase())) {
 				MC_Rules_File_Name = fileName;
-			} else if(fileName.contains("definitions.json")) {
+			} else if(fileName.toLowerCase().contains("definitions.json".toLowerCase())) {
 				definition_File_Name = fileName;
 			} else {
 				aDevice_File_Name = fileName;
