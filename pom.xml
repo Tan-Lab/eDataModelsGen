@@ -92,7 +92,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>echonet.datawg.main.DDExporterWithoutGUI</mainClass>
+                            <mainClass>echonet.datawg.main.DDExporter</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
