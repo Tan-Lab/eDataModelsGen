@@ -933,11 +933,13 @@
       }
     }
   },
-  "0x027E":{
-    "0xE6":{
-      "data":{
-        "type":"raw"
-      }
+  "0x027E" : {
+    "0xE6" : {
+      "data" : {
+        "type": "raw",
+        "minSize": 0,
+        "maxSize": 24
+     }
     }
   },
   "0x027B":{

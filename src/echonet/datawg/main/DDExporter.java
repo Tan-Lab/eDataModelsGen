@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -76,7 +77,7 @@ public class DDExporter {
 				} else {
 					ddHandler = new DDGenerator(elDevices);
 				}
-				ddHandler.toDDFile(Path.of(outputDir).toFile());
+				ddHandler.toDDFile(Paths.get(outputDir).toFile());
 				System.out.println("DD exported!! Check " + outputDir + " directory for results");
 			} else {
 				System.out.println ("Can not load device object!!");
