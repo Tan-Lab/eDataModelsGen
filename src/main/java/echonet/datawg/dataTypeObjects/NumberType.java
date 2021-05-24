@@ -19,6 +19,7 @@ import com.github.owlcs.ontapi.jena.model.OntObjectProperty;
 import com.github.owlcs.ontapi.jena.model.OntDataRange.Restriction;
 import com.github.owlcs.ontapi.jena.vocabulary.XSD;
 
+import echonet.datawg.echonetObjects.EnJAStatement;
 import echonet.datawg.inputParsers.SarefOntologyParser;
 import echonet.datawg.utils.Constants;
 import echonet.datawg.utils.SAREFConstants;
@@ -40,6 +41,7 @@ public class NumberType extends DataType{
 	private Float multiple;
 	private String[] coefficient;
 	private int[] enumValue;
+	private EnJAStatement description;
 	
 	public String getFormat() {
 		return format;
@@ -98,36 +100,41 @@ public class NumberType extends DataType{
 		if(maximum != null) {
 			rootNode.setAll(multiplyProcessing(Constants.KEYWORD_MAXIMUM, maximum));
 		}
-		if(multipleOf != null && multipleOf.floatValue() >= 1)  {
-			if(this.getMultiple() != null && this.getMultiple().floatValue() >= 1) {
-				rootNode.put(eConstants.KEYWORD_MULTIPLE_OF, multipleOf.intValue() * multiple.intValue());
-			} else if(this.getMultiple() != null && this.getMultiple().floatValue() < 1) {
-				rootNode.put(eConstants.KEYWORD_MULTIPLE_OF, multipleOf.intValue() * multiple.floatValue());
-			} else {
-				rootNode.put(eConstants.KEYWORD_MULTIPLE_OF, multipleOf.intValue());
-			}
-		} else if(multipleOf != null && multipleOf.floatValue() < 1) {
-			if(this.getMultiple() != null && this.getMultiple().floatValue() >= 1) {
-				rootNode.put(eConstants.KEYWORD_MULTIPLE_OF, multipleOf.floatValue() * multiple.intValue());
-			} else if(this.getMultiple() != null && this.getMultiple().floatValue() < 1) {
-				rootNode.put(eConstants.KEYWORD_MULTIPLE_OF, multipleOf.floatValue() * multiple.floatValue());
-			} else {
-				rootNode.put(eConstants.KEYWORD_MULTIPLE_OF, multipleOf.floatValue());
-			}
-		} else if(multipleOf != null) {
-			if(this.getMultipleOf() < 1) {
-				rootNode.put(eConstants.KEYWORD_MULTIPLE_OF, multipleOf.floatValue());
-			} else {
-				rootNode.put(eConstants.KEYWORD_MULTIPLE_OF, multipleOf.intValue());
-			}
-		} else if(multipleOf == null) {
-			if(this.getMultiple() != null && this.getMultiple().floatValue() >= 1) {
-				rootNode.put(eConstants.KEYWORD_MULTIPLE_OF,  multiple.intValue());
-			} else if(this.getMultiple() != null && this.getMultiple().floatValue() < 1) {
-				rootNode.put(eConstants.KEYWORD_MULTIPLE_OF,  multiple.floatValue());
-			} 
+		if(this.getDescription() != null) {
+			rootNode.set(Constants.KEYWORD_DESCRIPTIONS, toDescription());
 		}
+		if(multipleOf != null) {
+			if(multipleOf.floatValue() >=1) {
+				if(this.getMultiple() != null) {
+					if(this.getMultiple().floatValue() >=1) {
+						rootNode.put(eConstants.KEYWORD_MULTIPLE_OF, multipleOf.intValue() * multiple.intValue());
+					} else {
+						rootNode.put(eConstants.KEYWORD_MULTIPLE_OF, multipleOf.intValue() * multiple.floatValue());
+					}
+				} else {
+					rootNode.put(eConstants.KEYWORD_MULTIPLE_OF, multipleOf.intValue());
+				}
+			} else {
+				if(this.getMultiple() != null) {
+					if(this.getMultiple().floatValue() >=1) {
+						rootNode.put(eConstants.KEYWORD_MULTIPLE_OF, multipleOf.floatValue() * multiple.intValue());
+					} else {
+						rootNode.put(eConstants.KEYWORD_MULTIPLE_OF, multipleOf.floatValue() * multiple.floatValue());
+					}
+				} else {
+					rootNode.put(eConstants.KEYWORD_MULTIPLE_OF, multipleOf.floatValue());
+				}
+			}
+		} else {
+			if(this.getMultiple() != null) {
+				if(this.getMultiple().floatValue() >=1) {
+					rootNode.put(eConstants.KEYWORD_MULTIPLE_OF, multiple.intValue());
+				} else {
+					rootNode.put(eConstants.KEYWORD_MULTIPLE_OF, multiple.floatValue());
+				}
+			}
 			
+		}	
 		if(coefficient != null && coefficient.length != 0) {
 			ArrayNode arrayNode = mapper.createArrayNode();
 			for(int i =0; i < coefficient.length; i++) {
@@ -464,5 +471,21 @@ public class NumberType extends DataType{
 	public static int scaleFromNumber(Float number) {
 		String[] split = number.toString().split("\\.");
 		return split[1].length();
+	}
+	public EnJAStatement getDescription() {
+		return description;
+	}
+	public void setDescription(EnJAStatement description) {
+		this.description = description;
+	}
+	public ObjectNode toDescription() {
+		ObjectMapper mapper = new ObjectMapper();
+		ObjectNode rs = null;
+		if(this.getDescription()!=null) {
+			rs = mapper.createObjectNode();
+			rs.put(Constants.KEYWORD_JA, this.getDescription().getJa());
+			rs.put(Constants.KEYWORD_EN, this.getDescription().getEn());
+		}
+		return rs;
 	}
 }

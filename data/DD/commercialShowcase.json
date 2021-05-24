@@ -158,7 +158,7 @@
       "epc" : "0xD2",
       "descriptions" : {
         "ja" : "冷凍機内蔵型か冷凍機別置型かを示すショーケース構成情報",
-        "en" : "This property indicates refrigerator type, such as built-in or separate"
+        "en" : "This property indicates refrigerator type, such as built-in or separate."
       },
       "writable" : false,
       "observable" : false,
@@ -238,7 +238,7 @@
         }, {
           "value" : "multistageOpenAndCeilingBlowoff",
           "descriptions" : {
-            "ja" : "多段形オープン ((天井吹出形)",
+            "ja" : "多段形オープン (天井吹出形)",
             "en" : "Multistage open (ceiling blowoff type)"
           },
           "edt" : "0x47"
@@ -602,6 +602,32 @@
         "minimum" : -127,
         "maximum" : 126,
         "multipleOf" : 1
+      }
+    },
+    "groupDeviceList" : {
+      "descriptions" : {
+        "ja" : "グループ内デバイスリスト",
+        "en" : "List of devices in group"
+      },
+      "writable" : false,
+      "observable" : false,
+      "schema" : {
+        "type" : "array",
+        "items" : {
+          "type" : "object",
+          "properties" : {
+            "deviceId" : {
+              "type" : "string"
+            },
+            "deviceType" : {
+              "type" : "string"
+            }
+          }
+        }
+      },
+      "note" : {
+        "ja" : "WebAPIの'devices'で管理されている機器のIDおよびその'deviceType'を記述",
+        "en" : "Describe the ID of the device managed in 'devices' of WebAPI and its 'deviceType'."
       }
     }
   }

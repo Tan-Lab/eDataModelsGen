@@ -49,7 +49,7 @@
       },
       "note" : {
         "ja" : "下位1バイトは、スーパークラスのリセットボタンを押し再操作(0x02)固定。上位1バイトは、復帰可能な異常内容を小分類まで定義。0x45～0xFFはユーザ定義",
-        "en" : "Lower-order one byte: Restarting the device by performance a reset operation = 0x02. Higher-order one byte: The detailed fault classification. 0x45 to 0xFF are defined by user."
+        "en" : "Lower-order one byte: Restarting the device by performing a reset operation = 0x02. Higher-order one byte: The detailed fault classification. 0x45 to 0xFF are defined by user."
       }
     },
     "timerOperationMode" : {
@@ -430,13 +430,12 @@
       "observable" : false,
       "schema" : {
         "type" : "number",
-        "minimum" : 49,
-        "maximum" : 63,
-        "multipleOf" : 1
+        "minimum" : 1,
+        "maximum" : 8
       },
       "note" : {
-        "ja" : "開度レベルを8段階で指定。0x31が最も開状態、0x38が最も閉状態(全閉ではない)",
-        "en" : "Used to specify the degree-of-opening by 8 levels. The property value is 0x31 for the most open status and 0x38 for the most closed status (not fully closed)."
+        "ja" : "開度レベルを8段階で指定。1が最も開状態、8が最も閉状態(全閉ではない)",
+        "en" : "Used to specify the degree-of-opening by 8 levels. The property value is 1 for the most open status and 8 for the most closed status (not fully closed)."
       }
     },
     "oneTimeOpeningSpeed" : {

@@ -169,7 +169,7 @@
         }, {
           "value" : "doorOpen",
           "descriptions" : {
-            "ja" : "こじ開け",
+            "ja" : "扉開放",
             "en" : "door open"
           },
           "edt" : "0x42"
@@ -184,7 +184,7 @@
           "value" : "tampered",
           "descriptions" : {
             "ja" : "タンパ",
-            "en" : "manual unlocked"
+            "en" : "tampered"
           },
           "edt" : "0x44"
         } ]
@@ -242,10 +242,6 @@
           },
           "edt" : "0x40"
         } ]
-      },
-      "note" : {
-        "ja" : "Device Description用にboolean型として定義",
-        "en" : "Defined as boolean type for Device Description"
       }
     }
   }

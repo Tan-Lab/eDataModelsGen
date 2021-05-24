@@ -32,104 +32,69 @@
         "maximum" : 65533
       }
     },
-    "deviceListIndex(MC)" : {
+    "deviceListIndex" : {
       "epc" : "0xC2",
       "descriptions" : {
-        "ja" : "インデックス",
-        "en" : "Index"
-      },
-      "writable" : true,
-      "observable" : false,
-      "schema" : {
-        "type" : "number",
-        "minimum" : 0,
-        "maximum" : 65533
-      }
-    },
-    "deviceListId(MC)" : {
-      "epc" : "0xC3",
-      "descriptions" : {
-        "ja" : "機器ID",
-        "en" : "Device ID"
+        "ja" : "機器情報リスト",
+        "en" : "List of device information"
       },
       "writable" : false,
       "observable" : false,
       "schema" : {
-        "type" : "string"
-      }
-    },
-    "deviceListType(MC)" : {
-      "epc" : "0xC4",
-      "descriptions" : {
-        "ja" : "機種",
-        "en" : "Device type"
-      },
-      "writable" : false,
-      "observable" : false,
-      "schema" : {
-        "type" : "string"
+        "type" : "array",
+        "minItems" : 0,
+        "maxItems" : 65533,
+        "items" : {
+          "type" : "object",
+          "properties" : {
+            "deviceId" : {
+              "type" : "string"
+            },
+            "deviceType" : {
+              "type" : "string"
+            },
+            "connection" : {
+              "type" : "string",
+              "enum" : [ "connected", "disconnected", "notRegistered", "deleted" ],
+              "values" : [ {
+                "value" : "connected",
+                "descriptions" : {
+                  "ja" : "接続中",
+                  "en" : "Connected"
+                },
+                "edt" : "0x41"
+              }, {
+                "value" : "disconnected",
+                "descriptions" : {
+                  "ja" : "離脱中",
+                  "en" : "Disconnected"
+                },
+                "edt" : "0x42"
+              }, {
+                "value" : "notRegistered",
+                "descriptions" : {
+                  "ja" : "未登録",
+                  "en" : "Not registered"
+                },
+                "edt" : "0x43"
+              }, {
+                "value" : "deleted",
+                "descriptions" : {
+                  "ja" : "削除",
+                  "en" : "Deleted"
+                },
+                "edt" : "0x44"
+              } ]
+            },
+            "manufactureCode" : {
+              "type" : "string"
+            }
+          }
+        }
       },
       "note" : {
-        "ja" : "クラスグループコード+クラスコード",
-        "en" : "Class group code + class code"
-      }
-    },
-    "deviceListConnectionStatus(MC)" : {
-      "epc" : "0xC6",
-      "descriptions" : {
-        "ja" : "接続状態",
-        "en" : "Connection status"
-      },
-      "writable" : false,
-      "observable" : false,
-      "schema" : {
-        "type" : "string",
-        "enum" : [ "connected", "disconnected", "notRegistered", "deleted" ],
-        "values" : [ {
-          "value" : "connected",
-          "descriptions" : {
-            "ja" : "接続中",
-            "en" : "Connected"
-          },
-          "edt" : "0x41"
-        }, {
-          "value" : "disconnected",
-          "descriptions" : {
-            "ja" : "離脱中",
-            "en" : "Disconnected"
-          },
-          "edt" : "0x42"
-        }, {
-          "value" : "notRegistered",
-          "descriptions" : {
-            "ja" : "未登録",
-            "en" : "Not registered"
-          },
-          "edt" : "0x43"
-        }, {
-          "value" : "deleted",
-          "descriptions" : {
-            "ja" : "削除",
-            "en" : "Deleted"
-          },
-          "edt" : "0x44"
-        } ]
-      }
-    },
-    "deviceListBusinessCode(MC)" : {
-      "epc" : "0xC7",
-      "descriptions" : {
-        "ja" : "管理対象機器事業者コード",
-        "en" : "Business code of the device to be controlled"
-      },
-      "writable" : false,
-      "observable" : false,
-      "schema" : {
-        "type" : "string"
-      },
-      "note" : {
-        "ja" : "(ECHONETコンソーシアムで規定)",
-        "en" : "(Assigned by the ECHONET Consortium)"
+        "ja" : "EPC=0xC2, C3, C4, C6, C7に対応した値をobjectのarrayで表現する",
+        "en" : "This property deal with info from 0xC2, C3, C4, C6 and 0xC7 altogether."
       }
     }
   }

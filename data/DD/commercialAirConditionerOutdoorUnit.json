@@ -59,13 +59,9 @@
                   "ja" : "未サポート",
                   "en" : "Unsupported"
                 },
-                "edt" : "0xFFFE"
+                "edt" : "0xFFFFFFFE"
               } ]
-            } ],
-            "descriptions" : {
-              "ja" : "冷房",
-              "en" : "Cooling"
-            }
+            } ]
           },
           "heating" : {
             "oneOf" : [ {
@@ -82,13 +78,9 @@
                   "ja" : "未サポート",
                   "en" : "Unsupported"
                 },
-                "edt" : "0xFFFE"
+                "edt" : "0xFFFFFFFE"
               } ]
-            } ],
-            "descriptions" : {
-              "ja" : "暖房",
-              "en" : "Heating"
-            }
+            } ]
           }
         }
       }
@@ -219,6 +211,32 @@
         "unit" : "W",
         "minimum" : 0,
         "maximum" : 4294967293
+      }
+    },
+    "groupDeviceList" : {
+      "descriptions" : {
+        "ja" : "グループ内デバイスリスト",
+        "en" : "List of devices in group"
+      },
+      "writable" : false,
+      "observable" : false,
+      "schema" : {
+        "type" : "array",
+        "items" : {
+          "type" : "object",
+          "properties" : {
+            "deviceId" : {
+              "type" : "string"
+            },
+            "deviceType" : {
+              "type" : "string"
+            }
+          }
+        }
+      },
+      "note" : {
+        "ja" : "WebAPIの'devices'で管理されている機器のIDおよびその'deviceType'を記述",
+        "en" : "Describe the ID of the device managed in 'devices' of WebAPI and its 'deviceType'."
       }
     }
   }

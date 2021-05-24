@@ -6,7 +6,7 @@
     "en" : "Cooking heater"
   },
   "properties" : {
-    "relativeTimeOfOffTimers" : {
+    "relativeTimeOfOffTimer" : {
       "epc" : "0x96",
       "descriptions" : {
         "ja" : "切タイマ相対時間設定値",
@@ -523,7 +523,7 @@
         "properties" : {
           "leftStove" : {
             "type" : "string",
-            "enum" : [ "heatingPowerControl", "deepFryingMode", "waterHeating", "riceBoiling", "stirFrying", "noSetting" ],
+            "enum" : [ "heatingPowerControl", "deepFrying", "waterHeating", "riceBoiling", "stirFrying", "noSetting" ],
             "values" : [ {
               "value" : "heatingPowerControl",
               "descriptions" : {
@@ -532,7 +532,7 @@
               },
               "edt" : "0x41"
             }, {
-              "value" : "deepFryingMode",
+              "value" : "deepFrying",
               "descriptions" : {
                 "ja" : "天ぷら (揚げ物)",
                 "en" : "Deep-frying mode (tempura, etc.)"
@@ -574,7 +574,7 @@
           },
           "rightStove" : {
             "type" : "string",
-            "enum" : [ "heatingPowerControl", "deepFryingMode", "waterHeating", "riceBoiling", "stirFrying", "noSetting" ],
+            "enum" : [ "heatingPowerControl", "deepFrying", "waterHeating", "riceBoiling", "stirFrying", "noSetting" ],
             "values" : [ {
               "value" : "heatingPowerControl",
               "descriptions" : {
@@ -583,7 +583,7 @@
               },
               "edt" : "0x41"
             }, {
-              "value" : "deepFryingMode",
+              "value" : "deepFrying",
               "descriptions" : {
                 "ja" : "天ぷら (揚げ物)",
                 "en" : "Deep-frying mode (tempura, etc.)"
@@ -625,7 +625,7 @@
           },
           "farSideStove" : {
             "type" : "string",
-            "enum" : [ "heatingPowerControl", "deepFryingMode", "waterHeating", "riceBoiling", "stirFrying", "noSetting" ],
+            "enum" : [ "heatingPowerControl", "deepFrying", "waterHeating", "riceBoiling", "stirFrying", "noSetting" ],
             "values" : [ {
               "value" : "heatingPowerControl",
               "descriptions" : {
@@ -634,7 +634,7 @@
               },
               "edt" : "0x41"
             }, {
-              "value" : "deepFryingMode",
+              "value" : "deepFrying",
               "descriptions" : {
                 "ja" : "天ぷら (揚げ物)",
                 "en" : "Deep-frying mode (tempura, etc.)"
@@ -760,7 +760,7 @@
         }
       }
     },
-    "heatingPower(MC)" : {
+    "heatingPower" : {
       "epc" : "0xE7",
       "descriptions" : {
         "ja" : "加熱出力設定",
@@ -772,252 +772,364 @@
         "type" : "object",
         "properties" : {
           "leftStove" : {
-            "oneOf" : [ {
-              "type" : "number",
-              "unit" : "W",
-              "minimum" : 0,
-              "maximum" : 10000
-            }, {
-              "type" : "number",
-              "minimum" : 1,
-              "maximum" : 17,
-              "multipleOf" : 1
-            }, {
-              "type" : "string",
-              "enum" : [ "veryLowFlame", "lowFlame", "mediumFlame", "highFlame", "highPower", "noSetting" ],
-              "values" : [ {
-                "value" : "veryLowFlame",
-                "descriptions" : {
-                  "ja" : "とろ火",
-                  "en" : "Very low flame"
+            "type" : "object",
+            "properties" : {
+              "oneOf" : [ {
+                "wattage" : {
+                  "type" : "number",
+                  "unit" : "W",
+                  "minimum" : 0,
+                  "maximum" : 10000,
+                  "descriptions" : {
+                    "ja" : "出力設定形式",
+                    "en" : "Output wattage"
+                  }
                 },
-                "edt" : "0x4002"
-              }, {
-                "value" : "lowFlame",
-                "descriptions" : {
-                  "ja" : "弱火",
-                  "en" : "Low flame"
+                "level" : {
+                  "type" : "number",
+                  "minimum" : 0,
+                  "maximum" : 16,
+                  "multipleOf" : 1,
+                  "descriptions" : {
+                    "ja" : "レベル設定形式",
+                    "en" : "Level"
+                  }
                 },
-                "edt" : "0x4004"
-              }, {
-                "value" : "mediumFlame",
-                "descriptions" : {
-                  "ja" : "中火",
-                  "en" : "Medium flame"
+                "stateOfFlame" : {
+                  "type" : "string",
+                  "enum" : [ "veryLowFlame", "lowFlame", "mediumFlame", "highFlame", "highPower" ],
+                  "values" : [ {
+                    "value" : "veryLowFlame",
+                    "descriptions" : {
+                      "ja" : "とろ火",
+                      "en" : "Very low flame"
+                    },
+                    "edt" : "0x4002"
+                  }, {
+                    "value" : "lowFlame",
+                    "descriptions" : {
+                      "ja" : "弱火",
+                      "en" : "Low flame"
+                    },
+                    "edt" : "0x4004"
+                  }, {
+                    "value" : "mediumFlame",
+                    "descriptions" : {
+                      "ja" : "中火",
+                      "en" : "Medium flame"
+                    },
+                    "edt" : "0x4006"
+                  }, {
+                    "value" : "highFlame",
+                    "descriptions" : {
+                      "ja" : "強火",
+                      "en" : "High flame"
+                    },
+                    "edt" : "0x4008"
+                  }, {
+                    "value" : "highPower",
+                    "descriptions" : {
+                      "ja" : "ハイパワー",
+                      "en" : "High power"
+                    },
+                    "edt" : "0x400A"
+                  } ],
+                  "descriptions" : {
+                    "ja" : "状態表現形式",
+                    "en" : "The state of flame"
+                  }
                 },
-                "edt" : "0x4006"
-              }, {
-                "value" : "highFlame",
-                "descriptions" : {
-                  "ja" : "強火",
-                  "en" : "High flame"
-                },
-                "edt" : "0x4008"
-              }, {
-                "value" : "highPower",
-                "descriptions" : {
-                  "ja" : "ハイパワー",
-                  "en" : "High power"
-                },
-                "edt" : "0x400A"
-              }, {
-                "value" : "noSetting",
-                "descriptions" : {
-                  "ja" : "未設定",
-                  "en" : "No setting"
-                },
-                "edt" : "0xFFFF"
+                "noSetting" : {
+                  "type" : "string",
+                  "enum" : [ "noSetting" ],
+                  "values" : [ {
+                    "value" : "noSetting",
+                    "descriptions" : {
+                      "ja" : "未設定",
+                      "en" : "No setting"
+                    },
+                    "edt" : "0xFFFF"
+                  } ],
+                  "descriptions" : {
+                    "ja" : "未設定",
+                    "en" : "No setting"
+                  }
+                }
               } ]
-            } ],
+            },
             "descriptions" : {
               "ja" : "左コンロ加熱出力",
               "en" : "Heating power of the left stove"
             }
           },
           "rightStove" : {
-            "oneOf" : [ {
-              "type" : "number",
-              "unit" : "W",
-              "minimum" : 0,
-              "maximum" : 10000
-            }, {
-              "type" : "number",
-              "minimum" : 1,
-              "maximum" : 17,
-              "multipleOf" : 1
-            }, {
-              "type" : "string",
-              "enum" : [ "veryLowFlame", "lowFlame", "mediumFlame", "highFlame", "highPower", "noSetting" ],
-              "values" : [ {
-                "value" : "veryLowFlame",
-                "descriptions" : {
-                  "ja" : "とろ火",
-                  "en" : "Very low flame"
+            "type" : "object",
+            "properties" : {
+              "oneOf" : [ {
+                "wattage" : {
+                  "type" : "number",
+                  "unit" : "W",
+                  "minimum" : 0,
+                  "maximum" : 10000,
+                  "descriptions" : {
+                    "ja" : "出力設定形式",
+                    "en" : "Output wattage"
+                  }
                 },
-                "edt" : "0x4002"
-              }, {
-                "value" : "lowFlame",
-                "descriptions" : {
-                  "ja" : "弱火",
-                  "en" : "Low flame"
+                "level" : {
+                  "type" : "number",
+                  "minimum" : 0,
+                  "maximum" : 16,
+                  "multipleOf" : 1,
+                  "descriptions" : {
+                    "ja" : "レベル設定形式",
+                    "en" : "Level"
+                  }
                 },
-                "edt" : "0x4004"
-              }, {
-                "value" : "mediumFlame",
-                "descriptions" : {
-                  "ja" : "中火",
-                  "en" : "Medium flame"
+                "stateOfFlame" : {
+                  "type" : "string",
+                  "enum" : [ "veryLowFlame", "lowFlame", "mediumFlame", "highFlame", "highPower" ],
+                  "values" : [ {
+                    "value" : "veryLowFlame",
+                    "descriptions" : {
+                      "ja" : "とろ火",
+                      "en" : "Very low flame"
+                    },
+                    "edt" : "0x4002"
+                  }, {
+                    "value" : "lowFlame",
+                    "descriptions" : {
+                      "ja" : "弱火",
+                      "en" : "Low flame"
+                    },
+                    "edt" : "0x4004"
+                  }, {
+                    "value" : "mediumFlame",
+                    "descriptions" : {
+                      "ja" : "中火",
+                      "en" : "Medium flame"
+                    },
+                    "edt" : "0x4006"
+                  }, {
+                    "value" : "highFlame",
+                    "descriptions" : {
+                      "ja" : "強火",
+                      "en" : "High flame"
+                    },
+                    "edt" : "0x4008"
+                  }, {
+                    "value" : "highPower",
+                    "descriptions" : {
+                      "ja" : "ハイパワー",
+                      "en" : "High power"
+                    },
+                    "edt" : "0x400A"
+                  } ],
+                  "descriptions" : {
+                    "ja" : "状態表現形式",
+                    "en" : "The state of flame"
+                  }
                 },
-                "edt" : "0x4006"
-              }, {
-                "value" : "highFlame",
-                "descriptions" : {
-                  "ja" : "強火",
-                  "en" : "High flame"
-                },
-                "edt" : "0x4008"
-              }, {
-                "value" : "highPower",
-                "descriptions" : {
-                  "ja" : "ハイパワー",
-                  "en" : "High power"
-                },
-                "edt" : "0x400A"
-              }, {
-                "value" : "noSetting",
-                "descriptions" : {
-                  "ja" : "未設定",
-                  "en" : "No setting"
-                },
-                "edt" : "0xFFFF"
+                "noSetting" : {
+                  "type" : "string",
+                  "enum" : [ "noSetting" ],
+                  "values" : [ {
+                    "value" : "noSetting",
+                    "descriptions" : {
+                      "ja" : "未設定",
+                      "en" : "No setting"
+                    },
+                    "edt" : "0xFFFF"
+                  } ],
+                  "descriptions" : {
+                    "ja" : "未設定",
+                    "en" : "No setting"
+                  }
+                }
               } ]
-            } ],
+            },
             "descriptions" : {
               "ja" : "右コンロ加熱出力",
               "en" : "Heating power of the right stove"
             }
           },
           "farSideStove" : {
-            "oneOf" : [ {
-              "type" : "number",
-              "unit" : "W",
-              "minimum" : 0,
-              "maximum" : 10000
-            }, {
-              "type" : "number",
-              "minimum" : 1,
-              "maximum" : 17,
-              "multipleOf" : 1
-            }, {
-              "type" : "string",
-              "enum" : [ "veryLowFlame", "lowFlame", "mediumFlame", "highFlame", "highPower", "noSetting" ],
-              "values" : [ {
-                "value" : "veryLowFlame",
-                "descriptions" : {
-                  "ja" : "とろ火",
-                  "en" : "Very low flame"
+            "type" : "object",
+            "properties" : {
+              "oneOf" : [ {
+                "wattage" : {
+                  "type" : "number",
+                  "unit" : "W",
+                  "minimum" : 0,
+                  "maximum" : 10000,
+                  "descriptions" : {
+                    "ja" : "出力設定形式",
+                    "en" : "Output wattage"
+                  }
                 },
-                "edt" : "0x4002"
-              }, {
-                "value" : "lowFlame",
-                "descriptions" : {
-                  "ja" : "弱火",
-                  "en" : "Low flame"
+                "level" : {
+                  "type" : "number",
+                  "minimum" : 0,
+                  "maximum" : 16,
+                  "multipleOf" : 1,
+                  "descriptions" : {
+                    "ja" : "レベル設定形式",
+                    "en" : "Level"
+                  }
                 },
-                "edt" : "0x4004"
-              }, {
-                "value" : "mediumFlame",
-                "descriptions" : {
-                  "ja" : "中火",
-                  "en" : "Medium flame"
+                "stateOfFlame" : {
+                  "type" : "string",
+                  "enum" : [ "veryLowFlame", "lowFlame", "mediumFlame", "highFlame", "highPower" ],
+                  "values" : [ {
+                    "value" : "veryLowFlame",
+                    "descriptions" : {
+                      "ja" : "とろ火",
+                      "en" : "Very low flame"
+                    },
+                    "edt" : "0x4002"
+                  }, {
+                    "value" : "lowFlame",
+                    "descriptions" : {
+                      "ja" : "弱火",
+                      "en" : "Low flame"
+                    },
+                    "edt" : "0x4004"
+                  }, {
+                    "value" : "mediumFlame",
+                    "descriptions" : {
+                      "ja" : "中火",
+                      "en" : "Medium flame"
+                    },
+                    "edt" : "0x4006"
+                  }, {
+                    "value" : "highFlame",
+                    "descriptions" : {
+                      "ja" : "強火",
+                      "en" : "High flame"
+                    },
+                    "edt" : "0x4008"
+                  }, {
+                    "value" : "highPower",
+                    "descriptions" : {
+                      "ja" : "ハイパワー",
+                      "en" : "High power"
+                    },
+                    "edt" : "0x400A"
+                  } ],
+                  "descriptions" : {
+                    "ja" : "状態表現形式",
+                    "en" : "The state of flame"
+                  }
                 },
-                "edt" : "0x4006"
-              }, {
-                "value" : "highFlame",
-                "descriptions" : {
-                  "ja" : "強火",
-                  "en" : "High flame"
-                },
-                "edt" : "0x4008"
-              }, {
-                "value" : "highPower",
-                "descriptions" : {
-                  "ja" : "ハイパワー",
-                  "en" : "High power"
-                },
-                "edt" : "0x400A"
-              }, {
-                "value" : "noSetting",
-                "descriptions" : {
-                  "ja" : "未設定",
-                  "en" : "No setting"
-                },
-                "edt" : "0xFFFF"
+                "noSetting" : {
+                  "type" : "string",
+                  "enum" : [ "noSetting" ],
+                  "values" : [ {
+                    "value" : "noSetting",
+                    "descriptions" : {
+                      "ja" : "未設定",
+                      "en" : "No setting"
+                    },
+                    "edt" : "0xFFFF"
+                  } ],
+                  "descriptions" : {
+                    "ja" : "未設定",
+                    "en" : "No setting"
+                  }
+                }
               } ]
-            } ],
+            },
             "descriptions" : {
               "ja" : "奥コンロ加熱出力",
               "en" : "Heating power of the far-side stove"
             }
           },
           "roaster" : {
-            "oneOf" : [ {
-              "type" : "number",
-              "unit" : "W",
-              "minimum" : 0,
-              "maximum" : 10000
-            }, {
-              "type" : "number",
-              "minimum" : 1,
-              "maximum" : 17,
-              "multipleOf" : 1
-            }, {
-              "type" : "string",
-              "enum" : [ "veryLowFlame", "lowFlame", "mediumFlame", "highFlame", "highPower", "noSetting" ],
-              "values" : [ {
-                "value" : "veryLowFlame",
-                "descriptions" : {
-                  "ja" : "とろ火",
-                  "en" : "Very low flame"
+            "type" : "object",
+            "properties" : {
+              "oneOf" : [ {
+                "wattage" : {
+                  "type" : "number",
+                  "unit" : "W",
+                  "minimum" : 0,
+                  "maximum" : 10000,
+                  "descriptions" : {
+                    "ja" : "出力設定形式",
+                    "en" : "Output wattage"
+                  }
                 },
-                "edt" : "0x4002"
-              }, {
-                "value" : "lowFlame",
-                "descriptions" : {
-                  "ja" : "弱火",
-                  "en" : "Low flame"
+                "level" : {
+                  "type" : "number",
+                  "minimum" : 0,
+                  "maximum" : 16,
+                  "multipleOf" : 1,
+                  "descriptions" : {
+                    "ja" : "レベル設定形式",
+                    "en" : "Level"
+                  }
                 },
-                "edt" : "0x4004"
-              }, {
-                "value" : "mediumFlame",
-                "descriptions" : {
-                  "ja" : "中火",
-                  "en" : "Medium flame"
+                "stateOfFlame" : {
+                  "type" : "string",
+                  "enum" : [ "veryLowFlame", "lowFlame", "mediumFlame", "highFlame", "highPower" ],
+                  "values" : [ {
+                    "value" : "veryLowFlame",
+                    "descriptions" : {
+                      "ja" : "とろ火",
+                      "en" : "Very low flame"
+                    },
+                    "edt" : "0x4002"
+                  }, {
+                    "value" : "lowFlame",
+                    "descriptions" : {
+                      "ja" : "弱火",
+                      "en" : "Low flame"
+                    },
+                    "edt" : "0x4004"
+                  }, {
+                    "value" : "mediumFlame",
+                    "descriptions" : {
+                      "ja" : "中火",
+                      "en" : "Medium flame"
+                    },
+                    "edt" : "0x4006"
+                  }, {
+                    "value" : "highFlame",
+                    "descriptions" : {
+                      "ja" : "強火",
+                      "en" : "High flame"
+                    },
+                    "edt" : "0x4008"
+                  }, {
+                    "value" : "highPower",
+                    "descriptions" : {
+                      "ja" : "ハイパワー",
+                      "en" : "High power"
+                    },
+                    "edt" : "0x400A"
+                  } ],
+                  "descriptions" : {
+                    "ja" : "状態表現形式",
+                    "en" : "The state of flame"
+                  }
                 },
-                "edt" : "0x4006"
-              }, {
-                "value" : "highFlame",
-                "descriptions" : {
-                  "ja" : "強火",
-                  "en" : "High flame"
-                },
-                "edt" : "0x4008"
-              }, {
-                "value" : "highPower",
-                "descriptions" : {
-                  "ja" : "ハイパワー",
-                  "en" : "High power"
-                },
-                "edt" : "0x400A"
-              }, {
-                "value" : "noSetting",
-                "descriptions" : {
-                  "ja" : "未設定",
-                  "en" : "No setting"
-                },
-                "edt" : "0xFFFF"
+                "noSetting" : {
+                  "type" : "string",
+                  "enum" : [ "noSetting" ],
+                  "values" : [ {
+                    "value" : "noSetting",
+                    "descriptions" : {
+                      "ja" : "未設定",
+                      "en" : "No setting"
+                    },
+                    "edt" : "0xFFFF"
+                  } ],
+                  "descriptions" : {
+                    "ja" : "未設定",
+                    "en" : "No setting"
+                  }
+                }
               } ]
-            } ],
+            },
             "descriptions" : {
               "ja" : "ロースタ加熱出力",
               "en" : "Heating power of the roaster"

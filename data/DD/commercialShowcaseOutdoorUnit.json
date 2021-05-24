@@ -31,10 +31,6 @@
           },
           "edt" : "0x40"
         } ]
-      },
-      "note" : {
-        "ja" : "Device Description用にboolean型として定義",
-        "en" : "Defined as boolean type for Device Description."
       }
     },
     "operationMode" : {
@@ -133,6 +129,32 @@
           },
           "edt" : "0x31"
         } ]
+      }
+    },
+    "groupDeviceList" : {
+      "descriptions" : {
+        "ja" : "グループ内デバイスリスト",
+        "en" : "List of devices in group"
+      },
+      "writable" : false,
+      "observable" : false,
+      "schema" : {
+        "type" : "array",
+        "items" : {
+          "type" : "object",
+          "properties" : {
+            "deviceId" : {
+              "type" : "string"
+            },
+            "deviceType" : {
+              "type" : "string"
+            }
+          }
+        }
+      },
+      "note" : {
+        "ja" : "WebAPIの'devices'で管理されている機器のIDおよびその'deviceType'を記述",
+        "en" : "Describe the ID of the device managed in 'devices' of WebAPI and its 'deviceType'."
       }
     }
   }

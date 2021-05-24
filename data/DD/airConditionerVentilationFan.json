@@ -6,33 +6,6 @@
     "en" : "Air conditioner ventilation fan"
   },
   "properties" : {
-    "operationStatus(MC)" : {
-      "epc" : "0x80",
-      "descriptions" : {
-        "ja" : "動作状態",
-        "en" : "Operation status"
-      },
-      "writable" : true,
-      "observable" : true,
-      "schema" : {
-        "type" : "boolean",
-        "values" : [ {
-          "value" : true,
-          "descriptions" : {
-            "ja" : "ON",
-            "en" : "ON"
-          },
-          "edt" : "0x30"
-        }, {
-          "value" : false,
-          "descriptions" : {
-            "ja" : "OFF",
-            "en" : "OFF"
-          },
-          "edt" : "0x31"
-        } ]
-      }
-    },
     "airFlowLevel" : {
       "epc" : "0xA0",
       "descriptions" : {
@@ -249,10 +222,23 @@
       "writable" : false,
       "observable" : false,
       "schema" : {
-        "type" : "number",
-        "unit" : "Celsius",
-        "minimum" : -127,
-        "maximum" : 125
+        "oneOf" : [ {
+          "type" : "number",
+          "unit" : "Celsius",
+          "minimum" : -127,
+          "maximum" : 125
+        }, {
+          "type" : "string",
+          "enum" : [ "unmeasurable" ],
+          "values" : [ {
+            "value" : "unmeasurable",
+            "descriptions" : {
+              "ja" : "計測不能",
+              "en" : "Unmeasurable"
+            },
+            "edt" : "0x7E"
+          } ]
+        } ]
       }
     },
     "co2Concentration" : {
@@ -333,10 +319,23 @@
       "writable" : false,
       "observable" : false,
       "schema" : {
-        "type" : "number",
-        "unit" : "%",
-        "minimum" : 0,
-        "maximum" : 100
+        "oneOf" : [ {
+          "type" : "number",
+          "unit" : "%",
+          "minimum" : 0,
+          "maximum" : 100
+        }, {
+          "type" : "string",
+          "enum" : [ "unmeasurable" ],
+          "values" : [ {
+            "value" : "unmeasurable",
+            "descriptions" : {
+              "ja" : "計測不能",
+              "en" : "Unmeasurable"
+            },
+            "edt" : "0xFD"
+          } ]
+        } ]
       }
     },
     "returnAirTemperature" : {
@@ -392,12 +391,12 @@
             "maximum" : 100
           }, {
             "type" : "string",
-            "enum" : [ "undefined" ],
+            "enum" : [ "unmeasurable" ],
             "values" : [ {
-              "value" : "undefined",
+              "value" : "unmeasurable",
               "descriptions" : {
-                "ja" : "不明",
-                "en" : "Undefined"
+                "ja" : "計測不能",
+                "en" : "Unmeasurable"
               },
               "edt" : "0xFD"
             } ]
@@ -414,10 +413,23 @@
       "writable" : false,
       "observable" : false,
       "schema" : {
-        "type" : "number",
-        "unit" : "Celsius",
-        "minimum" : -127,
-        "maximum" : 125
+        "oneOf" : [ {
+          "type" : "number",
+          "unit" : "Celsius",
+          "minimum" : -127,
+          "maximum" : 125
+        }, {
+          "type" : "string",
+          "enum" : [ "unmeasurable" ],
+          "values" : [ {
+            "value" : "unmeasurable",
+            "descriptions" : {
+              "ja" : "計測不能",
+              "en" : "Unmeasurable"
+            },
+            "edt" : "0x7E"
+          } ]
+        } ]
       }
     },
     "chargingAirHumidity" : {
@@ -429,10 +441,23 @@
       "writable" : false,
       "observable" : false,
       "schema" : {
-        "type" : "number",
-        "unit" : "%",
-        "minimum" : 0,
-        "maximum" : 100
+        "oneOf" : [ {
+          "type" : "number",
+          "unit" : "%",
+          "minimum" : 0,
+          "maximum" : 100
+        }, {
+          "type" : "string",
+          "enum" : [ "unmeasurable" ],
+          "values" : [ {
+            "value" : "unmeasurable",
+            "descriptions" : {
+              "ja" : "計測不能",
+              "en" : "Unmeasurable"
+            },
+            "edt" : "0xFD"
+          } ]
+        } ]
       }
     },
     "dischargingAirTemperature" : {
@@ -444,10 +469,23 @@
       "writable" : false,
       "observable" : false,
       "schema" : {
-        "type" : "number",
-        "unit" : "Celsius",
-        "minimum" : -127,
-        "maximum" : 125
+        "oneOf" : [ {
+          "type" : "number",
+          "unit" : "Celsius",
+          "minimum" : -127,
+          "maximum" : 125
+        }, {
+          "type" : "string",
+          "enum" : [ "unmeasurable" ],
+          "values" : [ {
+            "value" : "unmeasurable",
+            "descriptions" : {
+              "ja" : "計測不能",
+              "en" : "Unmeasurable"
+            },
+            "edt" : "0x7E"
+          } ]
+        } ]
       }
     },
     "dischargingAirHumidity" : {
@@ -459,10 +497,23 @@
       "writable" : false,
       "observable" : false,
       "schema" : {
-        "type" : "number",
-        "unit" : "%",
-        "minimum" : 0,
-        "maximum" : 100
+        "oneOf" : [ {
+          "type" : "number",
+          "unit" : "%",
+          "minimum" : 0,
+          "maximum" : 100
+        }, {
+          "type" : "string",
+          "enum" : [ "unmeasurable" ],
+          "values" : [ {
+            "value" : "unmeasurable",
+            "descriptions" : {
+              "ja" : "計測不能",
+              "en" : "Unmeasurable"
+            },
+            "edt" : "0xFD"
+          } ]
+        } ]
       }
     },
     "heatExchangerOperationStatus" : {

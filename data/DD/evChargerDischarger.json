@@ -761,25 +761,7 @@
       "writable" : false,
       "observable" : false,
       "schema" : {
-        "type" : "object",
-        "properties" : {
-          "dataSize" : {
-            "type" : "number",
-            "minimum" : 0,
-            "maximum" : 24,
-            "descriptions" : {
-              "ja" : "車両ID情報データサイズ",
-              "en" : "data size for vehicle ID information"
-            }
-          },
-          "id" : {
-            "type" : "string",
-            "descriptions" : {
-              "ja" : "車両ID情報",
-              "en" : "vehicle ID information data"
-            }
-          }
-        }
+        "type" : "string"
       }
     },
     "targetChargingElectricEnergy1" : {

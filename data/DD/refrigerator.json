@@ -535,20 +535,12 @@
           "maximumRotationSpeed" : {
             "type" : "number",
             "minimum" : 1,
-            "maximum" : 255,
-            "descriptions" : {
-              "ja" : "最大回転数レベル",
-              "en" : "Maximum rotation speed"
-            }
+            "maximum" : 255
           },
           "rotationSpeed" : {
             "type" : "number",
             "minimum" : 0,
             "maximum" : 255,
-            "descriptions" : {
-              "ja" : "回転数レベル",
-              "en" : "Rotation speed of the actual compressor"
-            },
             "note" : {
               "ja" : "0は停止を示す",
               "en" : "Value 0 represents Stop"
@@ -602,47 +594,27 @@
           "refrigeratorCompartmentLevel" : {
             "type" : "number",
             "minimum" : 0,
-            "maximum" : 255,
-            "descriptions" : {
-              "ja" : "冷蔵室",
-              "en" : "Refrigerator compartment"
-            }
+            "maximum" : 255
           },
           "freezerCompartmentLevel" : {
             "type" : "number",
             "minimum" : 0,
-            "maximum" : 255,
-            "descriptions" : {
-              "ja" : "冷凍室",
-              "en" : "Freezer compartment"
-            }
+            "maximum" : 255
           },
           "iceCompartmentLevel" : {
             "type" : "number",
             "minimum" : 0,
-            "maximum" : 255,
-            "descriptions" : {
-              "ja" : "氷温室",
-              "en" : "Subzero-fresh compartment"
-            }
+            "maximum" : 255
           },
           "vegetableCompartmentLevel" : {
             "type" : "number",
             "minimum" : 0,
-            "maximum" : 255,
-            "descriptions" : {
-              "ja" : "野菜室",
-              "en" : "Vegetable compartment"
-            }
+            "maximum" : 255
           },
           "multiModeCompartmentLevel" : {
             "type" : "number",
             "minimum" : 0,
-            "maximum" : 255,
-            "descriptions" : {
-              "ja" : "切換室",
-              "en" : "Multi-refrigerating mode compartment"
-            }
+            "maximum" : 255
           }
         }
       },

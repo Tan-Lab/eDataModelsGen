@@ -101,7 +101,7 @@ public class DeviceDefinitionParser {
 		}
 		return properties;
 	}
-	private ECHONETLiteProperty toProperty(String code, JSONObject obj) {
+	public ECHONETLiteProperty toProperty(String code, JSONObject obj) {
 		ECHONETLiteProperty rs = null;
 		if(obj.get(Constants.KEYWORD_ONE_OF) != null)  {
 			JSONArray array = (JSONArray) obj.get(Constants.KEYWORD_ONE_OF);
@@ -116,6 +116,9 @@ public class DeviceDefinitionParser {
 	private ECHONETLiteProperty toPropertyFromLatestSpecification(String code, JSONObject obj) {
 		ECHONETLiteProperty property = null;
 		JSONObject validRelease = (JSONObject) obj.get(Constants.KEYWORD_VALID_RELEASE);
+		if(validRelease == null) {
+			System.out.println(obj.toJSONString());
+		}
 		if(isLatestRelease(validRelease)) {
 			property = new ECHONETLiteProperty(code);
 			JSONObject propertyName = (JSONObject) obj.get(Constants.KEYWORD_PROPERTY_NAME);
@@ -165,7 +168,7 @@ public class DeviceDefinitionParser {
 		return new EnJAStatement(en,jp);
 	}
 	
-	private List<DataType> toDataRestrictionList(JSONObject obj) {
+	public List<DataType> toDataRestrictionList(JSONObject obj) {
 		List<DataType> rs = new ArrayList<DataType>();
 		JSONArray typeArray = (JSONArray) obj.get(Constants.KEYWORD_ONE_OF);
 		

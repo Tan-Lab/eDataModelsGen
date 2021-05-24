@@ -24,7 +24,7 @@ public class ObjectType extends DataType{
 		this.type = Constants.KEYWORD_OBJECT;
 	}
 	private List<ObjectProperty> properties;
-	
+	private boolean isONE_OF;
 	
 	
 	public List<ObjectProperty> getProperties() {
@@ -40,14 +40,24 @@ public class ObjectType extends DataType{
 		rootNode.put(eConstants.KEYWORD_TYPE, this.type);
 		
 		ObjectNode propertyNode = mapper.createObjectNode();
-		
+		ObjectNode oneOfNode = mapper.createObjectNode();
 		for(ObjectProperty pp : properties) {
 			if(!pp.isReservedForFutureUse() && !pp.isDELProperty() && !pp.isDELProperty2()) {
-				propertyNode.set(pp.getName(),  pp.toJSONObjDescription());
+				if(isONE_OF) {
+					ArrayNode oneOf =mapper.createArrayNode();
+					propertyNode.set(pp.getName(),  pp.toJSONObjDescription());
+					oneOf.add(propertyNode);
+					oneOfNode.set(eConstants.KEYWORD_ONEOF, oneOf);
+				} else {
+					propertyNode.set(pp.getName(),  pp.toJSONObjDescription());
+				}
 			}
 		}
-		if(propertyNode.size() != 0)
+		if(propertyNode.size()!=0 && oneOfNode.size() == 0) {
 			rootNode.set(eConstants.KEYWORD_PROPERTIES, propertyNode);
+		} else if(oneOfNode.size() != 0) {
+			rootNode.set(eConstants.KEYWORD_PROPERTIES, oneOfNode);
+		}
 		return rootNode;
 	}
 	@Override
@@ -109,6 +119,12 @@ public class ObjectType extends DataType{
 	}
 	private String toTypeURI(String PropertyName) {
 		return PropertyName + "Object";
+	}
+	public boolean isONE_OF() {
+		return isONE_OF;
+	}
+	public void setONE_OF(boolean isONE_OF) {
+		this.isONE_OF = isONE_OF;
 	}
 
 }

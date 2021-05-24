@@ -6,6 +6,59 @@
     "en" : "Instantaneous water heater"
   },
   "properties" : {
+    "onTimerReservation" : {
+      "epc" : "0x90",
+      "descriptions" : {
+        "ja" : "風呂自動ONタイマ予約設定",
+        "en" : "ON timer reservation setting"
+      },
+      "writable" : true,
+      "observable" : false,
+      "schema" : {
+        "type" : "boolean",
+        "values" : [ {
+          "value" : true,
+          "descriptions" : {
+            "ja" : "予約入",
+            "en" : "Reservation ON"
+          },
+          "edt" : "0x41"
+        }, {
+          "value" : false,
+          "descriptions" : {
+            "ja" : "予約切",
+            "en" : "Reservation OFF"
+          },
+          "edt" : "0x42"
+        } ]
+      }
+    },
+    "onTimerTime" : {
+      "epc" : "0x91",
+      "descriptions" : {
+        "ja" : "ONタイマ時刻設定値",
+        "en" : "ON timer setting"
+      },
+      "writable" : true,
+      "observable" : false,
+      "schema" : {
+        "type" : "string",
+        "format" : "time"
+      }
+    },
+    "onTimerRelativeTimeSettingValue" : {
+      "epc" : "0x92",
+      "descriptions" : {
+        "ja" : "風呂自動ONタイマ相対時間設定値",
+        "en" : "Set value of ON timer relative time."
+      },
+      "writable" : true,
+      "observable" : false,
+      "schema" : {
+        "type" : "string",
+        "format" : "time"
+      }
+    },
     "hotWaterHeatingStatus" : {
       "epc" : "0xD0",
       "descriptions" : {
@@ -46,6 +99,155 @@
         "unit" : "Celsius",
         "minimum" : 0,
         "maximum" : 100
+      }
+    },
+    "hotWaterWarmerSetting" : {
+      "epc" : "0xD2",
+      "descriptions" : {
+        "ja" : "給湯保温設定",
+        "en" : "Hot water warmer setting"
+      },
+      "writable" : true,
+      "observable" : false,
+      "schema" : {
+        "type" : "boolean",
+        "values" : [ {
+          "value" : true,
+          "descriptions" : {
+            "ja" : "給湯保温動作",
+            "en" : "Hot water warmer operation"
+          },
+          "edt" : "0x41"
+        }, {
+          "value" : false,
+          "descriptions" : {
+            "ja" : "給湯保温動作解除",
+            "en" : "Hot water warmer operation resetting"
+          },
+          "edt" : "0x42"
+        } ]
+      }
+    },
+    "bathWaterVolume4" : {
+      "epc" : "0xD4",
+      "descriptions" : {
+        "ja" : "風呂湯量設定4",
+        "en" : "Bath water volume setting 4"
+      },
+      "writable" : true,
+      "observable" : false,
+      "schema" : {
+        "type" : "number",
+        "minimum" : 1,
+        "maximum" : 255
+      }
+    },
+    "maximumAllowableWaterVolume4" : {
+      "epc" : "0xD5",
+      "descriptions" : {
+        "ja" : "風呂湯量設定4 設定可能最大レベル",
+        "en" : "Bath water volume setting 4 Maximum settable level."
+      },
+      "writable" : false,
+      "observable" : false,
+      "schema" : {
+        "type" : "number",
+        "minimum" : 1,
+        "maximum" : 255
+      }
+    },
+    "volume" : {
+      "epc" : "0xD6",
+      "descriptions" : {
+        "ja" : "音量設定値",
+        "en" : "Volume setting"
+      },
+      "writable" : true,
+      "observable" : false,
+      "schema" : {
+        "type" : "number",
+        "unit" : "%",
+        "minimum" : 0,
+        "maximum" : 100
+      }
+    },
+    "mute" : {
+      "epc" : "0xD7",
+      "descriptions" : {
+        "ja" : "ミュート設定",
+        "en" : "Mute setting"
+      },
+      "writable" : true,
+      "observable" : false,
+      "schema" : {
+        "type" : "boolean",
+        "values" : [ {
+          "value" : true,
+          "descriptions" : {
+            "ja" : "ミュートON",
+            "en" : "Mute ON"
+          },
+          "edt" : "0x30"
+        }, {
+          "value" : false,
+          "descriptions" : {
+            "ja" : "ミュートOFF",
+            "en" : "Mute OFF"
+          },
+          "edt" : "0x31"
+        } ]
+      }
+    },
+    "tergetAutomaticOprationTime" : {
+      "epc" : "0xDA",
+      "descriptions" : {
+        "ja" : "自動運転時間設定値",
+        "en" : "Duration of Automatic operation setting"
+      },
+      "writable" : true,
+      "observable" : false,
+      "schema" : {
+        "oneOf" : [ {
+          "type" : "string",
+          "format" : "time"
+        }, {
+          "type" : "string",
+          "enum" : [ "limitless" ],
+          "values" : [ {
+            "value" : "limitless",
+            "descriptions" : {
+              "ja" : "無限",
+              "en" : "limitless"
+            },
+            "edt" : "0xFFFF"
+          } ]
+        } ]
+      }
+    },
+    "remainingAutomaticOperationTime" : {
+      "epc" : "0xDB",
+      "descriptions" : {
+        "ja" : "自動運転残時間",
+        "en" : "Remaining Automatic operation time"
+      },
+      "writable" : false,
+      "observable" : false,
+      "schema" : {
+        "oneOf" : [ {
+          "type" : "string",
+          "format" : "time"
+        }, {
+          "type" : "string",
+          "enum" : [ "limitless" ],
+          "values" : [ {
+            "value" : "limitless",
+            "descriptions" : {
+              "ja" : "無限",
+              "en" : "limitless"
+            },
+            "edt" : "0xFFFF"
+          } ]
+        } ]
       }
     },
     "targetBathWaterTemperature" : {
@@ -90,7 +292,7 @@
         } ]
       }
     },
-    "automaticBathOperation(MC)" : {
+    "automaticBathOperation" : {
       "epc" : "0xE3",
       "descriptions" : {
         "ja" : "風呂自動モード設定",
@@ -334,6 +536,34 @@
           },
           "edt" : "0x42"
         } ]
+      }
+    },
+    "tergetHotWaterWarmerONTimerTime" : {
+      "epc" : "0xED",
+      "descriptions" : {
+        "ja" : "給湯保温ONタイマ時刻設定値",
+        "en" : "Set value of hot water warmer ON timer time."
+      },
+      "writable" : true,
+      "observable" : false,
+      "schema" : {
+        "type" : "string",
+        "format" : "time"
+      }
+    },
+    "bathWaterVolume3" : {
+      "epc" : "0xEE",
+      "descriptions" : {
+        "ja" : "風呂湯量設定3",
+        "en" : "Bath hot water volume setting 3"
+      },
+      "writable" : true,
+      "observable" : false,
+      "schema" : {
+        "type" : "number",
+        "unit" : "L",
+        "minimum" : 0,
+        "maximum" : 65533
       }
     },
     "bathOperationStatus" : {

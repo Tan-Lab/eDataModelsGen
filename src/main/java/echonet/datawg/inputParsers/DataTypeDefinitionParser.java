@@ -25,6 +25,8 @@ public class DataTypeDefinitionParser {
 	public DataTypeDefinitionParser(List<DataType> types) {
 		predefinedTypes = types;
 	}
+	public DataTypeDefinitionParser() {
+	}
 	List<DataType> predefinedTypes;
 	private  DataType predefinedTypeFromName(String name) {
 		for(DataType type: predefinedTypes) {
@@ -72,6 +74,9 @@ public class DataTypeDefinitionParser {
 					break;
 				case Constants.TYPE_LEVEL:
 					rs = SimpleDataTypeParser.toLevelType(obj);
+					break;
+				case Constants.TYPE_BOOLEAN:
+					rs = SimpleDataTypeParser.toBooleanType(obj);
 					break;
 				default:
 					break;
@@ -155,8 +160,23 @@ public class DataTypeDefinitionParser {
 	}
 	public DataType toObjectType(String key, JSONObject jsonObj) {
 		ObjectType objType = new ObjectType(key);
-		if(jsonObj.get(Constants.KEYWORD_PROPERTIES) != null)
-			objType.setProperties(toObjectProperties((JSONArray)jsonObj.get(Constants.KEYWORD_PROPERTIES)));
+		if(jsonObj.get(Constants.KEYWORD_PROPERTIES) != null) {
+			JSONArray ppArray = (JSONArray)jsonObj.get(Constants.KEYWORD_PROPERTIES);
+			List<ObjectProperty> property = new ArrayList<ObjectProperty>();
+			Iterator<?> iterator = ppArray.iterator();
+			while(iterator.hasNext()) {
+				JSONObject obj = (JSONObject) iterator.next();
+			    if(obj.get(Constants.KEYWORD_ONE_OF) != null) {
+				   objType.setONE_OF(true);
+				   JSONArray oneOfArray = (JSONArray) obj.get(Constants.KEYWORD_ONE_OF);
+				   property = toObjectProperties(oneOfArray);
+			    } else {
+			    	property.add(toObjectProperty(obj));
+			    }
+			}
+			objType.setProperties(property);
+		}
+			
 		return objType;
 		
 	}

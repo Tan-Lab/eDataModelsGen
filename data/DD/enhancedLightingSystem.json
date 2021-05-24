@@ -6,7 +6,7 @@
     "en" : "Extended lighting system"
   },
   "properties" : {
-    "brightness(MC)" : {
+    "brightness" : {
       "epc" : "0xB0",
       "descriptions" : {
         "ja" : "照度レベル設定",
@@ -66,7 +66,7 @@
         "maximum" : 253
       }
     },
-    "powerConsumptionRateList(MC)" : {
+    "powerConsumptionRateList" : {
       "epc" : "0xC2",
       "descriptions" : {
         "ja" : "電力消費率リスト",
@@ -129,7 +129,7 @@
         "maximum" : 65533
       }
     },
-    "powerConsumptionLimit(MC)" : {
+    "powerConsumptionLimit" : {
       "epc" : "0xC5",
       "descriptions" : {
         "ja" : "消費電力制限設定",

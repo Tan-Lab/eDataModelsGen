@@ -220,7 +220,7 @@
       "epc" : "0xCF",
       "descriptions" : {
         "ja" : "車載電池の充電可能残容量値",
-        "en" : "Remaining Chargeable capacity of vehicle mounted battery."
+        "en" : "Remaining chargeable capacity of vehicle mounted battery"
       },
       "writable" : false,
       "observable" : false,
@@ -235,7 +235,7 @@
       "epc" : "0xD0",
       "descriptions" : {
         "ja" : "車載電池の使用容量値1",
-        "en" : "Used capacity of vehicle mounted battery 1."
+        "en" : "Used capacity of vehicle mounted battery 1"
       },
       "writable" : false,
       "observable" : false,
@@ -280,7 +280,7 @@
       "epc" : "0xD8",
       "descriptions" : {
         "ja" : "積算充電電力量計測値",
-        "en" : "Measured cumulative amount of charging electric energy."
+        "en" : "Measured cumulative amount of charging electric energy"
       },
       "writable" : false,
       "observable" : false,
@@ -338,7 +338,7 @@
       "epc" : "0xE2",
       "descriptions" : {
         "ja" : "車載電池の電池残容量1",
-        "en" : "Remaining stored electricity of vehicle mounted battery1."
+        "en" : "Remaining stored electricity of vehicle mounted battery1"
       },
       "writable" : false,
       "observable" : false,
@@ -353,7 +353,7 @@
       "epc" : "0xE4",
       "descriptions" : {
         "ja" : "車載電池の電池残容量3",
-        "en" : "Remaining stored electricity of vehicle mounted battery3."
+        "en" : "Remaining stored electricity of vehicle mounted battery3"
       },
       "writable" : false,
       "observable" : false,
@@ -373,25 +373,7 @@
       "writable" : false,
       "observable" : false,
       "schema" : {
-        "type" : "object",
-        "properties" : {
-          "dataSize" : {
-            "type" : "number",
-            "minimum" : 0,
-            "maximum" : 24,
-            "descriptions" : {
-              "ja" : "車両ID情報データサイズ。ID情報がない場合は、0x00",
-              "en" : "Data size for vehicle ID information. 0x00 if no vehicle ID is available."
-            }
-          },
-          "id" : {
-            "type" : "string",
-            "descriptions" : {
-              "ja" : "車両ID情報。車両毎に規定されたデータ",
-              "en" : "Vehicle ID informationdata specified for each vehicle."
-            }
-          }
-        }
+        "type" : "string"
       }
     },
     "targetChargingElectricEnergy" : {
@@ -442,19 +424,11 @@
     }
   },
   "actions" : {
-    "connectionConfirmation" : {
-      "epc" : "0xCD",
-      "descriptions" : {
-        "ja" : "車両接続確認",
-        "en" : "Vehicle Connection Confirmation"
-      },
-      "schema" : { }
-    },
     "resetCumulativeChargingElectricEnergy" : {
       "epc" : "0xD9",
       "descriptions" : {
         "ja" : "積算充電電力量リセット設定",
-        "en" : "Cumulative amount of charging electric energy reset setting."
+        "en" : "Cumulative amount of charging electric energy reset setting"
       },
       "schema" : { },
       "note" : {

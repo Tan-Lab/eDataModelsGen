@@ -1,7 +1,10 @@
 package echonet.datawg.echonetObjects;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
+import org.apache.commons.lang3.StringUtils;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
@@ -38,6 +41,20 @@ public class ECHONETLiteDevice {
 	public void setProperties(List<ECHONETLiteProperty> properties) {
 		this.properties = properties;
 	}
+	public void addAProperty(ECHONETLiteProperty pp) {
+		if(this.properties == null) {
+			this.properties = new ArrayList<ECHONETLiteProperty>();
+		} else {
+			this.properties.add(pp);
+		}
+	}
+	public void removeAProperty(ECHONETLiteProperty pp) {
+		if(this.properties == null) {
+
+		} else {
+			this.properties.remove(pp);
+		}
+	}
 	public String getCode() {
 		return code;
 	}
@@ -64,9 +81,11 @@ public class ECHONETLiteDevice {
 						actionNode = mapper.createObjectNode();
 					}
 					actionNode.set(pp.getShortName(), pp.toDDWebAPIJSONObjectNodeReadOnly());
+				} else if (pp.isMCProperty()){
+					ppNode.set(pp.getShortName().replace("(MC)", ""), pp.toDDWebAPIJSONObjectNode());
 				} else {
 					ppNode.set(pp.getShortName(), pp.toDDWebAPIJSONObjectNode());
-				}	
+				}
 			} 
 		}
 		rootNode.set(eConstants.KEYWORD_PROPERTIES, ppNode);
@@ -77,11 +96,23 @@ public class ECHONETLiteDevice {
 	public ObjectNode toFIWAREJSON() {
 		return null;
 	}
+	
 	public String getShortName() {
 		return shortName;
 	}
 	public void setShortName(String shortName) {
 		this.shortName = shortName;
+	}
+	// For test
+	public ObjectNode toDeviceName() {
+		ObjectMapper mapper = new ObjectMapper();
+		ObjectNode rootNode = mapper.createObjectNode();
+		rootNode.put("Input", this.getClassName().getEn());
+		rootNode.put("Output",StringUtils.join (
+				StringUtils.splitByCharacterTypeCamelCase(this.getShortName()),' '));
+	
+		return rootNode;
+		
 	}
 	
 }

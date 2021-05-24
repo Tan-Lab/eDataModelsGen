@@ -37,7 +37,7 @@
       "epc" : "0x91",
       "descriptions" : {
         "ja" : "ONタイマ時刻設定値",
-        "en" : "ON timer setting (time)"
+        "en" : "ON timer setting"
       },
       "writable" : true,
       "observable" : false,
@@ -106,7 +106,7 @@
           "value" : false,
           "descriptions" : {
             "ja" : "非Auto",
-            "en" : "Automatic water temperature control function not used."
+            "en" : "Automatic water temperature control function not used"
           },
           "edt" : "0x42"
         } ]
@@ -199,7 +199,7 @@
       "epc" : "0xB5",
       "descriptions" : {
         "ja" : "手動沸き上げOFFタイマ相対時間設定値",
-        "en" : "Relative time setting value for manual water heating OFF."
+        "en" : "Relative time setting value for manual water heating OFF"
       },
       "writable" : true,
       "observable" : false,
@@ -278,7 +278,7 @@
       "epc" : "0xC1",
       "descriptions" : {
         "ja" : "温水器湯温計測値",
-        "en" : "Measured temperature of water in water heater."
+        "en" : "Measured temperature of water in water heater"
       },
       "writable" : false,
       "observable" : false,
@@ -400,7 +400,7 @@
       "epc" : "0xC4",
       "descriptions" : {
         "ja" : "風呂保温運転相対時間設定値",
-        "en" : "Relative time setting for keeping bath temperature."
+        "en" : "Relative time setting for keeping bath temperature"
       },
       "writable" : true,
       "observable" : false,
@@ -470,7 +470,7 @@
         "en" : "Once/twice (0x01, 0x02)"
       }
     },
-    "waterHeatingShiftTime1(MC)" : {
+    "waterHeatingShiftTime1" : {
       "epc" : "0xCA",
       "descriptions" : {
         "ja" : "昼間沸き上げシフト時刻1",
@@ -481,9 +481,9 @@
       "schema" : {
         "oneOf" : [ {
           "type" : "string",
-          "enum" : [ "at9000", "at1000", "at1100", "at1200", "at1300", "at1400", "at1500", "at1600", "at1700" ],
+          "enum" : [ "at0900", "at1000", "at1100", "at1200", "at1300", "at1400", "at1500", "at1600", "at1700" ],
           "values" : [ {
-            "value" : "at9000",
+            "value" : "at0900",
             "descriptions" : {
               "ja" : "9時",
               "en" : "09:00"
@@ -560,7 +560,7 @@
         } ]
       }
     },
-    "estimatedElectricEnergyAtShiftTime1(MC)" : {
+    "estimatedElectricEnergyAtShiftTime1" : {
       "epc" : "0xCB",
       "descriptions" : {
         "ja" : "昼間沸き上げシフト時刻1での沸き上げ予測電力量",
@@ -614,7 +614,7 @@
         }
       }
     },
-    "electricEnergyConsumptionRate1(MC)" : {
+    "electricEnergyConsumptionRate1" : {
       "epc" : "0xCC",
       "descriptions" : {
         "ja" : "時間あたり消費電力量1",
@@ -668,7 +668,7 @@
         }
       }
     },
-    "waterHeatingShiftTime2(MC)" : {
+    "waterHeatingShiftTime2" : {
       "epc" : "0xCD",
       "descriptions" : {
         "ja" : "昼間沸き上げシフト時刻2",
@@ -751,7 +751,7 @@
         } ]
       }
     },
-    "estimatedElectricEnergyAtShiftTime2(MC)" : {
+    "estimatedElectricEnergyAtShiftTime2" : {
       "epc" : "0xCE",
       "descriptions" : {
         "ja" : "昼間沸き上げシフト時刻2での沸き上げ予測電力量",
@@ -795,7 +795,7 @@
         }
       }
     },
-    "electricEnergyConsumptionRate2(MC)" : {
+    "electricEnergyConsumptionRate2" : {
       "epc" : "0xCF",
       "descriptions" : {
         "ja" : "時間あたり消費電力量2",
@@ -887,7 +887,7 @@
         "en" : "The maximum allowable step setting shall be acquired with the 'maximum allowable water volume 4' property."
       }
     },
-    "maximumAllowableWaterVolume4(MC)" : {
+    "maximumAllowableWaterVolume4" : {
       "epc" : "0xD5",
       "descriptions" : {
         "ja" : "風呂湯量設定4設定可能最大レベル",
@@ -958,7 +958,7 @@
         "maximum" : 65533
       }
     },
-    "surplusPowerPrediction(MC)" : {
+    "surplusPowerPrediction" : {
       "epc" : "0xD9",
       "descriptions" : {
         "ja" : "余剰電力量予測値",

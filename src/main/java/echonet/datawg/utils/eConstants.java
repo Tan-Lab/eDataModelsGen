@@ -45,6 +45,9 @@ public class eConstants {
 	public static final String HEALTH_RELATED_GROUPCODE="04";
 	public static final String MANAGEMENT_OPERATION_RELATED_GROUPCODE="05";
 	public static final String AV_RELATED_GROUPCODE="06";
+	public static final String AIR_CONDITIONER_EOJ="0x0130";
+	public static final String WASHER_DRYER="0x03D3";
+	
 	
 	
 

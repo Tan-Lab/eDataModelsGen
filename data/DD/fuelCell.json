@@ -6,34 +6,6 @@
     "en" : "Fuel cell"
   },
   "properties" : {
-    "operationStatus(MC)" : {
-      "epc" : "0x80",
-      "descriptions" : {
-        "ja" : "動作状態",
-        "en" : "Operation status"
-      },
-      "writable" : true,
-      "observable" : true,
-      "schema" : {
-        "type" : "string",
-        "enum" : [ "yes", "no" ],
-        "values" : [ {
-          "value" : "yes",
-          "descriptions" : {
-            "ja" : "ON",
-            "en" : "ON"
-          },
-          "edt" : "0x30"
-        }, {
-          "value" : "no",
-          "descriptions" : {
-            "ja" : "OFF",
-            "en" : "OFF"
-          },
-          "edt" : "0x31"
-        } ]
-      }
-    },
     "waterTemperatureInWaterHeater" : {
       "epc" : "0xC1",
       "descriptions" : {

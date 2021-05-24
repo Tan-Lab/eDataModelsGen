@@ -28,6 +28,7 @@ public class Constants {
 	public static final String TYPE_NUMBER ="number";
 	public static final String TYPE_STATE ="state";
 	public static final String TYPE_RAW ="raw";
+	public static final String TYPE_BOOLEAN ="boolean";
 	public static final String TYPE_OBJECT ="object";
 	public static final String TYPE_LEVEL ="level";
 	
@@ -43,13 +44,14 @@ public class Constants {
 	public static final String KEYWORD_PROPERTY_NAME =  "propertyName";
 	public static final String KEYWORD_ACCESS_RULE =  "accessRule";
 	public static final String KEYWORD_DATA =  "data";
+	public static final String KEYWORD_ACTION =  "action";
 	public static final String KEYWORD_SET =  "set";
 	public static final String KEYWORD_GET =  "get";
 	public static final String KEYWORD_INF =  "inf";
 	public static final String KEYWORD_NOTE =  "note";
 	public static final String KEYWORD_REF =  "$ref";
 	public static final String KEYWORD_REF_PREFIX = "#/definitions/";
-	
+	public static final String KEYWORD_URL_PARAM = "urlParameters";
 	
 	public static final String KEYWORD_MULTIPLE = "multiple";
 	public static final String KEYWORD_MULTIPLE_OF = "multipleOf";
@@ -82,6 +84,7 @@ public class Constants {
 	public static final String KEYWORD_INDEX = "index";
 	public static final String KEYWORD_BITMASK = "bitMask";
 	public static final String KEYWORD_ELEMENT = "element";
+	public static final String KEYWORD_REQUIRED = "required";
 	
 
 

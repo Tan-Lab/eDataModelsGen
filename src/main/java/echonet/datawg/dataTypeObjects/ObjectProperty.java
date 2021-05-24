@@ -67,10 +67,9 @@ public class ObjectProperty {
 	public ObjectNode toJSONObjDescription() {
 		ObjectMapper mapper = new ObjectMapper();
 		ObjectNode rootNode = mapper.createObjectNode();
-		
+		ObjectNode descNode = toDescription();
+		ObjectNode noteNode = toNote();
 		if (this.getElement().size() == 1){
-			ObjectNode descNode = toDescription();
-			ObjectNode noteNode = toNote();
 			rootNode.setAll(getElement().get(0).toWebAPIDeviceDescription());	
 			if(descNode != null) {
 				rootNode.set(Constants.KEYWORD_DESCRIPTIONS, descNode);
@@ -85,8 +84,7 @@ public class ObjectProperty {
 			}
 			ObjectNode multipleTypePropertyNode = mapper.createObjectNode();
 			multipleTypePropertyNode.set(eConstants.KEYWORD_ONEOF, oneOf);
-			ObjectNode descNode = toDescription();
-			ObjectNode noteNode = toNote();
+
 			rootNode.setAll(multipleTypePropertyNode);
 			if(descNode != null) {
 				rootNode.set(Constants.KEYWORD_DESCRIPTIONS, descNode);
@@ -95,6 +93,7 @@ public class ObjectProperty {
 				rootNode.set(Constants.KEYWORD_NOTE, noteNode);
 			}
 		} 
+		
 		return rootNode;
 	}
 	public boolean isReservedForFutureUse() {

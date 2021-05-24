@@ -9,6 +9,7 @@ import java.util.List;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import echonet.datawg.dataTypeObjects.BooleanType;
 import echonet.datawg.dataTypeObjects.DataType;
 import echonet.datawg.dataTypeObjects.DateTimeType;
 import echonet.datawg.dataTypeObjects.DateType;
@@ -37,6 +38,9 @@ public class SimpleDataTypeParser {
 			case Constants.TYPE_RAW:
 				rs = toRawType(key, jsonObj);
 				break;
+			case Constants.TYPE_BOOLEAN:
+				rs = toBooleanType(key, jsonObj);
+				break;
 			default:
 				rs = null;
 				break;
@@ -55,6 +59,18 @@ public class SimpleDataTypeParser {
 		if(jsonObj.get(Constants.KEYWORD_UNIT) !=null) {
 			numberType.setUnit(jsonObj.get(Constants.KEYWORD_UNIT).toString());
 		}
+		EnJAStatement desc = null;
+		JSONObject description = (JSONObject) jsonObj.get(Constants.KEYWORD_DESCRIPTIONS);
+		if(description != null) {
+			desc = new EnJAStatement();
+			if(description.get(Constants.KEYWORD_EN).toString() != null)
+				desc.setEn(description.get(Constants.KEYWORD_EN).toString());
+			if(description.get(Constants.KEYWORD_JA).toString() != null)
+				desc.setJa(description.get(Constants.KEYWORD_JA).toString());
+		} 
+		if(desc != null) {
+			numberType.setDescription(desc);
+		}
 		if(jsonObj.get(Constants.KEYWORD_MULTIPLE) !=null) {
 			numberType.setMultiple(Float.valueOf(jsonObj.get(Constants.KEYWORD_MULTIPLE).toString()));
 		}
@@ -62,7 +78,7 @@ public class SimpleDataTypeParser {
 			numberType.setMultipleOf(Float.valueOf(jsonObj.get(Constants.KEYWORD_MULTIPLE_OF).toString()));
 		}
 		if(jsonObj.get(Constants.KEYWORD_COEFFICIENT) !=null) {
-			JSONArray array = (JSONArray) jsonObj.get(jsonObj.get(Constants.KEYWORD_COEFFICIENT));
+			JSONArray array = (JSONArray) jsonObj.get(Constants.KEYWORD_COEFFICIENT);
 			String[] strArray = new String[array.size()];
 			for(int i = 0; i < array.size(); i ++) {
 				strArray[i] =array.get(i).toString();
@@ -156,6 +172,16 @@ public class SimpleDataTypeParser {
 		if(jsonObj.get(Constants.KEYWORD_MAX_SIZE) != null)
 			rawType.setMaxSize(Integer.valueOf(jsonObj.get(Constants.KEYWORD_MAX_SIZE).toString()));
 		return rawType;
+	}
+	public static DataType toBooleanType(String key, JSONObject jsonObj)
+	{
+		BooleanType boolType = new BooleanType(key);
+		return boolType;
+	}
+	public static DataType toBooleanType(JSONObject jsonObj)
+	{
+		BooleanType boolType = new BooleanType();
+		return boolType;
 	}
 	public static DataType toRawType(JSONObject jsonObj)
 	{

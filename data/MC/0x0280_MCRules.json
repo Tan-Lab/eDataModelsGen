@@ -1,0 +1,48 @@
+{
+  "0x0280" : {
+    "0xE3" : {
+      "data" : {
+        "minItems" : 48,
+        "maxItems" : 48,
+        "itemSize" : 4,
+        "type" : "array",
+        "items" : {
+          "oneOf" : [ {
+            "multipleOf" : 0.01,
+            "unit" : "kWh",
+            "coefficient" : [ "0xE2" ],
+            "maximum" : 99999999,
+            "overflowCode" : false,
+            "type" : "number",
+            "underflowCode" : false,
+            "minimum" : 0
+          }, {
+            "size" : 4,
+            "type" : "state",
+            "enum" : [ {
+              "edt" : "0xFFFFFFFE",
+              "name" : "noData",
+              "readOnly" : true,
+              "descriptions" : {
+                "ja" : "No data",
+                "en" : "No data"
+              }
+            } ]
+          } ]
+        }
+      }
+    },
+    "0xE0" : {
+      "data" : {
+        "multipleOf" : 0.01,
+        "unit" : "kWh",
+        "coefficient" : [ "0xE2" ],
+        "maximum" : 99999999,
+        "overflowCode" : false,
+        "type" : "number",
+        "underflowCode" : false,
+        "minimum" : 0
+      }
+    }
+  }
+}

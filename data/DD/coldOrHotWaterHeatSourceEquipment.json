@@ -33,7 +33,7 @@
         } ]
       }
     },
-    "onTimerTime" : {
+    "timeOfOnTimer" : {
       "epc" : "0x91",
       "descriptions" : {
         "ja" : "ONタイマ時刻設定値",
@@ -46,7 +46,7 @@
         "format" : "time"
       }
     },
-    "onTimerRelativeTime" : {
+    "relativeTimeOfOnTimer" : {
       "epc" : "0x92",
       "descriptions" : {
         "ja" : "ONタイマ相対時間設定値",
@@ -86,7 +86,7 @@
         } ]
       }
     },
-    "offTimerTime" : {
+    "timeOfOffTimer" : {
       "epc" : "0x95",
       "descriptions" : {
         "ja" : "OFFタイマ時刻設定値",
@@ -99,7 +99,7 @@
         "format" : "time"
       }
     },
-    "offTimerRelativeTime" : {
+    "relativeTimeOfOffTimer" : {
       "epc" : "0x96",
       "descriptions" : {
         "ja" : "OFFタイマ相対時間設定値",
@@ -122,8 +122,8 @@
       "observable" : true,
       "schema" : {
         "type" : "number",
-        "minimum" : 33,
-        "maximum" : 47
+        "minimum" : 1,
+        "maximum" : 15
       },
       "note" : {
         "ja" : "冷房(冷水)水温設定2の最大段階数",
@@ -140,8 +140,8 @@
       "observable" : true,
       "schema" : {
         "type" : "number",
-        "minimum" : 49,
-        "maximum" : 63
+        "minimum" : 17,
+        "maximum" : 31
       },
       "note" : {
         "ja" : "暖房(温水)水温設定2の最大段階数",
@@ -187,7 +187,7 @@
       "schema" : {
         "oneOf" : [ {
           "type" : "number",
-          "unit" : "℃",
+          "unit" : "Celsius",
           "minimum" : 0,
           "maximum" : 100
         }, {
@@ -215,14 +215,8 @@
       "schema" : {
         "oneOf" : [ {
           "type" : "number",
-          "minimum" : 33,
-          "maximum" : 47,
-          "multipleOf" : 1
-        }, {
-          "type" : "number",
-          "minimum" : 49,
-          "maximum" : 63,
-          "multipleOf" : 1
+          "minimum" : 1,
+          "maximum" : 31
         }, {
           "type" : "string",
           "enum" : [ "auto" ],
@@ -237,8 +231,8 @@
         } ]
       },
       "note" : {
-        "ja" : "冷房(冷水):0x21~0x2F、暖房(温水):0x31~0x3F",
-        "en" : "Cooling (cold water) : 0x21 - 0x2F, Heating (hot water) : 0x31 - 0x3F"
+        "ja" : "冷房(冷水):1~15、暖房(温水):17~31",
+        "en" : "Cooling (cold water) : 1 - 15, Heating (hot water) : 17 - 31"
       }
     },
     "outwardWaterTemperatureExit" : {
@@ -252,7 +246,7 @@
       "schema" : {
         "oneOf" : [ {
           "type" : "number",
-          "unit" : "℃",
+          "unit" : "Celsius",
           "minimum" : 0,
           "maximum" : 100
         }, {
@@ -280,7 +274,7 @@
       "schema" : {
         "oneOf" : [ {
           "type" : "number",
-          "unit" : "℃",
+          "unit" : "Celsius",
           "minimum" : 0,
           "maximum" : 100
         }, {
@@ -318,7 +312,7 @@
         }, {
           "value" : "modest",
           "descriptions" : {
-            "ja" : "控えめ運転",
+            "ja" : "ひかえめ運転",
             "en" : "modest operation"
           },
           "edt" : "0x42"
@@ -342,9 +336,9 @@
       "observable" : false,
       "schema" : {
         "type" : "string",
-        "enum" : [ "timerMode", "timer1", "timer2" ],
+        "enum" : [ "timerOff", "timer1", "timer2" ],
         "values" : [ {
-          "value" : "timerMode",
+          "value" : "timerOff",
           "descriptions" : {
             "ja" : "タイマー切",
             "en" : "Timer OFF"
@@ -380,7 +374,37 @@
       "writable" : true,
       "observable" : false,
       "schema" : {
-        "type" : "string"
+        "type" : "array",
+        "maxItems" : 24,
+        "items" : {
+          "type" : "object",
+          "properties" : {
+            "startTime" : {
+              "type" : "string",
+              "format" : "time",
+              "descriptions" : {
+                "ja" : "運転開始時間",
+                "en" : "Start time"
+              },
+              "note" : {
+                "ja" : "開始分は0分もしくは30分。",
+                "en" : "Time is fixed at 0 or 30 min"
+              }
+            },
+            "endTime" : {
+              "type" : "string",
+              "format" : "time",
+              "descriptions" : {
+                "ja" : "運転停止時間",
+                "en" : "End time"
+              },
+              "note" : {
+                "ja" : "開始分は0分もしくは30分。",
+                "en" : "Time is fixed at 0 or 30 min"
+              }
+            }
+          }
+        }
       },
       "note" : {
         "ja" : "24時間を30分単位で分割、全6バイトを割り当て、各bit 1:運転、0:停止",
@@ -396,7 +420,37 @@
       "writable" : true,
       "observable" : false,
       "schema" : {
-        "type" : "string"
+        "type" : "array",
+        "maxItems" : 24,
+        "items" : {
+          "type" : "object",
+          "properties" : {
+            "startTime" : {
+              "type" : "string",
+              "format" : "time",
+              "descriptions" : {
+                "ja" : "運転開始時間",
+                "en" : "Start time"
+              },
+              "note" : {
+                "ja" : "開始分は0分もしくは30分。",
+                "en" : "Time is fixed at 0 or 30 min"
+              }
+            },
+            "endTime" : {
+              "type" : "string",
+              "format" : "time",
+              "descriptions" : {
+                "ja" : "運転停止時間",
+                "en" : "End time"
+              },
+              "note" : {
+                "ja" : "開始分は0分もしくは30分。",
+                "en" : "Time is fixed at 0 or 30 min"
+              }
+            }
+          }
+        }
       },
       "note" : {
         "ja" : "24時間を30分単位で分割、全6バイトを割り当て、各bit 1:運転、0:停止",

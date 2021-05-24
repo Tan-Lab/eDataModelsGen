@@ -30,8 +30,17 @@ Clone the project and follow the instructions.
 * mvn install
 
 ### Usage
-* Follow instructions from the GUI.
+* java -jar **combined-jar-file** [-i] *required* **input files** [-o] *required* **output directory** [-g] *optional* **to enable GUI app**
+* **input files**: 
+* ***Full MRA file*** [xxxmra.json]
+* ***A device object file*** [0xxxx.json]
+* ***MC rule file*** [xxxMCRules.json]
 
+#### Example
+* ***No GUI***
+* java -jar  **combined-jar-file** -i 0x0000.json 0x0001.json 0x0003.json 0x0000_MCRules.json -o /home
+* *** With GUI***
+* java -jar  **combined-jar-file** -i 0x0000.json 0x0001.json 0x0003.json 0x0000_MCRules.json -o /home -g
 ## Roadmap
 
 The current version only supports the Device Description. Following features are coming next.

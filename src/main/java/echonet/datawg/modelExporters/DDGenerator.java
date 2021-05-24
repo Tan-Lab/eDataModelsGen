@@ -21,16 +21,69 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import echonet.datawg.dataTypeObjects.DataType;
 import echonet.datawg.echonetObjects.ECHONETLiteDevice;
+import echonet.datawg.echonetObjects.ECHONETLiteProperty;
+import echonet.datawg.echonetObjects.EPCManualCode;
+import echonet.datawg.echonetObjects.ManualCode;
 import echonet.datawg.inputParsers.DataTypeDefinitionParser;
 import echonet.datawg.inputParsers.DeviceDefinitionParser;
 import echonet.datawg.inputParsers.SimpleDataTypeParser;
 import echonet.datawg.utils.Constants;
 
 public class DDGenerator {
+	public DDGenerator(List<ECHONETLiteDevice> devices) {
+		this.elDevices = devices;
+	}
+	public DDGenerator(List<ECHONETLiteDevice> devices, List<ManualCode> mcRules) {
+		this.mcRules = mcRules;
+		this.elDevices = devices;
+		updateMCRules();
+	}
+	public void updateMCRules() {
+		for(ManualCode mc : mcRules) {
+			for(ECHONETLiteDevice dev: getELDevices()) {
+				if(mc.getEoj().equals(dev.getCode())) {		
+					for(EPCManualCode mcEPC :mc.getEpcs()) {
+						if(mcEPC.getEpc().equals("0xFF")) {
+							dev.addAProperty(mcEPC.getPp());
+						} else {
+							for(ECHONETLiteProperty epc: dev.getProperties()) {
+								if(mcEPC.getEpc().equals(epc.getCode())) {
+									if(mcEPC.getAccessRule() != null) {
+										epc.setAccessRule(mcEPC.getAccessRule());
+									}
+									if(mcEPC.getAction() !=null && mcEPC.getAction().equals("DEL")) {
+										epc.setDELProperty(true);
+									}
+									if(mcEPC.getNote() != null) {
+										epc.setNote(mcEPC.getNote());
+									}
+									if(mcEPC.getParemeter()!= null) {
+										epc.setUrlParameters(mcEPC.getParemeter());
+									}
+									if(mcEPC.getPpName()!= null) {
+										epc.setPropertyName(mcEPC.getPpName());
+									}
+									if(mcEPC.getType() != null) {
+										epc.setDataRestrictions(mcEPC.getType());
+									}
+								}
+								
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 	public DDGenerator(String filePath) {
 		this.predefinedDataTypes = new ArrayList<DataType>();
 		this.elDevices = new ArrayList<ECHONETLiteDevice>();
 		deviceFromFile(filePath);
+	}
+	public DDGenerator(String filePath, String defFilePath) {
+		this.predefinedDataTypes = new ArrayList<DataType>();
+		this.elDevices = new ArrayList<ECHONETLiteDevice>();
+		deviceFromFile(filePath,defFilePath);
 	}
 	public List<DataType> getPredefinedDataTypes() {
 		return this.predefinedDataTypes;
@@ -58,7 +111,8 @@ public class DDGenerator {
 		}
 	}
 	private List<DataType> predefinedDataTypes;
-	private List<ECHONETLiteDevice> elDevices;	
+	private List<ECHONETLiteDevice> elDevices;
+	private List<ManualCode> mcRules;	
 	private  void deviceFromFile(String fileName) {
 		BufferedReader reader;
 		JSONObject obj;
@@ -85,6 +139,35 @@ public class DDGenerator {
 				this.elDevices.add(loader.toTheLatestDeviceDefinition(
 						Constants.KEYWORD_SUPER_CLASS, 
 						(JSONObject)obj.get(Constants.KEYWORD_SUPER_CLASS)));
+			}
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	private  void deviceFromFile(String fileName, String defFileName) {
+		
+		JSONParser parser = new JSONParser();
+		DeviceDefinitionParser loader = null;
+		try {
+			// load JSON from file
+			BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(defFileName), "UTF-8"));
+			JSONObject defObj = (JSONObject) parser.parse(reader);
+			// load datatype definitions
+			if(defObj.get(Constants.KEYWORD_DEFINITIONS) != null)
+				this.predefinedDataTypes = getDataTypeDefinitions((JSONObject) defObj.get(Constants.KEYWORD_DEFINITIONS));
+			reader.close();
+			reader = new BufferedReader(new InputStreamReader(new FileInputStream(fileName), "UTF-8"));
+			JSONObject devObj = (JSONObject) parser.parse(reader);
+			System.out.println(devObj.toJSONString());
+			if(devObj != null) {
+				loader = new DeviceDefinitionParser(predefinedDataTypes);
+				this.elDevices = loader.getAllDeviceDefinition((JSONObject) devObj);
 			}
 			
 		} catch (IOException e) {

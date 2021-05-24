@@ -6,33 +6,6 @@
     "en" : "Package-type commercial air conditioner (indoor unit) (except those for facilities)"
   },
   "properties" : {
-    "operationStatus(MC)" : {
-      "epc" : "0x80",
-      "descriptions" : {
-        "ja" : "動作状態",
-        "en" : "Operation status"
-      },
-      "writable" : true,
-      "observable" : true,
-      "schema" : {
-        "type" : "boolean",
-        "values" : [ {
-          "value" : true,
-          "descriptions" : {
-            "ja" : "ON",
-            "en" : "ON"
-          },
-          "edt" : "0x30"
-        }, {
-          "value" : false,
-          "descriptions" : {
-            "ja" : "OFF",
-            "en" : "OFF"
-          },
-          "edt" : "0x31"
-        } ]
-      }
-    },
     "thermostatState" : {
       "epc" : "0xAC",
       "descriptions" : {
@@ -282,6 +255,32 @@
           },
           "edt" : "0x00"
         } ]
+      }
+    },
+    "groupDeviceList" : {
+      "descriptions" : {
+        "ja" : "グループ内デバイスリスト",
+        "en" : "List of devices in group"
+      },
+      "writable" : false,
+      "observable" : false,
+      "schema" : {
+        "type" : "array",
+        "items" : {
+          "type" : "object",
+          "properties" : {
+            "deviceId" : {
+              "type" : "string"
+            },
+            "deviceType" : {
+              "type" : "string"
+            }
+          }
+        }
+      },
+      "note" : {
+        "ja" : "WebAPIの'devices'で管理されている機器のIDおよびその'deviceType'を記述",
+        "en" : "Describe the ID of the device managed in 'devices' of WebAPI and its 'deviceType'."
       }
     }
   }

@@ -6,7 +6,7 @@
     "en" : "Low-voltage smart electric energy meter"
   },
   "properties" : {
-    "normalDirectionCumulativeElectricEnergy(MC)" : {
+    "normalDirectionCumulativeElectricEnergy" : {
       "epc" : "0xE0",
       "descriptions" : {
         "ja" : "積算電力量計測値 (正方向計測値)",
@@ -19,7 +19,8 @@
           "type" : "number",
           "unit" : "kWh",
           "minimum" : 0,
-          "maximum" : 99999999,
+          "maximum" : 999999.99,
+          "multipleOf" : 0.01,
           "coefficient" : [ "0xD3", "0xE1" ]
         }, {
           "type" : "string",
@@ -39,7 +40,7 @@
         "en" : "The value is multipled by the value of EPC=0xD3 and 0xE1."
       }
     },
-    "normalDirectionCumulativeElectricEnergyLog1(MC)" : {
+    "normalDirectionCumulativeElectricEnergyLog1" : {
       "epc" : "0xE2",
       "epcAtomic" : "0xE5",
       "descriptions" : {
@@ -48,6 +49,18 @@
       },
       "writable" : false,
       "observable" : false,
+      "urlParameters" : {
+        "day" : {
+          "descriptions" : {
+            "ja" : "積算履歴収集日",
+            "en" : "Day for which the historical data of measured cumulative amounts of electric energy is to be retrieved"
+          },
+          "type" : "number",
+          "minimum" : 0,
+          "maximum" : 99,
+          "required" : false
+        }
+      },
       "schema" : {
         "type" : "object",
         "properties" : {
@@ -82,7 +95,8 @@
                 "type" : "number",
                 "unit" : "kWh",
                 "minimum" : 0,
-                "maximum" : 99999999,
+                "maximum" : 999999.99,
+                "multipleOf" : 0.01,
                 "coefficient" : [ "0xD3", "0xE1" ]
               }, {
                 "type" : "string",
@@ -105,11 +119,11 @@
         }
       },
       "note" : {
-        "ja" : "Queryは履歴収集日。電力量はEPC=0xD3, 0xE1の値を乗算済みの値",
-        "en" : "Query is Day for collection. Electric power is multipled by EPC=0xD3 and 0xE1."
+        "ja" : "Queryは履歴収集日 (省略時は0)。電力量はEPC=0xD3, 0xE1の値を乗算済みの値",
+        "en" : "Query is Day for collection (default value is 0). Electric power is multipled by EPC=0xD3 and 0xE1."
       }
     },
-    "reverseDirectionCumulativeElectricEnergy(MC)" : {
+    "reverseDirectionCumulativeElectricEnergy" : {
       "epc" : "0xE3",
       "descriptions" : {
         "ja" : "積算電力量計測値 (逆方向計測値)",
@@ -122,7 +136,8 @@
           "type" : "number",
           "unit" : "kWh",
           "minimum" : 0,
-          "maximum" : 99999999,
+          "maximum" : 999999.99,
+          "multipleOf" : 0.01,
           "coefficient" : [ "0xD3", "0xE1" ]
         }, {
           "type" : "string",
@@ -142,7 +157,7 @@
         "en" : "The value is multipled by the value of EPC=0xD3 and 0xE1."
       }
     },
-    "reverseDirectionCumulativeElectricEnergyLog1(MC)" : {
+    "reverseDirectionCumulativeElectricEnergyLog1" : {
       "epc" : "0xE4",
       "epcAtomic" : "0xE5",
       "descriptions" : {
@@ -151,6 +166,18 @@
       },
       "writable" : false,
       "observable" : false,
+      "urlParameters" : {
+        "day" : {
+          "descriptions" : {
+            "ja" : "積算履歴収集日",
+            "en" : "Day for which the historical data of measured cumulative amounts of electric energy is to be retrieved"
+          },
+          "type" : "number",
+          "minimum" : 0,
+          "maximum" : 99,
+          "required" : false
+        }
+      },
       "schema" : {
         "type" : "object",
         "properties" : {
@@ -185,7 +212,8 @@
                 "type" : "number",
                 "unit" : "kWh",
                 "minimum" : 0,
-                "maximum" : 99999999,
+                "maximum" : 999999.99,
+                "multipleOf" : 0.01,
                 "coefficient" : [ "0xD3", "0xE1" ]
               }, {
                 "type" : "string",
@@ -208,8 +236,8 @@
         }
       },
       "note" : {
-        "ja" : "Queryは履歴収集日。電力量はEPC=0xD3, 0xE1の値を乗算済みの値",
-        "en" : "Query is Day for collection. Electric power is multipled by EPC=0xD3 and 0xE1."
+        "ja" : "Queryは履歴収集日 (省略時は0)。電力量はEPC=0xD3, 0xE1の値を乗算済みの値",
+        "en" : "Query is Day for collection (default value is 0). Electric power is multipled by EPC=0xD3 and 0xE1."
       }
     },
     "instantaneousElectricPower" : {
@@ -302,7 +330,7 @@
         }
       }
     },
-    "normalDirectionCumulativeElectricEnergyAtEvery30Min(MC)" : {
+    "normalDirectionCumulativeElectricEnergyAtEvery30Min" : {
       "epc" : "0xEA",
       "descriptions" : {
         "ja" : "定時積算電力量計測値 (正方向計測値)",
@@ -326,7 +354,8 @@
               "type" : "number",
               "unit" : "kWh",
               "minimum" : 0,
-              "maximum" : 99999999,
+              "maximum" : 999999.99,
+              "multipleOf" : 0.01,
               "coefficient" : [ "0xD3", "0xE1" ]
             }, {
               "type" : "string",
@@ -352,7 +381,7 @@
         "en" : "The value is multipled by the value of EPC=0xD3 and 0xE1."
       }
     },
-    "reverseDirectionCumulativeElectricEnergyEvery30Min(MC)" : {
+    "reverseDirectionCumulativeElectricEnergyEvery30Min" : {
       "epc" : "0xEB",
       "descriptions" : {
         "ja" : "定時積算電力量計測値 (逆方向計測値)",
@@ -376,7 +405,8 @@
               "type" : "number",
               "unit" : "kWh",
               "minimum" : 0,
-              "maximum" : 99999999,
+              "maximum" : 999999.99,
+              "multipleOf" : 0.01,
               "coefficient" : [ "0xD3", "0xE1" ]
             }, {
               "type" : "string",
@@ -402,7 +432,7 @@
         "en" : "The value is multipled by the value of EPC=0xD3 and 0xE1."
       }
     },
-    "cumulativeElectricEnergyLog2(MC)" : {
+    "cumulativeElectricEnergyLog2" : {
       "epc" : "0xEC",
       "epcAtomic" : "0xED",
       "descriptions" : {
@@ -411,6 +441,18 @@
       },
       "writable" : false,
       "observable" : false,
+      "urlParameters" : {
+        "day" : {
+          "descriptions" : {
+            "ja" : "積算履歴収集日",
+            "en" : "Day for which the historical data of measured cumulative amounts of electric energy is to be retrieved"
+          },
+          "type" : "number",
+          "minimum" : 0,
+          "maximum" : 99,
+          "required" : false
+        }
+      },
       "schema" : {
         "type" : "object",
         "properties" : {
@@ -442,7 +484,8 @@
                     "type" : "number",
                     "unit" : "kWh",
                     "minimum" : 0,
-                    "maximum" : 99999999,
+                    "maximum" : 999999.99,
+                    "multipleOf" : 0.01,
                     "coefficient" : [ "0xD3", "0xE1" ]
                   }, {
                     "type" : "string",
@@ -462,7 +505,8 @@
                     "type" : "number",
                     "unit" : "kWh",
                     "minimum" : 0,
-                    "maximum" : 99999999,
+                    "maximum" : 999999.99,
+                    "multipleOf" : 0.01,
                     "coefficient" : [ "0xD3", "0xE1" ]
                   }, {
                     "type" : "string",

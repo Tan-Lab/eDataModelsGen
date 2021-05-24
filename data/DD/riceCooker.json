@@ -32,6 +32,10 @@
           },
           "edt" : "0x42"
         } ]
+      },
+      "note" : {
+        "ja" : "炊飯器用にプロパティ名を定義",
+        "en" : "This property is named for rice cooker."
       }
     },
     "reservationTime" : {
@@ -47,8 +51,8 @@
         "format" : "time"
       },
       "note" : {
-        "ja" : "秒の指定は無視される",
-        "en" : "number of seconds is ignored"
+        "ja" : "炊飯器用にプロパティ名を定義、秒の指定は無視される",
+        "en" : "This property is named for rice cooker. Number of seconds is ignored."
       }
     },
     "reservationRelativeTime" : {
@@ -64,8 +68,8 @@
         "format" : "time"
       },
       "note" : {
-        "ja" : "秒の指定は無視される",
-        "en" : "number of seconds is ignored"
+        "ja" : "炊飯器用にプロパティ名を定義、秒の指定は無視される",
+        "en" : "This property is named for rice cooker. Number of seconds is ignored."
       }
     },
     "coverStatus" : {

@@ -6,23 +6,7 @@
     "en" : "Household solar power generation"
   },
   "properties" : {
-    "id(MC)" : {
-      "epc" : "0x83",
-      "descriptions" : {
-        "ja" : "識別番号",
-        "en" : "Identification number"
-      },
-      "writable" : false,
-      "observable" : false,
-      "schema" : {
-        "type" : "string"
-      },
-      "note" : {
-        "ja" : "1バイト目は0xFE。2〜4バイト目はメーカコード。残りは機器毎のユニーク値",
-        "en" : "1st data is 0xFE. 2nd to 4th data is manufacture code. The rest should be unique to each device."
-      }
-    },
-    "currentTime(MC)" : {
+    "currentTime" : {
       "epc" : "0x97",
       "descriptions" : {
         "ja" : "現在時刻設定",
@@ -35,7 +19,7 @@
         "format" : "time"
       }
     },
-    "currentDate(MC)" : {
+    "currentDate" : {
       "epc" : "0x98",
       "descriptions" : {
         "ja" : "現在年月日設定",
@@ -105,18 +89,18 @@
         } ]
       }
     },
-    "outputPowerControlSchedule(MC)" : {
+    "outputPowerControlSchedule" : {
       "epc" : "0xB0",
       "descriptions" : {
         "ja" : "出力制御スケジュール",
-        "en" : "Output power control schedule"
+        "en" : "Output power controlling schedule"
       },
       "writable" : false,
       "observable" : false,
       "schema" : {
         "type" : "object",
         "properties" : {
-          "date" : {
+          "startDateAndTime" : {
             "oneOf" : [ {
               "type" : "string",
               "format" : "date-time"
@@ -136,6 +120,13 @@
               "ja" : "現在年月日",
               "en" : "Current date (YYYY: MM: DD)"
             }
+          },
+          "intervalTime" : {
+            "type" : "number",
+            "unit" : "minute",
+            "minimum" : 0,
+            "maximum" : 1.8E+3,
+            "multipleOf" : 30
           },
           "powerControlRatio" : {
             "type" : "array",
@@ -166,6 +157,10 @@
             }
           }
         }
+      },
+      "note" : {
+        "ja" : "本プロパティには、数値が30分毎であることを示すため「intervalTime」が追加されている",
+        "en" : "intervalTime is added to this property to indicate that the value is every 30 minutes."
       }
     },
     "updateScheduleDateAndTime" : {
@@ -245,10 +240,23 @@
       "writable" : false,
       "observable" : false,
       "schema" : {
-        "type" : "number",
-        "unit" : "W",
-        "minimum" : 0,
-        "maximum" : 65533
+        "oneOf" : [ {
+          "type" : "number",
+          "unit" : "W",
+          "minimum" : 0,
+          "maximum" : 65533
+        }, {
+          "type" : "string",
+          "enum" : [ "notSet" ],
+          "values" : [ {
+            "value" : "notSet",
+            "descriptions" : {
+              "ja" : "未設定",
+              "en" : "no setting"
+            },
+            "edt" : "0xFFFF"
+          } ]
+        } ]
       },
       "note" : {
         "ja" : "0xFFFFは未設定を示す",
@@ -349,10 +357,23 @@
       "writable" : false,
       "observable" : false,
       "schema" : {
-        "type" : "number",
-        "unit" : "W",
-        "minimum" : 0,
-        "maximum" : 65533
+        "oneOf" : [ {
+          "type" : "number",
+          "unit" : "W",
+          "minimum" : 0,
+          "maximum" : 65533
+        }, {
+          "type" : "string",
+          "enum" : [ "notSet" ],
+          "values" : [ {
+            "value" : "notSet",
+            "descriptions" : {
+              "ja" : "未設定",
+              "en" : "no setting"
+            },
+            "edt" : "0xFFFF"
+          } ]
+        } ]
       },
       "note" : {
         "ja" : "0xFFFFは未設定を示す",
@@ -512,7 +533,7 @@
         "type" : "number",
         "unit" : "kWh",
         "minimum" : 0,
-        "maximum" : 99999.999,
+        "maximum" : 999999.999,
         "multipleOf" : 0.001
       },
       "note" : {
@@ -574,10 +595,23 @@
       "writable" : true,
       "observable" : false,
       "schema" : {
-        "type" : "number",
-        "unit" : "W",
-        "minimum" : 0,
-        "maximum" : 65533
+        "oneOf" : [ {
+          "type" : "number",
+          "unit" : "W",
+          "minimum" : 0,
+          "maximum" : 65533
+        }, {
+          "type" : "string",
+          "enum" : [ "notSet" ],
+          "values" : [ {
+            "value" : "notSet",
+            "descriptions" : {
+              "ja" : "未設定",
+              "en" : "no setting"
+            },
+            "edt" : "0xFFFF"
+          } ]
+        } ]
       },
       "note" : {
         "ja" : "0xFFFFは未設定を示す",
@@ -607,7 +641,11 @@
         "ja" : "積算発電電力量リセット設定",
         "en" : "Resetting cumulative amount of electric energy generated"
       },
-      "schema" : { }
+      "schema" : { },
+      "note" : {
+        "ja" : "ECHONET LiteではSet only property",
+        "en" : "Access rule of the corresponding ECHONET Lite property is Set only"
+      }
     },
     "resetCumulativeElectricEnergySold" : {
       "epc" : "0xE4",
@@ -615,7 +653,11 @@
         "ja" : "積算売電電力量リセット設定",
         "en" : "Resetting cumulative amount of electric energy sold"
       },
-      "schema" : { }
+      "schema" : { },
+      "note" : {
+        "ja" : "ECHONET LiteではSet only property",
+        "en" : "Access rule of the corresponding ECHONET Lite property is Set only"
+      }
     }
   }
 }

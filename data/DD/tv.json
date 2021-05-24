@@ -6,38 +6,6 @@
     "en" : "Television"
   },
   "properties" : {
-    "operationStatus(MC)" : {
-      "epc" : "0x80",
-      "descriptions" : {
-        "ja" : "動作状態",
-        "en" : "Operation status"
-      },
-      "writable" : true,
-      "observable" : true,
-      "schema" : {
-        "type" : "string",
-        "enum" : [ "yes", "no" ],
-        "values" : [ {
-          "value" : "yes",
-          "descriptions" : {
-            "ja" : "ON",
-            "en" : "ON"
-          },
-          "edt" : "0x30"
-        }, {
-          "value" : "no",
-          "descriptions" : {
-            "ja" : "OFF",
-            "en" : "OFF"
-          },
-          "edt" : "0x31"
-        } ]
-      },
-      "note" : {
-        "ja" : "エネルギーサービスに対応する場合、Set搭載は必須",
-        "en" : "In the case where an 'energy service' is to be supported, the implementation of the SET function for this property is mandatory."
-      }
-    },
     "displayControlStatus" : {
       "epc" : "0xB0",
       "descriptions" : {
@@ -109,188 +77,148 @@
       "schema" : {
         "type" : "object",
         "properties" : {
-          "ansi_x3_4" : {
-            "descriptions" : {
-              "ja" : "ANSI X3.4",
-              "en" : "ANSI X3.4"
-            },
-            "type" : "string",
-            "enum" : [ "notImplemented", "implemented" ],
+          "ansi_x3_4_equipped" : {
+            "type" : "boolean",
             "values" : [ {
-              "value" : "notImplemented",
+              "value" : false,
               "descriptions" : {
                 "ja" : "非搭載",
                 "en" : "Not implemented"
               },
-              "edt" : "0"
+              "edt" : "0x00"
             }, {
-              "value" : "implemented",
+              "value" : true,
               "descriptions" : {
                 "ja" : "搭載",
                 "en" : "Implemented"
               },
-              "edt" : "1"
+              "edt" : "0x01"
             } ]
           },
-          "shift_jis" : {
-            "descriptions" : {
-              "ja" : "Shift-JIS",
-              "en" : "Shift-JIS"
-            },
-            "type" : "string",
-            "enum" : [ "notImplemented", "implemented" ],
+          "shift_jis_equipped" : {
+            "type" : "boolean",
             "values" : [ {
-              "value" : "notImplemented",
+              "value" : false,
               "descriptions" : {
                 "ja" : "非搭載",
                 "en" : "Not implemented"
               },
-              "edt" : "0"
+              "edt" : "0x00"
             }, {
-              "value" : "implemented",
+              "value" : true,
               "descriptions" : {
                 "ja" : "搭載",
                 "en" : "Implemented"
               },
-              "edt" : "1"
+              "edt" : "0x01"
             } ]
           },
-          "jis" : {
-            "descriptions" : {
-              "ja" : "JIS",
-              "en" : "JIS"
-            },
-            "type" : "string",
-            "enum" : [ "notImplemented", "implemented" ],
+          "jis_equipped" : {
+            "type" : "boolean",
             "values" : [ {
-              "value" : "notImplemented",
+              "value" : false,
               "descriptions" : {
                 "ja" : "非搭載",
                 "en" : "Not implemented"
               },
-              "edt" : "0"
+              "edt" : "0x00"
             }, {
-              "value" : "implemented",
+              "value" : true,
               "descriptions" : {
                 "ja" : "搭載",
                 "en" : "Implemented"
               },
-              "edt" : "1"
+              "edt" : "0x01"
             } ]
           },
-          "japanese_euc" : {
-            "descriptions" : {
-              "ja" : "日本語EUC",
-              "en" : "Japanese EUC"
-            },
-            "type" : "string",
-            "enum" : [ "notImplemented", "implemented" ],
+          "japanese_euc_equipped" : {
+            "type" : "boolean",
             "values" : [ {
-              "value" : "notImplemented",
+              "value" : false,
               "descriptions" : {
                 "ja" : "非搭載",
                 "en" : "Not implemented"
               },
-              "edt" : "0"
+              "edt" : "0x00"
             }, {
-              "value" : "implemented",
+              "value" : true,
               "descriptions" : {
                 "ja" : "搭載",
                 "en" : "Implemented"
               },
-              "edt" : "1"
+              "edt" : "0x01"
             } ]
           },
-          "ucs_4" : {
-            "descriptions" : {
-              "ja" : "UCS-4",
-              "en" : "UCS-4"
-            },
-            "type" : "string",
-            "enum" : [ "notImplemented", "implemented" ],
+          "ucs_4_equipped" : {
+            "type" : "boolean",
             "values" : [ {
-              "value" : "notImplemented",
+              "value" : false,
               "descriptions" : {
                 "ja" : "非搭載",
                 "en" : "Not implemented"
               },
-              "edt" : "0"
+              "edt" : "0x00"
             }, {
-              "value" : "implemented",
+              "value" : true,
               "descriptions" : {
                 "ja" : "搭載",
                 "en" : "Implemented"
               },
-              "edt" : "1"
+              "edt" : "0x01"
             } ]
           },
-          "ucs_2" : {
-            "descriptions" : {
-              "ja" : "UCS-2",
-              "en" : "UCS-2"
-            },
-            "type" : "string",
-            "enum" : [ "notImplemented", "implemented" ],
+          "ucs_2_equipped" : {
+            "type" : "boolean",
             "values" : [ {
-              "value" : "notImplemented",
+              "value" : false,
               "descriptions" : {
                 "ja" : "非搭載",
                 "en" : "Not implemented"
               },
-              "edt" : "0"
+              "edt" : "0x00"
             }, {
-              "value" : "implemented",
+              "value" : true,
               "descriptions" : {
                 "ja" : "搭載",
                 "en" : "Implemented"
               },
-              "edt" : "1"
+              "edt" : "0x01"
             } ]
           },
-          "latin_1" : {
-            "descriptions" : {
-              "ja" : "Latin-1",
-              "en" : "Latin-1"
-            },
-            "type" : "string",
-            "enum" : [ "notImplemented", "implemented" ],
+          "latin_1_equipped" : {
+            "type" : "boolean",
             "values" : [ {
-              "value" : "notImplemented",
+              "value" : false,
               "descriptions" : {
                 "ja" : "非搭載",
                 "en" : "Not implemented"
               },
-              "edt" : "0"
+              "edt" : "0x00"
             }, {
-              "value" : "implemented",
+              "value" : true,
               "descriptions" : {
                 "ja" : "搭載",
                 "en" : "Implemented"
               },
-              "edt" : "1"
+              "edt" : "0x01"
             } ]
           },
-          "utf_8" : {
-            "descriptions" : {
-              "ja" : "UTF-8",
-              "en" : "UTF-8"
-            },
-            "type" : "string",
-            "enum" : [ "notImplemented", "implemented" ],
+          "utf_8_equipped" : {
+            "type" : "boolean",
             "values" : [ {
-              "value" : "notImplemented",
+              "value" : false,
               "descriptions" : {
                 "ja" : "非搭載",
                 "en" : "Not implemented"
               },
-              "edt" : "0"
+              "edt" : "0x00"
             }, {
-              "value" : "implemented",
+              "value" : true,
               "descriptions" : {
                 "ja" : "搭載",
                 "en" : "Implemented"
               },
-              "edt" : "1"
+              "edt" : "0x01"
             } ]
           }
         }
@@ -314,203 +242,82 @@
           "length" : {
             "type" : "number",
             "minimum" : 0,
-            "maximum" : 255,
+            "maximum" : 244,
             "descriptions" : {
               "ja" : "伝達文字バイトコード列データ長の16 進換算値",
               "en" : "Byte code sequence data length of the character string to present to the user converted to the hexadecimal format."
             }
           },
           "characterCode" : {
-            "type" : "object",
-            "properties" : {
-              "ansi_x3_4" : {
-                "descriptions" : {
-                  "ja" : "ANSI X3.4",
-                  "en" : "ANSI X3.4"
-                },
-                "type" : "string",
-                "enum" : [ "notImplemented", "implemented" ],
-                "values" : [ {
-                  "value" : "notImplemented",
-                  "descriptions" : {
-                    "ja" : "非搭載",
-                    "en" : "Not implemented"
-                  },
-                  "edt" : "0"
-                }, {
-                  "value" : "implemented",
-                  "descriptions" : {
-                    "ja" : "搭載",
-                    "en" : "Implemented"
-                  },
-                  "edt" : "1"
-                } ]
+            "type" : "string",
+            "enum" : [ "ansi_x3_4", "shift_jis", "jis", "japanese_euc", "ucs_4", "ucs_2", "latin_1", "utf_8" ],
+            "values" : [ {
+              "value" : "ansi_x3_4",
+              "descriptions" : {
+                "ja" : "ANSI X3.4",
+                "en" : "ANSI X3.4"
               },
-              "shift_jis" : {
-                "descriptions" : {
-                  "ja" : "Shift-JIS",
-                  "en" : "Shift-JIS"
-                },
-                "type" : "string",
-                "enum" : [ "notImplemented", "implemented" ],
-                "values" : [ {
-                  "value" : "notImplemented",
-                  "descriptions" : {
-                    "ja" : "非搭載",
-                    "en" : "Not implemented"
-                  },
-                  "edt" : "0"
-                }, {
-                  "value" : "implemented",
-                  "descriptions" : {
-                    "ja" : "搭載",
-                    "en" : "Implemented"
-                  },
-                  "edt" : "1"
-                } ]
+              "edt" : "0x01"
+            }, {
+              "value" : "shift_jis",
+              "descriptions" : {
+                "ja" : "Shift-JIS",
+                "en" : "Shift-JIS"
               },
-              "jis" : {
-                "descriptions" : {
-                  "ja" : "JIS",
-                  "en" : "JIS"
-                },
-                "type" : "string",
-                "enum" : [ "notImplemented", "implemented" ],
-                "values" : [ {
-                  "value" : "notImplemented",
-                  "descriptions" : {
-                    "ja" : "非搭載",
-                    "en" : "Not implemented"
-                  },
-                  "edt" : "0"
-                }, {
-                  "value" : "implemented",
-                  "descriptions" : {
-                    "ja" : "搭載",
-                    "en" : "Implemented"
-                  },
-                  "edt" : "1"
-                } ]
+              "edt" : "0x02"
+            }, {
+              "value" : "jis",
+              "descriptions" : {
+                "ja" : "JIS",
+                "en" : "JIS"
               },
-              "japanese_euc" : {
-                "descriptions" : {
-                  "ja" : "日本語EUC",
-                  "en" : "Japanese EUC"
-                },
-                "type" : "string",
-                "enum" : [ "notImplemented", "implemented" ],
-                "values" : [ {
-                  "value" : "notImplemented",
-                  "descriptions" : {
-                    "ja" : "非搭載",
-                    "en" : "Not implemented"
-                  },
-                  "edt" : "0"
-                }, {
-                  "value" : "implemented",
-                  "descriptions" : {
-                    "ja" : "搭載",
-                    "en" : "Implemented"
-                  },
-                  "edt" : "1"
-                } ]
+              "edt" : "0x03"
+            }, {
+              "value" : "japanese_euc",
+              "descriptions" : {
+                "ja" : "日本語EUC",
+                "en" : "Japanese EUC"
               },
-              "ucs_4" : {
-                "descriptions" : {
-                  "ja" : "UCS-4",
-                  "en" : "UCS-4"
-                },
-                "type" : "string",
-                "enum" : [ "notImplemented", "implemented" ],
-                "values" : [ {
-                  "value" : "notImplemented",
-                  "descriptions" : {
-                    "ja" : "非搭載",
-                    "en" : "Not implemented"
-                  },
-                  "edt" : "0"
-                }, {
-                  "value" : "implemented",
-                  "descriptions" : {
-                    "ja" : "搭載",
-                    "en" : "Implemented"
-                  },
-                  "edt" : "1"
-                } ]
+              "edt" : "0x04"
+            }, {
+              "value" : "ucs_4",
+              "descriptions" : {
+                "ja" : "UCS-4",
+                "en" : "UCS-4"
               },
-              "ucs_2" : {
-                "descriptions" : {
-                  "ja" : "UCS-2",
-                  "en" : "UCS-2"
-                },
-                "type" : "string",
-                "enum" : [ "notImplemented", "implemented" ],
-                "values" : [ {
-                  "value" : "notImplemented",
-                  "descriptions" : {
-                    "ja" : "非搭載",
-                    "en" : "Not implemented"
-                  },
-                  "edt" : "0"
-                }, {
-                  "value" : "implemented",
-                  "descriptions" : {
-                    "ja" : "搭載",
-                    "en" : "Implemented"
-                  },
-                  "edt" : "1"
-                } ]
+              "edt" : "0x05"
+            }, {
+              "value" : "ucs_2",
+              "descriptions" : {
+                "ja" : "UCS-2",
+                "en" : "UCS-2"
               },
-              "latin_1" : {
-                "descriptions" : {
-                  "ja" : "Latin-1",
-                  "en" : "Latin-1"
-                },
-                "type" : "string",
-                "enum" : [ "notImplemented", "implemented" ],
-                "values" : [ {
-                  "value" : "notImplemented",
-                  "descriptions" : {
-                    "ja" : "非搭載",
-                    "en" : "Not implemented"
-                  },
-                  "edt" : "0"
-                }, {
-                  "value" : "implemented",
-                  "descriptions" : {
-                    "ja" : "搭載",
-                    "en" : "Implemented"
-                  },
-                  "edt" : "1"
-                } ]
+              "edt" : "0x06"
+            }, {
+              "value" : "latin_1",
+              "descriptions" : {
+                "ja" : "Latin-1",
+                "en" : "Latin-1"
               },
-              "utf_8" : {
-                "descriptions" : {
-                  "ja" : "UTF-8",
-                  "en" : "UTF-8"
-                },
-                "type" : "string",
-                "enum" : [ "notImplemented", "implemented" ],
-                "values" : [ {
-                  "value" : "notImplemented",
-                  "descriptions" : {
-                    "ja" : "非搭載",
-                    "en" : "Not implemented"
-                  },
-                  "edt" : "0"
-                }, {
-                  "value" : "implemented",
-                  "descriptions" : {
-                    "ja" : "搭載",
-                    "en" : "Implemented"
-                  },
-                  "edt" : "1"
-                } ]
-              }
-            },
+              "edt" : "0x07"
+            }, {
+              "value" : "utf_8",
+              "descriptions" : {
+                "ja" : "UTF-8",
+                "en" : "UTF-8"
+              },
+              "edt" : "0x08"
+            } ],
             "descriptions" : {
               "ja" : "使用文字コード",
               "en" : "Character code to use"
+            }
+          },
+          "characterString" : {
+            "type" : "string",
+            "descriptions" : {
+              "ja" : "Max244Byte 分の伝達文字列バイトコード列",
+              "en" : "Byte code sequence of the character string to present to the user (max.244 bytes)."
             }
           }
         }

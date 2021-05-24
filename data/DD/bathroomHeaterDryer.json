@@ -33,11 +33,11 @@
         } ]
       },
       "note" : {
-        "ja" : "Device Description用にboolean型として定義",
-        "en" : "Defined as boolean type for Device Description."
+        "ja" : "ONタイマ予約設定2が別途定義",
+        "en" : "On timer reservation setting 2 is defined for bathroom heater dryer."
       }
     },
-    "onTimer" : {
+    "timeOfOnTimer" : {
       "epc" : "0x91",
       "descriptions" : {
         "ja" : "ONタイマ時刻設定値",
@@ -51,10 +51,10 @@
       },
       "note" : {
         "ja" : "秒の指定は無視される",
-        "en" : "Number of seconds is ignored"
+        "en" : "Number of seconds is ignored."
       }
     },
-    "onRelativeTimer" : {
+    "timeOfOffTimer" : {
       "epc" : "0x92",
       "descriptions" : {
         "ja" : "ONタイマ相対時間設定値",
@@ -68,7 +68,7 @@
       },
       "note" : {
         "ja" : "秒の指定は無視される",
-        "en" : "Number of seconds is ignored"
+        "en" : "Number of seconds is ignored."
       }
     },
     "offTimerReservation" : {
@@ -96,13 +96,9 @@
           },
           "edt" : "0x42"
         } ]
-      },
-      "note" : {
-        "ja" : "Device Description用にboolean型として定義",
-        "en" : "Defined as boolean type for Device Description."
       }
     },
-    "offTimer" : {
+    "relativeTimeOfOnTimer" : {
       "epc" : "0x95",
       "descriptions" : {
         "ja" : "OFFタイマ時刻設定値",
@@ -116,10 +112,10 @@
       },
       "note" : {
         "ja" : "秒の指定は無視される",
-        "en" : "Number of seconds is ignored"
+        "en" : "Number of seconds is ignored."
       }
     },
-    "offRelativeTimer" : {
+    "relativeTimeOfOffTimer" : {
       "epc" : "0x96",
       "descriptions" : {
         "ja" : "OFFタイマ相対時間設定値",
@@ -133,7 +129,7 @@
       },
       "note" : {
         "ja" : "秒の指定は無視される",
-        "en" : "Number of seconds is ignored"
+        "en" : "Number of seconds is ignored."
       }
     },
     "operationSetting" : {
@@ -561,10 +557,6 @@
           },
           "edt" : "0x42"
         } ]
-      },
-      "note" : {
-        "ja" : "Device Description用にboolean型として定義",
-        "en" : "Defined as boolean type for Device Description."
       }
     },
     "onTimerReservation2" : {

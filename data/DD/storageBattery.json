@@ -1021,12 +1021,20 @@
           "type" : "number",
           "unit" : "Wh",
           "minimum" : 1,
-          "maximum" : 999999999
+          "maximum" : 999999999,
+          "descriptions" : {
+            "ja" : "充電時 (プラス値)",
+            "en" : "During charging (positive value)"
+          }
         }, {
           "type" : "number",
           "unit" : "Wh",
           "minimum" : -999999999,
-          "maximum" : -1
+          "maximum" : -1,
+          "descriptions" : {
+            "ja" : "放電時 (マイナス値)",
+            "en" : "During discharging (negative value)"
+          }
         } ]
       }
     },
@@ -1044,12 +1052,20 @@
           "unit" : "Ah",
           "minimum" : 0.1,
           "maximum" : 3276.6,
+          "descriptions" : {
+            "ja" : "充電時 (プラス値)",
+            "en" : "During charging (positive value)"
+          },
           "multipleOf" : 0.1
         }, {
           "type" : "number",
           "unit" : "Ah",
           "minimum" : -3276.7,
           "maximum" : -0.1,
+          "descriptions" : {
+            "ja" : "放電時 (マイナス値)",
+            "en" : "During discharging (negative value)"
+          },
           "multipleOf" : 0.1
         } ]
       }
@@ -1125,7 +1141,7 @@
       "observable" : false,
       "schema" : {
         "type" : "string",
-        "enum" : [ "unknown", "lead", "niMh", "niCd", "lib", "zinc", "alkaline" ],
+        "enum" : [ "unknown", "lead", "ni_mh", "ni_cd", "lib", "zinc", "alkaline" ],
         "values" : [ {
           "value" : "unknown",
           "descriptions" : {
@@ -1141,14 +1157,14 @@
           },
           "edt" : "0x01"
         }, {
-          "value" : "niMh",
+          "value" : "ni_mh",
           "descriptions" : {
             "ja" : "ニッケル水素",
             "en" : "Nickel-metal hydride"
           },
           "edt" : "0x02"
         }, {
-          "value" : "niCd",
+          "value" : "ni_cd",
           "descriptions" : {
             "ja" : "ニッケルカドミウム",
             "en" : "Nickel-cadmium"
