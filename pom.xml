@@ -72,7 +72,6 @@
 
   </dependencies>
   <build>
-  
         <plugins>
             <!-- Specify to the compiler we want Java 1.8 -->
             <plugin>

@@ -104,7 +104,7 @@ public class DDExporter {
 			if(!definition_File_Name.equals("")) {
 				dataTypes = FilesParser.definedDataTypeFromMRA(definition_File_Name);
 			}else {
-				dataTypes = FilesParser.definedDataTypeFromMRA(default_definition_File_Name);
+				dataTypes = FilesParser.definedDataTypeDefault(default_definition_File_Name);
 			}
 			elDevices = FilesParser.deviceDefinitionFromFile(aDevice_File_Name, dataTypes);
 		} else {
@@ -118,9 +118,9 @@ public class DDExporter {
 		for(String fileName: inputFiles) {
 			if(fileName.toLowerCase().contains("mra.json".toLowerCase())) {
 				full_MRA_File_Name = fileName;
-			} else if(fileName.toLowerCase().contains("mcrules.json")) {
+			} else if(fileName.toLowerCase().contains("mcrules.json") || fileName.toLowerCase().contains("mcrule.json")) {
 				MC_Rules_File_Name = fileName;
-			} else if(fileName.toLowerCase().contains("definition.json".toLowerCase())) {
+			} else if(fileName.toLowerCase().contains("definition.json".toLowerCase()) || fileName.toLowerCase().contains("definitions.json".toLowerCase())) {
 				definition_File_Name = fileName;
 			} else {
 				aDevice_File_Name = fileName;

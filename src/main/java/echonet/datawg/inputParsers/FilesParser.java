@@ -67,6 +67,31 @@ public class FilesParser {
 		
 		return rs;
 	}
+	public static List<DataType> definedDataTypeDefault(String fileName) {
+		ClassLoader classLoader = new FilesParser().getClass().getClassLoader();
+		BufferedReader reader;
+		JSONObject obj;
+		InputStream in = classLoader.getResourceAsStream(fileName); 
+		JSONParser parser = new JSONParser();
+		List<DataType> rs = null;
+		try {
+			reader = new BufferedReader(new InputStreamReader(in, "UTF-8"));
+			// load JSON from file
+			obj = (JSONObject) parser.parse(reader);
+			// load datatype definitions
+			if(obj.get(Constants.KEYWORD_DEFINITIONS) != null) 
+				rs = definedDataTypeFromJSON((JSONObject) obj.get(Constants.KEYWORD_DEFINITIONS));
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return rs;
+	}
 	public static List<ECHONETLiteDevice> deviceDefinitionFromMRA(String fileName, List<DataType> preDefinedDataTypes){
 		BufferedReader reader;
 		JSONObject obj;
