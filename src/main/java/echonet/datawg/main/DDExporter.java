@@ -80,9 +80,8 @@ public class DDExporter {
 				} else {
 					ddHandler = new DDGenerator(elDevices);
 				}
-				File outDir = Paths.get(outputDir).toFile();
-				ddHandler.toDDFile(outDir);
-				System.out.println("DD exported!! Check " + outDir.getAbsolutePath() + " directory for results");
+				ddHandler.toDDFile(outputDir);
+				System.out.println("DD exported!! Check " + outputDir + " directory for results");
 			} else {
 				System.out.println ("Can not load device object!!");
 				System.exit(1);

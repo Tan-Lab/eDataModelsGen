@@ -117,6 +117,25 @@ public class DDGenerator {
 			System.out.println("Nothing to show");
 		}
 	}
+	public void toDDFile(String filePath) {
+		if(elDevices.size() > 0) {
+			for(ECHONETLiteDevice dev: elDevices) {
+				try (Writer file = new OutputStreamWriter(
+									new FileOutputStream( filePath + File.separator + dev.getShortName()+".json"),
+									StandardCharsets.UTF_8)) { 
+					if(dev.toDDWebAPIJSON() != null) {
+						ObjectMapper mapper = new ObjectMapper();
+						file.write(mapper.writerWithDefaultPrettyPrinter().writeValueAsString(dev.toDDWebAPIJSON()));
+					}
+						
+		        } catch (IOException e) {
+		            e.printStackTrace();
+		        }
+			}
+		}else {
+			System.out.println("Nothing to show");
+		}
+	}
 
 	private List<DataType> predefinedDataTypes;
 	private List<ECHONETLiteDevice> elDevices;
