@@ -6,6 +6,7 @@ import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -79,8 +80,9 @@ public class DDExporter {
 				} else {
 					ddHandler = new DDGenerator(elDevices);
 				}
-				ddHandler.toDDFile(Paths.get(outputDir).toFile());
-				System.out.println("DD exported!! Check " + outputDir + " directory for results");
+				File outDir = Paths.get(outputDir).toFile();
+				ddHandler.toDDFile(outDir);
+				System.out.println("DD exported!! Check " + outDir.getAbsolutePath() + " directory for results");
 			} else {
 				System.out.println ("Can not load device object!!");
 				System.exit(1);
@@ -117,9 +119,9 @@ public class DDExporter {
 		for(String fileName: inputFiles) {
 			if(fileName.toLowerCase().contains("mra.json".toLowerCase())) {
 				full_MRA_File_Name = fileName;
-			} else if(fileName.toLowerCase().contains("MCRules.json".toLowerCase())) {
+			} else if(fileName.toLowerCase().contains("mcrules.json")) {
 				MC_Rules_File_Name = fileName;
-			} else if(fileName.toLowerCase().contains("definitions.json".toLowerCase())) {
+			} else if(fileName.toLowerCase().contains("definition.json".toLowerCase())) {
 				definition_File_Name = fileName;
 			} else {
 				aDevice_File_Name = fileName;

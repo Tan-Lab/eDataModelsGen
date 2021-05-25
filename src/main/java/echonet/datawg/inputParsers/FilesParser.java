@@ -3,8 +3,8 @@ package echonet.datawg.inputParsers;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -45,13 +45,12 @@ public class FilesParser {
 		return dataTypes;
 	}
 	public static List<DataType> definedDataTypeFromMRA(String fileName) {
-		ClassLoader classLoader = FilesParser.class.getClassLoader();
-		InputStreamReader reader;
+		BufferedReader reader;
 		JSONObject obj;
 		JSONParser parser = new JSONParser();
 		List<DataType> rs = null;
 		try {
-			reader = new InputStreamReader(classLoader.getResourceAsStream(fileName),StandardCharsets.UTF_8);
+			reader = new BufferedReader(new InputStreamReader(new FileInputStream(fileName), "UTF-8"));
 			// load JSON from file
 			obj = (JSONObject) parser.parse(reader);
 			// load datatype definitions
@@ -72,9 +71,10 @@ public class FilesParser {
 		BufferedReader reader;
 		JSONObject obj;
 		JSONParser parser = new JSONParser();
+		InputStream in = FilesParser.class.getResourceAsStream(fileName); 
 		List<ECHONETLiteDevice> rs = null;
 		try {
-			reader = new BufferedReader(new InputStreamReader(new FileInputStream(fileName), "UTF-8"));
+			reader = new BufferedReader(new InputStreamReader(in, "UTF-8"));
 			obj = (JSONObject) parser.parse(reader);
 			if(obj.get(Constants.KEYWORD_DEVICES) != null) {
 				rs = new DeviceDefinitionParser(preDefinedDataTypes).getAllDeviceDefinition((JSONObject) obj.get(Constants.KEYWORD_DEVICES));
@@ -101,7 +101,8 @@ public class FilesParser {
 	}
 	public static List<ECHONETLiteDevice> deviceDefinitionFromFile(String fileName, List<DataType> preDefinedDataTypes){
 		BufferedReader reader;
-		JSONObject obj;		JSONParser parser = new JSONParser();
+		JSONObject obj;		
+		JSONParser parser = new JSONParser();
 		List<ECHONETLiteDevice> rs = new ArrayList<ECHONETLiteDevice>();
 		try {
 			reader = new BufferedReader(new InputStreamReader(new FileInputStream(fileName), "UTF-8"));
@@ -109,7 +110,8 @@ public class FilesParser {
 			Iterator<?> keys = obj.keySet().iterator();
 			while(keys.hasNext()) {
 				String key = (String) keys.next();
-				ECHONETLiteDevice device = new DeviceDefinitionParser(preDefinedDataTypes).toDeviceDefinitions(key, (JSONObject)obj.get(key));
+				JSONObject jsonObj = (JSONObject)obj.get(key);
+				ECHONETLiteDevice device = new DeviceDefinitionParser(preDefinedDataTypes).toDeviceDefinitions(key,jsonObj);
 				if(device != null)
 					rs.add(device);
 			}

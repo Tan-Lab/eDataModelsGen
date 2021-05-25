@@ -86,19 +86,29 @@
             </plugin>
 
             <!-- Tell the JAR plugin which class is the main class -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>3.0.2</version>
-                <configuration>
-                    <archive>
-                        <manifest>
-                            <mainClass>echonet.datawg.main.DDExporter</mainClass>
-                        </manifest>
-                    </archive>
-                
-                </configuration>
-            </plugin>
+                      <plugin>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <version>2.4</version>
+            <configuration>
+                <descriptorRefs>
+                    <descriptorRef>jar-with-dependencies</descriptorRef>
+                </descriptorRefs>
+                <archive>
+                    <manifest>
+                        <mainClass>echonet.datawg.main.DDExporter</mainClass>
+                    </manifest>
+                </archive>
+            </configuration>
+            <executions>
+                <execution>
+                    <id>make-assembly</id>
+                    <phase>package</phase>
+                    <goals>
+                        <goal>single</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
 
             <!-- Embed dependencies inside the final JAR -->
             <plugin>
@@ -117,6 +127,8 @@
                     <finalName>${project.artifactId}-${project.version}</finalName>
                 </configuration>
             </plugin>
+
+            
         </plugins>
     </build>
 </project>
