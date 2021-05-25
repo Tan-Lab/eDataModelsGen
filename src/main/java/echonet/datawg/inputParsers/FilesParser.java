@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -44,13 +45,14 @@ public class FilesParser {
 		return dataTypes;
 	}
 	public static List<DataType> definedDataTypeFromMRA(String fileName) {
-		BufferedReader reader;
+		ClassLoader classLoader = FilesParser.class.getClassLoader();
+		InputStreamReader reader;
 		JSONObject obj;
 		JSONParser parser = new JSONParser();
 		List<DataType> rs = null;
 		try {
+			reader = new InputStreamReader(classLoader.getResourceAsStream(fileName),StandardCharsets.UTF_8);
 			// load JSON from file
-			reader = new BufferedReader(new InputStreamReader(new FileInputStream(fileName), "UTF-8"));
 			obj = (JSONObject) parser.parse(reader);
 			// load datatype definitions
 			if(obj.get(Constants.KEYWORD_DEFINITIONS) != null) 

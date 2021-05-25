@@ -63,6 +63,8 @@ public class DDExporter {
 		elDevices = new ArrayList<ECHONETLiteDevice>();
 		outputDir = "data" + File.separator + "DD";
 		
+		
+		
 		getCLIParams(args);
 		fileTypeFromNames();
 		loadFileContents();
@@ -85,20 +87,11 @@ public class DDExporter {
 			}
 		}
 		
-		//String inputFile = "0427mra.json";
-		//System.out.println("Converting DD from " + inputFile);
-		//DDGenerator ddExporter = new DDGenerator(inputFile);
-		//ddExporter.toDDFile(Path.of("data" + File.separator + "DD").toFile());
-		//System.out.println("Finished!");
-		//Load Inputs
-
-
 	}
 	public static void loadFileContents() {
 		
 		String default_definition_File_Name = "0427mraDefinition.json";
 		
-
 		if(!full_MRA_File_Name.equals("")) {
 			if(!definition_File_Name.equals("")) {
 				dataTypes = FilesParser.definedDataTypeFromMRA(definition_File_Name);
