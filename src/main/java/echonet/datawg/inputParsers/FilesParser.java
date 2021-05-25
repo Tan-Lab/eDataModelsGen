@@ -70,11 +70,10 @@ public class FilesParser {
 	public static List<ECHONETLiteDevice> deviceDefinitionFromMRA(String fileName, List<DataType> preDefinedDataTypes){
 		BufferedReader reader;
 		JSONObject obj;
-		JSONParser parser = new JSONParser();
-		InputStream in = FilesParser.class.getResourceAsStream(fileName); 
+		JSONParser parser = new JSONParser(); 
 		List<ECHONETLiteDevice> rs = null;
 		try {
-			reader = new BufferedReader(new InputStreamReader(in, "UTF-8"));
+			reader = new BufferedReader(new InputStreamReader(new FileInputStream(fileName), "UTF-8"));
 			obj = (JSONObject) parser.parse(reader);
 			if(obj.get(Constants.KEYWORD_DEVICES) != null) {
 				rs = new DeviceDefinitionParser(preDefinedDataTypes).getAllDeviceDefinition((JSONObject) obj.get(Constants.KEYWORD_DEVICES));
