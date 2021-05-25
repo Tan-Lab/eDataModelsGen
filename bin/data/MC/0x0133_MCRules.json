@@ -1,0 +1,28 @@
+{
+  "0x0133" : {
+    "0xA0" : {
+      "data" : {
+        "oneOf" : [ {
+          "multipleOf" : 1,
+          "maximum" : 8,
+          "type" : "number",
+          "minimum" : 1
+        }, {
+          "size" : 1,
+          "type" : "state",
+          "enum" : [ {
+            "edt" : "0x41",
+            "name" : "auto",
+            "descriptions" : {
+              "ja" : "換気風量自動状態",
+              "en" : "Ventilation air flow rate auto status"
+            }
+          } ]
+        } ]
+      }
+    },
+    "0x80" : {
+      "action" : "DEL"
+    }
+  }
+}

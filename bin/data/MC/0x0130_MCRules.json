@@ -1,0 +1,60 @@
+{
+  "0x0130" : {
+    "0x8F" : {
+      "action" : "DEL"
+    },
+    "0x96" : {
+      "data" : {
+        "multipleOf" : 1,
+        "unit" : "minute",
+        "maximum" : 15359,
+        "type" : "number",
+        "minimum" : 0
+      }
+    },
+    "0x94" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "timeBased",
+          "element" : {
+            "type" : "boolean"
+          }
+        }, {
+          "shortName" : "relatimeTimeBased",
+          "element" : {
+            "type" : "boolean"
+          }
+        } ]
+      }
+    },
+    "0x92" : {
+      "data" : {
+        "multipleOf" : 1,
+        "unit" : "minute",
+        "maximum" : 15359,
+        "type" : "number",
+        "minimum" : 0
+      }
+    },
+    "0x80" : {
+      "action" : "DEL"
+    },
+    "0x90" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "timeBased",
+          "element" : {
+            "type" : "boolean"
+          }
+        }, {
+          "shortName" : "relatimeTimeBased",
+          "element" : {
+            "type" : "boolean"
+          }
+        } ]
+      }
+    }
+  }
+}

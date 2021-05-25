@@ -1,0 +1,120 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>echonet</groupId>
+  <artifactId>datawg</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>AppendixLoader</name>
+  <description>An application</description>
+  <repositories>
+  <repository>
+    <id>jitpack.io</id>
+    <url>https://jitpack.io</url>
+  </repository>
+</repositories>
+  <dependencies>
+<dependency>
+    <groupId>com.fasterxml.jackson.dataformat</groupId>
+    <artifactId>jackson-dataformat-yaml</artifactId>
+    <version>2.11.2</version>
+</dependency>
+  <dependency>
+  			<groupId>commons-cli</groupId>
+  			<artifactId>commons-cli</artifactId>
+ 			 <version>1.4</version>
+		</dependency>
+  	<dependency>
+  		<groupId>com.googlecode.json-simple</groupId>
+  		<artifactId>json-simple</artifactId>
+  		<version>1.1.1</version>
+  	</dependency>
+  	<dependency>
+    <groupId>org.apache.camel</groupId>
+    <artifactId>json-simple-ordered</artifactId>
+    <version>2.25.2</version>
+</dependency>
+  	<dependency>
+  		<groupId>com.github.saasquatch</groupId>
+  		<artifactId>json-schema-inferrer</artifactId>
+  		<version>0.1.1</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.apache.commons</groupId>
+	    <artifactId>commons-text</artifactId>
+	    <version>1.8</version>
+	</dependency>
+	
+	
+	<dependency>
+    	<groupId>com.github.owlcs</groupId>
+    	<artifactId>ontapi</artifactId>
+    	<version>2.0.0</version>
+	</dependency> 
+	<dependency>
+    <groupId>commons-codec</groupId>
+    <artifactId>commons-codec</artifactId>
+    <version>1.15</version>
+</dependency>
+<dependency>
+	    <groupId>com.github.jsonld-java</groupId>
+	    <artifactId>jsonld-java</artifactId>
+	    <version>0.13.1</version>
+	</dependency>
+	<dependency>
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-databind</artifactId>
+    <version>2.11.2</version>
+</dependency>
+  <dependency>
+    <groupId>org.openjfx</groupId>
+    <artifactId>javafx-controls</artifactId>
+    <version>15.0.1</version>
+  </dependency>
+
+  </dependencies>
+  <build>
+        <plugins>
+            <!-- Specify to the compiler we want Java 1.8 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.7.0</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+
+            <!-- Tell the JAR plugin which class is the main class -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.0.2</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>echonet.datawg.main.DDExporter</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+
+            <!-- Embed dependencies inside the final JAR -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.1.0</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <finalName>${project.artifactId}-${project.version}</finalName>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

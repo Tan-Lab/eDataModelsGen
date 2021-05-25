@@ -1,0 +1,536 @@
+{
+  "0x028A" : {
+    "0xC2" : {
+      "data" : {
+        "multipleOf" : 0.1,
+        "unit" : "kW",
+        "maximum" : 99999999,
+        "overflowCode" : false,
+        "type" : "number",
+        "underflowCode" : false,
+        "minimum" : 0
+      }
+    },
+    "0xCB" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "dateAndTime",
+          "elementName" : {
+            "ja" : "計測日時",
+            "en" : "Date and time of measurement"
+          },
+          "element" : {
+            "type" : "date-time"
+          }
+        }, {
+          "shortName" : "reactiveElectricEnergy",
+          "elementName" : {
+            "ja" : "積算無効電力量 (遅れ)",
+            "en" : "Cumulative amount of reactive electric power consumption (lag)"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "kvarh",
+              "coefficient" : [ "0xCD", "0xD3", "0xD4" ],
+              "maximum" : 99999999,
+              "overflowCode" : false,
+              "type" : "number",
+              "underflowCode" : false,
+              "minimum" : 0
+            }, {
+              "size" : 4,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0xFFFFFFFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        } ]
+      }
+    },
+    "0xE4" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "dateAndTime",
+          "elementName" : {
+            "ja" : "計測日時",
+            "en" : "Date and time of measurement"
+          },
+          "element" : {
+            "type" : "date-time"
+          }
+        }, {
+          "shortName" : "electricEnergy",
+          "elementName" : {
+            "ja" : "積算有効電力量",
+            "en" : "Cumulative amount of active electric energy"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "kWh",
+              "coefficient" : [ "0xD3", "0xD4", "0xE6" ],
+              "maximum" : 99999999,
+              "overflowCode" : false,
+              "type" : "number",
+              "underflowCode" : false,
+              "minimum" : 0
+            }, {
+              "size" : 4,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0xFFFFFFFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        } ]
+      }
+    },
+    "0xC1" : {
+      "data" : {
+        "oneOf" : [ {
+          "multipleOf" : 0.1,
+          "unit" : "kW",
+          "maximum" : 99999999,
+          "type" : "number",
+          "minimum" : 0
+        }, {
+          "size" : 4,
+          "type" : "state",
+          "enum" : [ {
+            "edt" : "0xFFFFFFFE",
+            "name" : "noData",
+            "readOnly" : true,
+            "descriptions" : {
+              "ja" : "No data",
+              "en" : "No data"
+            }
+          } ]
+        } ]
+      }
+    },
+    "0xCA" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "dateAndTime",
+          "elementName" : {
+            "ja" : "計測日時",
+            "en" : "Date and time of measurement"
+          },
+          "element" : {
+            "type" : "date-time"
+          }
+        }, {
+          "shortName" : "reactiveElectricEnergy",
+          "elementName" : {
+            "ja" : "積算無効電力量 (遅れ)",
+            "en" : "Cumulative amount of reactive electric power consumption (lag)"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "kvarh",
+              "coefficient" : [ "0xCD", "0xD3", "0xD4" ],
+              "maximum" : 99999999,
+              "overflowCode" : false,
+              "type" : "number",
+              "underflowCode" : false,
+              "minimum" : 0
+            }, {
+              "size" : 4,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0xFFFFFFFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        } ]
+      }
+    },
+    "0xE3" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "dateAndTime",
+          "elementName" : {
+            "ja" : "計測日時",
+            "en" : "Date and time of measurement"
+          },
+          "element" : {
+            "type" : "date-time"
+          }
+        }, {
+          "shortName" : "activeElectricEnergy",
+          "elementName" : {
+            "ja" : "積算有効電力量",
+            "en" : "Cumulative amount of active electric energy"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "kWh",
+              "coefficient" : [ "0xD3", "0xD4", "0xE6" ],
+              "maximum" : 99999999,
+              "overflowCode" : false,
+              "type" : "number",
+              "underflowCode" : false,
+              "minimum" : 0
+            }, {
+              "size" : 4,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0xFFFFFFFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        } ]
+      }
+    },
+    "0xE2" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "dateAndTime",
+          "elementName" : {
+            "ja" : "計測日時",
+            "en" : "Date and time of measurement"
+          },
+          "element" : {
+            "type" : "date-time"
+          }
+        }, {
+          "shortName" : "activeElectricEnergy",
+          "elementName" : {
+            "ja" : "積算有効電力量",
+            "en" : "Cumulative amount of active electric energy"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "kWh",
+              "coefficient" : [ "0xD3", "0xD4", "0xE6" ],
+              "maximum" : 99999999,
+              "overflowCode" : false,
+              "type" : "number",
+              "underflowCode" : false,
+              "minimum" : 0
+            }, {
+              "size" : 4,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0xFFFFFFFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        } ]
+      }
+    },
+    "0xC6" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "day",
+          "elementName" : {
+            "ja" : "積算履歴収集日",
+            "en" : "Day for which the historical data of measured cumulative amounts of electric energy is to be retrieved"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "$ref" : "#/definitions/number_0-99_u16"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x00FF",
+                "name" : "defaultValue",
+                "descriptions" : {
+                  "ja" : "初期値",
+                  "en" : "Default value"
+                }
+              } ]
+            } ]
+          }
+        }, {
+          "shortName" : "electricPower",
+          "elementName" : {
+            "ja" : "需要電力",
+            "en" : "Electric power demand"
+          },
+          "element" : {
+            "minItems" : 48,
+            "maxItems" : 48,
+            "itemSize" : 4,
+            "type" : "array",
+            "items" : {
+              "oneOf" : [ {
+                "multipleOf" : 0.1,
+                "unit" : "kW",
+                "maximum" : 99999999,
+                "type" : "number",
+                "minimum" : 0
+              }, {
+                "size" : 4,
+                "type" : "state",
+                "enum" : [ {
+                  "edt" : "0xFFFFFFFE",
+                  "name" : "noData",
+                  "readOnly" : true,
+                  "descriptions" : {
+                    "ja" : "No data",
+                    "en" : "No data"
+                  }
+                } ]
+              } ]
+            }
+          }
+        } ]
+      },
+      "urlParameters" : {
+        "day" : {
+          "data" : {
+            "maximum" : 99,
+            "type" : "number",
+            "minimum" : 0
+          },
+          "descriptions" : {
+            "ja" : "積算履歴収集日",
+            "en" : "Day for which the historical data of measured cumulative amounts of electric energy is to be retrieved"
+          },
+          "required" : false
+        }
+      }
+    },
+    "0xCE" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "day",
+          "elementName" : {
+            "ja" : "積算履歴収集日",
+            "en" : "Day for which the historical data of measured cumulative amounts of electric energy is to be retrieved"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "$ref" : "#/definitions/number_0-99_u16"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x00FF",
+                "name" : "defaultValue",
+                "descriptions" : {
+                  "ja" : "初期値",
+                  "en" : "Default value"
+                }
+              } ]
+            } ]
+          }
+        }, {
+          "shortName" : "reactiveElectricEnergy",
+          "elementName" : {
+            "ja" : "積算無効電力量 (遅れ)",
+            "en" : "Measurement data of cumulative amount of reactive electric power consumption (lag)"
+          },
+          "element" : {
+            "minItems" : 48,
+            "maxItems" : 48,
+            "itemSize" : 4,
+            "type" : "array",
+            "items" : {
+              "oneOf" : [ {
+                "multipleOf" : 0.1,
+                "unit" : "kvarh",
+                "coefficient" : [ "0xCD", "0xD3", "0xD4" ],
+                "maximum" : 99999999,
+                "overflowCode" : false,
+                "type" : "number",
+                "underflowCode" : false,
+                "minimum" : 0
+              }, {
+                "size" : 4,
+                "type" : "state",
+                "enum" : [ {
+                  "edt" : "0xFFFFFFFE",
+                  "name" : "noData",
+                  "readOnly" : true,
+                  "descriptions" : {
+                    "ja" : "No data",
+                    "en" : "No data"
+                  }
+                } ]
+              } ]
+            }
+          }
+        } ]
+      },
+      "urlParameters" : {
+        "day" : {
+          "data" : {
+            "maximum" : 99,
+            "type" : "number",
+            "minimum" : 0
+          },
+          "descriptions" : {
+            "ja" : "積算履歴収集日",
+            "en" : "Day for which the historical data of measured cumulative amounts of electric energy is to be retrieved"
+          },
+          "required" : false
+        }
+      }
+    },
+    "0xE7" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "day",
+          "elementName" : {
+            "ja" : "積算履歴収集日",
+            "en" : "Day for which the historical data of measured cumulative amounts of electric energy is to be retrieved"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "$ref" : "#/definitions/number_0-99_u16"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x00FF",
+                "name" : "defaultValue",
+                "descriptions" : {
+                  "ja" : "初期値",
+                  "en" : "Default value"
+                }
+              } ]
+            } ]
+          }
+        }, {
+          "shortName" : "activeElectricEnergy",
+          "elementName" : {
+            "ja" : "積算有効電力量",
+            "en" : "Measured cumulative amount of active electric energy"
+          },
+          "element" : {
+            "minItems" : 48,
+            "maxItems" : 48,
+            "itemSize" : 4,
+            "type" : "array",
+            "items" : {
+              "oneOf" : [ {
+                "multipleOf" : 0.1,
+                "unit" : "kWh",
+                "coefficient" : [ "0xD3", "0xD4", "0xE6" ],
+                "maximum" : 99999999,
+                "overflowCode" : false,
+                "type" : "number",
+                "underflowCode" : false,
+                "minimum" : 0
+              }, {
+                "size" : 4,
+                "type" : "state",
+                "enum" : [ {
+                  "edt" : "0xFFFFFFFE",
+                  "name" : "noData",
+                  "readOnly" : true,
+                  "descriptions" : {
+                    "ja" : "No data",
+                    "en" : "No data"
+                  }
+                } ]
+              } ]
+            }
+          }
+        } ]
+      },
+      "urlParameters" : {
+        "day" : {
+          "data" : {
+            "maximum" : 99,
+            "type" : "number",
+            "minimum" : 0
+          },
+          "descriptions" : {
+            "ja" : "積算履歴収集日",
+            "en" : "Day for which the historical data of measured cumulative amounts of electric energy is to be retrieved"
+          },
+          "required" : false
+        }
+      }
+    },
+    "0xC3" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "dateAndTime",
+          "elementName" : {
+            "ja" : "計測日時",
+            "en" : "Date and time of measurement"
+          },
+          "element" : {
+            "type" : "date-time"
+          }
+        }, {
+          "shortName" : "electricPower",
+          "elementName" : {
+            "ja" : "需要電力",
+            "en" : "Electric Power demand"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "kW",
+              "maximum" : 99999999,
+              "type" : "number",
+              "minimum" : 0
+            }, {
+              "size" : 4,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0xFFFFFFFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        } ]
+      }
+    }
+  }
+}

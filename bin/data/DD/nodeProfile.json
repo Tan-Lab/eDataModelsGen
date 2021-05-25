@@ -1,0 +1,249 @@
+{
+  "deviceType" : "nodeProfile",
+  "eoj" : "superClass",
+  "descriptions" : {
+    "ja" : "ノードプロファイル",
+    "en" : "Node profile"
+  },
+  "properties" : {
+    "operatingStatus" : {
+      "epc" : "0x80",
+      "descriptions" : {
+        "ja" : "動作状態",
+        "en" : "Operating status"
+      },
+      "writable" : false,
+      "observable" : true,
+      "schema" : {
+        "type" : "boolean",
+        "values" : [ {
+          "value" : true,
+          "descriptions" : {
+            "ja" : "起動中",
+            "en" : "Booting"
+          },
+          "edt" : "0x30"
+        }, {
+          "value" : false,
+          "descriptions" : {
+            "ja" : "未起動中",
+            "en" : "not booting"
+          },
+          "edt" : "0x31"
+        } ]
+      }
+    },
+    "version" : {
+      "epc" : "0x82",
+      "descriptions" : {
+        "ja" : "Version情報",
+        "en" : "Version information"
+      },
+      "writable" : false,
+      "observable" : false,
+      "schema" : {
+        "type" : "string"
+      },
+      "note" : {
+        "ja" : "1バイト目:メジャーバージョン。2バイト目:マイナーバージョン。3バイト目:電文形式をbitmapで示す。4バイト目:0x00",
+        "en" : "1st byte: major version, 2nd byte: minor version, 3rd data: bitmap of data format, 4th byte: 0x00"
+      }
+    },
+    "id" : {
+      "epc" : "0x83",
+      "descriptions" : {
+        "ja" : "識別番号",
+        "en" : "Identification number"
+      },
+      "writable" : false,
+      "observable" : false,
+      "schema" : {
+        "type" : "string"
+      },
+      "note" : {
+        "ja" : "1バイト目は0xFE。2〜4バイト目はメーカコード。残りは機器毎のユニーク値",
+        "en" : "1st data is 0xFE. 2nd to 4th data is manufacture code. The rest should be unique to each device."
+      }
+    },
+    "faultDescription" : {
+      "epc" : "0x89",
+      "descriptions" : {
+        "ja" : "異常内容",
+        "en" : "Fault description"
+      },
+      "writable" : false,
+      "observable" : false,
+      "schema" : {
+        "type" : "number",
+        "minimum" : 0,
+        "maximum" : 1004
+      }
+    },
+    "uid" : {
+      "epc" : "0xBF",
+      "descriptions" : {
+        "ja" : "個体識別情報",
+        "en" : "Unique identifier data"
+      },
+      "writable" : true,
+      "observable" : false,
+      "schema" : {
+        "type" : "number",
+        "minimum" : 0,
+        "maximum" : 254
+      },
+      "note" : {
+        "ja" : "ECHONET Lite SPECIFICATION 第2部6.11.1参照",
+        "en" : "See ECHONET Lite SPECIFICATION Part 2 Chapter 6.11.1."
+      }
+    },
+    "selfNodeInstances" : {
+      "epc" : "0xD3",
+      "descriptions" : {
+        "ja" : "自ノードインスタンス数",
+        "en" : "Number of self-node instances"
+      },
+      "writable" : false,
+      "observable" : false,
+      "schema" : {
+        "type" : "string"
+      },
+      "note" : {
+        "ja" : "3 byteで数値を表す。ノードプロファイルオブジェクトのインスタンスは含まない",
+        "en" : "3 byte data for integer. excluding node profile object instance."
+      }
+    },
+    "selfNodeClasses" : {
+      "epc" : "0xD4",
+      "descriptions" : {
+        "ja" : "自ノードクラス数",
+        "en" : "Number of self-node classes"
+      },
+      "writable" : false,
+      "observable" : false,
+      "schema" : {
+        "type" : "number",
+        "minimum" : 1,
+        "maximum" : 253
+      },
+      "note" : {
+        "ja" : "ノードプロファイルクラスを含む",
+        "en" : "including node profile class"
+      }
+    },
+    "instanceListNotification" : {
+      "epc" : "0xD5",
+      "descriptions" : {
+        "ja" : "インスタンスリスト通知",
+        "en" : "Instance list notification"
+      },
+      "writable" : false,
+      "observable" : true,
+      "schema" : {
+        "type" : "object",
+        "properties" : {
+          "numberOfinstances" : {
+            "type" : "number",
+            "minimum" : 0,
+            "maximum" : 84,
+            "descriptions" : {
+              "ja" : "インスタンス数",
+              "en" : "Number of instances"
+            }
+          },
+          "instanceList" : {
+            "type" : "array",
+            "maxItems" : 84,
+            "items" : {
+              "type" : "string"
+            },
+            "descriptions" : {
+              "ja" : "インスタンスリスト",
+              "en" : "Instance list"
+            }
+          }
+        }
+      },
+      "note" : {
+        "ja" : "インスタンスリストは機器オブジェクトの3バイトのEOJを列挙する",
+        "en" : "Instance list is an array of EOJ. (3 bytes)"
+      }
+    },
+    "selfNodeInstanceListS" : {
+      "epc" : "0xD6",
+      "descriptions" : {
+        "ja" : "自ノードインスタンスリストS",
+        "en" : "Self-node instance list S"
+      },
+      "writable" : false,
+      "observable" : false,
+      "schema" : {
+        "type" : "object",
+        "properties" : {
+          "numberOfInstances" : {
+            "type" : "number",
+            "minimum" : 0,
+            "maximum" : 84,
+            "descriptions" : {
+              "ja" : "インスタンス数",
+              "en" : "Number of Instances"
+            }
+          },
+          "instanceList" : {
+            "type" : "array",
+            "maxItems" : 84,
+            "items" : {
+              "type" : "string"
+            },
+            "descriptions" : {
+              "ja" : "インスタンスリスト",
+              "en" : "instance list"
+            }
+          }
+        }
+      },
+      "note" : {
+        "ja" : "インスタンスリストは3バイトのEOJを列挙する",
+        "en" : "Instance list is an array of EOJ. (3 bytes)"
+      }
+    },
+    "selfNodeClassListS" : {
+      "epc" : "0xD7",
+      "descriptions" : {
+        "ja" : "自ノードクラスリストS",
+        "en" : "Self-node class list S"
+      },
+      "writable" : false,
+      "observable" : false,
+      "schema" : {
+        "type" : "object",
+        "properties" : {
+          "numberOfClasses" : {
+            "type" : "number",
+            "minimum" : 1,
+            "maximum" : 8,
+            "descriptions" : {
+              "ja" : "クラス数",
+              "en" : "Number of classes"
+            }
+          },
+          "classList" : {
+            "type" : "array",
+            "maxItems" : 8,
+            "items" : {
+              "type" : "string"
+            },
+            "descriptions" : {
+              "ja" : "クラスリスト",
+              "en" : "Class list"
+            }
+          }
+        }
+      },
+      "note" : {
+        "ja" : "ノードプロファイルクラスは除く",
+        "en" : "Excluding node profile class"
+      }
+    }
+  }
+}
