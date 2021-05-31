@@ -48,12 +48,13 @@ public class UrlParameter {
 		ObjectMapper mapper = new ObjectMapper();
 		ObjectNode rootNode = mapper.createObjectNode();
 		
+		
 		if (this.getType().size() == 1){
 			ObjectNode descNode = toDescription();
 			if(descNode != null) {
 				rootNode.set(Constants.KEYWORD_DESCRIPTIONS, descNode);
 			}
-			rootNode.setAll(getType().get(0).toWebAPIDeviceDescription());	
+			rootNode.set(eConstants.KEYWORD_SCHEMA, getType().get(0).toWebAPIDeviceDescription());
 			rootNode.setAll(toRequire());
 			
 		} else if(this.getType().size() > 1) {
@@ -68,7 +69,7 @@ public class UrlParameter {
 			ObjectNode multipleTypePropertyNode = mapper.createObjectNode();
 			multipleTypePropertyNode.set(eConstants.KEYWORD_ONEOF, oneOf);
 
-			rootNode.setAll(multipleTypePropertyNode);
+			rootNode.set(eConstants.KEYWORD_SCHEMA, multipleTypePropertyNode);
 			rootNode.setAll(toRequire());
 		} 
 		return rootNode;

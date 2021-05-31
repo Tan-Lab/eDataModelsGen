@@ -97,7 +97,7 @@ public ECHONETLiteProperty(String code) {
 		} else {
 			rootNode.put(eConstants.KEYWORD_OBSERVABLE, false);
 		}
-		if(this.getUrlParameters() != null) {
+		if(this.getUrlParameters() != null && this.getUrlParameters().size() > 0) {
 			rootNode.setAll(toUrlParameterJSON());
 		}
 		if(data.size() == 1) {

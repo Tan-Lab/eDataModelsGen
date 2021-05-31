@@ -53,6 +53,7 @@ public class ManualCodeParser {
 			if(obj.get(Constants.KEYWORD_URL_PARAM) != null) {
 				JSONObject urlObj = (JSONObject) obj.get(Constants.KEYWORD_URL_PARAM);
 				epc.setParemeter(toUrlParameters(urlObj));
+				
 			}
 			if(obj.get(Constants.KEYWORD_NOTE) != null) {
 				JSONObject noteObj = (JSONObject) obj.get(Constants.KEYWORD_NOTE);
