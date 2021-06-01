@@ -34,7 +34,7 @@ Clone the project and follow the instructions.
 * **input files**: 
 * ***Full MRA file*** [xxxmra.json]
 * ***A device object file*** [0xxxx.json]
-* ***MC rule file*** [xxxMCRules.json]
+* ***MC rule file*** [xxxMCRule.json]
 
 #### Example
 * ***No GUI***
