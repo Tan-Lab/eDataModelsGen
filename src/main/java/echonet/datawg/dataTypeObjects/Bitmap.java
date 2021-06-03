@@ -48,11 +48,23 @@ public class Bitmap {
 		ObjectNode rootNode = mapper.createObjectNode();
 		ObjectNode bitmapDescription = mapper.createObjectNode();
 		ObjectNode descriptionNode = mapper.createObjectNode();
-		descriptionNode.put(eConstants.KEYWORD_JA, getDescriptions().getJa());
-		descriptionNode.put(eConstants.KEYWORD_EN, getDescriptions().getEn());	
+		descriptionNode.put(eConstants.KEYWORD_JA, getDescriptions().getJP());
+		descriptionNode.put(eConstants.KEYWORD_EN, getDescriptions().getEN());	
 		bitmapDescription.set(eConstants.KEYWORD_DESCRIPTIONS, descriptionNode);
 		rootNode.setAll(bitmapDescription);
 		rootNode.setAll(getValue().toWebAPIDeviceDescription());
+		return rootNode;
+	}
+	public ObjectNode toBitMapTDJSON() {
+		ObjectMapper mapper = new ObjectMapper();
+		ObjectNode rootNode = mapper.createObjectNode();
+		ObjectNode bitmapDescription = mapper.createObjectNode();
+		ObjectNode descriptionNode = mapper.createObjectNode();
+		descriptionNode.put(eConstants.KEYWORD_JA, getDescriptions().getJP());
+		descriptionNode.put(eConstants.KEYWORD_EN, getDescriptions().getEN());	
+		bitmapDescription.set(eConstants.KEYWORD_DESCRIPTIONS, descriptionNode);
+		rootNode.setAll(bitmapDescription);
+		rootNode.setAll(getValue().toThingDescriptionDataSchema());
 		return rootNode;
 	}
 

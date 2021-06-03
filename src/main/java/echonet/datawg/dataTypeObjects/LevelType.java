@@ -147,6 +147,21 @@ public class LevelType extends DataType{
 	public void setMultipleOf(Float multipleOf) {
 		this.multipleOf = multipleOf;
 	}
+	@Override
+	public ObjectNode toThingDescriptionDataSchema() {
+		ObjectMapper mapper = new ObjectMapper();
+		ObjectNode rootNode = mapper.createObjectNode();
+		rootNode.put(eConstants.KEYWORD_TYPE, eConstants.TYPE_NUMBER);
+		if(this.getMinumum() == null) {
+			rootNode.put(eConstants.KEYWORD_MINIMUM, 1);
+		} else {
+			rootNode.put(eConstants.KEYWORD_MINIMUM, this.getMinumum().intValue());
+		}
+		if(this.getMaximum()!= null)
+			rootNode.put(eConstants.KEYWORD_MAXIMUM, this.maximum.intValue());
+		
+		return rootNode;
+	}
 
 
 }

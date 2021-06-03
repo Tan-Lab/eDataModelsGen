@@ -57,5 +57,13 @@ public class DateType extends DataType{
 	private String toTypeURI(String ppName) {
 		return "has" + ppName + "Measurement" ;
 	}
+	@Override
+	public ObjectNode toThingDescriptionDataSchema() {
+		ObjectMapper mapper = new ObjectMapper();
+		ObjectNode rootNode = mapper.createObjectNode();
+		rootNode.put(eConstants.KEYWORD_TYPE, eConstants.TYPE_STRING);
+		rootNode.put("format", this.type);
+		return rootNode;
+	}
 
 }

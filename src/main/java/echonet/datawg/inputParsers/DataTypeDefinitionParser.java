@@ -63,6 +63,9 @@ public class DataTypeDefinitionParser {
 				case Constants.KEYWORD_RAW:
 					rs = SimpleDataTypeParser.toRawType(obj);
 					break;
+				case Constants.TYPE_NULL:
+					rs = SimpleDataTypeParser.toNullType(obj);
+					break;
 				case Constants.KEYWORD_STATE:
 					rs = SimpleDataTypeParser.toStateType(obj);
 					break;

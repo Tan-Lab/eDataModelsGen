@@ -24,10 +24,12 @@ public class Constants {
 	public static final String KEYWORD_NAME="name";
 	public static final String KEYWORD_ATOMIC="atomic";
 	public static final String KEYWORD_EPC_ATOMIC="epcAtomic";
+	public static final String KEYWORD_SCHEMA="schema";
 	
 	public static final String TYPE_NUMBER ="number";
 	public static final String TYPE_STATE ="state";
 	public static final String TYPE_RAW ="raw";
+	public static final String TYPE_NULL ="null";
 	public static final String TYPE_BOOLEAN ="boolean";
 	public static final String TYPE_OBJECT ="object";
 	public static final String TYPE_LEVEL ="level";

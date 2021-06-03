@@ -52,6 +52,7 @@ public class ManualCodeParser {
 			}
 			if(obj.get(Constants.KEYWORD_URL_PARAM) != null) {
 				JSONObject urlObj = (JSONObject) obj.get(Constants.KEYWORD_URL_PARAM);
+				
 				epc.setParemeter(toUrlParameters(urlObj));
 				
 			}
@@ -94,10 +95,10 @@ public class ManualCodeParser {
 			String isRequired =rootObj.get(Constants.KEYWORD_REQUIRED).toString();
 			UrlParameter url = new UrlParameter();
 			url.setName(name);
-			
 			if(dataTypeObj != null) {
 				url.setType( new DeviceDefinitionParser(DDExporter.dataTypes).toDataRestrictionList(dataTypeObj));
 			}
+			
 			if(descObj != null) {
 				url.setDes(new EnJAStatement(
 						descObj.get(Constants.KEYWORD_EN).toString(), 

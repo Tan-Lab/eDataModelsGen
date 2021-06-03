@@ -23,6 +23,7 @@ import echonet.datawg.echonetObjects.EnJAStatement;
 import echonet.datawg.inputParsers.SarefOntologyParser;
 import echonet.datawg.utils.Constants;
 import echonet.datawg.utils.SAREFConstants;
+import echonet.datawg.utils.WoTConstants;
 import echonet.datawg.utils.eConstants;
 
 public class NumberType extends DataType{
@@ -100,9 +101,6 @@ public class NumberType extends DataType{
 		if(maximum != null) {
 			rootNode.setAll(multiplyProcessing(Constants.KEYWORD_MAXIMUM, maximum));
 		}
-		if(this.getDescription() != null) {
-			rootNode.set(Constants.KEYWORD_DESCRIPTIONS, toDescription());
-		}
 		if(multipleOf != null) {
 			if(multipleOf.floatValue() >=1) {
 				if(this.getMultiple() != null) {
@@ -141,6 +139,9 @@ public class NumberType extends DataType{
 				arrayNode.add(coefficient[i]);
 			}
 			rootNode.set(eConstants.KEYWORD_COEFFICIENT, arrayNode);
+		}
+		if(this.getDescription() != null) {
+			rootNode.set(Constants.KEYWORD_DESCRIPTIONS, toDescription());
 		}
 		return rootNode;
 	}
@@ -483,9 +484,29 @@ public class NumberType extends DataType{
 		ObjectNode rs = null;
 		if(this.getDescription()!=null) {
 			rs = mapper.createObjectNode();
-			rs.put(Constants.KEYWORD_JA, this.getDescription().getJa());
-			rs.put(Constants.KEYWORD_EN, this.getDescription().getEn());
+			rs.put(Constants.KEYWORD_EN, this.getDescription().getEN());
+			rs.put(Constants.KEYWORD_JA, this.getDescription().getJP());
 		}
 		return rs;
+	}
+	@Override
+	public ObjectNode toThingDescriptionDataSchema() {
+		ObjectMapper mapper = new ObjectMapper();
+		ObjectNode rootNode = mapper.createObjectNode();
+		rootNode.put(eConstants.KEYWORD_TYPE, eConstants.TYPE_NUMBER);
+
+		if(unit != null && !unit.equals(""))
+			rootNode.put(eConstants.KEYWORD_UNIT, unit);
+		if(minimum != null) {
+			rootNode.setAll(multiplyProcessing(Constants.KEYWORD_MINIMUM, minimum));	
+		}
+		if(maximum != null) {
+			rootNode.setAll(multiplyProcessing(Constants.KEYWORD_MAXIMUM, maximum));
+		}
+		if(this.getDescription() != null) {
+			rootNode.put(WoTConstants.KEYWORD_DESCRIPTION, this.getDescription().getEN());
+			rootNode.set(Constants.KEYWORD_DESCRIPTIONS, toDescription());
+		}
+		return rootNode;
 	}
 }

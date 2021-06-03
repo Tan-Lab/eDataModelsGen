@@ -14,6 +14,7 @@ import echonet.datawg.dataTypeObjects.DataType;
 import echonet.datawg.dataTypeObjects.DateTimeType;
 import echonet.datawg.dataTypeObjects.DateType;
 import echonet.datawg.dataTypeObjects.LevelType;
+import echonet.datawg.dataTypeObjects.NullType;
 import echonet.datawg.dataTypeObjects.NumberType;
 import echonet.datawg.dataTypeObjects.RawType;
 import echonet.datawg.dataTypeObjects.StateEnumValue;
@@ -37,6 +38,9 @@ public class SimpleDataTypeParser {
 				break;
 			case Constants.TYPE_RAW:
 				rs = toRawType(key, jsonObj);
+				break;
+			case Constants.TYPE_NULL:
+				rs = toNullType(key, jsonObj);
 				break;
 			case Constants.TYPE_BOOLEAN:
 				rs = toBooleanType(key, jsonObj);
@@ -64,9 +68,9 @@ public class SimpleDataTypeParser {
 		if(description != null) {
 			desc = new EnJAStatement();
 			if(description.get(Constants.KEYWORD_EN).toString() != null)
-				desc.setEn(description.get(Constants.KEYWORD_EN).toString());
+				desc.setEN(description.get(Constants.KEYWORD_EN).toString());
 			if(description.get(Constants.KEYWORD_JA).toString() != null)
-				desc.setJa(description.get(Constants.KEYWORD_JA).toString());
+				desc.setJP(description.get(Constants.KEYWORD_JA).toString());
 		} 
 		if(desc != null) {
 			numberType.setDescription(desc);
@@ -138,9 +142,9 @@ public class SimpleDataTypeParser {
 		if(description != null) {
 			desc = new EnJAStatement();
 			if(description.get(Constants.KEYWORD_EN).toString() != null)
-				desc.setEn(description.get(Constants.KEYWORD_EN).toString());
+				desc.setEN(description.get(Constants.KEYWORD_EN).toString());
 			if(description.get(Constants.KEYWORD_JA).toString() != null)
-				desc.setJa(description.get(Constants.KEYWORD_JA).toString());
+				desc.setJP(description.get(Constants.KEYWORD_JA).toString());
 		} 
 		if(desc != null) {
 			stateObj.setDescription(desc);
@@ -173,6 +177,13 @@ public class SimpleDataTypeParser {
 			rawType.setMaxSize(Integer.valueOf(jsonObj.get(Constants.KEYWORD_MAX_SIZE).toString()));
 		return rawType;
 	}
+	public static DataType toNullType(String key, JSONObject jsonObj)
+	{
+		NullType nullType = new NullType(key);
+		if(jsonObj.get(Constants.KEYWORD_EDT) != null)
+			nullType.setEdt(jsonObj.get(Constants.KEYWORD_EDT).toString());
+		return nullType;
+	}
 	public static DataType toBooleanType(String key, JSONObject jsonObj)
 	{
 		BooleanType boolType = new BooleanType(key);
@@ -186,6 +197,9 @@ public class SimpleDataTypeParser {
 	public static DataType toRawType(JSONObject jsonObj)
 	{
 		return toRawType(null, jsonObj);
+	}public static DataType toNullType(JSONObject jsonObj)
+	{
+		return toNullType(null, jsonObj);
 	}
 	public static DataType toTimeType(JSONObject jsonObj) {
 		TimeType timeType = new TimeType();

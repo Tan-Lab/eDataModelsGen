@@ -6,21 +6,21 @@ public class EnJAStatement {
 		
 	}
 	public EnJAStatement(String en, String ja) {
-		setEn(en);
-		setJa(ja);
+		setEN(en);
+		setJP(ja);
 	}
 	private String ja;
 	private String en;
-	public String getJa() {
+	public String getJP() {
 		return ja;
 	}
-	public void setJa(String ja) {
+	public void setJP(String ja) {
 		this.ja = ja;
 	}
-	public String getEn() {
+	public String getEN() {
 		return en;
 	}
-	public void setEn(String en) {
+	public void setEN(String en) {
 		this.en = en;
 	}
 }

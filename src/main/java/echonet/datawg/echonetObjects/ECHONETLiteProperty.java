@@ -13,6 +13,7 @@ import echonet.datawg.dataTypeObjects.DataType;
 import echonet.datawg.dataTypeObjects.NumberType;
 import echonet.datawg.utils.AccessRuleEnum;
 import echonet.datawg.utils.Constants;
+import echonet.datawg.utils.WoTConstants;
 import echonet.datawg.utils.eConstants;
 
 public class ECHONETLiteProperty implements Comparable<Object>{
@@ -84,8 +85,8 @@ public ECHONETLiteProperty(String code) {
 			rootNode.put(Constants.KEYWORD_EPC_ATOMIC, this.getAtomic());
 		}
 		ObjectNode descriptionNode = mapper.createObjectNode();
-		descriptionNode.put(eConstants.KEYWORD_JA, propertyName.getJa());
-		descriptionNode.put(eConstants.KEYWORD_EN, propertyName.getEn());
+		descriptionNode.put(eConstants.KEYWORD_JA, propertyName.getJP());
+		descriptionNode.put(eConstants.KEYWORD_EN, propertyName.getEN());
 		rootNode.set(eConstants.KEYWORD_DESCRIPTIONS, descriptionNode);
 		if(isWritable()) {
 			rootNode.put(eConstants.KEYWORD_WRITABLE, true);
@@ -114,51 +115,43 @@ public ECHONETLiteProperty(String code) {
 		ObjectNode note = null;
 		if(this.getNote() != null) {
 			note = mapper.createObjectNode();
-			note.put(eConstants.KEYWORD_JA, this.getNote().getJa());
-			note.put(eConstants.KEYWORD_EN, this.getNote().getEn());
+			note.put(eConstants.KEYWORD_JA, this.getNote().getJP());
+			note.put(eConstants.KEYWORD_EN, this.getNote().getEN());
 		}
 		if(note!=null)
 			rootNode.set(eConstants.KEYWORD_NOTE, note);
 		
 		return rootNode;
 	}
-	public ObjectNode toAirconditionerWasherMC() {
+	public ObjectNode toThingDescriptionJSONObjectNode() {
 		ObjectMapper mapper = new ObjectMapper();
 		ObjectNode rootNode = mapper.createObjectNode();
+		// title node
+		rootNode.put(WoTConstants.KEYWORD_TITLE, this.getShortName());
+		// titles node
+		ObjectNode titlesNode = mapper.createObjectNode();
+		titlesNode.put(WoTConstants.EN_LANGUAGE, this.getShortName());
+		titlesNode.put(WoTConstants.JP_LANGUAGE , this.getShortJPName());
+		rootNode.set(WoTConstants.KEYWORD_TITLES, titlesNode);
+		//  description node
+		rootNode.put(WoTConstants.KEYWORD_DESCRIPTION, this.getPropertyName().getEN());
+		// descriptions node
+		ObjectNode descriptions = mapper.createObjectNode();
+		descriptions.put(WoTConstants.EN_LANGUAGE, this.getPropertyName().getEN());
+		descriptions.put(WoTConstants.JP_LANGUAGE , this.getPropertyName().getJP());
+		rootNode.set(WoTConstants.KEYWORD_DESCRIPTIONS, descriptions);
 		
-		rootNode.put(eConstants.KEYWORD_EPC, code);
-		if(this.getAtomic() != null) {
-			rootNode.put(Constants.KEYWORD_EPC_ATOMIC, this.getAtomic());
+		if(data.size() == 1) {
+			rootNode.setAll(data.get(0).toThingDescriptionDataSchema());
+		} else if(data.size() > 1) {
+			ArrayNode arrayNode = mapper.createArrayNode();
+			for(DataType type : data) {
+				arrayNode.add(type.toThingDescriptionDataSchema());
+			}
+			ObjectNode oneOfNode = mapper.createObjectNode();
+			oneOfNode.set(eConstants.KEYWORD_ONEOF, arrayNode);
+			rootNode.setAll(oneOfNode);
 		}
-		ObjectNode descriptionNode = mapper.createObjectNode();
-		descriptionNode.put(eConstants.KEYWORD_JA, propertyName.getJa());
-		descriptionNode.put(eConstants.KEYWORD_EN, propertyName.getEn());
-		rootNode.set(eConstants.KEYWORD_DESCRIPTIONS, descriptionNode);
-		if(isWritable()) {
-			rootNode.put(eConstants.KEYWORD_WRITABLE, true);
-		} else {
-			rootNode.put(eConstants.KEYWORD_WRITABLE, false);
-		}
-		if(isObservable()) {
-			rootNode.put(eConstants.KEYWORD_OBSERVABLE, true);
-		} else {
-			rootNode.put(eConstants.KEYWORD_OBSERVABLE, false);
-		}
-		NumberType numberType = new NumberType();
-		numberType.setUnit("minute");
-		numberType.setMinimum(BigDecimal.valueOf(0));
-		numberType.setMaximum(BigDecimal.valueOf(15359));
-		numberType.setMultipleOf(Float.valueOf(1));
-
-		rootNode.set(eConstants.KEYWORD_SCHEMA, numberType.toWebAPIDeviceDescription());
-		ObjectNode note = null;
-		if(this.getNote() != null) {
-			note = mapper.createObjectNode();
-			note.put(eConstants.KEYWORD_JA, this.getNote().getJa());
-			note.put(eConstants.KEYWORD_EN, this.getNote().getEn());
-		}
-		if(note!=null)
-			rootNode.set(eConstants.KEYWORD_NOTE, note);
 		
 		return rootNode;
 	}
@@ -168,15 +161,15 @@ public ECHONETLiteProperty(String code) {
 		
 		rootNode.put(eConstants.KEYWORD_EPC, code);
 		ObjectNode descriptionNode = mapper.createObjectNode();
-		descriptionNode.put(eConstants.KEYWORD_JA, propertyName.getJa());
-		descriptionNode.put(eConstants.KEYWORD_EN, propertyName.getEn());
+		descriptionNode.put(eConstants.KEYWORD_JA, propertyName.getJP());
+		descriptionNode.put(eConstants.KEYWORD_EN, propertyName.getEN());
 		rootNode.set(eConstants.KEYWORD_DESCRIPTIONS, descriptionNode);
 		rootNode.set(eConstants.KEYWORD_SCHEMA, mapper.createObjectNode());
 		ObjectNode note = null;
 		if(this.getNote() != null) {
 			note = mapper.createObjectNode();
-			note.put(eConstants.KEYWORD_JA, this.getNote().getJa());
-			note.put(eConstants.KEYWORD_EN, this.getNote().getEn());
+			note.put(eConstants.KEYWORD_JA, this.getNote().getJP());
+			note.put(eConstants.KEYWORD_EN, this.getNote().getEN());
 		}
 		if(note!=null)
 			rootNode.set(eConstants.KEYWORD_NOTE, note);
@@ -191,6 +184,15 @@ public ECHONETLiteProperty(String code) {
 		boolean rs = false;
 		if(accessRule.getGet() == AccessRuleEnum.notApplicable
 				&& accessRule.getSet() != AccessRuleEnum.notApplicable) {
+			rs = true;
+		}
+		return rs;
+	}
+	public boolean isINFOnly() {
+		boolean rs = false;
+		if(accessRule.getGet() == AccessRuleEnum.notApplicable
+				&& accessRule.getSet() == AccessRuleEnum.notApplicable
+				&& accessRule.getInf() != AccessRuleEnum.notApplicable) {
 			rs = true;
 		}
 		return rs;
@@ -242,6 +244,13 @@ public ECHONETLiteProperty(String code) {
 	public String getShortName() {
 		return shortName;
 	}
+	public String getShortJPName() {
+		String rs = "";
+		if(this.getPropertyName() != null) {
+			rs = this.getPropertyName().getJP().replaceAll("\\s+","");
+		}
+		return rs;
+	}
 	public void setShortName(String shortName) {
 		this.shortName = shortName;
 		if(isContainDELProperty() || isToDeleteProperty()) {
@@ -265,7 +274,7 @@ public ECHONETLiteProperty(String code) {
 		public ObjectNode toPPName() {
 			ObjectMapper mapper = new ObjectMapper();
 			ObjectNode rootNode = mapper.createObjectNode();
-			rootNode.put("Input", this.getPropertyName().getEn());
+			rootNode.put("Input", this.getPropertyName().getEN());
 			if(!this.getShortName().equalsIgnoreCase("DEL")) { 
 				if(this.getShortName().contains("(MC)")) {
 					rootNode.put("Output", StringUtils.join (

@@ -34,7 +34,7 @@ public class StateType extends DataType{
 	public void setSize(Integer size) {
 		this.size = size;
 	}
-	public List<StateEnumValue> getEnumValue() {
+	public List<StateEnumValue> getENumValue() {
 		return enumValue;
 	}
 	public void setEnumValue(List<StateEnumValue> enumValue) {
@@ -55,8 +55,8 @@ public class StateType extends DataType{
 			// Value Object
 			anEntryNode.put(eConstants.KEYWORD_VALUE,enumString);
 			ObjectNode descriptionNode = mapper.createObjectNode();
-			descriptionNode.put(eConstants.KEYWORD_JA, enumValue.getDescription().getJa());
-			descriptionNode.put(eConstants.KEYWORD_EN, enumValue.getDescription().getEn());
+			descriptionNode.put(eConstants.KEYWORD_JA, enumValue.getDescription().getJP());
+			descriptionNode.put(eConstants.KEYWORD_EN, enumValue.getDescription().getEN());
 			anEntryNode.set(eConstants.KEYWORD_DESCRIPTIONS, descriptionNode);
 			
 			anEntryNode.put(eConstants.KEYWORD_EDT, enumValue.getEdt());
@@ -67,13 +67,24 @@ public class StateType extends DataType{
 		rootNode.set(eConstants.KEYWORD_VALUES, valueArrayNode);
 		return rootNode;
 	}
+	private ObjectNode toStringTypeTD() {
+		ObjectMapper mapper = new ObjectMapper();
+		ObjectNode rootNode = mapper.createObjectNode();
+		rootNode.put(eConstants.KEYWORD_TYPE, eConstants.TYPE_STRING);
+		ArrayNode enumArrayNode  = mapper.createArrayNode();
+		for(StateEnumValue enumValue : enumValue) {
+			enumArrayNode.add(enumValue.getName());
+		}
+		rootNode.set(eConstants.KEYWORD_ENUM, enumArrayNode);
+		return rootNode;
+	}
 	private ObjectNode toFIWAREStringEnum() {
 		ObjectMapper mapper = new ObjectMapper();
 		ObjectNode rootNode = mapper.createObjectNode();
 		rootNode.put(eConstants.KEYWORD_TYPE, eConstants.TYPE_STRING);
 		ArrayNode enumArrayNode  = mapper.createArrayNode();
 		for(StateEnumValue enumValue : enumValue) {
-			String enumString = CaseUtils.toCamelCase(enumValue.getDescription().getEn(), false, ' ').trim();
+			String enumString = CaseUtils.toCamelCase(enumValue.getDescription().getEN(), false, ' ').trim();
 			enumArrayNode.add(enumString);
 			// Value Object
 
@@ -95,8 +106,8 @@ public class StateType extends DataType{
 				anEntry.put(eConstants.KEYWORD_VALUE, false);
 			}
 			ObjectNode descriptionNode = mapper.createObjectNode();
-			descriptionNode.put(eConstants.KEYWORD_JA, enumValue.getDescription().getJa());
-			descriptionNode.put(eConstants.KEYWORD_EN, enumValue.getDescription().getEn());
+			descriptionNode.put(eConstants.KEYWORD_JA, enumValue.getDescription().getJP());
+			descriptionNode.put(eConstants.KEYWORD_EN, enumValue.getDescription().getEN());
 			
 			anEntry.set(eConstants.KEYWORD_DESCRIPTIONS, descriptionNode);
 			anEntry.put(eConstants.KEYWORD_EDT, enumValue.getEdt());
@@ -104,6 +115,12 @@ public class StateType extends DataType{
 			valueArrayNode.add(anEntry);
 		}
 		rootNode.set(eConstants.KEYWORD_VALUES, valueArrayNode);
+		return rootNode;
+	}
+	private ObjectNode toBooleanTypeTD() {
+		ObjectMapper mapper = new ObjectMapper();
+		ObjectNode rootNode = mapper.createObjectNode();
+		rootNode.put(eConstants.KEYWORD_TYPE, eConstants.TYPE_BOOLEAN);
 		return rootNode;
 	}
 	private ObjectNode toFIWAREBooleanType() {
@@ -116,7 +133,7 @@ public class StateType extends DataType{
 
 			if(enumValue.getEdt().equalsIgnoreCase("0x30") ||
 			   enumValue.getEdt().equalsIgnoreCase("0x41") ||
-			   enumValue.getDescription().getEn().equalsIgnoreCase("ON")) {
+			   enumValue.getDescription().getEN().equalsIgnoreCase("ON")) {
 				valueArrayNode.add(true);
 			} else {
 				valueArrayNode.add(false);
@@ -129,7 +146,7 @@ public class StateType extends DataType{
 	public ObjectNode toWebAPIDeviceDescription() {
 		ObjectNode rootNode  = null;
 		boolean isBooleanType = false;
-		for(StateEnumValue e : this.getEnumValue()) {
+		for(StateEnumValue e : this.getENumValue()) {
 			if(e.getName().equalsIgnoreCase("true") || e.getName().equalsIgnoreCase("false")) {
 				isBooleanType = true;
 			}
@@ -163,6 +180,22 @@ public class StateType extends DataType{
 		OntClass.OneOf states = baseModel.createObjectOneOf(individuals);
 		
 		return states;
+	}
+	@Override
+	public ObjectNode toThingDescriptionDataSchema() {
+		ObjectNode rootNode  = null;
+		boolean isBooleanType = false;
+		for(StateEnumValue e : this.getENumValue()) {
+			if(e.getName().equalsIgnoreCase("true") || e.getName().equalsIgnoreCase("false")) {
+				isBooleanType = true;
+			}
+		}
+		if(isBooleanType) {
+			rootNode = toBooleanTypeTD();
+		} else {
+			rootNode = toStringTypeTD();
+		}
+		return rootNode;
 	}
 
 }

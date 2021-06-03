@@ -117,4 +117,19 @@ public class NumericType extends DataType{
 		return "has" + ppName + "Measurement" ;
 	}
 
+	@Override
+	public ObjectNode toThingDescriptionDataSchema() {
+		ObjectMapper mapper = new ObjectMapper();
+		ObjectNode rootNode = mapper.createObjectNode();
+		rootNode.put(eConstants.KEYWORD_TYPE, eConstants.TYPE_NUMBER);
+		ArrayNode enumArrayNode  = mapper.createArrayNode();
+		for(NumericEnumValue enumValue : enumValue) {
+			// Enum Object
+			enumArrayNode.add(enumValue.getNumericValue().floatValue());
+		}
+		rootNode.set(eConstants.KEYWORD_ENUM, enumArrayNode);
+		
+		return rootNode;
+	}
+
 }

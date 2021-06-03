@@ -178,5 +178,38 @@ public class ArrayType extends DataType{
 		OntDataRange.Named numberRestriction =  baseModel.getDatatype(XSD.xint);
 		return numberRestriction.createLiteral(this.getItemSize());
 	}
+	@Override
+	public ObjectNode toThingDescriptionDataSchema() {
+		ObjectMapper mapper = new ObjectMapper();
+		ObjectNode rootNode = mapper.createObjectNode();
+		rootNode.put(eConstants.KEYWORD_TYPE, this.type);
+		if(minItems != null)
+			rootNode.put(eConstants.KEYWORD_MIN_ITEM, minItems.intValue());
+		if(maxItems != null)
+			rootNode.put(eConstants.KEYWORD_MAX_ITEM, maxItems.intValue());
+		
+		ObjectNode objOneItemType = null;
+		ObjectNode objMultipleItemType = null;
+		if(items != null && items.size() == 1) {
+			for(DataType type : items) {
+				objOneItemType = type.toThingDescriptionDataSchema();
+			}
+		} else if(items != null && items.size() > 1) {
+			ArrayNode typeArray = mapper.createArrayNode();
+			for(DataType type : items) {
+				typeArray.add(type.toThingDescriptionDataSchema());
+			}
+			objMultipleItemType = mapper.createObjectNode();
+			objMultipleItemType.set(eConstants.KEYWORD_ONEOF, typeArray);
+		}
+		
+		if(objOneItemType != null) {
+			rootNode.set(eConstants.KEYWORD_ITEMS, objOneItemType);
+		} else if(objMultipleItemType != null) {
+			rootNode.set(eConstants.KEYWORD_ITEMS,objMultipleItemType);
+		}
+		
+		return rootNode;
+	}
 
 }

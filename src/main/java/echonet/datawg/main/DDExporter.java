@@ -42,6 +42,7 @@ import echonet.datawg.modelExporters.DDGenerator;
 
 public class DDExporter {
 	protected static String outputDir;
+	protected static String outputWoTDir;
 	protected static String[] inputFiles;
 	protected static boolean isGUI = false;
 	protected static String full_MRA_File_Name;
@@ -62,8 +63,10 @@ public class DDExporter {
 		definition_File_Name = "";
 		mcRules = new ArrayList<ManualCode>();
 		elDevices = new ArrayList<ECHONETLiteDevice>();
-		outputDir = "data" + File.separator + "DD";
-		
+		outputDir = "";
+		outputWoTDir = "";
+		//outputDir = "data" + File.separator + "DD";
+		//outputWoTDir = "data" + File.separator + "TD";
 		
 		
 		getCLIParams(args);
@@ -80,8 +83,14 @@ public class DDExporter {
 				} else {
 					ddHandler = new DDGenerator(elDevices);
 				}
-				ddHandler.toDDFile(outputDir);
-				System.out.println("DD exported!! Check " + outputDir + " directory for results");
+				if(!outputDir.equals("")) {
+					ddHandler.toDDFile(outputDir);
+					System.out.println("DD exported!! Check " + outputDir + " directory for results");
+				} 
+				if (!outputWoTDir.equals("")){
+					ddHandler.toTDFile(outputWoTDir);
+					System.out.println("TD exported!! Check " + outputWoTDir + " directory for results");
+				} 
 			} else {
 				System.out.println ("Can not load device object!!");
 				System.exit(1);
@@ -145,6 +154,9 @@ public class DDExporter {
 		if(cmd.hasOption("dd-output-directory")) {
 			outputDir = cmd.getOptionValue("dd-output-directory").trim();
 		}
+		if(cmd.hasOption("wot-output-directory")) {
+			outputWoTDir = cmd.getOptionValue("wot-output-directory").trim();
+		}
 		if(cmd.hasOption("display-GUI")) {
 			isGUI = true;
 		}
@@ -160,8 +172,13 @@ public class DDExporter {
 		options.addOption( inputFile);
 		
 		Option outputDir = new Option("o", "dd-output-directory", true, "Ouput directory of device description");
-		outputDir.setRequired(true);
+		outputDir.setRequired(false);
 		options.addOption( outputDir);
+		
+		Option outputTDDir = new Option("otd", "wot-output-directory", true, "Ouput directory of Thing Description");
+		outputTDDir.setRequired(false);
+		
+		options.addOption( outputTDDir);
 		
 		Option GUI = new Option("g", "display-GUI", false, "Enable GUI App");
 		options.addOption( GUI);

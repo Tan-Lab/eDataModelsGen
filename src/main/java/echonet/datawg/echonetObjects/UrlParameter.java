@@ -47,9 +47,7 @@ public class UrlParameter {
 	public ObjectNode toURLNode() {
 		ObjectMapper mapper = new ObjectMapper();
 		ObjectNode rootNode = mapper.createObjectNode();
-		
-		
-		if (this.getType().size() == 1){
+		if (this.getType() != null && this.getType().size() == 1){
 			ObjectNode descNode = toDescription();
 			if(descNode != null) {
 				rootNode.set(Constants.KEYWORD_DESCRIPTIONS, descNode);
@@ -57,7 +55,7 @@ public class UrlParameter {
 			rootNode.set(eConstants.KEYWORD_SCHEMA, getType().get(0).toWebAPIDeviceDescription());
 			rootNode.setAll(toRequire());
 			
-		} else if(this.getType().size() > 1) {
+		} else if(this.getType() != null && this.getType().size() > 1) {
 			ObjectNode descNode = toDescription();
 			if(descNode != null) {
 				rootNode.set(Constants.KEYWORD_DESCRIPTIONS, descNode);
@@ -79,8 +77,8 @@ public class UrlParameter {
 		ObjectNode rs = null;
 		if(this.getDes()!=null) {
 			rs = mapper.createObjectNode();
-			rs.put(Constants.KEYWORD_JA, this.getDes().getJa());
-			rs.put(Constants.KEYWORD_EN, this.getDes().getEn());
+			rs.put(Constants.KEYWORD_JA, this.getDes().getJP());
+			rs.put(Constants.KEYWORD_EN, this.getDes().getEN());
 		}
 		return rs;
 	}

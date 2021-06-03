@@ -29,5 +29,6 @@ public abstract class DataType {
 	public abstract OntClass toObjectPropertyTypeRestriction(SarefOntologyParser owlHanlder, String propertyName);
 	public abstract ObjectNode toFiwareSchemaJSON();
 	public abstract ObjectNode toWebAPIDeviceDescription();
+	public abstract ObjectNode toThingDescriptionDataSchema();
 
 }

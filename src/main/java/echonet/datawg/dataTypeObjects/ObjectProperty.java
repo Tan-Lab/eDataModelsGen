@@ -49,8 +49,8 @@ public class ObjectProperty {
 		ObjectNode rs = null;
 		if(this.getDescription()!=null) {
 			rs = mapper.createObjectNode();
-			rs.put(Constants.KEYWORD_JA, this.getDescription().getJa());
-			rs.put(Constants.KEYWORD_EN, this.getDescription().getEn());
+			rs.put(Constants.KEYWORD_JA, this.getDescription().getJP());
+			rs.put(Constants.KEYWORD_EN, this.getDescription().getEN());
 		}
 		return rs;
 	}
@@ -59,8 +59,8 @@ public class ObjectProperty {
 		ObjectNode rs = null;
 		if(this.getNote()!=null) {
 			rs = mapper.createObjectNode();
-			rs.put(Constants.KEYWORD_JA, this.getNote().getJa());
-			rs.put(Constants.KEYWORD_EN, this.getNote().getEn());
+			rs.put(Constants.KEYWORD_JA, this.getNote().getJP());
+			rs.put(Constants.KEYWORD_EN, this.getNote().getEN());
 		}
 		return rs;
 	}
@@ -70,13 +70,14 @@ public class ObjectProperty {
 		ObjectNode descNode = toDescription();
 		ObjectNode noteNode = toNote();
 		if (this.getElement().size() == 1){
-			rootNode.setAll(getElement().get(0).toWebAPIDeviceDescription());	
+			
 			if(descNode != null) {
 				rootNode.set(Constants.KEYWORD_DESCRIPTIONS, descNode);
 			}
 			if( noteNode != null) {
 				rootNode.set(Constants.KEYWORD_NOTE, noteNode);
 			}
+			rootNode.setAll(getElement().get(0).toWebAPIDeviceDescription());	
 		} else if(this.getElement().size() > 1) {
 			ArrayNode oneOf = mapper.createArrayNode();
 			for(DataType type : this.getElement()) {
@@ -84,13 +85,37 @@ public class ObjectProperty {
 			}
 			ObjectNode multipleTypePropertyNode = mapper.createObjectNode();
 			multipleTypePropertyNode.set(eConstants.KEYWORD_ONEOF, oneOf);
-
-			rootNode.setAll(multipleTypePropertyNode);
 			if(descNode != null) {
 				rootNode.set(Constants.KEYWORD_DESCRIPTIONS, descNode);
 			}
 			if( noteNode != null) {
 				rootNode.set(Constants.KEYWORD_NOTE, noteNode);
+			}
+			rootNode.setAll(multipleTypePropertyNode);
+		} 
+		
+		return rootNode;
+	}
+	public ObjectNode toJSONTDPropertySchema() {
+		ObjectMapper mapper = new ObjectMapper();
+		ObjectNode rootNode = mapper.createObjectNode();
+		ObjectNode descNode = toDescription();
+		if (this.getElement().size() == 1){
+			rootNode.setAll(getElement().get(0).toThingDescriptionDataSchema());	
+			if(descNode != null) {
+				rootNode.set(Constants.KEYWORD_DESCRIPTIONS, descNode);
+			}
+		} else if(this.getElement().size() > 1) {
+			ArrayNode oneOf = mapper.createArrayNode();
+			for(DataType type : this.getElement()) {
+				oneOf.add(type.toThingDescriptionDataSchema());
+			}
+			ObjectNode multipleTypePropertyNode = mapper.createObjectNode();
+			multipleTypePropertyNode.set(eConstants.KEYWORD_ONEOF, oneOf);
+
+			rootNode.setAll(multipleTypePropertyNode);
+			if(descNode != null) {
+				rootNode.set(Constants.KEYWORD_DESCRIPTIONS, descNode);
 			}
 		} 
 		

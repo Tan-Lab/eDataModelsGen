@@ -126,5 +126,32 @@ public class ObjectType extends DataType{
 	public void setONE_OF(boolean isONE_OF) {
 		this.isONE_OF = isONE_OF;
 	}
+	@Override
+	public ObjectNode toThingDescriptionDataSchema() {
+		ObjectMapper mapper = new ObjectMapper();
+		ObjectNode rootNode = mapper.createObjectNode();
+		rootNode.put(eConstants.KEYWORD_TYPE, this.type);
+		
+		ObjectNode propertyNode = mapper.createObjectNode();
+		ObjectNode oneOfNode = mapper.createObjectNode();
+		for(ObjectProperty pp : properties) {
+			if(!pp.isReservedForFutureUse() && !pp.isDELProperty() && !pp.isDELProperty2()) {
+				if(isONE_OF) {
+					ArrayNode oneOf =mapper.createArrayNode();
+					propertyNode.set(pp.getName(),  pp.toJSONTDPropertySchema());
+					oneOf.add(propertyNode);
+					oneOfNode.set(eConstants.KEYWORD_ONEOF, oneOf);
+				} else {
+					propertyNode.set(pp.getName(),  pp.toJSONTDPropertySchema());
+				}
+			}
+		}
+		if(propertyNode.size()!=0 && oneOfNode.size() == 0) {
+			rootNode.set(eConstants.KEYWORD_PROPERTIES, propertyNode);
+		} else if(oneOfNode.size() != 0) {
+			rootNode.set(eConstants.KEYWORD_PROPERTIES, oneOfNode);
+		}
+		return rootNode;
+	}
 
 }

@@ -33,6 +33,7 @@ public class eConstants {
 	public static final String TYPE_DATE_TIME ="date-time";
 	public static final String TYPE_TIME ="time";
 	public static final String TYPE_NUMBER ="number";
+	public static final String TYPE_NULL ="null";
 	public static final String TYPE_BOOLEAN ="boolean";
 	public static final String TYPE_ARRAY="array";
 	public static final String TYPE_OBJECT="object";

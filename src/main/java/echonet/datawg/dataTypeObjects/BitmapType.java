@@ -63,5 +63,20 @@ public class BitmapType extends DataType{
 	public OntClass toObjectPropertyTypeRestriction(SarefOntologyParser owlHanlder, String propertyName) {
 		return null;
 	}
+	@Override
+	public ObjectNode toThingDescriptionDataSchema() {
+		ObjectMapper mapper = new ObjectMapper();
+		ObjectNode rootNode = mapper.createObjectNode();
+		rootNode.put(eConstants.KEYWORD_TYPE, eConstants.TYPE_OBJECT);
+		
+		ObjectNode bitmapProperty = mapper.createObjectNode();
+		for(Bitmap bm : bitmaps) {
+			bitmapProperty.set(bm.getName(), bm.toBitMapPPJSON());
+		}
+		if(bitmapProperty.size() != 0)
+			rootNode.set(eConstants.KEYWORD_PROPERTIES, bitmapProperty);
+		
+		return rootNode;
+	}
 
 }
