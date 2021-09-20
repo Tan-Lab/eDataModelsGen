@@ -18,6 +18,9 @@ import echonet.datawg.echonetObjects.ECHONETLiteDevice;
 import echonet.datawg.echonetObjects.ManualCode;
 import echonet.datawg.utils.Constants;
 
+import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.lang3.StringUtils;
+
 public class FilesParser {
 	public static List<DataType> definedDataTypeFromJSON(JSONObject obj) {
 		JSONObject objType = null;
@@ -131,14 +134,10 @@ public class FilesParser {
 		try {
 			reader = new BufferedReader(new InputStreamReader(new FileInputStream(fileName), "UTF-8"));
 			obj = (JSONObject) parser.parse(reader);
-			Iterator<?> keys = obj.keySet().iterator();
-			while(keys.hasNext()) {
-				String key = (String) keys.next();
-				JSONObject jsonObj = (JSONObject)obj.get(key);
-				ECHONETLiteDevice device = new DeviceDefinitionParser(preDefinedDataTypes).toDeviceDefinitions(key,jsonObj);
+			String key = StringUtils.left(FilenameUtils.getName(fileName),6);
+			ECHONETLiteDevice device = new DeviceDefinitionParser(preDefinedDataTypes).toDeviceDefinitions(key,obj);
 				if(device != null)
 					rs.add(device);
-			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

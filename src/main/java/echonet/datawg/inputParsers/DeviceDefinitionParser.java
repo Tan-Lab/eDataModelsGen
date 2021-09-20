@@ -15,6 +15,7 @@ import echonet.datawg.echonetObjects.PropertyAccessRule;
 import echonet.datawg.echonetObjects.SpecificationReleaseInformation;
 import echonet.datawg.utils.AccessRuleEnum;
 import echonet.datawg.utils.Constants;
+import echonet.datawg.utils.eConstants;
 
 public class DeviceDefinitionParser {
 	public DeviceDefinitionParser(List<DataType> dataType) {
@@ -57,7 +58,7 @@ public class DeviceDefinitionParser {
 		if(isLatestRelease(validRelease)) {
 			device = new ECHONETLiteDevice(key);
 			JSONObject className = (JSONObject) jsonObj.get(Constants.KEYWORD_CLASS_NAME);
-			JSONObject elProperties = (JSONObject) jsonObj.get(Constants.KEYWORD_EL_PROPERTIES);
+			JSONArray elProperties = (JSONArray) jsonObj.get(Constants.KEYWORD_EL_PROPERTIES);
 			device.setValidRelease(toValidReleaseInformation(validRelease));
 			device.setClassName(toClassName(className));
 			if(jsonObj.get(Constants.KEYWORD_SHORTNAME) != null) {
@@ -90,41 +91,37 @@ public class DeviceDefinitionParser {
 		return new EnJAStatement(en, jp);
 	}
 	
-	private List<ECHONETLiteProperty> toPropertyList(JSONObject obj) {
+	private List<ECHONETLiteProperty> toPropertyList(JSONArray ppArray) {
 		List<ECHONETLiteProperty> properties = new ArrayList<ECHONETLiteProperty>();
-		Iterator<?> property = obj.keySet().iterator();
-		while(property.hasNext()) {
-			String code = (String) property.next();
-			ECHONETLiteProperty pp = toProperty(code, (JSONObject) obj.get(code));
+		for(Object obj : ppArray ) {
+			ECHONETLiteProperty pp = toProperty((JSONObject) obj);
 			if (pp !=null)
 				properties.add(pp);
 		}
 		return properties;
 	}
-	public ECHONETLiteProperty toProperty(String code, JSONObject obj) {
+	public ECHONETLiteProperty toProperty(JSONObject obj) {
 		ECHONETLiteProperty rs = null;
 		if(obj.get(Constants.KEYWORD_ONE_OF) != null)  {
 			JSONArray array = (JSONArray) obj.get(Constants.KEYWORD_ONE_OF);
 			for(Object o: array.toArray()) {
-				rs = toPropertyFromLatestSpecification(code, (JSONObject) o);
+				rs = toPropertyFromLatestSpecification((JSONObject) o);
 			}
 		} else {
-			rs = toPropertyFromLatestSpecification(code, obj);
+			rs = toPropertyFromLatestSpecification( obj);
 		}
 		return rs;
 	}
-	private ECHONETLiteProperty toPropertyFromLatestSpecification(String code, JSONObject obj) {
+	private ECHONETLiteProperty toPropertyFromLatestSpecification(JSONObject obj) {
 		ECHONETLiteProperty property = null;
 		JSONObject validRelease = (JSONObject) obj.get(Constants.KEYWORD_VALID_RELEASE);
 		if(validRelease == null) {
 			System.out.println(obj.toJSONString());
 		}
 		if(isLatestRelease(validRelease)) {
-			property = new ECHONETLiteProperty(code);
+			property = new ECHONETLiteProperty(obj.get(eConstants.KEYWORD_EPC).toString());
 			JSONObject propertyName = (JSONObject) obj.get(Constants.KEYWORD_PROPERTY_NAME);
-			if(propertyName == null) {
-				System.out.println(code);
-			}
+			
 			JSONObject accessRule = (JSONObject) obj.get(Constants.KEYWORD_ACCESS_RULE);
 			JSONObject data = (JSONObject) obj.get(Constants.KEYWORD_DATA);
 			JSONObject note = (JSONObject) obj.get(Constants.KEYWORD_NOTE);
@@ -145,6 +142,19 @@ public class DeviceDefinitionParser {
 		return property;
 		
 	}
+	public ECHONETLiteProperty toProperty(String key, JSONObject obj) {
+		ECHONETLiteProperty rs = null;
+		if(obj.get(Constants.KEYWORD_ONE_OF) != null)  {
+			JSONArray array = (JSONArray) obj.get(Constants.KEYWORD_ONE_OF);
+			for(Object o: array.toArray()) {
+				rs = toPropertyFromLatestSpecification((JSONObject) o);
+			}
+		} else {
+			rs = toPropertyFromLatestSpecification( obj);
+		}
+		return rs;
+	}
+
 	private EnJAStatement toPropertyName(JSONObject obj) {
 		
 		String en = obj.get(Constants.KEYWORD_EN).toString();
