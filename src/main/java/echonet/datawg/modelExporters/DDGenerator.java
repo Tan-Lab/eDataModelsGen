@@ -73,6 +73,9 @@ public class DDGenerator {
 									if(mcEPC.getType() != null) {
 										epc.setDataRestrictions(mcEPC.getType());
 									}
+									if(mcEPC.getShortName() != null) {
+										epc.setShortName(mcEPC.getShortName());
+									}
 								}
 								
 							}
@@ -136,9 +139,21 @@ public class DDGenerator {
 			System.out.println("Nothing to show");
 		}
 	}
-	public void toTDFile(String filePath) {
-		if(elDevices.size() > 0) {
+	public void toTDFile(String filePath, boolean includeCommonItems) {
+		ECHONETLiteDevice commonItem = null;
+		for(ECHONETLiteDevice dev: elDevices) {
+			if(dev.getShortName().equalsIgnoreCase(Constants.KEYWORD_SUPER_CLASS)) {
+				commonItem = dev;
+				break;
+			}
+		}
+		if(elDevices.size() > 0) {			
 			for(ECHONETLiteDevice dev: elDevices) {
+				if(includeCommonItems && commonItem != null) {
+					if (!dev.getShortName().equalsIgnoreCase(Constants.KEYWORD_SUPER_CLASS)) {
+						dev.addProperties(commonItem.getProperties());
+					}
+				}
 				try (Writer file = new OutputStreamWriter(
 									new FileOutputStream( filePath + File.separator + dev.getShortName()+".json"),
 									StandardCharsets.UTF_8)) { 

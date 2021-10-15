@@ -1,0 +1,386 @@
+{
+  "deviceType" : "superClass",
+  "eoj" : "0x0EF0",
+  "descriptions" : {
+    "ja" : "スーパークラス",
+    "en" : "Super class"
+  },
+  "properties" : {
+    "operationStatus" : {
+      "epc" : "0x80",
+      "descriptions" : {
+        "ja" : "動作状態",
+        "en" : "Operation status"
+      },
+      "writable" : true,
+      "observable" : true,
+      "schema" : {
+        "type" : "boolean",
+        "values" : [ {
+          "value" : true,
+          "descriptions" : {
+            "ja" : "ON",
+            "en" : "ON"
+          },
+          "edt" : "0x30"
+        }, {
+          "value" : false,
+          "descriptions" : {
+            "ja" : "OFF",
+            "en" : "OFF"
+          },
+          "edt" : "0x31"
+        } ]
+      }
+    },
+    "installationLocation" : {
+      "epc" : "0x81",
+      "descriptions" : {
+        "ja" : "設置場所",
+        "en" : "Installation location"
+      },
+      "writable" : true,
+      "observable" : true,
+      "schema" : {
+        "type" : "string"
+      },
+      "note" : {
+        "ja" : "1byte bitmap(例 0x00: 未設定(初期値), 0x08: リビング)または0x01で始まる17 byte data",
+        "en" : "1byte bitmap (eg. 0x00: undefined (initial data), 0x08: living) or 17 bytes data starting from 0x01"
+      }
+    },
+    "protocol" : {
+      "epc" : "0x82",
+      "descriptions" : {
+        "ja" : "Protocol version情報",
+        "en" : "Protocol version information"
+      },
+      "writable" : false,
+      "observable" : false,
+      "schema" : {
+        "type" : "object",
+        "properties" : {
+          "type" : {
+            "type" : "string"
+          },
+          "version" : {
+            "type" : "string"
+          }
+        }
+      },
+      "note" : {
+        "ja" : "1,2,4バイト目は0x00。3バイト目は機器オブジェクトのリリースバージョンをASCIIで表す。リリース Aのみ小文字で0x61, B以降は大文字で0x42, 0x43...",
+        "en" : "1st, 2nd and 4th data is 0x00. 3rd data is the release version of Device Object in ASCII. Only release A utilize lower case letter 0x61, Release B and later utilize upper case letter such as 0x42, 0x43..."
+      }
+    },
+    "id" : {
+      "epc" : "0x83",
+      "descriptions" : {
+        "ja" : "識別番号",
+        "en" : "Identification number"
+      },
+      "writable" : false,
+      "observable" : false,
+      "schema" : {
+        "type" : "string"
+      },
+      "note" : {
+        "ja" : "1バイト目は0xFE。2～4バイト目はメーカコード。残りは機器毎のユニーク値",
+        "en" : "1st data is 0xFE. 2nd to 4th data is manufacture code. The rest should be unique to each device."
+      }
+    },
+    "instantaneousElectricPowerConsumption" : {
+      "epc" : "0x84",
+      "descriptions" : {
+        "ja" : "瞬時消費電力計測値",
+        "en" : "Measured instantaneous power consumption"
+      },
+      "writable" : false,
+      "observable" : false,
+      "schema" : {
+        "type" : "number",
+        "unit" : "W",
+        "minimum" : 0,
+        "maximum" : 65533
+      }
+    },
+    "consumedCumulativeElectricEnergy" : {
+      "epc" : "0x85",
+      "descriptions" : {
+        "ja" : "積算消費電力計測値",
+        "en" : "Measured cumulative power consumption"
+      },
+      "writable" : false,
+      "observable" : false,
+      "schema" : {
+        "type" : "number",
+        "unit" : "kWh",
+        "minimum" : 0,
+        "maximum" : 999999.999,
+        "multipleOf" : 0.001
+      }
+    },
+    "manufacturerFaultCode" : {
+      "epc" : "0x86",
+      "descriptions" : {
+        "ja" : "メーカ異常コード",
+        "en" : "Manufacturer's fault code"
+      },
+      "writable" : false,
+      "observable" : false,
+      "schema" : {
+        "type" : "string"
+      }
+    },
+    "currentLimit" : {
+      "epc" : "0x87",
+      "descriptions" : {
+        "ja" : "電流制限設定",
+        "en" : "Current limit setting"
+      },
+      "writable" : true,
+      "observable" : false,
+      "schema" : {
+        "type" : "number",
+        "unit" : "%",
+        "minimum" : 0,
+        "maximum" : 100
+      }
+    },
+    "faultStatus" : {
+      "epc" : "0x88",
+      "descriptions" : {
+        "ja" : "異常発生状態",
+        "en" : "Fault status"
+      },
+      "writable" : false,
+      "observable" : true,
+      "schema" : {
+        "type" : "boolean",
+        "values" : [ {
+          "value" : true,
+          "descriptions" : {
+            "ja" : "異常あり",
+            "en" : "Fault occurred."
+          },
+          "edt" : "0x41"
+        }, {
+          "value" : false,
+          "descriptions" : {
+            "ja" : "異常なし",
+            "en" : "No fault has occurred."
+          },
+          "edt" : "0x42"
+        } ]
+      }
+    },
+    "faultDescription" : {
+      "epc" : "0x89",
+      "descriptions" : {
+        "ja" : "異常内容",
+        "en" : "Fault description"
+      },
+      "writable" : false,
+      "observable" : false,
+      "schema" : {
+        "type" : "string"
+      },
+      "note" : {
+        "ja" : "Appendixの2.5章 異常内容プロパティ参照",
+        "en" : "See Chapter 2.5 'Fault Description' Property of the Appendix."
+      }
+    },
+    "manufacturer" : {
+      "epc" : "0x8A",
+      "descriptions" : {
+        "ja" : "メーカー",
+        "en" : "Manufacturer"
+      },
+      "writable" : false,
+      "observable" : false,
+      "schema" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "string"
+          },
+          "descriptions" : {
+            "type" : "object",
+            "properties" : {
+              "ja" : {
+                "type" : "string"
+              },
+              "en" : {
+                "type" : "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "businessFacilityCode" : {
+      "epc" : "0x8B",
+      "descriptions" : {
+        "ja" : "事業場コード",
+        "en" : "Business facility code"
+      },
+      "writable" : false,
+      "observable" : false,
+      "schema" : {
+        "type" : "string"
+      }
+    },
+    "productCode" : {
+      "epc" : "0x8C",
+      "descriptions" : {
+        "ja" : "商品コード",
+        "en" : "Product code"
+      },
+      "writable" : false,
+      "observable" : false,
+      "schema" : {
+        "type" : "string"
+      }
+    },
+    "serialNumber" : {
+      "epc" : "0x8D",
+      "descriptions" : {
+        "ja" : "製造番号",
+        "en" : "Serial number"
+      },
+      "writable" : false,
+      "observable" : false,
+      "schema" : {
+        "type" : "string"
+      }
+    },
+    "productionDate" : {
+      "epc" : "0x8E",
+      "descriptions" : {
+        "ja" : "製造年月日",
+        "en" : "Production date"
+      },
+      "writable" : false,
+      "observable" : false,
+      "schema" : {
+        "type" : "string",
+        "format" : "date"
+      }
+    },
+    "powerSaving" : {
+      "epc" : "0x8F",
+      "descriptions" : {
+        "ja" : "節電動作設定",
+        "en" : "Power-saving operation setting"
+      },
+      "writable" : true,
+      "observable" : false,
+      "schema" : {
+        "type" : "boolean",
+        "values" : [ {
+          "value" : true,
+          "descriptions" : {
+            "ja" : "節電動作中",
+            "en" : "Power saving Opration"
+          },
+          "edt" : "0x41"
+        }, {
+          "value" : false,
+          "descriptions" : {
+            "ja" : "通常動作中",
+            "en" : "Normal Operation"
+          },
+          "edt" : "0x42"
+        } ]
+      }
+    },
+    "currentDateAndTime" : {
+      "epc" : "0x98",
+      "descriptions" : {
+        "ja" : "現在日時",
+        "en" : "Current date and time"
+      },
+      "writable" : true,
+      "observable" : false,
+      "schema" : {
+        "type" : "string",
+        "format" : "date-time"
+      }
+    },
+    "powerLimit" : {
+      "epc" : "0x99",
+      "descriptions" : {
+        "ja" : "電力制限設定",
+        "en" : "Power limit setting"
+      },
+      "writable" : true,
+      "observable" : false,
+      "schema" : {
+        "type" : "number",
+        "unit" : "W",
+        "minimum" : 0,
+        "maximum" : 65533
+      }
+    },
+    "hourMeter" : {
+      "epc" : "0x9A",
+      "descriptions" : {
+        "ja" : "積算運転時間",
+        "en" : "Cumulative operating time"
+      },
+      "writable" : false,
+      "observable" : false,
+      "schema" : {
+        "type" : "object",
+        "properties" : {
+          "unit" : {
+            "descriptions" : {
+              "ja" : "積算運転時間",
+              "en" : "Cumulative operating time"
+            },
+            "type" : "string",
+            "enum" : [ "second", "minute", "hour", "day" ],
+            "values" : [ {
+              "value" : "second",
+              "descriptions" : {
+                "ja" : "秒",
+                "en" : "second"
+              },
+              "edt" : "0x41"
+            }, {
+              "value" : "minute",
+              "descriptions" : {
+                "ja" : "分",
+                "en" : "minute"
+              },
+              "edt" : "0x42"
+            }, {
+              "value" : "hour",
+              "descriptions" : {
+                "ja" : "時",
+                "en" : "hour"
+              },
+              "edt" : "0x43"
+            }, {
+              "value" : "day",
+              "descriptions" : {
+                "ja" : "日",
+                "en" : "day"
+              },
+              "edt" : "0x44"
+            } ]
+          },
+          "time" : {
+            "descriptions" : {
+              "ja" : "時間",
+              "en" : "time"
+            },
+            "type" : "number",
+            "minimum" : 0,
+            "maximum" : 4294967295
+          }
+        }
+      }
+    }
+  }
+}

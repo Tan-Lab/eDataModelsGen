@@ -45,6 +45,7 @@ public class DDExporter {
 	protected static String outputWoTDir;
 	protected static String[] inputFiles;
 	protected static boolean isGUI = false;
+	protected static boolean includeCommonItems = false;
 	protected static String full_MRA_File_Name;
 	protected static String aDevice_File_Name;
 	protected static String MC_Rules_File_Name;
@@ -88,7 +89,7 @@ public class DDExporter {
 					System.out.println("DD exported!! Check " + outputDir + " directory for results");
 				} 
 				if (!outputWoTDir.equals("")){
-					ddHandler.toTDFile(outputWoTDir);
+					ddHandler.toTDFile(outputWoTDir,includeCommonItems);
 					System.out.println("TD exported!! Check " + outputWoTDir + " directory for results");
 				} 
 			} else {
@@ -120,7 +121,7 @@ public class DDExporter {
 			System.out.println("No device definition file");
 		}
 		if(!MC_Rules_File_Name.equals("")) {
-			mcRules = FilesParser.mcFromFile(MC_Rules_File_Name);
+			mcRules = FilesParser.mcFromFileV1(MC_Rules_File_Name);
 		}
 	}
 	public static void fileTypeFromNames() {
@@ -160,6 +161,9 @@ public class DDExporter {
 		if(cmd.hasOption("display-GUI")) {
 			isGUI = true;
 		}
+		if(cmd.hasOption("include-common-item")) {
+			includeCommonItems = true;
+		}
 		
 	}
 	public static Options buildOpts() {
@@ -179,6 +183,12 @@ public class DDExporter {
 		outputTDDir.setRequired(false);
 		
 		options.addOption( outputTDDir);
+		
+
+		Option includedCommonItems = new Option("c", "include-common-item", false, "Added common items into device definitions");
+		includedCommonItems.setRequired(false);
+		
+		options.addOption(includedCommonItems);
 		
 		Option GUI = new Option("g", "display-GUI", false, "Enable GUI App");
 		options.addOption( GUI);

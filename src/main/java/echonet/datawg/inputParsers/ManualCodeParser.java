@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import echonet.datawg.dataTypeObjects.DataType;
@@ -16,6 +17,7 @@ import echonet.datawg.echonetObjects.UrlParameter;
 import echonet.datawg.main.DDExporter;
 import echonet.datawg.utils.AccessRuleEnum;
 import echonet.datawg.utils.Constants;
+import echonet.datawg.utils.eConstants;
 
 public class ManualCodeParser {
 	public ManualCodeParser(){
@@ -31,7 +33,77 @@ public class ManualCodeParser {
 		}
 		return mc;
 	}
-	
+	public static ManualCode toManualCodeV1(JSONObject obj) {
+		ManualCode mc = new ManualCode();
+		
+		mc.setEoj(obj.get(eConstants.KEYWORD_EOJ).toString());
+		JSONArray properties = (JSONArray) obj.get(Constants.KEYWORD_PROPERTIES);
+		if(properties != null) {
+			for(int i = 0; i < properties.size(); i++) {
+				JSONObject epcObj = (JSONObject) properties.get(i);
+				mc.addEpcs(toEPCManualCodeV1(epcObj));
+			}
+		} else {
+			System.out.println("No Properties in MC rule");
+		}
+		return mc;
+	}
+	public static EPCManualCode toEPCManualCodeV1(JSONObject obj) {
+		EPCManualCode epc = new EPCManualCode();
+		String epcString = obj.get(eConstants.KEYWORD_EPC).toString().trim();
+		epc.setEpc(epcString);
+		
+		if(epcString.equalsIgnoreCase("0xFF")) {
+			ECHONETLiteProperty pp = new DeviceDefinitionParser(DDExporter.dataTypes).
+					 toProperty(epcString, obj);
+			epc.setPp(pp);
+		}  else {
+			if(obj.get(Constants.KEYWORD_DATA) != null) {
+				JSONObject dataObj = (JSONObject) obj.get(Constants.KEYWORD_DATA) ;
+				List<DataType> type = new DeviceDefinitionParser(DDExporter.dataTypes).toDataRestrictionList(dataObj);
+				epc.setType(type);
+			}  
+			if(obj.get(Constants.KEYWORD_ACTION) != null) {
+				String action = obj.get(Constants.KEYWORD_ACTION).toString();
+				epc.setAction(action);
+			}
+			if(obj.get(Constants.KEYWORD_URL_PARAM) != null) {
+				JSONObject urlObj = (JSONObject) obj.get(Constants.KEYWORD_URL_PARAM);
+				
+				epc.setParemeter(toUrlParameters(urlObj));
+				
+			}
+			if(obj.get(Constants.KEYWORD_NOTE) != null) {
+				JSONObject noteObj = (JSONObject) obj.get(Constants.KEYWORD_NOTE);
+				epc.setNote(new EnJAStatement(
+							noteObj.get(Constants.KEYWORD_EN).toString(), 
+							noteObj.get(Constants.KEYWORD_JA).toString()));
+			}
+			if(obj.get(Constants.KEYWORD_PROPERTY_NAME) != null) {
+				JSONObject ppname = (JSONObject) obj.get(Constants.KEYWORD_PROPERTY_NAME);
+				epc.setPpName(new EnJAStatement(
+						ppname.get(Constants.KEYWORD_EN).toString(), 
+						ppname.get(Constants.KEYWORD_JA).toString()));
+			}
+			if(obj.get(Constants.KEYWORD_ACCESS_RULE) != null) {
+				JSONObject accessRules = (JSONObject) obj.get(Constants.KEYWORD_ACCESS_RULE);
+				PropertyAccessRule rule = new PropertyAccessRule();
+				String getRule = accessRules.get(Constants.KEYWORD_GET).toString();
+				String setRule = accessRules.get(Constants.KEYWORD_SET).toString();
+				String infRule = accessRules.get(Constants.KEYWORD_INF).toString();
+				rule.setGet(AccessRuleEnum.getByName(getRule));
+				rule.setSet(AccessRuleEnum.getByName(setRule));
+				rule.setInf(AccessRuleEnum.getByName(infRule));
+				epc.setAccessRule(rule);
+			}
+			if(obj.get(Constants.KEYWORD_SHORTNAME) != null) {
+				epc.setShortName(obj.get(Constants.KEYWORD_SHORTNAME).toString() + "(MC)");
+			}
+		}
+		
+		
+		return epc;
+	}
 	public static EPCManualCode toEPCManualCode(String key, JSONObject obj) {
 		EPCManualCode epc = new EPCManualCode();
 		epc.setEpc(key);
@@ -78,6 +150,9 @@ public class ManualCodeParser {
 				rule.setSet(AccessRuleEnum.getByName(setRule));
 				rule.setInf(AccessRuleEnum.getByName(infRule));
 				epc.setAccessRule(rule);
+			}
+			if(obj.get(Constants.KEYWORD_SHORTNAME) != null) {
+				epc.setShortName(obj.get(Constants.KEYWORD_SHORTNAME).toString() + "(MC)");
 			}
 		}
 		

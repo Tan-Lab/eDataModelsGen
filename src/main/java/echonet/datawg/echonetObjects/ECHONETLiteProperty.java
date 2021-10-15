@@ -1,7 +1,7 @@
 package echonet.datawg.echonetObjects;
 
 
-import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
@@ -9,8 +9,12 @@ import org.apache.commons.lang3.StringUtils;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+
+import echonet.datawg.dataTypeObjects.BooleanType;
 import echonet.datawg.dataTypeObjects.DataType;
-import echonet.datawg.dataTypeObjects.NumberType;
+import echonet.datawg.dataTypeObjects.ObjectProperty;
+import echonet.datawg.dataTypeObjects.ObjectType;
+import echonet.datawg.dataTypeObjects.RawType;
 import echonet.datawg.utils.AccessRuleEnum;
 import echonet.datawg.utils.Constants;
 import echonet.datawg.utils.WoTConstants;
@@ -127,6 +131,53 @@ public ECHONETLiteProperty(String code) {
 		ObjectMapper mapper = new ObjectMapper();
 		ObjectNode rootNode = mapper.createObjectNode();
 		// title node
+		rootNode.put(WoTConstants.KEYWORD_TITLE, this.getShortName().replace("(MC)", ""));
+		// titles node
+		ObjectNode titlesNode = mapper.createObjectNode();
+		titlesNode.put(WoTConstants.EN_LANGUAGE, this.getShortName().replace("(MC)", ""));
+		titlesNode.put(WoTConstants.JP_LANGUAGE , this.getShortJPName());
+		rootNode.set(WoTConstants.KEYWORD_TITLES, titlesNode);
+		rootNode.put("echonet:epc", this.getCode());
+		//  description node
+		rootNode.put(WoTConstants.KEYWORD_DESCRIPTION, this.getPropertyName().getEN());
+		// descriptions node
+		ObjectNode descriptions = mapper.createObjectNode();
+		descriptions.put(WoTConstants.EN_LANGUAGE, this.getPropertyName().getEN());
+		descriptions.put(WoTConstants.JP_LANGUAGE , this.getPropertyName().getJP());
+		rootNode.set(WoTConstants.KEYWORD_DESCRIPTIONS, descriptions);
+		if(isGetOnly()) {
+			rootNode.put(WoTConstants.KEYWORD_READ_ONLY, true);
+		} else {
+			rootNode.put(WoTConstants.KEYWORD_READ_ONLY, false);
+		}
+		if(isSetOnly()) {
+			rootNode.put(WoTConstants.KEYWORD_WRITE_ONLY, true);
+		} else {
+			rootNode.put(WoTConstants.KEYWORD_WRITE_ONLY, false);
+		}
+		if(isObservable()) {
+			rootNode.put(WoTConstants.KEYWORD_OBSERVABLE, true);
+		} else {
+			rootNode.put(WoTConstants.KEYWORD_OBSERVABLE, false);
+		}
+		if(data.size() == 1) {
+			rootNode.setAll(data.get(0).toThingDescriptionDataSchema());
+		} else if(data.size() > 1) {
+			ArrayNode arrayNode = mapper.createArrayNode();
+			for(DataType type : data) {
+				arrayNode.add(type.toThingDescriptionDataSchema());
+			}
+			ObjectNode oneOfNode = mapper.createObjectNode();
+			oneOfNode.set(eConstants.KEYWORD_ONEOF, arrayNode);
+			rootNode.setAll(oneOfNode);
+		}
+		
+		return rootNode;
+	}
+	public ObjectNode toEvent() {
+		ObjectMapper mapper = new ObjectMapper();
+		ObjectNode rootNode = mapper.createObjectNode();
+		// title node
 		rootNode.put(WoTConstants.KEYWORD_TITLE, this.getShortName());
 		// titles node
 		ObjectNode titlesNode = mapper.createObjectNode();
@@ -140,7 +191,6 @@ public ECHONETLiteProperty(String code) {
 		descriptions.put(WoTConstants.EN_LANGUAGE, this.getPropertyName().getEN());
 		descriptions.put(WoTConstants.JP_LANGUAGE , this.getPropertyName().getJP());
 		rootNode.set(WoTConstants.KEYWORD_DESCRIPTIONS, descriptions);
-		
 		if(data.size() == 1) {
 			rootNode.setAll(data.get(0).toThingDescriptionDataSchema());
 		} else if(data.size() > 1) {
@@ -176,14 +226,58 @@ public ECHONETLiteProperty(String code) {
 		
 		return rootNode;
 	}
-	
+	public ObjectNode toAction() {
+		ObjectMapper mapper = new ObjectMapper();
+		ObjectNode rootNode = mapper.createObjectNode();
+		// title node
+		rootNode.put(WoTConstants.KEYWORD_TITLE, this.getShortName());
+		// titles node
+		ObjectNode titlesNode = mapper.createObjectNode();
+		titlesNode.put(WoTConstants.EN_LANGUAGE, this.getShortName());
+		titlesNode.put(WoTConstants.JP_LANGUAGE , this.getShortJPName());
+		rootNode.set(WoTConstants.KEYWORD_TITLES, titlesNode);
+		//  description node
+		rootNode.put(WoTConstants.KEYWORD_DESCRIPTION, this.getPropertyName().getEN());
+		// descriptions node
+		ObjectNode descriptions = mapper.createObjectNode();
+		descriptions.put(WoTConstants.EN_LANGUAGE, this.getPropertyName().getEN());
+		descriptions.put(WoTConstants.JP_LANGUAGE , this.getPropertyName().getJP());
+		rootNode.set(WoTConstants.KEYWORD_DESCRIPTIONS, descriptions);
+		ObjectNode inputNode = mapper.createObjectNode();
+		rootNode.set(WoTConstants.KEYWORD_INPUT, inputNode);
+		rootNode.set(WoTConstants.KEYWORD_OUTPUT, toOutput());
+		
+		return rootNode;
+	}
+	public ObjectNode toOutput() {
+		ObjectType output = new ObjectType();
+		output.setDescription(new EnJAStatement("Return true/false and a message", 
+												"true/false とメッセージを返す"));
+		ObjectProperty rsPP = new ObjectProperty();
+		rsPP.setName("result");
+		rsPP.setDataType(new BooleanType());
+		output.setProperty(rsPP);
+		ObjectProperty msgPP = new ObjectProperty();
+		msgPP.setName("message");
+		msgPP.setDataType(new RawType());
+		output.setProperty(msgPP);
+		return output.toThingDescriptionDataSchema();
+	}
 	public ObjectNode toFIWAREJSON() {
 		return null;
 	}
 	public boolean isSetOnly() {
 		boolean rs = false;
 		if(accessRule.getGet() == AccessRuleEnum.notApplicable
-				&& accessRule.getSet() != AccessRuleEnum.notApplicable) {
+		&& accessRule.getSet() != AccessRuleEnum.notApplicable) {
+			rs = true;
+		}
+		return rs;
+	}
+	public boolean isGetOnly() {
+		boolean rs = false;
+		if(accessRule.getGet() != AccessRuleEnum.notApplicable
+		&& accessRule.getSet() == AccessRuleEnum.notApplicable) {
 			rs = true;
 		}
 		return rs;
@@ -191,8 +285,8 @@ public ECHONETLiteProperty(String code) {
 	public boolean isINFOnly() {
 		boolean rs = false;
 		if(accessRule.getGet() == AccessRuleEnum.notApplicable
-				&& accessRule.getSet() == AccessRuleEnum.notApplicable
-				&& accessRule.getInf() != AccessRuleEnum.notApplicable) {
+		&& accessRule.getInf() != AccessRuleEnum.notApplicable
+		&& accessRule.getSet() == AccessRuleEnum.notApplicable) {
 			rs = true;
 		}
 		return rs;

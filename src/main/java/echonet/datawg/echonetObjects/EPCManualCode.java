@@ -8,6 +8,7 @@ public class EPCManualCode {
 	public EPCManualCode() {
 		// TODO Auto-generated constructor stub
 	}
+	private String shortName;
 	private String epcCode;
 	private String action;
 	private List<DataType> type;
@@ -63,6 +64,12 @@ public class EPCManualCode {
 	}
 	public void setAccessRule(PropertyAccessRule accessRule) {
 		this.accessRule = accessRule;
+	}
+	public String getShortName() {
+		return shortName;
+	}
+	public void setShortName(String shortName) {
+		this.shortName = shortName;
 	}
 
 }

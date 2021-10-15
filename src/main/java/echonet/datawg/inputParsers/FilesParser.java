@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -105,12 +106,12 @@ public class FilesParser {
 			} 
 			if(obj.get(Constants.KEYWORD_NODE_PROFILE) != null) {
 				rs.add(new DeviceDefinitionParser(preDefinedDataTypes).
-						toTheLatestDeviceDefinition(Constants.KEYWORD_NODE_PROFILE, 
+						toTheLatestDeviceDefinition("0x0EF0", 
 						(JSONObject)obj.get(Constants.KEYWORD_NODE_PROFILE)));
 			}
 			if(obj.get(Constants.KEYWORD_SUPER_CLASS) != null) {
 				rs.add(new DeviceDefinitionParser(preDefinedDataTypes).
-						toTheLatestDeviceDefinition(Constants.KEYWORD_SUPER_CLASS, 
+						toTheLatestDeviceDefinition("0x0000", 
 						(JSONObject)obj.get(Constants.KEYWORD_SUPER_CLASS)));
 			}
 			
@@ -159,6 +160,41 @@ public class FilesParser {
 			while(keys.hasNext()) {
 				String key = (String) keys.next();
 				ManualCode mc = ManualCodeParser.toManualCode(key, (JSONObject)obj.get(key));
+				if(mc != null)
+					rs.add(mc);
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return rs;
+	}
+	public static List<ManualCode> mcFromFileV1(String fileName){
+		BufferedReader reader;
+		JSONObject oneObj= null;		
+		JSONArray arrayObj = null;
+		JSONParser parser = new JSONParser();
+		List<ManualCode> rs = new ArrayList<ManualCode>();
+		try {
+			reader = new BufferedReader(new InputStreamReader(new FileInputStream(fileName), "UTF-8"));
+			Object inputObj = parser.parse(reader);
+			if(inputObj instanceof JSONArray) {
+				arrayObj = (JSONArray) inputObj;
+			} else {
+				oneObj = (JSONObject) inputObj;
+			}
+			if( arrayObj != null) {
+				for(int i = 0; i < arrayObj.size(); i ++) {
+					ManualCode mc = ManualCodeParser.toManualCodeV1((JSONObject)arrayObj.get(i));
+					if(mc != null)
+						rs.add(mc);
+				}
+			}
+			if(oneObj != null) {
+				ManualCode mc = ManualCodeParser.toManualCodeV1(oneObj);
 				if(mc != null)
 					rs.add(mc);
 			}

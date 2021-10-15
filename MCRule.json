@@ -1,0 +1,6563 @@
+{
+  "0x0EF0": {
+    "0x81": {
+        "data": {
+            "type": "raw",
+            "minSize": 17,
+            "maxSize": 17
+        }
+    },
+    "0x82": {
+        "propertyName": {
+            "ja": "Protocol version情報",
+            "en": "Protocol version information"
+        },
+        "data": {
+            "type": "object",
+            "properties": [
+                {
+                    "shortName": "type",
+                    "element": {
+                        "type": "raw"
+                    }
+                },
+                {
+                    "shortName": "version",
+                    "element": {
+                        "type": "raw"
+                    }
+                }
+            ]
+        }
+    },
+    "0x8A": {
+        "propertyName": {
+            "ja": "メーカー",
+            "en": "Manufacturer"
+        },
+        "data": {
+            "type": "object",
+            "properties": [
+                {
+                    "shortName": "code",
+                    "element": {
+                        "type": "raw"
+                    }
+                },
+                {
+                    "shortName": "descriptions",
+                    "element": {
+                        "type": "object",
+                        "properties": [
+                            {
+                                "shortName": "ja",
+                                "element": {
+                                    "type": "raw"
+                                }
+                            },
+                            {
+                                "shortName": "en",
+                                "element": {
+                                    "type": "raw"
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "0x98": {
+        "propertyName": {
+            "ja": "現在日時",
+            "en": "Current date and time"
+        }
+    },
+    "0x93": {
+        "action": "DEL"
+    },
+    "0x8D": {
+        "propertyName": {
+            "ja": "製造番号",
+            "en": "Serial number"
+        }
+    }
+  },
+  "0x0130" : {
+    "0x8F" : {
+      "action" : "DEL"
+    },
+    "0x96" : {
+      "data" : {
+        "type" : "number",
+        "unit" : "minute",
+        "minimum" : 0,
+        "maximum" : 15359,
+        "multipleOf" : 1
+      }
+    },
+    "0x94" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [
+          {
+            "shortName" : "timeBased",
+            "element" : {
+              "type" : "boolean"
+            }
+          },
+          {
+            "shortName" : "relatimeTimeBased",
+            "element" : {
+              "type" : "boolean"
+            }
+          }
+        ]
+      }
+    },
+    "0x92" : {
+      "data" : {
+        "type" : "number",
+        "unit" : "minute",
+        "minimum" : 0,
+        "maximum" : 15359,
+        "multipleOf" : 1
+      }
+    },
+    "0x80" : {
+      "action" : "DEL"
+    },
+    "0x90" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "timeBased",
+          "element" : {
+            "type" : "boolean"
+          }
+        }, {
+          "shortName" : "relatimeTimeBased",
+          "element" : {
+            "type" : "boolean"
+          }
+        } ]
+      }
+    }
+  },
+  "0x0133" : {
+    "0x80" : {
+      "action" : "DEL"
+    }
+  },
+  "0x0135" : {
+    "0x80" : {
+      "action" : "DEL"
+    }
+  },
+  "0x0156" : {
+    "0x80" : {
+      "action" : "DEL"
+    },
+    "0xFF" : {
+      "note" : {
+        "ja" : "WebAPIの'devices'で管理されている機器のIDおよびその'deviceType'を記述",
+        "en" : "Describe the ID of the device managed in 'devices' of WebAPI and its 'deviceType'."
+      },
+      "data" : {
+        "type" : "array",
+        "items" : {
+          "type" : "object",
+          "properties" : [ {
+            "shortName" : "deviceId",
+            "element" : {
+              "type" : "raw"
+            }
+          }, {
+            "shortName" : "deviceType",
+            "element" : {
+              "type" : "raw"
+            }
+          } ]
+        }
+      },
+      "propertyName" : {
+        "ja" : "グループ内デバイスリスト",
+        "en" : "List of devices in group"
+      },
+      "shortName" : "groupDeviceList",
+      "validRelease" : {
+        "from" : "X",
+        "to" : "latest"
+      },
+      "accessRule" : {
+        "inf" : "notApplicable",
+        "set" : "notApplicable",
+        "get" : "optional"
+      },
+      "descriptions" : {
+        "ja" : "系統連系状態のタイプを示す",
+        "en" : "This property indicates the status of interconnection with the system."
+      }
+    }
+  },
+  "0x0157" : {
+    "0x80" : {
+      "action" : "DEL"
+    },
+    "0xFF" : {
+      "note" : {
+        "ja" : "WebAPIの'devices'で管理されている機器のIDおよびその'deviceType'を記述",
+        "en" : "Describe the ID of the device managed in 'devices' of WebAPI and its 'deviceType'."
+      },
+      "data" : {
+        "type" : "array",
+        "items" : {
+          "type" : "object",
+          "properties" : [ {
+            "shortName" : "deviceId",
+            "element" : {
+              "type" : "raw"
+            }
+          }, {
+            "shortName" : "deviceType",
+            "element" : {
+              "type" : "raw"
+            }
+          } ]
+        }
+      },
+      "propertyName" : {
+        "ja" : "グループ内デバイスリスト",
+        "en" : "List of devices in group"
+      },
+      "shortName" : "groupDeviceList",
+      "validRelease" : {
+        "from" : "X",
+        "to" : "latest"
+      },
+      "accessRule" : {
+        "inf" : "notApplicable",
+        "set" : "notApplicable",
+        "get" : "optional"
+      },
+      "descriptions" : {
+        "ja" : "系統連系状態のタイプを示す",
+        "en" : "This property indicates the status of interconnection with the system."
+      }
+    }
+  },
+  "0x0263" : {
+    "0xED" : {
+      "data" : {
+        "multipleOf" : 1,
+        "format" : "uint8",
+        "maximum" : 8,
+        "type" : "number",
+        "minimum" : 1
+      }
+    }
+  },
+  "0x0279" : {
+    "0xB0" : {
+      "note" : {
+        "ja" : "本プロパティには、数値が30分毎であることを示すため「intervalTime」が追加されている",
+        "en" : "intervalTime is added to this property to indicate that the value is every 30 minutes."
+      },
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "startDateAndTime",
+          "element" : {
+            "oneOf" : [ {
+              "size" : 4,
+              "type" : "date-time"
+            }, {
+              "size" : 4,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0xFFFFFFFF",
+                "name" : "unknown",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "不明",
+                  "en" : "Unknown"
+                }
+              } ]
+            } ]
+          },
+          "elementName" : {
+            "ja" : "現在年月日",
+            "en" : "Current date (YYYY: MM: DD)"
+          }
+        }, {
+          "shortName" : "intervalTime",
+          "element" : {
+            "multipleOf" : 30,
+            "unit" : "minute",
+            "maximum" : 60,
+            "type" : "number",
+            "minimum" : 0
+          }
+        }, {
+          "shortName" : "powerControlRatio",
+          "elementName" : {
+            "ja" : "0x00～0x64 (0～100%) x 96 (30分毎の値、2日分)",
+            "en" : "0x00-0x64 (0-100%) x 96 (values every 30 minutes, for 2 days)"
+          },
+          "element" : {
+            "minItems" : 96,
+            "maxItems" : 96,
+            "itemSize" : 1,
+            "type" : "array",
+            "items" : {
+              "oneOf" : [ {
+                "unit" : "%",
+                "format" : "uint8",
+                "maximum" : 100,
+                "type" : "number",
+                "minimum" : 0
+              }, {
+                "size" : 1,
+                "type" : "state",
+                "enum" : [ {
+                  "edt" : "0xFF",
+                  "name" : "undefined",
+                  "readOnly" : true,
+                  "descriptions" : {
+                    "ja" : "不明",
+                    "en" : "Unknown"
+                  }
+                } ]
+              } ]
+            }
+          }
+        } ]
+      }
+    },
+    "0x83" : {
+      "action" : "DEL"
+    }
+  },
+  "0x027A" : {
+    "0xD2" : {
+      "data" : {
+        "multipleOf" : 1,
+        "format" : "uint8",
+        "maximum" : 31,
+        "type" : "number",
+        "minimum" : 17
+      }
+    },
+    "0xD1" : {
+      "data" : {
+        "multipleOf" : 1,
+        "format" : "uint8",
+        "maximum" : 15,
+        "type" : "number",
+        "minimum" : 1
+      }
+    },
+    "0xE2" : {
+      "data" : {
+        "oneOf" : [ {
+          "multipleOf" : 1,
+          "format" : "uint8",
+          "maximum" : 31,
+          "type" : "number",
+          "minimum" : 1
+        }, {
+          "size" : 1,
+          "type" : "state",
+          "enum" : [ {
+            "edt" : "0x41",
+            "name" : "auto",
+            "descriptions" : {
+              "ja" : "AUTO",
+              "en" : "AUTO"
+            }
+          } ]
+        } ]
+      }
+    },
+    "0xE8" : {
+      "data" : {
+        "minItems" : 0,
+        "maxItems" : 24,
+        "itemSize" : 0,
+        "type" : "array",
+        "items" : {
+          "type" : "object",
+          "properties" : [ {
+            "note" : {
+              "ja" : "開始分は0分もしくは30分",
+              "en" : "Time is fixed at 0 or 30 min."
+            },
+            "shortName" : "startTime",
+            "element" : {
+              "size" : 2,
+              "type" : "time"
+            },
+            "elementName" : {
+              "ja" : "運転開始時間",
+              "en" : "Start time"
+            }
+          }, {
+            "note" : {
+              "ja" : "開始分は0分もしくは30分",
+              "en" : "Time is fixed at 0 or 30 min."
+            },
+            "shortName" : "endTime",
+            "element" : {
+              "size" : 2,
+              "type" : "time"
+            },
+            "elementName" : {
+              "ja" : "運転停止時間",
+              "en" : "End time"
+            }
+          } ]
+        }
+      }
+    },
+    "0xE7" : {
+      "data" : {
+        "minItems" : 0,
+        "maxItems" : 24,
+        "itemSize" : 0,
+        "type" : "array",
+        "items" : {
+          "type" : "object",
+          "properties" : [ {
+            "note" : {
+              "ja" : "開始分は0分もしくは30分",
+              "en" : "Time is fixed at 0 or 30 min."
+            },
+            "shortName" : "startTime",
+            "element" : {
+              "size" : 2,
+              "type" : "time"
+            },
+            "elementName" : {
+              "ja" : "運転開始時間",
+              "en" : "Start time"
+            }
+          }, {
+            "note" : {
+              "ja" : "開始分は0分もしくは30分",
+              "en" : "Time is fixed at 0 or 30 min."
+            },
+            "shortName" : "endTime",
+            "element" : {
+              "size" : 2,
+              "type" : "time"
+            },
+            "elementName" : {
+              "ja" : "運転停止時間",
+              "en" : "End time"
+            }
+          } ]
+        }
+      }
+    }
+  },
+  "0x027B" : {
+    "0xE4" : {
+      "data" : {
+        "minItems" : 8,
+        "maxItems" : 8,
+        "type" : "array",
+        "items" : {
+          "size" : 0,
+          "type" : "state",
+          "enum" : [ {
+            "edt" : "0x01",
+            "name" : "true",
+            "descriptions" : {
+              "ja" : "制御有り",
+              "en" : "With control"
+            }
+          }, {
+            "edt" : "0x00",
+            "name" : "false",
+            "descriptions" : {
+              "ja" : "制御無し",
+              "en" : "Without control"
+            }
+          } ]
+        }
+      }
+    },
+    "0xE8" : {
+      "data" : {
+        "minItems" : 0,
+        "maxItems" : 24,
+        "type" : "array",
+        "items" : {
+          "type" : "object",
+          "properties" : [ {
+            "note" : {
+              "ja" : "開始分は0分もしくは30分",
+              "en" : "Time is fixed at 0 or 30 min."
+            },
+            "shortName" : "startTime",
+            "element" : {
+              "size" : 2,
+              "type" : "time"
+            },
+            "elementName" : {
+              "ja" : "運転開始時間",
+              "en" : "Start time"
+            }
+          }, {
+            "note" : {
+              "ja" : "開始分は0分もしくは30分",
+              "en" : "Time is fixed at 0 or 30 min."
+            },
+            "shortName" : "endTime",
+            "element" : {
+              "size" : 2,
+              "type" : "time"
+            },
+            "elementName" : {
+              "ja" : "運転停止時間",
+              "en" : "End time"
+            }
+          } ]
+        }
+      }
+    },
+    "0xE7" : {
+      "data" : {
+        "minItems" : 0,
+        "maxItems" : 24,
+        "type" : "array",
+        "items" : {
+          "type" : "object",
+          "properties" : [ {
+            "note" : {
+              "ja" : "開始分は0分もしくは30分",
+              "en" : "Time is fixed at 0 or 30 min."
+            },
+            "shortName" : "startTime",
+            "element" : {
+              "size" : 2,
+              "type" : "time"
+            },
+            "elementName" : {
+              "ja" : "運転開始時間",
+              "en" : "Start time"
+            }
+          }, {
+            "note" : {
+              "ja" : "開始分は0分もしくは30分",
+              "en" : "Time is fixed at 0 or 30 min."
+            },
+            "shortName" : "endTime",
+            "element" : {
+              "size" : 2,
+              "type" : "time"
+            },
+            "elementName" : {
+              "ja" : "運転停止時間",
+              "en" : "End time"
+            }
+          } ]
+        }
+      }
+    }
+  },
+  "0x027C" : {
+    "0x80" : {
+      "action" : "DEL"
+    }
+  },
+  "0x027E" : {
+    "0xE6" : {
+      "data" : {
+        "minSize" : 0,
+        "maxSize" : 24,
+        "type" : "raw"
+      }
+    }
+  },
+  "0x0280" : {
+    "0xE3" : {
+      "data" : {
+        "minItems" : 48,
+        "maxItems" : 48,
+        "itemSize" : 4,
+        "type" : "array",
+        "items" : {
+          "oneOf" : [ {
+            "multipleOf" : 0.01,
+            "unit" : "kWh",
+            "coefficient" : [ "0xE2" ],
+            "overflowCode" : false,
+            "underflowCode" : false,
+            "$ref" : "#/definitions/number_0-99999999"
+          }, {
+            "size" : 4,
+            "type" : "state",
+            "enum" : [ {
+              "edt" : "0xFFFFFFFE",
+              "name" : "noData",
+              "readOnly" : true,
+              "descriptions" : {
+                "ja" : "No data",
+                "en" : "No data"
+              }
+            } ]
+          } ]
+        }
+      }
+    },
+    "0xE0" : {
+      "data" : {
+        "multipleOf" : 0.01,
+        "unit" : "kWh",
+        "coefficient" : [ "0xE2" ],
+        "overflowCode" : false,
+        "underflowCode" : false,
+        "$ref" : "#/definitions/number_0-99999999"
+      }
+    }
+  },
+  "0x0287" : {
+    "0xE4" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "electricEnergy",
+          "elementName" : {
+            "ja" : "積算電力量計測値",
+            "en" : "Measured cumulative amount of electric power consumption"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.01,
+              "unit" : "kWh",
+              "coefficient" : [ "0xC2" ],
+              "overflowCode" : false,
+              "underflowCode" : false,
+              "$ref" : "#/definitions/number_0-99999999"
+            }, {
+              "size" : 4,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0xFFFFFFFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        }, {
+          "shortName" : "currentRphase",
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "A",
+              "$ref" : "#/definitions/number_-32767-32765"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x7FFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          },
+          "elementName" : {
+            "ja" : "瞬時電流計測値 (R相)",
+            "en" : "Measured instantaneous current (R phase)"
+          }
+        }, {
+          "shortName" : "currentTphase",
+          "elementName" : {
+            "ja" : "瞬時電流計測値 (T相)",
+            "en" : "Measured instantaneous current (T phase)"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "A",
+              "$ref" : "#/definitions/number_-32767-32765"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x7FFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        } ]
+      }
+    },
+    "0xC1" : {
+      "data" : {
+        "oneOf" : [ {
+          "multipleOf" : 0.01,
+          "unit" : "kWh",
+          "coefficient" : [ "0xC2" ],
+          "overflowCode" : false,
+          "underflowCode" : false,
+          "$ref" : "#/definitions/number_0-99999999"
+        }, {
+          "size" : 4,
+          "type" : "state",
+          "enum" : [ {
+            "edt" : "0xFFFFFFFE",
+            "name" : "noData",
+            "readOnly" : true,
+            "descriptions" : {
+              "ja" : "No data",
+              "en" : "No data"
+            }
+          } ]
+        } ]
+      }
+    },
+    "0xE3" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "electricEnergy",
+          "elementName" : {
+            "ja" : "積算電力量計測値",
+            "en" : "Measured cumulative amount of electric power consumption"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.01,
+              "unit" : "kWh",
+              "coefficient" : [ "0xC2" ],
+              "overflowCode" : false,
+              "underflowCode" : false,
+              "$ref" : "#/definitions/number_0-99999999"
+            }, {
+              "size" : 4,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0xFFFFFFFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        }, {
+          "shortName" : "currentRphase",
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "A",
+              "$ref" : "#/definitions/number_-32767-32765"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x7FFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          },
+          "elementName" : {
+            "ja" : "瞬時電流計測値 (R相)",
+            "en" : "Measured instantaneous current (R phase)"
+          }
+        }, {
+          "shortName" : "currentTphase",
+          "elementName" : {
+            "ja" : "瞬時電流計測値 (T相)",
+            "en" : "Measured instantaneous current (T phase)"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "A",
+              "$ref" : "#/definitions/number_-32767-32765"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x7FFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        } ]
+      }
+    },
+    "0xC0" : {
+      "data" : {
+        "oneOf" : [ {
+          "multipleOf" : 0.01,
+          "unit" : "kWh",
+          "coefficient" : [ "0xC2" ],
+          "overflowCode" : false,
+          "underflowCode" : false,
+          "$ref" : "#/definitions/number_0-99999999"
+        }, {
+          "size" : 4,
+          "type" : "state",
+          "enum" : [ {
+            "edt" : "0xFFFFFFFE",
+            "name" : "noData",
+            "readOnly" : true,
+            "descriptions" : {
+              "ja" : "No data",
+              "en" : "No data"
+            }
+          } ]
+        } ]
+      }
+    },
+    "0xE2" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "electricEnergy",
+          "elementName" : {
+            "ja" : "積算電力量計測値",
+            "en" : "Measured cumulative amount of electric power consumption"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.01,
+              "unit" : "kWh",
+              "coefficient" : [ "0xC2" ],
+              "overflowCode" : false,
+              "underflowCode" : false,
+              "$ref" : "#/definitions/number_0-99999999"
+            }, {
+              "size" : 4,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0xFFFFFFFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        }, {
+          "shortName" : "currentRphase",
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "A",
+              "$ref" : "#/definitions/number_-32767-32765"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x7FFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          },
+          "elementName" : {
+            "ja" : "瞬時電流計測値 (R相)",
+            "en" : "Measured instantaneous current (R phase)"
+          }
+        }, {
+          "shortName" : "currentTphase",
+          "elementName" : {
+            "ja" : "瞬時電流計測値 (T相)",
+            "en" : "Measured instantaneous current (T phase)"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "A",
+              "$ref" : "#/definitions/number_-32767-32765"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x7FFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        } ]
+      }
+    },
+    "0xE1" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "electricEnergy",
+          "elementName" : {
+            "ja" : "積算電力量計測値",
+            "en" : "Measured cumulative amount of electric power consumption"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.01,
+              "unit" : "kWh",
+              "coefficient" : [ "0xC2" ],
+              "overflowCode" : false,
+              "underflowCode" : false,
+              "$ref" : "#/definitions/number_0-99999999"
+            }, {
+              "size" : 4,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0xFFFFFFFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        }, {
+          "shortName" : "currentRphase",
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "A",
+              "$ref" : "#/definitions/number_-32767-32765"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x7FFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          },
+          "elementName" : {
+            "ja" : "瞬時電流計測値 (R相)",
+            "en" : "Measured instantaneous current (R phase)"
+          }
+        }, {
+          "shortName" : "currentTphase",
+          "elementName" : {
+            "ja" : "瞬時電流計測値 (T相)",
+            "en" : "Measured instantaneous current (T phase)"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "A",
+              "$ref" : "#/definitions/number_-32767-32765"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x7FFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        } ]
+      }
+    },
+    "0xE0" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "electricEnergy",
+          "elementName" : {
+            "ja" : "積算電力量計測値",
+            "en" : "Measured cumulative amount of electric power consumption"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.01,
+              "unit" : "kWh",
+              "coefficient" : [ "0xC2" ],
+              "overflowCode" : false,
+              "underflowCode" : false,
+              "$ref" : "#/definitions/number_0-99999999"
+            }, {
+              "size" : 4,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0xFFFFFFFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        }, {
+          "shortName" : "currentRphase",
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "A",
+              "$ref" : "#/definitions/number_-32767-32765"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x7FFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          },
+          "elementName" : {
+            "ja" : "瞬時電流計測値 (R相)",
+            "en" : "Measured instantaneous current (R phase)"
+          }
+        }, {
+          "shortName" : "currentTphase",
+          "elementName" : {
+            "ja" : "瞬時電流計測値 (T相)",
+            "en" : "Measured instantaneous current (T phase)"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "A",
+              "$ref" : "#/definitions/number_-32767-32765"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x7FFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        } ]
+      }
+    },
+    "0xE9" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "electricEnergy",
+          "elementName" : {
+            "ja" : "積算電力量計測値",
+            "en" : "Measured cumulative amount of electric power consumption"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.01,
+              "unit" : "kWh",
+              "coefficient" : [ "0xC2" ],
+              "overflowCode" : false,
+              "underflowCode" : false,
+              "$ref" : "#/definitions/number_0-99999999"
+            }, {
+              "size" : 4,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0xFFFFFFFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        }, {
+          "shortName" : "currentRphase",
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "A",
+              "$ref" : "#/definitions/number_-32767-32765"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x7FFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          },
+          "elementName" : {
+            "ja" : "瞬時電流計測値 (R相)",
+            "en" : "Measured instantaneous current (R phase)"
+          }
+        }, {
+          "shortName" : "currentTphase",
+          "elementName" : {
+            "ja" : "瞬時電流計測値 (T相)",
+            "en" : "Measured instantaneous current (T phase)"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "A",
+              "$ref" : "#/definitions/number_-32767-32765"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x7FFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        } ]
+      }
+    },
+    "0xE8" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "electricEnergy",
+          "elementName" : {
+            "ja" : "積算電力量計測値",
+            "en" : "Measured cumulative amount of electric power consumption"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.01,
+              "unit" : "kWh",
+              "coefficient" : [ "0xC2" ],
+              "overflowCode" : false,
+              "underflowCode" : false,
+              "$ref" : "#/definitions/number_0-99999999"
+            }, {
+              "size" : 4,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0xFFFFFFFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        }, {
+          "shortName" : "currentRphase",
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "A",
+              "$ref" : "#/definitions/number_-32767-32765"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x7FFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          },
+          "elementName" : {
+            "ja" : "瞬時電流計測値 (R相)",
+            "en" : "Measured instantaneous current (R phase)"
+          }
+        }, {
+          "shortName" : "currentTphase",
+          "elementName" : {
+            "ja" : "瞬時電流計測値 (T相)",
+            "en" : "Measured instantaneous current (T phase)"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "A",
+              "$ref" : "#/definitions/number_-32767-32765"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x7FFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        } ]
+      }
+    },
+    "0xE7" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "electricEnergy",
+          "elementName" : {
+            "ja" : "積算電力量計測値",
+            "en" : "Measured cumulative amount of electric power consumption"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.01,
+              "unit" : "kWh",
+              "coefficient" : [ "0xC2" ],
+              "overflowCode" : false,
+              "underflowCode" : false,
+              "$ref" : "#/definitions/number_0-99999999"
+            }, {
+              "size" : 4,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0xFFFFFFFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        }, {
+          "shortName" : "currentRphase",
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "A",
+              "$ref" : "#/definitions/number_-32767-32765"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x7FFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          },
+          "elementName" : {
+            "ja" : "瞬時電流計測値 (R相)",
+            "en" : "Measured instantaneous current (R phase)"
+          }
+        }, {
+          "shortName" : "currentTphase",
+          "elementName" : {
+            "ja" : "瞬時電流計測値 (T相)",
+            "en" : "Measured instantaneous current (T phase)"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "A",
+              "$ref" : "#/definitions/number_-32767-32765"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x7FFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        } ]
+      }
+    },
+    "0xC4" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "day",
+          "elementName" : {
+            "ja" : "積算履歴収集日",
+            "en" : "Day for which the historical data of measured cumulative amounts of electric energy is to be retrieved"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "$ref" : "#/definitions/number_0-99_u16"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x00FF",
+                "name" : "defaultValue",
+                "descriptions" : {
+                  "ja" : "初期値",
+                  "en" : "Default value"
+                }
+              } ]
+            } ]
+          }
+        }, {
+          "shortName" : "electricEnergy",
+          "elementName" : {
+            "ja" : "積算電力量(8桁)の計測結果履歴",
+            "en" : "The historical data of measured cumulative amounts of electric energy (8 digits)"
+          },
+          "element" : {
+            "minItems" : 48,
+            "maxItems" : 48,
+            "itemSize" : 4,
+            "type" : "array",
+            "items" : {
+              "oneOf" : [ {
+                "multipleOf" : 0.01,
+                "unit" : "kWh",
+                "coefficient" : [ "0xC2" ],
+                "overflowCode" : false,
+                "underflowCode" : false,
+                "$ref" : "#/definitions/number_0-99999999"
+              }, {
+                "size" : 4,
+                "type" : "state",
+                "enum" : [ {
+                  "edt" : "0xFFFFFFFE",
+                  "name" : "noData",
+                  "readOnly" : true,
+                  "descriptions" : {
+                    "ja" : "No data",
+                    "en" : "No data"
+                  }
+                } ]
+              } ]
+            }
+          }
+        } ]
+      },
+      "urlParameters" : {
+        "day" : {
+          "data" : {
+            "maximum" : 99,
+            "type" : "number",
+            "minimum" : 0
+          },
+          "descriptions" : {
+            "ja" : "積算履歴収集日",
+            "en" : "Day for which the historical data of measured cumulative amounts of electric energy is to be retrieved"
+          },
+          "required" : false
+        }
+      }
+    },
+    "0xE6" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "electricEnergy",
+          "elementName" : {
+            "ja" : "積算電力量計測値",
+            "en" : "Measured cumulative amount of electric power consumption"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.01,
+              "unit" : "kWh",
+              "coefficient" : [ "0xC2" ],
+              "overflowCode" : false,
+              "underflowCode" : false,
+              "$ref" : "#/definitions/number_0-99999999"
+            }, {
+              "size" : 4,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0xFFFFFFFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        }, {
+          "shortName" : "currentRphase",
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "A",
+              "$ref" : "#/definitions/number_-32767-32765"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x7FFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          },
+          "elementName" : {
+            "ja" : "瞬時電流計測値 (R相)",
+            "en" : "Measured instantaneous current (R phase)"
+          }
+        }, {
+          "shortName" : "currentTphase",
+          "elementName" : {
+            "ja" : "瞬時電流計測値 (T相)",
+            "en" : "Measured instantaneous current (T phase)"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "A",
+              "$ref" : "#/definitions/number_-32767-32765"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x7FFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        } ]
+      }
+    },
+    "0xC3" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "day",
+          "elementName" : {
+            "ja" : "積算履歴収集日",
+            "en" : "Day for which the historical data of measured cumulative amounts of electric energy is to be retrieved"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "$ref" : "#/definitions/number_0-99_u16"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x00FF",
+                "name" : "defaultValue",
+                "descriptions" : {
+                  "ja" : "初期値",
+                  "en" : "Default value"
+                }
+              } ]
+            } ]
+          }
+        }, {
+          "shortName" : "electricEnergy",
+          "elementName" : {
+            "ja" : "積算電力量(8桁)の計測結果履歴",
+            "en" : "The historical data of measured cumulative amounts of electric energy (8 digits)"
+          },
+          "element" : {
+            "minItems" : 48,
+            "maxItems" : 48,
+            "itemSize" : 4,
+            "type" : "array",
+            "items" : {
+              "oneOf" : [ {
+                "multipleOf" : 0.01,
+                "unit" : "kWh",
+                "coefficient" : [ "0xC2" ],
+                "overflowCode" : false,
+                "underflowCode" : false,
+                "$ref" : "#/definitions/number_0-99999999"
+              }, {
+                "size" : 4,
+                "type" : "state",
+                "enum" : [ {
+                  "edt" : "0xFFFFFFFE",
+                  "name" : "noData",
+                  "readOnly" : true,
+                  "descriptions" : {
+                    "ja" : "No data",
+                    "en" : "No data"
+                  }
+                } ]
+              } ]
+            }
+          }
+        } ]
+      },
+      "urlParameters" : {
+        "day" : {
+          "data" : {
+            "maximum" : 99,
+            "type" : "number",
+            "minimum" : 0
+          },
+          "descriptions" : {
+            "ja" : "積算履歴収集日",
+            "en" : "Day for which the historical data of measured cumulative amounts of electric energy is to be retrieved"
+          },
+          "required" : false
+        }
+      }
+    },
+    "0xE5" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "electricEnergy",
+          "elementName" : {
+            "ja" : "積算電力量計測値",
+            "en" : "Measured cumulative amount of electric power consumption"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.01,
+              "unit" : "kWh",
+              "coefficient" : [ "0xC2" ],
+              "overflowCode" : false,
+              "underflowCode" : false,
+              "$ref" : "#/definitions/number_0-99999999"
+            }, {
+              "size" : 4,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0xFFFFFFFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        }, {
+          "shortName" : "currentRphase",
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "A",
+              "$ref" : "#/definitions/number_-32767-32765"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x7FFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          },
+          "elementName" : {
+            "ja" : "瞬時電流計測値 (R相)",
+            "en" : "Measured instantaneous current (R phase)"
+          }
+        }, {
+          "shortName" : "currentTphase",
+          "elementName" : {
+            "ja" : "瞬時電流計測値 (T相)",
+            "en" : "Measured instantaneous current (T phase)"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "A",
+              "$ref" : "#/definitions/number_-32767-32765"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x7FFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        } ]
+      }
+    },
+    "0xBA" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "startChannel",
+          "elementName" : {
+            "ja" : "取得開始チャンネル",
+            "en" : "Acquisition start channel"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "$ref" : "#/definitions/number_1-252"
+            }, {
+              "size" : 1,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0xFD",
+                "name" : "undefined",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "不明",
+                  "en" : "Undefined"
+                }
+              } ]
+            } ]
+          }
+        }, {
+          "shortName" : "range",
+          "elementName" : {
+            "ja" : "取得開始チャンネルからの範囲を指定",
+            "en" : "Range from the acquisition start channel"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "$ref" : "#/definitions/number_1-30"
+            }, {
+              "size" : 1,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0xFD",
+                "name" : "undefined",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "不明",
+                  "en" : "Undefined"
+                }
+              } ]
+            } ]
+          }
+        }, {
+          "shortName" : "electricEnergy",
+          "elementName" : {
+            "ja" : "積算電力量計測値",
+            "en" : "Measured cumulative amount of electric power consumption"
+          },
+          "element" : {
+            "maxItems" : 30,
+            "itemSize" : 8,
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : [ {
+                "shortName" : "normalDirectionElectricEnergy",
+                "descriptions" : {
+                  "ja" : "積算電力量計測値 (正方向)",
+                  "en" : "Measured cumulative amount of electric power consumption (forward direction)"
+                },
+                "element" : {
+                  "oneOf" : [ {
+                    "multipleOf" : 0.01,
+                    "unit" : "kWh",
+                    "coefficient" : [ "0xC2" ],
+                    "overflowCode" : false,
+                    "underflowCode" : false,
+                    "$ref" : "#/definitions/number_0-99999999"
+                  }, {
+                    "size" : 4,
+                    "type" : "state",
+                    "enum" : [ {
+                      "edt" : "0xFFFFFFFE",
+                      "name" : "noData",
+                      "readOnly" : true,
+                      "descriptions" : {
+                        "ja" : "No data",
+                        "en" : "No data"
+                      }
+                    } ]
+                  } ]
+                }
+              }, {
+                "shortName" : "reverseDirectionElectricEnergy",
+                "descriptions" : {
+                  "ja" : "積算電力量計測値 (逆方向)",
+                  "en" : "Measured cumulative amount of electric power consumption (reverse direction)"
+                },
+                "element" : {
+                  "oneOf" : [ {
+                    "multipleOf" : 0.01,
+                    "unit" : "kWh",
+                    "coefficient" : [ "0xC2" ],
+                    "overflowCode" : false,
+                    "underflowCode" : false,
+                    "$ref" : "#/definitions/number_0-99999999"
+                  }, {
+                    "size" : 4,
+                    "type" : "state",
+                    "enum" : [ {
+                      "edt" : "0xFFFFFFFE",
+                      "name" : "noData",
+                      "readOnly" : true,
+                      "descriptions" : {
+                        "ja" : "No data",
+                        "en" : "No data"
+                      }
+                    } ]
+                  } ]
+                }
+              } ]
+            }
+          }
+        } ]
+      },
+      "urlParameters" : {
+        "startChannel" : {
+          "data" : {
+            "maximum" : 252,
+            "type" : "number",
+            "minimum" : 1
+          },
+          "descriptions" : {
+            "ja" : "取得開始チャンネル",
+            "en" : "Acquisition start channel"
+          },
+          "required" : true
+        },
+        "range" : {
+          "data" : {
+            "maximum" : 30,
+            "type" : "number",
+            "minimum" : 1
+          },
+          "descriptions" : {
+            "ja" : "取得開始チャンネルからの範囲を指定",
+            "en" : "Range from the acquisition start channel"
+          },
+          "required" : true
+        }
+      }
+    },
+    "0xDC" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "electricEnergy",
+          "elementName" : {
+            "ja" : "積算電力量計測値",
+            "en" : "Measured cumulative amount of electric power consumption"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.01,
+              "unit" : "kWh",
+              "coefficient" : [ "0xC2" ],
+              "overflowCode" : false,
+              "underflowCode" : false,
+              "$ref" : "#/definitions/number_0-99999999"
+            }, {
+              "size" : 4,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0xFFFFFFFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        }, {
+          "shortName" : "currentRphase",
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "A",
+              "$ref" : "#/definitions/number_-32767-32765"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x7FFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          },
+          "elementName" : {
+            "ja" : "瞬時電流計測値 (R相)",
+            "en" : "Measured instantaneous current (R phase)"
+          }
+        }, {
+          "shortName" : "currentTphase",
+          "elementName" : {
+            "ja" : "瞬時電流計測値 (T相)",
+            "en" : "Measured instantaneous current (T phase)"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "A",
+              "$ref" : "#/definitions/number_-32767-32765"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x7FFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        } ]
+      }
+    },
+    "0xDB" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "electricEnergy",
+          "elementName" : {
+            "ja" : "積算電力量計測値",
+            "en" : "Measured cumulative amount of electric power consumption"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.01,
+              "unit" : "kWh",
+              "coefficient" : [ "0xC2" ],
+              "overflowCode" : false,
+              "underflowCode" : false,
+              "$ref" : "#/definitions/number_0-99999999"
+            }, {
+              "size" : 4,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0xFFFFFFFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        }, {
+          "shortName" : "currentRphase",
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "A",
+              "$ref" : "#/definitions/number_-32767-32765"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x7FFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          },
+          "elementName" : {
+            "ja" : "瞬時電流計測値 (R相)",
+            "en" : "Measured instantaneous current (R phase)"
+          }
+        }, {
+          "shortName" : "currentTphase",
+          "elementName" : {
+            "ja" : "瞬時電流計測値 (T相)",
+            "en" : "Measured instantaneous current (T phase)"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "A",
+              "$ref" : "#/definitions/number_-32767-32765"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x7FFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        } ]
+      }
+    },
+    "0xDA" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "electricEnergy",
+          "elementName" : {
+            "ja" : "積算電力量計測値",
+            "en" : "Measured cumulative amount of electric power consumption"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.01,
+              "unit" : "kWh",
+              "coefficient" : [ "0xC2" ],
+              "overflowCode" : false,
+              "underflowCode" : false,
+              "$ref" : "#/definitions/number_0-99999999"
+            }, {
+              "size" : 4,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0xFFFFFFFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        }, {
+          "shortName" : "currentRphase",
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "A",
+              "$ref" : "#/definitions/number_-32767-32765"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x7FFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          },
+          "elementName" : {
+            "ja" : "瞬時電流計測値 (R相)",
+            "en" : "Measured instantaneous current (R phase)"
+          }
+        }, {
+          "shortName" : "currentTphase",
+          "elementName" : {
+            "ja" : "瞬時電流計測値 (T相)",
+            "en" : "Measured instantaneous current (T phase)"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "A",
+              "$ref" : "#/definitions/number_-32767-32765"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x7FFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        } ]
+      }
+    },
+    "0xBE" : {
+      "urlParameters" : {
+        "startChannel" : {
+          "data" : {
+            "maximum" : 252,
+            "type" : "number",
+            "minimum" : 1
+          },
+          "descriptions" : {
+            "ja" : "取得開始チャンネル",
+            "en" : "Acquisition start channel"
+          },
+          "required" : true
+        },
+        "range" : {
+          "data" : {
+            "maximum" : 60,
+            "type" : "number",
+            "minimum" : 1
+          },
+          "descriptions" : {
+            "ja" : "取得開始チャンネルからの範囲を指定",
+            "en" : "Range from the acquisition start channel"
+          },
+          "required" : true
+        }
+      }
+    },
+    "0xDF" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "electricEnergy",
+          "elementName" : {
+            "ja" : "積算電力量計測値",
+            "en" : "Measured cumulative amount of electric power consumption"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.01,
+              "unit" : "kWh",
+              "coefficient" : [ "0xC2" ],
+              "overflowCode" : false,
+              "underflowCode" : false,
+              "$ref" : "#/definitions/number_0-99999999"
+            }, {
+              "size" : 4,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0xFFFFFFFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        }, {
+          "shortName" : "currentRphase",
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "A",
+              "$ref" : "#/definitions/number_-32767-32765"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x7FFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          },
+          "elementName" : {
+            "ja" : "瞬時電流計測値 (R相)",
+            "en" : "Measured instantaneous current (R phase)"
+          }
+        }, {
+          "shortName" : "currentTphase",
+          "elementName" : {
+            "ja" : "瞬時電流計測値 (T相)",
+            "en" : "Measured instantaneous current (T phase)"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "A",
+              "$ref" : "#/definitions/number_-32767-32765"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x7FFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        } ]
+      }
+    },
+    "0xBC" : {
+      "urlParameters" : {
+        "startChannel" : {
+          "data" : {
+            "maximum" : 252,
+            "type" : "number",
+            "minimum" : 1
+          },
+          "descriptions" : {
+            "ja" : "取得開始チャンネル",
+            "en" : "Acquisition start channel"
+          },
+          "required" : true
+        },
+        "range" : {
+          "data" : {
+            "maximum" : 60,
+            "type" : "number",
+            "minimum" : 1
+          },
+          "descriptions" : {
+            "ja" : "取得開始チャンネルからの範囲を指定",
+            "en" : "Range from the acquisition start channel"
+          },
+          "required" : true
+        }
+      }
+    },
+    "0xDE" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "electricEnergy",
+          "elementName" : {
+            "ja" : "積算電力量計測値",
+            "en" : "Measured cumulative amount of electric power consumption"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.01,
+              "unit" : "kWh",
+              "coefficient" : [ "0xC2" ],
+              "overflowCode" : false,
+              "underflowCode" : false,
+              "$ref" : "#/definitions/number_0-99999999"
+            }, {
+              "size" : 4,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0xFFFFFFFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        }, {
+          "shortName" : "currentRphase",
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "A",
+              "$ref" : "#/definitions/number_-32767-32765"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x7FFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          },
+          "elementName" : {
+            "ja" : "瞬時電流計測値 (R相)",
+            "en" : "Measured instantaneous current (R phase)"
+          }
+        }, {
+          "shortName" : "currentTphase",
+          "elementName" : {
+            "ja" : "瞬時電流計測値 (T相)",
+            "en" : "Measured instantaneous current (T phase)"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "A",
+              "$ref" : "#/definitions/number_-32767-32765"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x7FFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        } ]
+      }
+    },
+    "0xDD" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "electricEnergy",
+          "elementName" : {
+            "ja" : "積算電力量計測値",
+            "en" : "Measured cumulative amount of electric power consumption"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.01,
+              "unit" : "kWh",
+              "coefficient" : [ "0xC2" ],
+              "overflowCode" : false,
+              "underflowCode" : false,
+              "$ref" : "#/definitions/number_0-99999999"
+            }, {
+              "size" : 4,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0xFFFFFFFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        }, {
+          "shortName" : "currentRphase",
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "A",
+              "$ref" : "#/definitions/number_-32767-32765"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x7FFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          },
+          "elementName" : {
+            "ja" : "瞬時電流計測値 (R相)",
+            "en" : "Measured instantaneous current (R phase)"
+          }
+        }, {
+          "shortName" : "currentTphase",
+          "elementName" : {
+            "ja" : "瞬時電流計測値 (T相)",
+            "en" : "Measured instantaneous current (T phase)"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "A",
+              "$ref" : "#/definitions/number_-32767-32765"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x7FFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        } ]
+      }
+    },
+    "0xD3" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "electricEnergy",
+          "elementName" : {
+            "ja" : "積算電力量計測値",
+            "en" : "Measured cumulative amount of electric power consumption"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.01,
+              "unit" : "kWh",
+              "coefficient" : [ "0xC2" ],
+              "overflowCode" : false,
+              "underflowCode" : false,
+              "$ref" : "#/definitions/number_0-99999999"
+            }, {
+              "size" : 4,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0xFFFFFFFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        }, {
+          "shortName" : "currentRphase",
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "A",
+              "$ref" : "#/definitions/number_-32767-32765"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x7FFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          },
+          "elementName" : {
+            "ja" : "瞬時電流計測値 (R相)",
+            "en" : "Measured instantaneous current (R phase)"
+          }
+        }, {
+          "shortName" : "currentTphase",
+          "elementName" : {
+            "ja" : "瞬時電流計測値 (T相)",
+            "en" : "Measured instantaneous current (T phase)"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "A",
+              "$ref" : "#/definitions/number_-32767-32765"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x7FFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        } ]
+      }
+    },
+    "0xD2" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "electricEnergy",
+          "elementName" : {
+            "ja" : "積算電力量計測値",
+            "en" : "Measured cumulative amount of electric power consumption"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.01,
+              "unit" : "kWh",
+              "coefficient" : [ "0xC2" ],
+              "overflowCode" : false,
+              "underflowCode" : false,
+              "$ref" : "#/definitions/number_0-99999999"
+            }, {
+              "size" : 4,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0xFFFFFFFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        }, {
+          "shortName" : "currentRphase",
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "A",
+              "$ref" : "#/definitions/number_-32767-32765"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x7FFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          },
+          "elementName" : {
+            "ja" : "瞬時電流計測値 (R相)",
+            "en" : "Measured instantaneous current (R phase)"
+          }
+        }, {
+          "shortName" : "currentTphase",
+          "elementName" : {
+            "ja" : "瞬時電流計測値 (T相)",
+            "en" : "Measured instantaneous current (T phase)"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "A",
+              "$ref" : "#/definitions/number_-32767-32765"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x7FFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        } ]
+      }
+    },
+    "0xD1" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "electricEnergy",
+          "elementName" : {
+            "ja" : "積算電力量計測値",
+            "en" : "Measured cumulative amount of electric power consumption"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.01,
+              "unit" : "kWh",
+              "coefficient" : [ "0xC2" ],
+              "overflowCode" : false,
+              "underflowCode" : false,
+              "$ref" : "#/definitions/number_0-99999999"
+            }, {
+              "size" : 4,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0xFFFFFFFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        }, {
+          "shortName" : "currentRphase",
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "A",
+              "$ref" : "#/definitions/number_-32767-32765"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x7FFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          },
+          "elementName" : {
+            "ja" : "瞬時電流計測値 (R相)",
+            "en" : "Measured instantaneous current (R phase)"
+          }
+        }, {
+          "shortName" : "currentTphase",
+          "elementName" : {
+            "ja" : "瞬時電流計測値 (T相)",
+            "en" : "Measured instantaneous current (T phase)"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "A",
+              "$ref" : "#/definitions/number_-32767-32765"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x7FFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        } ]
+      }
+    },
+    "0xD0" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "electricEnergy",
+          "elementName" : {
+            "ja" : "積算電力量計測値",
+            "en" : "Measured cumulative amount of electric power consumption"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.01,
+              "unit" : "kWh",
+              "coefficient" : [ "0xC2" ],
+              "overflowCode" : false,
+              "underflowCode" : false,
+              "$ref" : "#/definitions/number_0-99999999"
+            }, {
+              "size" : 4,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0xFFFFFFFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        }, {
+          "shortName" : "currentRphase",
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "A",
+              "$ref" : "#/definitions/number_-32767-32765"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x7FFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          },
+          "elementName" : {
+            "ja" : "瞬時電流計測値 (R相)",
+            "en" : "Measured instantaneous current (R phase)"
+          }
+        }, {
+          "shortName" : "currentTphase",
+          "elementName" : {
+            "ja" : "瞬時電流計測値 (T相)",
+            "en" : "Measured instantaneous current (T phase)"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "A",
+              "$ref" : "#/definitions/number_-32767-32765"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x7FFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        } ]
+      }
+    },
+    "0xB7" : {
+      "urlParameters" : {
+        "startChannel" : {
+          "data" : {
+            "maximum" : 252,
+            "type" : "number",
+            "minimum" : 1
+          },
+          "descriptions" : {
+            "ja" : "取得開始チャンネル",
+            "en" : "Acquisition start channel"
+          },
+          "required" : true
+        },
+        "range" : {
+          "data" : {
+            "maximum" : 60,
+            "type" : "number",
+            "minimum" : 1
+          },
+          "descriptions" : {
+            "ja" : "取得開始チャンネルからの範囲を指定",
+            "en" : "Range from the acquisition start channel"
+          },
+          "required" : true
+        }
+      }
+    },
+    "0xD9" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "electricEnergy",
+          "elementName" : {
+            "ja" : "積算電力量計測値",
+            "en" : "Measured cumulative amount of electric power consumption"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.01,
+              "unit" : "kWh",
+              "coefficient" : [ "0xC2" ],
+              "overflowCode" : false,
+              "underflowCode" : false,
+              "$ref" : "#/definitions/number_0-99999999"
+            }, {
+              "size" : 4,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0xFFFFFFFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        }, {
+          "shortName" : "currentRphase",
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "A",
+              "$ref" : "#/definitions/number_-32767-32765"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x7FFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          },
+          "elementName" : {
+            "ja" : "瞬時電流計測値 (R相)",
+            "en" : "Measured instantaneous current (R phase)"
+          }
+        }, {
+          "shortName" : "currentTphase",
+          "elementName" : {
+            "ja" : "瞬時電流計測値 (T相)",
+            "en" : "Measured instantaneous current (T phase)"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "A",
+              "$ref" : "#/definitions/number_-32767-32765"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x7FFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        } ]
+      }
+    },
+    "0xD8" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "electricEnergy",
+          "elementName" : {
+            "ja" : "積算電力量計測値",
+            "en" : "Measured cumulative amount of electric power consumption"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.01,
+              "unit" : "kWh",
+              "coefficient" : [ "0xC2" ],
+              "overflowCode" : false,
+              "underflowCode" : false,
+              "$ref" : "#/definitions/number_0-99999999"
+            }, {
+              "size" : 4,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0xFFFFFFFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        }, {
+          "shortName" : "currentRphase",
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "A",
+              "$ref" : "#/definitions/number_-32767-32765"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x7FFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          },
+          "elementName" : {
+            "ja" : "瞬時電流計測値 (R相)",
+            "en" : "Measured instantaneous current (R phase)"
+          }
+        }, {
+          "shortName" : "currentTphase",
+          "elementName" : {
+            "ja" : "瞬時電流計測値 (T相)",
+            "en" : "Measured instantaneous current (T phase)"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "A",
+              "$ref" : "#/definitions/number_-32767-32765"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x7FFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        } ]
+      }
+    },
+    "0xB5" : {
+      "urlParameters" : {
+        "startChannel" : {
+          "data" : {
+            "maximum" : 252,
+            "type" : "number",
+            "minimum" : 1
+          },
+          "descriptions" : {
+            "ja" : "取得開始チャンネル",
+            "en" : "Acquisition start channel"
+          },
+          "required" : true
+        },
+        "range" : {
+          "data" : {
+            "maximum" : 60,
+            "type" : "number",
+            "minimum" : 1
+          },
+          "descriptions" : {
+            "ja" : "取得開始チャンネルからの範囲を指定",
+            "en" : "Range from the acquisition start channel"
+          },
+          "required" : true
+        }
+      }
+    },
+    "0xD7" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "electricEnergy",
+          "elementName" : {
+            "ja" : "積算電力量計測値",
+            "en" : "Measured cumulative amount of electric power consumption"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.01,
+              "unit" : "kWh",
+              "coefficient" : [ "0xC2" ],
+              "overflowCode" : false,
+              "underflowCode" : false,
+              "$ref" : "#/definitions/number_0-99999999"
+            }, {
+              "size" : 4,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0xFFFFFFFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        }, {
+          "shortName" : "currentRphase",
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "A",
+              "$ref" : "#/definitions/number_-32767-32765"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x7FFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          },
+          "elementName" : {
+            "ja" : "瞬時電流計測値 (R相)",
+            "en" : "Measured instantaneous current (R phase)"
+          }
+        }, {
+          "shortName" : "currentTphase",
+          "elementName" : {
+            "ja" : "瞬時電流計測値 (T相)",
+            "en" : "Measured instantaneous current (T phase)"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "A",
+              "$ref" : "#/definitions/number_-32767-32765"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x7FFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        } ]
+      }
+    },
+    "0xD6" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "electricEnergy",
+          "elementName" : {
+            "ja" : "積算電力量計測値",
+            "en" : "Measured cumulative amount of electric power consumption"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.01,
+              "unit" : "kWh",
+              "coefficient" : [ "0xC2" ],
+              "overflowCode" : false,
+              "underflowCode" : false,
+              "$ref" : "#/definitions/number_0-99999999"
+            }, {
+              "size" : 4,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0xFFFFFFFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        }, {
+          "shortName" : "currentRphase",
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "A",
+              "$ref" : "#/definitions/number_-32767-32765"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x7FFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          },
+          "elementName" : {
+            "ja" : "瞬時電流計測値 (R相)",
+            "en" : "Measured instantaneous current (R phase)"
+          }
+        }, {
+          "shortName" : "currentTphase",
+          "elementName" : {
+            "ja" : "瞬時電流計測値 (T相)",
+            "en" : "Measured instantaneous current (T phase)"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "A",
+              "$ref" : "#/definitions/number_-32767-32765"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x7FFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        } ]
+      }
+    },
+    "0xB3" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "startChannel",
+          "elementName" : {
+            "ja" : "取得開始チャンネル",
+            "en" : "Acquisition start channel"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "$ref" : "#/definitions/number_1-252"
+            }, {
+              "size" : 1,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0xFD",
+                "name" : "undefined",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "不明",
+                  "en" : "Undefined"
+                }
+              } ]
+            } ]
+          }
+        }, {
+          "shortName" : "range",
+          "elementName" : {
+            "ja" : "取得開始チャンネルからの範囲を指定",
+            "en" : "Range from the acquisition start channel"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "$ref" : "#/definitions/number_1-60"
+            }, {
+              "size" : 1,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0xFD",
+                "name" : "undefined",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "不明",
+                  "en" : "Undefined"
+                }
+              } ]
+            } ]
+          }
+        }, {
+          "shortName" : "electricEnergy",
+          "elementName" : {
+            "ja" : "積算電力量計測値",
+            "en" : "Measured cumulative amount of electric power consumption"
+          },
+          "element" : {
+            "maxItems" : 60,
+            "itemSize" : 4,
+            "type" : "array",
+            "items" : {
+              "oneOf" : [ {
+                "multipleOf" : 0.01,
+                "unit" : "kWh",
+                "coefficient" : [ "0xC2" ],
+                "overflowCode" : false,
+                "underflowCode" : false,
+                "$ref" : "#/definitions/number_0-99999999"
+              }, {
+                "size" : 4,
+                "type" : "state",
+                "enum" : [ {
+                  "edt" : "0xFFFFFFFE",
+                  "name" : "noData",
+                  "readOnly" : true,
+                  "descriptions" : {
+                    "ja" : "No data",
+                    "en" : "No data"
+                  }
+                } ]
+              } ]
+            }
+          }
+        } ]
+      },
+      "urlParameters" : {
+        "startChannel" : {
+          "data" : {
+            "maximum" : 252,
+            "type" : "number",
+            "minimum" : 1
+          },
+          "descriptions" : {
+            "ja" : "取得開始チャンネル",
+            "en" : "Acquisition start channel"
+          },
+          "required" : true
+        },
+        "range" : {
+          "data" : {
+            "maximum" : 60,
+            "type" : "number",
+            "minimum" : 1
+          },
+          "descriptions" : {
+            "ja" : "取得開始チャンネルからの範囲を指定",
+            "en" : "Range from the acquisition start channel"
+          },
+          "required" : true
+        }
+      }
+    },
+    "0xD5" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "electricEnergy",
+          "elementName" : {
+            "ja" : "積算電力量計測値",
+            "en" : "Measured cumulative amount of electric power consumption"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.01,
+              "unit" : "kWh",
+              "coefficient" : [ "0xC2" ],
+              "overflowCode" : false,
+              "underflowCode" : false,
+              "$ref" : "#/definitions/number_0-99999999"
+            }, {
+              "size" : 4,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0xFFFFFFFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        }, {
+          "shortName" : "currentRphase",
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "A",
+              "$ref" : "#/definitions/number_-32767-32765"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x7FFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          },
+          "elementName" : {
+            "ja" : "瞬時電流計測値 (R相)",
+            "en" : "Measured instantaneous current (R phase)"
+          }
+        }, {
+          "shortName" : "currentTphase",
+          "elementName" : {
+            "ja" : "瞬時電流計測値 (T相)",
+            "en" : "Measured instantaneous current (T phase)"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "A",
+              "$ref" : "#/definitions/number_-32767-32765"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x7FFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        } ]
+      }
+    },
+    "0xD4" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "electricEnergy",
+          "elementName" : {
+            "ja" : "積算電力量計測値",
+            "en" : "Measured cumulative amount of electric power consumption"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.01,
+              "unit" : "kWh",
+              "coefficient" : [ "0xC2" ],
+              "overflowCode" : false,
+              "underflowCode" : false,
+              "$ref" : "#/definitions/number_0-99999999"
+            }, {
+              "size" : 4,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0xFFFFFFFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        }, {
+          "shortName" : "currentRphase",
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "A",
+              "$ref" : "#/definitions/number_-32767-32765"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x7FFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          },
+          "elementName" : {
+            "ja" : "瞬時電流計測値 (R相)",
+            "en" : "Measured instantaneous current (R phase)"
+          }
+        }, {
+          "shortName" : "currentTphase",
+          "elementName" : {
+            "ja" : "瞬時電流計測値 (T相)",
+            "en" : "Measured instantaneous current (T phase)"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "A",
+              "$ref" : "#/definitions/number_-32767-32765"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x7FFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        } ]
+      }
+    },
+    "0xED" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "electricEnergy",
+          "elementName" : {
+            "ja" : "積算電力量計測値",
+            "en" : "Measured cumulative amount of electric power consumption"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.01,
+              "unit" : "kWh",
+              "coefficient" : [ "0xC2" ],
+              "overflowCode" : false,
+              "underflowCode" : false,
+              "$ref" : "#/definitions/number_0-99999999"
+            }, {
+              "size" : 4,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0xFFFFFFFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        }, {
+          "shortName" : "currentRphase",
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "A",
+              "$ref" : "#/definitions/number_-32767-32765"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x7FFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          },
+          "elementName" : {
+            "ja" : "瞬時電流計測値 (R相)",
+            "en" : "Measured instantaneous current (R phase)"
+          }
+        }, {
+          "shortName" : "currentTphase",
+          "elementName" : {
+            "ja" : "瞬時電流計測値 (T相)",
+            "en" : "Measured instantaneous current (T phase)"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "A",
+              "$ref" : "#/definitions/number_-32767-32765"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x7FFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        } ]
+      }
+    },
+    "0xEC" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "electricEnergy",
+          "elementName" : {
+            "ja" : "積算電力量計測値",
+            "en" : "Measured cumulative amount of electric power consumption"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.01,
+              "unit" : "kWh",
+              "coefficient" : [ "0xC2" ],
+              "overflowCode" : false,
+              "underflowCode" : false,
+              "$ref" : "#/definitions/number_0-99999999"
+            }, {
+              "size" : 4,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0xFFFFFFFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        }, {
+          "shortName" : "currentRphase",
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "A",
+              "$ref" : "#/definitions/number_-32767-32765"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x7FFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          },
+          "elementName" : {
+            "ja" : "瞬時電流計測値 (R相)",
+            "en" : "Measured instantaneous current (R phase)"
+          }
+        }, {
+          "shortName" : "currentTphase",
+          "elementName" : {
+            "ja" : "瞬時電流計測値 (T相)",
+            "en" : "Measured instantaneous current (T phase)"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "A",
+              "$ref" : "#/definitions/number_-32767-32765"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x7FFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        } ]
+      }
+    },
+    "0xEB" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "electricEnergy",
+          "elementName" : {
+            "ja" : "積算電力量計測値",
+            "en" : "Measured cumulative amount of electric power consumption"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.01,
+              "unit" : "kWh",
+              "coefficient" : [ "0xC2" ],
+              "overflowCode" : false,
+              "underflowCode" : false,
+              "$ref" : "#/definitions/number_0-99999999"
+            }, {
+              "size" : 4,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0xFFFFFFFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        }, {
+          "shortName" : "currentRphase",
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "A",
+              "$ref" : "#/definitions/number_-32767-32765"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x7FFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          },
+          "elementName" : {
+            "ja" : "瞬時電流計測値 (R相)",
+            "en" : "Measured instantaneous current (R phase)"
+          }
+        }, {
+          "shortName" : "currentTphase",
+          "elementName" : {
+            "ja" : "瞬時電流計測値 (T相)",
+            "en" : "Measured instantaneous current (T phase)"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "A",
+              "$ref" : "#/definitions/number_-32767-32765"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x7FFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        } ]
+      }
+    },
+    "0xEA" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "electricEnergy",
+          "elementName" : {
+            "ja" : "積算電力量計測値",
+            "en" : "Measured cumulative amount of electric power consumption"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.01,
+              "unit" : "kWh",
+              "coefficient" : [ "0xC2" ],
+              "overflowCode" : false,
+              "underflowCode" : false,
+              "$ref" : "#/definitions/number_0-99999999"
+            }, {
+              "size" : 4,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0xFFFFFFFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        }, {
+          "shortName" : "currentRphase",
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "A",
+              "$ref" : "#/definitions/number_-32767-32765"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x7FFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          },
+          "elementName" : {
+            "ja" : "瞬時電流計測値 (R相)",
+            "en" : "Measured instantaneous current (R phase)"
+          }
+        }, {
+          "shortName" : "currentTphase",
+          "elementName" : {
+            "ja" : "瞬時電流計測値 (T相)",
+            "en" : "Measured instantaneous current (T phase)"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "A",
+              "$ref" : "#/definitions/number_-32767-32765"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x7FFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        } ]
+      }
+    },
+    "0xEF" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "electricEnergy",
+          "elementName" : {
+            "ja" : "積算電力量計測値",
+            "en" : "Measured cumulative amount of electric power consumption"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.01,
+              "unit" : "kWh",
+              "coefficient" : [ "0xC2" ],
+              "overflowCode" : false,
+              "underflowCode" : false,
+              "$ref" : "#/definitions/number_0-99999999"
+            }, {
+              "size" : 4,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0xFFFFFFFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        }, {
+          "shortName" : "currentRphase",
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "A",
+              "$ref" : "#/definitions/number_-32767-32765"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x7FFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          },
+          "elementName" : {
+            "ja" : "瞬時電流計測値 (R相)",
+            "en" : "Measured instantaneous current (R phase)"
+          }
+        }, {
+          "shortName" : "currentTphase",
+          "elementName" : {
+            "ja" : "瞬時電流計測値 (T相)",
+            "en" : "Measured instantaneous current (T phase)"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "A",
+              "$ref" : "#/definitions/number_-32767-32765"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x7FFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        } ]
+      }
+    },
+    "0xEE" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "electricEnergy",
+          "elementName" : {
+            "ja" : "積算電力量計測値",
+            "en" : "Measured cumulative amount of electric power consumption"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.01,
+              "unit" : "kWh",
+              "coefficient" : [ "0xC2" ],
+              "overflowCode" : false,
+              "underflowCode" : false,
+              "$ref" : "#/definitions/number_0-99999999"
+            }, {
+              "size" : 4,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0xFFFFFFFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        }, {
+          "shortName" : "currentRphase",
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "A",
+              "$ref" : "#/definitions/number_-32767-32765"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x7FFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          },
+          "elementName" : {
+            "ja" : "瞬時電流計測値 (R相)",
+            "en" : "Measured instantaneous current (R phase)"
+          }
+        }, {
+          "shortName" : "currentTphase",
+          "elementName" : {
+            "ja" : "瞬時電流計測値 (T相)",
+            "en" : "Measured instantaneous current (T phase)"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "A",
+              "$ref" : "#/definitions/number_-32767-32765"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x7FFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        } ]
+      }
+    }
+  },
+  "0x0288" : {
+    "0xE4" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "day",
+          "elementName" : {
+            "ja" : "積算履歴収集日",
+            "en" : "Day for which the historical data of measured cumulative amounts of electric energy is to be retrieved"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "$ref" : "#/definitions/number_0-99_u16"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x00FF",
+                "name" : "defaultValue",
+                "descriptions" : {
+                  "ja" : "初期値",
+                  "en" : "Default value"
+                }
+              } ]
+            } ]
+          }
+        }, {
+          "shortName" : "electricEnergy",
+          "elementName" : {
+            "ja" : "積算電力量計測値",
+            "en" : "Measured cumulative amounts of electric energy"
+          },
+          "element" : {
+            "minItems" : 48,
+            "maxItems" : 48,
+            "itemSize" : 4,
+            "type" : "array",
+            "items" : {
+              "oneOf" : [ {
+                "multipleOf" : 0.01,
+                "unit" : "kWh",
+                "coefficient" : [ "0xD3", "0xE1" ],
+                "overflowCode" : false,
+                "underflowCode" : false,
+                "$ref" : "#/definitions/number_0-99999999"
+              }, {
+                "size" : 4,
+                "type" : "state",
+                "enum" : [ {
+                  "edt" : "0xFFFFFFFE",
+                  "name" : "noData",
+                  "readOnly" : true,
+                  "descriptions" : {
+                    "ja" : "No data",
+                    "en" : "No data"
+                  }
+                } ]
+              } ]
+            }
+          }
+        } ]
+      },
+      "urlParameters" : {
+        "day" : {
+          "data" : {
+            "maximum" : 99,
+            "type" : "number",
+            "minimum" : 0
+          },
+          "descriptions" : {
+            "ja" : "積算履歴収集日",
+            "en" : "Day for which the historical data of measured cumulative amounts of electric energy is to be retrieved"
+          },
+          "required" : false
+        }
+      }
+    },
+    "0xE3" : {
+      "data" : {
+        "oneOf" : [ {
+          "multipleOf" : 0.01,
+          "unit" : "kWh",
+          "coefficient" : [ "0xD3", "0xE1" ],
+          "overflowCode" : false,
+          "underflowCode" : false,
+          "$ref" : "#/definitions/number_0-99999999"
+        }, {
+          "size" : 4,
+          "type" : "state",
+          "enum" : [ {
+            "edt" : "0xFFFFFFFE",
+            "name" : "noData",
+            "readOnly" : true,
+            "descriptions" : {
+              "ja" : "No data",
+              "en" : "No data"
+            }
+          } ]
+        } ]
+      }
+    },
+    "0xEC" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "dateAndTime",
+          "elementName" : {
+            "ja" : "積算履歴収集日時",
+            "en" : "Date and time for which the historical data is to be retrieved"
+          },
+          "element" : {
+            "size" : 6,
+            "type" : "date-time"
+          }
+        }, {
+          "shortName" : "numberOfCollectionSegments",
+          "elementName" : {
+            "ja" : "収集コマ数",
+            "en" : "Number of collection segments"
+          },
+          "element" : {
+            "$ref" : "#/definitions/number_1-12"
+          }
+        }, {
+          "shortName" : "electricEnergy",
+          "elementName" : {
+            "ja" : "積算電力量計測値",
+            "en" : "Measured cumulative amounts of electric energy"
+          },
+          "element" : {
+            "maxItems" : 12,
+            "itemSize" : 8,
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : [ {
+                "shortName" : "normalDirectionElectricEnergy",
+                "descriptions" : {
+                  "ja" : "正方向",
+                  "en" : "Normal direction"
+                },
+                "element" : {
+                  "oneOf" : [ {
+                    "multipleOf" : 0.01,
+                    "unit" : "kWh",
+                    "coefficient" : [ "0xD3", "0xE1" ],
+                    "overflowCode" : false,
+                    "underflowCode" : false,
+                    "$ref" : "#/definitions/number_0-99999999"
+                  }, {
+                    "size" : 4,
+                    "type" : "state",
+                    "enum" : [ {
+                      "edt" : "0xFFFFFFFE",
+                      "name" : "noData",
+                      "readOnly" : true,
+                      "descriptions" : {
+                        "ja" : "No data",
+                        "en" : "No data"
+                      }
+                    } ]
+                  } ]
+                }
+              }, {
+                "shortName" : "reverseDirectionElectricEnergy",
+                "descriptions" : {
+                  "ja" : "逆方向",
+                  "en" : "Reverse direction"
+                },
+                "element" : {
+                  "oneOf" : [ {
+                    "multipleOf" : 0.01,
+                    "unit" : "kWh",
+                    "coefficient" : [ "0xD3", "0xE1" ],
+                    "overflowCode" : false,
+                    "underflowCode" : false,
+                    "$ref" : "#/definitions/number_0-99999999"
+                  }, {
+                    "size" : 4,
+                    "type" : "state",
+                    "enum" : [ {
+                      "edt" : "0xFFFFFFFE",
+                      "name" : "noData",
+                      "readOnly" : true,
+                      "descriptions" : {
+                        "ja" : "No data",
+                        "en" : "No data"
+                      }
+                    } ]
+                  } ]
+                }
+              } ]
+            }
+          }
+        } ]
+      },
+      "urlParameters" : {
+        "dateAndTime" : {
+          "data" : {
+            "type" : "date-time"
+          },
+          "descriptions" : {
+            "ja" : "積算履歴収集日時",
+            "en" : "Date and time for which the historical data is to be retrieved"
+          },
+          "required" : true
+        },
+        "numberOfCollectionSegments" : {
+          "data" : {
+            "maximum" : 12,
+            "type" : "number",
+            "minimum" : 1
+          },
+          "descriptions" : {
+            "ja" : "収集コマ数",
+            "en" : "Number of collection segments"
+          },
+          "required" : true
+        }
+      }
+    },
+    "0xE2" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "day",
+          "elementName" : {
+            "ja" : "積算履歴収集日",
+            "en" : "Day for which the historical data of measured cumulative amounts of electric energy is to be retrieved"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "$ref" : "#/definitions/number_0-99_u16"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x00FF",
+                "name" : "defaultValue",
+                "descriptions" : {
+                  "ja" : "初期値",
+                  "en" : "Default value"
+                }
+              } ]
+            } ]
+          }
+        }, {
+          "shortName" : "electricEnergy",
+          "elementName" : {
+            "ja" : "積算電力量計測値",
+            "en" : "Measured cumulative amounts of electric energy"
+          },
+          "element" : {
+            "minItems" : 48,
+            "maxItems" : 48,
+            "itemSize" : 4,
+            "type" : "array",
+            "items" : {
+              "oneOf" : [ {
+                "multipleOf" : 0.01,
+                "unit" : "kWh",
+                "coefficient" : [ "0xD3", "0xE1" ],
+                "overflowCode" : false,
+                "underflowCode" : false,
+                "$ref" : "#/definitions/number_0-99999999"
+              }, {
+                "size" : 4,
+                "type" : "state",
+                "enum" : [ {
+                  "edt" : "0xFFFFFFFE",
+                  "name" : "noData",
+                  "readOnly" : true,
+                  "descriptions" : {
+                    "ja" : "No data",
+                    "en" : "No data"
+                  }
+                } ]
+              } ]
+            }
+          }
+        } ]
+      },
+      "urlParameters" : {
+        "day" : {
+          "data" : {
+            "maximum" : 99,
+            "type" : "number",
+            "minimum" : 0
+          },
+          "descriptions" : {
+            "ja" : "積算履歴収集日",
+            "en" : "Day for which the historical data of measured cumulative amounts of electric energy is to be retrieved"
+          },
+          "required" : false
+        }
+      }
+    },
+    "0xEB" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "dateAndTime",
+          "elementName" : {
+            "ja" : "計測日時",
+            "en" : "Date and time of measurement"
+          },
+          "element" : {
+            "type" : "date-time"
+          }
+        }, {
+          "shortName" : "electricEnergy",
+          "elementName" : {
+            "ja" : "積算電力量計測値",
+            "en" : "Cumulative amounts of electric energy measured"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.01,
+              "unit" : "kWh",
+              "coefficient" : [ "0xD3", "0xE1" ],
+              "overflowCode" : false,
+              "underflowCode" : false,
+              "$ref" : "#/definitions/number_0-99999999"
+            }, {
+              "size" : 4,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0xFFFFFFFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        } ]
+      }
+    },
+    "0xEA" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "dateAndTime",
+          "elementName" : {
+            "ja" : "計測日時",
+            "en" : "Date and time of measurement"
+          },
+          "element" : {
+            "type" : "date-time"
+          }
+        }, {
+          "shortName" : "electricEnergy",
+          "elementName" : {
+            "ja" : "積算電力量計測値",
+            "en" : "Cumulative amounts of electric energy measured"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.01,
+              "unit" : "kWh",
+              "coefficient" : [ "0xD3", "0xE1" ],
+              "overflowCode" : false,
+              "underflowCode" : false,
+              "$ref" : "#/definitions/number_0-99999999"
+            }, {
+              "size" : 4,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0xFFFFFFFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        } ]
+      }
+    },
+    "0xE0" : {
+      "data" : {
+        "oneOf" : [ {
+          "multipleOf" : 0.01,
+          "unit" : "kWh",
+          "coefficient" : [ "0xD3", "0xE1" ],
+          "overflowCode" : false,
+          "underflowCode" : false,
+          "$ref" : "#/definitions/number_0-99999999"
+        }, {
+          "size" : 4,
+          "type" : "state",
+          "enum" : [ {
+            "edt" : "0xFFFFFFFE",
+            "name" : "noData",
+            "readOnly" : true,
+            "descriptions" : {
+              "ja" : "No data",
+              "en" : "No data"
+            }
+          } ]
+        } ]
+      }
+    }
+  },
+  "0x028A" : {
+    "0xC2" : {
+      "data" : {
+        "multipleOf" : 0.1,
+        "unit" : "kW",
+        "overflowCode" : false,
+        "underflowCode" : false,
+        "$ref" : "#/definitions/number_0-99999999"
+      }
+    },
+    "0xCB" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "dateAndTime",
+          "elementName" : {
+            "ja" : "計測日時",
+            "en" : "Date and time of measurement"
+          },
+          "element" : {
+            "type" : "date-time"
+          }
+        }, {
+          "shortName" : "reactiveElectricEnergy",
+          "elementName" : {
+            "ja" : "積算無効電力量 (遅れ)",
+            "en" : "Cumulative amount of reactive electric power consumption (lag)"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "kvarh",
+              "coefficient" : [ "0xCD", "0xD3", "0xD4" ],
+              "overflowCode" : false,
+              "underflowCode" : false,
+              "$ref" : "#/definitions/number_0-99999999"
+            }, {
+              "size" : 4,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0xFFFFFFFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        } ]
+      }
+    },
+    "0xE4" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "dateAndTime",
+          "elementName" : {
+            "ja" : "計測日時",
+            "en" : "Date and time of measurement"
+          },
+          "element" : {
+            "type" : "date-time"
+          }
+        }, {
+          "shortName" : "electricEnergy",
+          "elementName" : {
+            "ja" : "積算有効電力量",
+            "en" : "Cumulative amount of active electric energy"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "kWh",
+              "coefficient" : [ "0xD3", "0xD4", "0xE6" ],
+              "overflowCode" : false,
+              "underflowCode" : false,
+              "$ref" : "#/definitions/number_0-99999999"
+            }, {
+              "size" : 4,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0xFFFFFFFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        } ]
+      }
+    },
+    "0xC1" : {
+      "data" : {
+        "oneOf" : [ {
+          "multipleOf" : 0.1,
+          "unit" : "kW",
+          "$ref" : "#/definitions/number_0-99999999"
+        }, {
+          "size" : 4,
+          "type" : "state",
+          "enum" : [ {
+            "edt" : "0xFFFFFFFE",
+            "name" : "noData",
+            "readOnly" : true,
+            "descriptions" : {
+              "ja" : "No data",
+              "en" : "No data"
+            }
+          } ]
+        } ]
+      }
+    },
+    "0xCA" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "dateAndTime",
+          "elementName" : {
+            "ja" : "計測日時",
+            "en" : "Date and time of measurement"
+          },
+          "element" : {
+            "type" : "date-time"
+          }
+        }, {
+          "shortName" : "reactiveElectricEnergy",
+          "elementName" : {
+            "ja" : "積算無効電力量 (遅れ)",
+            "en" : "Cumulative amount of reactive electric power consumption (lag)"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "kvarh",
+              "coefficient" : [ "0xCD", "0xD3", "0xD4" ],
+              "overflowCode" : false,
+              "underflowCode" : false,
+              "$ref" : "#/definitions/number_0-99999999"
+            }, {
+              "size" : 4,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0xFFFFFFFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        } ]
+      }
+    },
+    "0xE3" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "dateAndTime",
+          "elementName" : {
+            "ja" : "計測日時",
+            "en" : "Date and time of measurement"
+          },
+          "element" : {
+            "type" : "date-time"
+          }
+        }, {
+          "shortName" : "activeElectricEnergy",
+          "elementName" : {
+            "ja" : "積算有効電力量",
+            "en" : "Cumulative amount of active electric energy"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "kWh",
+              "coefficient" : [ "0xD3", "0xD4", "0xE6" ],
+              "overflowCode" : false,
+              "underflowCode" : false,
+              "$ref" : "#/definitions/number_0-99999999"
+            }, {
+              "size" : 4,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0xFFFFFFFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        } ]
+      }
+    },
+    "0xE2" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "dateAndTime",
+          "elementName" : {
+            "ja" : "計測日時",
+            "en" : "Date and time of measurement"
+          },
+          "element" : {
+            "type" : "date-time"
+          }
+        }, {
+          "shortName" : "activeElectricEnergy",
+          "elementName" : {
+            "ja" : "積算有効電力量",
+            "en" : "Cumulative amount of active electric energy"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "kWh",
+              "coefficient" : [ "0xD3", "0xD4", "0xE6" ],
+              "overflowCode" : false,
+              "underflowCode" : false,
+              "$ref" : "#/definitions/number_0-99999999"
+            }, {
+              "size" : 4,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0xFFFFFFFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        } ]
+      }
+    },
+    "0xC6" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "day",
+          "elementName" : {
+            "ja" : "積算履歴収集日",
+            "en" : "Day for which the historical data of measured cumulative amounts of electric energy is to be retrieved"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "$ref" : "#/definitions/number_0-99_u16"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x00FF",
+                "name" : "defaultValue",
+                "descriptions" : {
+                  "ja" : "初期値",
+                  "en" : "Default value"
+                }
+              } ]
+            } ]
+          }
+        }, {
+          "shortName" : "electricPower",
+          "elementName" : {
+            "ja" : "需要電力",
+            "en" : "Electric power demand"
+          },
+          "element" : {
+            "minItems" : 48,
+            "maxItems" : 48,
+            "itemSize" : 4,
+            "type" : "array",
+            "items" : {
+              "oneOf" : [ {
+                "multipleOf" : 0.1,
+                "unit" : "kW",
+                "$ref" : "#/definitions/number_0-99999999"
+              }, {
+                "size" : 4,
+                "type" : "state",
+                "enum" : [ {
+                  "edt" : "0xFFFFFFFE",
+                  "name" : "noData",
+                  "readOnly" : true,
+                  "descriptions" : {
+                    "ja" : "No data",
+                    "en" : "No data"
+                  }
+                } ]
+              } ]
+            }
+          }
+        } ]
+      },
+      "urlParameters" : {
+        "day" : {
+          "data" : {
+            "maximum" : 99,
+            "type" : "number",
+            "minimum" : 0
+          },
+          "descriptions" : {
+            "ja" : "積算履歴収集日",
+            "en" : "Day for which the historical data of measured cumulative amounts of electric energy is to be retrieved"
+          },
+          "required" : false
+        }
+      }
+    },
+    "0xCE" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "day",
+          "elementName" : {
+            "ja" : "積算履歴収集日",
+            "en" : "Day for which the historical data of measured cumulative amounts of electric energy is to be retrieved"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "$ref" : "#/definitions/number_0-99_u16"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x00FF",
+                "name" : "defaultValue",
+                "descriptions" : {
+                  "ja" : "初期値",
+                  "en" : "Default value"
+                }
+              } ]
+            } ]
+          }
+        }, {
+          "shortName" : "reactiveElectricEnergy",
+          "elementName" : {
+            "ja" : "積算無効電力量 (遅れ)",
+            "en" : "Measurement data of cumulative amount of reactive electric power consumption (lag)"
+          },
+          "element" : {
+            "minItems" : 48,
+            "maxItems" : 48,
+            "itemSize" : 4,
+            "type" : "array",
+            "items" : {
+              "oneOf" : [ {
+                "multipleOf" : 0.1,
+                "unit" : "kvarh",
+                "coefficient" : [ "0xCD", "0xD3", "0xD4" ],
+                "overflowCode" : false,
+                "underflowCode" : false,
+                "$ref" : "#/definitions/number_0-99999999"
+              }, {
+                "size" : 4,
+                "type" : "state",
+                "enum" : [ {
+                  "edt" : "0xFFFFFFFE",
+                  "name" : "noData",
+                  "readOnly" : true,
+                  "descriptions" : {
+                    "ja" : "No data",
+                    "en" : "No data"
+                  }
+                } ]
+              } ]
+            }
+          }
+        } ]
+      },
+      "urlParameters" : {
+        "day" : {
+          "data" : {
+            "maximum" : 99,
+            "type" : "number",
+            "minimum" : 0
+          },
+          "descriptions" : {
+            "ja" : "積算履歴収集日",
+            "en" : "Day for which the historical data of measured cumulative amounts of electric energy is to be retrieved"
+          },
+          "required" : false
+        }
+      }
+    },
+    "0xE7" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "day",
+          "elementName" : {
+            "ja" : "積算履歴収集日",
+            "en" : "Day for which the historical data of measured cumulative amounts of electric energy is to be retrieved"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "$ref" : "#/definitions/number_0-99_u16"
+            }, {
+              "size" : 2,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x00FF",
+                "name" : "defaultValue",
+                "descriptions" : {
+                  "ja" : "初期値",
+                  "en" : "Default value"
+                }
+              } ]
+            } ]
+          }
+        }, {
+          "shortName" : "activeElectricEnergy",
+          "elementName" : {
+            "ja" : "積算有効電力量",
+            "en" : "Measured cumulative amount of active electric energy"
+          },
+          "element" : {
+            "minItems" : 48,
+            "maxItems" : 48,
+            "itemSize" : 4,
+            "type" : "array",
+            "items" : {
+              "oneOf" : [ {
+                "multipleOf" : 0.1,
+                "unit" : "kWh",
+                "coefficient" : [ "0xD3", "0xD4", "0xE6" ],
+                "overflowCode" : false,
+                "underflowCode" : false,
+                "$ref" : "#/definitions/number_0-99999999"
+              }, {
+                "size" : 4,
+                "type" : "state",
+                "enum" : [ {
+                  "edt" : "0xFFFFFFFE",
+                  "name" : "noData",
+                  "readOnly" : true,
+                  "descriptions" : {
+                    "ja" : "No data",
+                    "en" : "No data"
+                  }
+                } ]
+              } ]
+            }
+          }
+        } ]
+      },
+      "urlParameters" : {
+        "day" : {
+          "data" : {
+            "maximum" : 99,
+            "type" : "number",
+            "minimum" : 0
+          },
+          "descriptions" : {
+            "ja" : "積算履歴収集日",
+            "en" : "Day for which the historical data of measured cumulative amounts of electric energy is to be retrieved"
+          },
+          "required" : false
+        }
+      }
+    },
+    "0xC3" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "dateAndTime",
+          "elementName" : {
+            "ja" : "計測日時",
+            "en" : "Date and time of measurement"
+          },
+          "element" : {
+            "type" : "date-time"
+          }
+        }, {
+          "shortName" : "electricPower",
+          "elementName" : {
+            "ja" : "需要電力",
+            "en" : "Electric Power demand"
+          },
+          "element" : {
+            "oneOf" : [ {
+              "multipleOf" : 0.1,
+              "unit" : "kW",
+              "$ref" : "#/definitions/number_0-99999999"
+            }, {
+              "size" : 4,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0xFFFFFFFE",
+                "name" : "noData",
+                "readOnly" : true,
+                "descriptions" : {
+                  "ja" : "No data",
+                  "en" : "No data"
+                }
+              } ]
+            } ]
+          }
+        } ]
+      }
+    }
+  },
+  "0x02A1" : {
+    "0xE6" : {
+      "data" : {
+        "minSize" : 0,
+        "maxSize" : 24,
+        "type" : "raw"
+      }
+    }
+  },
+  "0x03B9" : {
+    "0xE7" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "leftStove",
+          "elementName" : {
+            "ja" : "左コンロ加熱出力",
+            "en" : "Heating power of the left stove"
+          },
+          "element" : {
+            "type" : "object",
+            "properties" : [ {
+              "oneOf" : [ {
+                "shortName" : "wattage",
+                "elementName" : {
+                  "ja" : "出力設定形式",
+                  "en" : "Output wattage"
+                },
+                "element" : {
+                  "unit" : "W",
+                  "maximum" : 10000,
+                  "type" : "number",
+                  "minimum" : 0
+                }
+              }, {
+                "shortName" : "level",
+                "elementName" : {
+                  "ja" : "レベル設定形式",
+                  "en" : "Level"
+                },
+                "element" : {
+                  "maximum" : 16,
+                  "type" : "level",
+                  "minimum" : 0
+                }
+              }, {
+                "shortName" : "stateOfFlame",
+                "elementName" : {
+                  "ja" : "状態表現形式",
+                  "en" : "The state of flame"
+                },
+                "element" : {
+                  "size" : 5,
+                  "type" : "state",
+                  "enum" : [ {
+                    "edt" : "0x4002",
+                    "name" : "veryLowFlame",
+                    "descriptions" : {
+                      "ja" : "とろ火",
+                      "en" : "Very low flame"
+                    }
+                  }, {
+                    "edt" : "0x4004",
+                    "name" : "lowFlame",
+                    "descriptions" : {
+                      "ja" : "弱火",
+                      "en" : "Low flame"
+                    }
+                  }, {
+                    "edt" : "0x4006",
+                    "name" : "mediumFlame",
+                    "descriptions" : {
+                      "ja" : "中火",
+                      "en" : "Medium flame"
+                    }
+                  }, {
+                    "edt" : "0x4008",
+                    "name" : "highFlame",
+                    "descriptions" : {
+                      "ja" : "強火",
+                      "en" : "High flame"
+                    }
+                  }, {
+                    "edt" : "0x400A",
+                    "name" : "highPower",
+                    "descriptions" : {
+                      "ja" : "ハイパワー",
+                      "en" : "High power"
+                    }
+                  } ]
+                }
+              }, {
+                "shortName" : "noSetting",
+                "elementName" : {
+                  "ja" : "未設定",
+                  "en" : "No setting"
+                },
+                "element" : {
+                  "edt" : "0xFFFF",
+                  "type" : "null"
+                }
+              } ]
+            } ]
+          }
+        }, {
+          "shortName" : "rightStove",
+          "elementName" : {
+            "ja" : "右コンロ加熱出力",
+            "en" : "Heating power of the right stove"
+          },
+          "element" : {
+            "type" : "object",
+            "properties" : [ {
+              "oneOf" : [ {
+                "shortName" : "wattage",
+                "elementName" : {
+                  "ja" : "出力設定形式",
+                  "en" : "Output wattage"
+                },
+                "element" : {
+                  "unit" : "W",
+                  "maximum" : 10000,
+                  "type" : "number",
+                  "minimum" : 0
+                }
+              }, {
+                "shortName" : "level",
+                "elementName" : {
+                  "ja" : "レベル設定形式",
+                  "en" : "Level"
+                },
+                "element" : {
+                  "maximum" : 16,
+                  "type" : "level",
+                  "minimum" : 0
+                }
+              }, {
+                "shortName" : "stateOfFlame",
+                "elementName" : {
+                  "ja" : "状態表現形式",
+                  "en" : "The state of flame"
+                },
+                "element" : {
+                  "size" : 5,
+                  "type" : "state",
+                  "enum" : [ {
+                    "edt" : "0x4002",
+                    "name" : "veryLowFlame",
+                    "descriptions" : {
+                      "ja" : "とろ火",
+                      "en" : "Very low flame"
+                    }
+                  }, {
+                    "edt" : "0x4004",
+                    "name" : "lowFlame",
+                    "descriptions" : {
+                      "ja" : "弱火",
+                      "en" : "Low flame"
+                    }
+                  }, {
+                    "edt" : "0x4006",
+                    "name" : "mediumFlame",
+                    "descriptions" : {
+                      "ja" : "中火",
+                      "en" : "Medium flame"
+                    }
+                  }, {
+                    "edt" : "0x4008",
+                    "name" : "highFlame",
+                    "descriptions" : {
+                      "ja" : "強火",
+                      "en" : "High flame"
+                    }
+                  }, {
+                    "edt" : "0x400A",
+                    "name" : "highPower",
+                    "descriptions" : {
+                      "ja" : "ハイパワー",
+                      "en" : "High power"
+                    }
+                  } ]
+                }
+              }, {
+                "shortName" : "noSetting",
+                "elementName" : {
+                  "ja" : "未設定",
+                  "en" : "No setting"
+                },
+                "element" : {
+                  "edt" : "0xFFFF",
+                  "type" : "null"
+                }
+              } ]
+            } ]
+          }
+        }, {
+          "shortName" : "farSideStove",
+          "elementName" : {
+            "ja" : "奥コンロ加熱出力",
+            "en" : "Heating power of the far-side stove"
+          },
+          "element" : {
+            "type" : "object",
+            "properties" : [ {
+              "oneOf" : [ {
+                "shortName" : "wattage",
+                "elementName" : {
+                  "ja" : "出力設定形式",
+                  "en" : "Output wattage"
+                },
+                "element" : {
+                  "unit" : "W",
+                  "maximum" : 10000,
+                  "type" : "number",
+                  "minimum" : 0
+                }
+              }, {
+                "shortName" : "level",
+                "elementName" : {
+                  "ja" : "レベル設定形式",
+                  "en" : "Level"
+                },
+                "element" : {
+                  "maximum" : 16,
+                  "type" : "level",
+                  "minimum" : 0
+                }
+              }, {
+                "shortName" : "stateOfFlame",
+                "elementName" : {
+                  "ja" : "状態表現形式",
+                  "en" : "The state of flame"
+                },
+                "element" : {
+                  "size" : 5,
+                  "type" : "state",
+                  "enum" : [ {
+                    "edt" : "0x4002",
+                    "name" : "veryLowFlame",
+                    "descriptions" : {
+                      "ja" : "とろ火",
+                      "en" : "Very low flame"
+                    }
+                  }, {
+                    "edt" : "0x4004",
+                    "name" : "lowFlame",
+                    "descriptions" : {
+                      "ja" : "弱火",
+                      "en" : "Low flame"
+                    }
+                  }, {
+                    "edt" : "0x4006",
+                    "name" : "mediumFlame",
+                    "descriptions" : {
+                      "ja" : "中火",
+                      "en" : "Medium flame"
+                    }
+                  }, {
+                    "edt" : "0x4008",
+                    "name" : "highFlame",
+                    "descriptions" : {
+                      "ja" : "強火",
+                      "en" : "High flame"
+                    }
+                  }, {
+                    "edt" : "0x400A",
+                    "name" : "highPower",
+                    "descriptions" : {
+                      "ja" : "ハイパワー",
+                      "en" : "High power"
+                    }
+                  } ]
+                }
+              }, {
+                "shortName" : "noSetting",
+                "elementName" : {
+                  "ja" : "未設定",
+                  "en" : "No setting"
+                },
+                "element" : {
+                  "edt" : "0xFFFF",
+                  "type" : "null"
+                }
+              } ]
+            } ]
+          }
+        }, {
+          "shortName" : "roaster",
+          "elementName" : {
+            "ja" : "ロースタ加熱出力",
+            "en" : "Heating power of the roaster"
+          },
+          "element" : {
+            "type" : "object",
+            "properties" : [ {
+              "oneOf" : [ {
+                "shortName" : "wattage",
+                "elementName" : {
+                  "ja" : "出力設定形式",
+                  "en" : "Output wattage"
+                },
+                "element" : {
+                  "unit" : "W",
+                  "maximum" : 10000,
+                  "type" : "number",
+                  "minimum" : 0
+                }
+              }, {
+                "shortName" : "level",
+                "elementName" : {
+                  "ja" : "レベル設定形式",
+                  "en" : "Level"
+                },
+                "element" : {
+                  "maximum" : 16,
+                  "type" : "level",
+                  "minimum" : 0
+                }
+              }, {
+                "shortName" : "stateOfFlame",
+                "elementName" : {
+                  "ja" : "状態表現形式",
+                  "en" : "The state of flame"
+                },
+                "element" : {
+                  "size" : 5,
+                  "type" : "state",
+                  "enum" : [ {
+                    "edt" : "0x4002",
+                    "name" : "veryLowFlame",
+                    "descriptions" : {
+                      "ja" : "とろ火",
+                      "en" : "Very low flame"
+                    }
+                  }, {
+                    "edt" : "0x4004",
+                    "name" : "lowFlame",
+                    "descriptions" : {
+                      "ja" : "弱火",
+                      "en" : "Low flame"
+                    }
+                  }, {
+                    "edt" : "0x4006",
+                    "name" : "mediumFlame",
+                    "descriptions" : {
+                      "ja" : "中火",
+                      "en" : "Medium flame"
+                    }
+                  }, {
+                    "edt" : "0x4008",
+                    "name" : "highFlame",
+                    "descriptions" : {
+                      "ja" : "強火",
+                      "en" : "High flame"
+                    }
+                  }, {
+                    "edt" : "0x400A",
+                    "name" : "highPower",
+                    "descriptions" : {
+                      "ja" : "ハイパワー",
+                      "en" : "High power"
+                    }
+                  } ]
+                }
+              }, {
+                "shortName" : "noSetting",
+                "elementName" : {
+                  "ja" : "未設定",
+                  "en" : "No setting"
+                },
+                "element" : {
+                  "edt" : "0xFFFF",
+                  "type" : "null"
+                }
+              } ]
+            } ]
+          }
+        } ]
+      }
+    }
+  },
+  "0x03CE" : {
+    "0xFF" : {
+      "note" : {
+        "ja" : "WebAPIの'devices'で管理されている機器のIDおよびその'deviceType'を記述",
+        "en" : "Describe the ID of the device managed in 'devices' of WebAPI and its 'deviceType'."
+      },
+      "data" : {
+        "type" : "array",
+        "items" : {
+          "type" : "object",
+          "properties" : [ {
+            "shortName" : "deviceId",
+            "element" : {
+              "type" : "raw"
+            }
+          }, {
+            "shortName" : "deviceType",
+            "element" : {
+              "type" : "raw"
+            }
+          } ]
+        }
+      },
+      "propertyName" : {
+        "ja" : "グループ内デバイスリスト",
+        "en" : "List of devices in group"
+      },
+      "shortName" : "groupDeviceList",
+      "validRelease" : {
+        "from" : "X",
+        "to" : "latest"
+      },
+      "accessRule" : {
+        "inf" : "notApplicable",
+        "set" : "notApplicable",
+        "get" : "optional"
+      },
+      "descriptions" : {
+        "ja" : "系統連系状態のタイプを示す",
+        "en" : "This property indicates the status of interconnection with the system."
+      }
+    }
+  },
+  "0x03D3" : {
+    "0xD3" : {
+      "data" : {
+        "type" : "array",
+        "items" : {
+          "size" : 1,
+          "type" : "state",
+          "enum" : [ {
+            "edt" : "0x21",
+            "name" : "washDryStandard",
+            "descriptions" : {
+              "ja" : "＜洗濯乾燥コース＞標準",
+              "en" : "<Washing and drying course> Standard"
+            }
+          }, {
+            "edt" : "0x22",
+            "name" : "washDrySilent",
+            "descriptions" : {
+              "ja" : "＜洗濯乾燥コース＞静音",
+              "en" : "<Washing and drying course> Silent"
+            }
+          }, {
+            "edt" : "0x23",
+            "name" : "washDryHeavilySoiled",
+            "descriptions" : {
+              "ja" : "＜洗濯乾燥コース＞汚れ大",
+              "en" : "<Washing and drying course> Heavily soiled"
+            }
+          }, {
+            "edt" : "0x24",
+            "name" : "washDryHardToRemove",
+            "descriptions" : {
+              "ja" : "＜洗濯乾燥コース＞しつこい汚れ",
+              "en" : "<Washing and drying course> Hard-to-remove stains"
+            }
+          }, {
+            "edt" : "0x25",
+            "name" : "washDryPresoaking",
+            "descriptions" : {
+              "ja" : "＜洗濯乾燥コース＞つけおき",
+              "en" : "<Washing and drying course> Presoaking"
+            }
+          }, {
+            "edt" : "0x26",
+            "name" : "washDryBlankets",
+            "descriptions" : {
+              "ja" : "＜洗濯乾燥コース＞毛布",
+              "en" : "<Washing and drying course> Blankets"
+            }
+          }, {
+            "edt" : "0x27",
+            "name" : "washDrySoft",
+            "descriptions" : {
+              "ja" : "＜洗濯乾燥コース＞ソフト",
+              "en" : "<Washing and drying course> Soft"
+            }
+          }, {
+            "edt" : "0x28",
+            "name" : "washDryDrymark",
+            "descriptions" : {
+              "ja" : "＜洗濯乾燥コース＞ドライ",
+              "en" : "<Washing and drying course> Dry"
+            }
+          }, {
+            "edt" : "0x29",
+            "name" : "washDryCleanRinsing",
+            "descriptions" : {
+              "ja" : "＜洗濯乾燥コース＞清潔すすぎ",
+              "en" : "<Washing and drying course> Clean rinsing"
+            }
+          }, {
+            "edt" : "0x2A",
+            "name" : "washDryIroning",
+            "descriptions" : {
+              "ja" : "＜洗濯乾燥コース＞アイロン／Y シャツ",
+              "en" : "<Washing and drying course> Ironing/business shirts"
+            }
+          }, {
+            "edt" : "0x2B",
+            "name" : "washDryHangDrying",
+            "descriptions" : {
+              "ja" : "＜洗濯乾燥コース＞吊り干し",
+              "en" : "<Washing and drying course> Hang drying"
+            }
+          }, {
+            "edt" : "0x2C",
+            "name" : "washDryThick",
+            "descriptions" : {
+              "ja" : "＜洗濯乾燥コース＞厚物",
+              "en" : "<Washing and drying course> Thick clothes"
+            }
+          }, {
+            "edt" : "0x2D",
+            "name" : "washDryDisinfection",
+            "descriptions" : {
+              "ja" : "＜洗濯乾燥コース＞除菌",
+              "en" : "<Washing and drying course> Disinfection"
+            }
+          }, {
+            "edt" : "0x2E",
+            "name" : "washDryOilStrains",
+            "descriptions" : {
+              "ja" : "＜洗濯乾燥コース＞油汚れ",
+              "en" : "<Washing and drying course> Oil stains"
+            }
+          }, {
+            "edt" : "0x2F",
+            "name" : "washDryMemory",
+            "descriptions" : {
+              "ja" : "＜洗濯乾燥コース＞メモリー",
+              "en" : "<Washing and drying course> Memory"
+            }
+          }, {
+            "edt" : "0x30",
+            "name" : "washDryDetergentSaving",
+            "descriptions" : {
+              "ja" : "＜洗濯乾燥コース＞省洗剤",
+              "en" : "<Washing and drying course> Detergent saving"
+            }
+          }, {
+            "edt" : "0x31",
+            "name" : "washDryLightlySoiled",
+            "descriptions" : {
+              "ja" : "＜洗濯乾燥コース＞汚れ少",
+              "en" : "<Washing and drying course> Lightly soiled clothes"
+            }
+          }, {
+            "edt" : "0x32",
+            "name" : "washDrySmallAmountQuick",
+            "descriptions" : {
+              "ja" : "＜洗濯乾燥コース＞少量短時間",
+              "en" : "<Washing and drying course> Quick wash of small amount of laundry"
+            }
+          }, {
+            "edt" : "0x61",
+            "name" : "washStandard",
+            "descriptions" : {
+              "ja" : "＜洗濯コース＞標準",
+              "en" : "<Washing course> Standard"
+            }
+          }, {
+            "edt" : "0x62",
+            "name" : "washSilent",
+            "descriptions" : {
+              "ja" : "＜洗濯コース＞静音",
+              "en" : "<Washing course> Silent"
+            }
+          }, {
+            "edt" : "0x63",
+            "name" : "washHeavilySoiled",
+            "descriptions" : {
+              "ja" : "＜洗濯コース＞汚れ大",
+              "en" : "<Washing course> Heavily soiled clothes"
+            }
+          }, {
+            "edt" : "0x64",
+            "name" : "washHardToRemove",
+            "descriptions" : {
+              "ja" : "＜洗濯コース＞しつこい汚れ",
+              "en" : "<Washing course> Hard-to-remove stains"
+            }
+          }, {
+            "edt" : "0x65",
+            "name" : "washPresoaking",
+            "descriptions" : {
+              "ja" : "＜洗濯コース＞つけおき",
+              "en" : "<Washing course> Presoaking"
+            }
+          }, {
+            "edt" : "0x66",
+            "name" : "washBlankets",
+            "descriptions" : {
+              "ja" : "＜洗濯コース＞毛布",
+              "en" : "<Washing course> Blankets"
+            }
+          }, {
+            "edt" : "0x67",
+            "name" : "washSoft",
+            "descriptions" : {
+              "ja" : "＜洗濯コース＞ソフト",
+              "en" : "<Washing course> Soft"
+            }
+          }, {
+            "edt" : "0x68",
+            "name" : "washDrymark",
+            "descriptions" : {
+              "ja" : "＜洗濯コース＞ドライ",
+              "en" : "<Washing course> Dry"
+            }
+          }, {
+            "edt" : "0x69",
+            "name" : "washCleanRinsing",
+            "descriptions" : {
+              "ja" : "＜洗濯コース＞清潔すすぎ",
+              "en" : "<Washing course> Clean rinsing"
+            }
+          }, {
+            "edt" : "0x6A",
+            "name" : "washDisinfection",
+            "descriptions" : {
+              "ja" : "＜洗濯コース＞除菌",
+              "en" : "<Washing course> Disinfection"
+            }
+          }, {
+            "edt" : "0x6B",
+            "name" : "washOilStrains",
+            "descriptions" : {
+              "ja" : "＜洗濯コース＞油汚れ",
+              "en" : "<Washing course> Oil stains"
+            }
+          }, {
+            "edt" : "0x6C",
+            "name" : "washMemory",
+            "descriptions" : {
+              "ja" : "＜洗濯コース＞メモリ",
+              "en" : "<Washing course> Memory"
+            }
+          }, {
+            "edt" : "0x6D",
+            "name" : "washDetergentSaving",
+            "descriptions" : {
+              "ja" : "＜洗濯コース＞省洗剤",
+              "en" : "<Washing course> Detergent saving"
+            }
+          }, {
+            "edt" : "0x6E",
+            "name" : "washLightlySoiled",
+            "descriptions" : {
+              "ja" : "＜洗濯コース＞汚れ少",
+              "en" : "<Washing course> Lightly soiled clothes"
+            }
+          }, {
+            "edt" : "0x6F",
+            "name" : "washSmallAmountQuick",
+            "descriptions" : {
+              "ja" : "＜洗濯コース＞少量短時間",
+              "en" : "<Washing course> Quick wash of small amount of laundry"
+            }
+          }, {
+            "edt" : "0x7F",
+            "name" : "washTankCleaning",
+            "descriptions" : {
+              "ja" : "＜洗濯コース＞槽洗浄",
+              "en" : "<Washing course> Tank cleaning"
+            }
+          }, {
+            "edt" : "0xA1",
+            "name" : "dryStandard",
+            "descriptions" : {
+              "ja" : "＜乾燥コース＞標準",
+              "en" : "<Drying course> Standard"
+            }
+          }, {
+            "edt" : "0xA2",
+            "name" : "dryBlankets",
+            "descriptions" : {
+              "ja" : "＜乾燥コース＞毛布",
+              "en" : "<Drying course> Blankets"
+            }
+          }, {
+            "edt" : "0xA3",
+            "name" : "drySoft",
+            "descriptions" : {
+              "ja" : "＜乾燥コース＞ソフト",
+              "en" : "<Drying course> Soft"
+            }
+          }, {
+            "edt" : "0xA4",
+            "name" : "dryDrymark",
+            "descriptions" : {
+              "ja" : "＜乾燥コース＞ドライ",
+              "en" : "<Drying course> Dry"
+            }
+          }, {
+            "edt" : "0xA5",
+            "name" : "dryIroning",
+            "descriptions" : {
+              "ja" : "＜乾燥コース＞アイロン／Y シャツ",
+              "en" : "<Drying course> Ironing/business shirts"
+            }
+          }, {
+            "edt" : "0xA6",
+            "name" : "dryHangDrying",
+            "descriptions" : {
+              "ja" : "＜乾燥コース＞吊り干し",
+              "en" : "<Drying course> Hang drying"
+            }
+          }, {
+            "edt" : "0xA7",
+            "name" : "dryThick",
+            "descriptions" : {
+              "ja" : "＜乾燥コース＞厚物",
+              "en" : "<Drying course> Thick clothes"
+            }
+          }, {
+            "edt" : "0xA8",
+            "name" : "dryDisinfection",
+            "descriptions" : {
+              "ja" : "＜乾燥コース＞除菌",
+              "en" : "<Drying course> Disinfection"
+            }
+          }, {
+            "edt" : "0xA9",
+            "name" : "dryShrinkageMinimization",
+            "descriptions" : {
+              "ja" : "＜乾燥コース＞縮み低減",
+              "en" : "<Drying course> Shrinkage minimization"
+            }
+          }, {
+            "edt" : "0xAA",
+            "name" : "dryFinishing",
+            "descriptions" : {
+              "ja" : "＜乾燥コース＞仕上げ",
+              "en" : "<Drying course> Finishing"
+            }
+          }, {
+            "edt" : "0xAB",
+            "name" : "dryStationaryDrying",
+            "descriptions" : {
+              "ja" : "＜乾燥コース＞静止乾燥",
+              "en" : "<Drying course> Stationary drying"
+            }
+          }, {
+            "edt" : "0xAC",
+            "name" : "dryUserDefinedTime",
+            "descriptions" : {
+              "ja" : "＜乾燥コース＞時間指定",
+              "en" : "<Drying course> User definition of drying time"
+            }
+          }, {
+            "edt" : "0xAD",
+            "name" : "dryWarming",
+            "descriptions" : {
+              "ja" : "＜乾燥コース＞衣類あたため",
+              "en" : "<Drying course> Garment warming"
+            }
+          }, {
+            "edt" : "0xBF",
+            "name" : "dryTankDrying",
+            "descriptions" : {
+              "ja" : "＜乾燥コース＞槽乾燥",
+              "en" : "<Drying course> Tank drying"
+            }
+          } ]
+        }
+      }
+    },
+    "0xE4" : {
+      "data" : {
+        "oneOf" : [ {
+          "type" : "object",
+          "properties" : [ {
+            "shortName" : "absolute",
+            "elementName" : {
+              "ja" : "絶対値指定",
+              "en" : "Absolute setting"
+            },
+            "element" : {
+              "maximum" : 16,
+              "type" : "level",
+              "minimum" : 1
+            }
+          } ]
+        }, {
+          "type" : "object",
+          "properties" : [ {
+            "shortName" : "relative",
+            "elementName" : {
+              "ja" : "自動からの相対指定 (0は自動設定)",
+              "en" : "Relative setting relative to the automatic setting (0 means Automatic setting)"
+            },
+            "element" : {
+              "maximum" : 8,
+              "type" : "level",
+              "minimum" : -8
+            }
+          } ]
+        } ]
+      }
+    },
+    "0xE3" : {
+      "data" : {
+        "oneOf" : [ {
+          "type" : "object",
+          "properties" : [ {
+            "shortName" : "absolute",
+            "elementName" : {
+              "ja" : "絶対値指定",
+              "en" : "Absolute setting"
+            },
+            "element" : {
+              "unit" : "liter",
+              "maximum" : 127,
+              "type" : "number",
+              "minimum" : 0
+            }
+          } ]
+        }, {
+          "type" : "object",
+          "properties" : [ {
+            "shortName" : "relative",
+            "elementName" : {
+              "ja" : "自動からの相対指定 (0は自動設定)",
+              "en" : "Relative setting relative to the automatic setting (0 means Automatic setting)"
+            },
+            "element" : {
+              "unit" : "liter",
+              "maximum" : 32,
+              "type" : "number",
+              "minimum" : -32
+            }
+          } ]
+        } ]
+      }
+    },
+    "0xE1" : {
+      "data" : {
+        "oneOf" : [ {
+          "type" : "object",
+          "properties" : [ {
+            "shortName" : "absolute",
+            "elementName" : {
+              "ja" : "絶対値指定",
+              "en" : "Absolute setting"
+            },
+            "element" : {
+              "unit" : "minute",
+              "maximum" : 1439,
+              "type" : "number",
+              "minimum" : 0
+            }
+          } ]
+        }, {
+          "type" : "object",
+          "properties" : [ {
+            "shortName" : "relative",
+            "elementName" : {
+              "ja" : "自動からの相対指定 (0は自動設定)",
+              "en" : "Relative setting relative to the automatic setting (0 means Automatic setting)"
+            },
+            "element" : {
+              "unit" : "minute",
+              "maximum" : 60,
+              "type" : "number",
+              "minimum" : -60
+            }
+          } ]
+        } ]
+      }
+    },
+    "0xD8" : {
+      "data" : {
+        "oneOf" : [ {
+          "type" : "object",
+          "properties" : [ {
+            "shortName" : "absolute",
+            "elementName" : {
+              "ja" : "絶対値指定",
+              "en" : "Absolute setting"
+            },
+            "element" : {
+              "maximum" : 16,
+              "type" : "level",
+              "minimum" : 1
+            }
+          } ]
+        }, {
+          "type" : "object",
+          "properties" : [ {
+            "shortName" : "relative",
+            "elementName" : {
+              "ja" : "自動からの相対指定 (0は自動設定)",
+              "en" : "Relative setting relative to the automatic setting (0 means Automatic setting)"
+            },
+            "element" : {
+              "maximum" : 8,
+              "type" : "level",
+              "minimum" : -8
+            }
+          } ]
+        } ]
+      }
+    },
+    "0xE9" : {
+      "data" : {
+        "oneOf" : [ {
+          "type" : "object",
+          "properties" : [ {
+            "shortName" : "absolute",
+            "elementName" : {
+              "ja" : "絶対値指定",
+              "en" : "Absolute setting"
+            },
+            "element" : {
+              "unit" : "minute",
+              "maximum" : 1439,
+              "type" : "number",
+              "minimum" : 0
+            }
+          } ]
+        }, {
+          "type" : "object",
+          "properties" : [ {
+            "shortName" : "relative",
+            "elementName" : {
+              "ja" : "自動からの相対指定 (0は自動設定)",
+              "en" : "Relative setting relative to the automatic setting (0 means Automatic setting)"
+            },
+            "element" : {
+              "unit" : "minute",
+              "maximum" : 60,
+              "type" : "number",
+              "minimum" : -60
+            }
+          } ]
+        } ]
+      }
+    },
+    "0xD7" : {
+      "data" : {
+        "oneOf" : [ {
+          "type" : "object",
+          "properties" : [ {
+            "shortName" : "absolute",
+            "elementName" : {
+              "ja" : "絶対値指定",
+              "en" : "Absolute setting"
+            },
+            "element" : {
+              "unit" : "r/min",
+              "maximum" : 4095,
+              "type" : "number",
+              "minimum" : 0
+            }
+          } ]
+        }, {
+          "type" : "object",
+          "properties" : [ {
+            "shortName" : "relative",
+            "elementName" : {
+              "ja" : "自動からの相対指定 (0は自動設定)",
+              "en" : "Relative setting relative to the automatic setting (0 means Automatic setting)"
+            },
+            "element" : {
+              "unit" : "r/min",
+              "maximum" : 2048,
+              "type" : "number",
+              "minimum" : -2048
+            }
+          } ]
+        } ]
+      }
+    },
+    "0xE8" : {
+      "data" : {
+        "oneOf" : [ {
+          "type" : "object",
+          "properties" : [ {
+            "shortName" : "absolute",
+            "elementName" : {
+              "ja" : "絶対値指定",
+              "en" : "Absolute setting"
+            },
+            "element" : {
+              "unit" : "minute",
+              "maximum" : 59,
+              "type" : "number",
+              "minimum" : 0
+            }
+          } ]
+        }, {
+          "type" : "object",
+          "properties" : [ {
+            "shortName" : "relative",
+            "elementName" : {
+              "ja" : "自動からの相対指定 (0は自動設定)",
+              "en" : "Relative setting relative to the automatic setting (0 means Automatic setting)"
+            },
+            "element" : {
+              "unit" : "minute",
+              "maximum" : 32,
+              "type" : "number",
+              "minimum" : -32
+            }
+          } ]
+        } ]
+      }
+    },
+    "0xD6" : {
+      "data" : {
+        "oneOf" : [ {
+          "type" : "object",
+          "properties" : [ {
+            "shortName" : "absolute",
+            "elementName" : {
+              "ja" : "絶対値指定",
+              "en" : "Absolute setting"
+            },
+            "element" : {
+              "maximum" : 16,
+              "type" : "level",
+              "minimum" : 1
+            }
+          } ]
+        }, {
+          "type" : "object",
+          "properties" : [ {
+            "shortName" : "relative",
+            "elementName" : {
+              "ja" : "自動からの相対指定 (0は自動設定)",
+              "en" : "Relative setting relative to the automatic setting (0 means Automatic setting)"
+            },
+            "element" : {
+              "maximum" : 8,
+              "type" : "level",
+              "minimum" : -8
+            }
+          } ]
+        } ]
+      }
+    },
+    "0xE7" : {
+      "data" : {
+        "minItems" : 1,
+        "maxItems" : 8,
+        "type" : "array",
+        "items" : {
+          "size" : 1,
+          "type" : "state",
+          "enum" : [ {
+            "edt" : "0x00",
+            "name" : "auto",
+            "descriptions" : {
+              "ja" : "モード自動設定",
+              "en" : "Automatic mode"
+            }
+          }, {
+            "edt" : "0x01",
+            "name" : "withoutAdditionalWater",
+            "descriptions" : {
+              "ja" : "溜めすすぎ",
+              "en" : "Rinsing without additional feeding of water from the tap"
+            }
+          }, {
+            "edt" : "0x02",
+            "name" : "withAdditionalWater",
+            "descriptions" : {
+              "ja" : "流水すすぎ",
+              "en" : "Rinsing with additional feeding of water from the tap"
+            }
+          }, {
+            "edt" : "0x03",
+            "name" : "shower",
+            "descriptions" : {
+              "ja" : "シャワーすすぎ",
+              "en" : "Shower rinsing"
+            }
+          } ]
+        }
+      }
+    },
+    "0xD5" : {
+      "data" : {
+        "type" : "array",
+        "items" : {
+          "size" : 1,
+          "type" : "state",
+          "enum" : [ {
+            "edt" : "0xA0",
+            "name" : "dryNoDrying",
+            "descriptions" : {
+              "ja" : "乾燥なし",
+              "en" : "No drying"
+            }
+          }, {
+            "edt" : "0xA1",
+            "name" : "dryStandard",
+            "descriptions" : {
+              "ja" : "標準",
+              "en" : "Standard"
+            }
+          }, {
+            "edt" : "0xA2",
+            "name" : "dryBlankets",
+            "descriptions" : {
+              "ja" : "毛布",
+              "en" : "Blankets"
+            }
+          }, {
+            "edt" : "0xA3",
+            "name" : "drySoft",
+            "descriptions" : {
+              "ja" : "ソフト",
+              "en" : "Soft"
+            }
+          }, {
+            "edt" : "0xA4",
+            "name" : "dryDrymark",
+            "descriptions" : {
+              "ja" : "ドライ",
+              "en" : "Dry"
+            }
+          }, {
+            "edt" : "0xA5",
+            "name" : "dryIroning",
+            "descriptions" : {
+              "ja" : "アイロン／Y シャツ",
+              "en" : "Ironing/business shirts"
+            }
+          }, {
+            "edt" : "0xA6",
+            "name" : "dryHangDrying",
+            "descriptions" : {
+              "ja" : "吊り干し",
+              "en" : "Hang drying"
+            }
+          }, {
+            "edt" : "0xA7",
+            "name" : "dryThick",
+            "descriptions" : {
+              "ja" : "厚物",
+              "en" : "Thick clothes"
+            }
+          }, {
+            "edt" : "0xA8",
+            "name" : "dryDisinfection",
+            "descriptions" : {
+              "ja" : "除菌",
+              "en" : "Disinfection"
+            }
+          }, {
+            "edt" : "0xA9",
+            "name" : "dryShrinkageMinimization",
+            "descriptions" : {
+              "ja" : "縮み低減",
+              "en" : "Shrinkage minimization"
+            }
+          }, {
+            "edt" : "0xAA",
+            "name" : "dryFinishing",
+            "descriptions" : {
+              "ja" : "仕上げ",
+              "en" : "Finishing"
+            }
+          }, {
+            "edt" : "0xAB",
+            "name" : "dryStationaryDrying",
+            "descriptions" : {
+              "ja" : "静止乾燥",
+              "en" : "Stationary drying"
+            }
+          }, {
+            "edt" : "0xC",
+            "name" : "dryUserDefinedTime",
+            "descriptions" : {
+              "ja" : "時間指定",
+              "en" : "User definition of drying time"
+            }
+          }, {
+            "edt" : "0xAD",
+            "name" : "dryWarming",
+            "descriptions" : {
+              "ja" : "衣類あたため",
+              "en" : "Garment warming"
+            }
+          }, {
+            "edt" : "0xAE",
+            "name" : "dryHeaterCurrentLimit",
+            "descriptions" : {
+              "ja" : "ヒータ入力制限",
+              "en" : "Heater current limit"
+            }
+          }, {
+            "edt" : "0xBF",
+            "name" : "dryTankDrying",
+            "descriptions" : {
+              "ja" : "槽乾燥",
+              "en" : "Tank drying"
+            }
+          } ]
+        }
+      }
+    },
+    "0xD4" : {
+      "data" : {
+        "type" : "array",
+        "items" : {
+          "size" : 1,
+          "type" : "state",
+          "enum" : [ {
+            "edt" : "0x20",
+            "name" : "washDryNoWash",
+            "descriptions" : {
+              "ja" : "洗濯なし",
+              "en" : "No washing"
+            }
+          }, {
+            "edt" : "0x21",
+            "name" : "washDryStandard",
+            "descriptions" : {
+              "ja" : "標準",
+              "en" : "Standard"
+            }
+          }, {
+            "edt" : "0x22",
+            "name" : "washDrySilent",
+            "descriptions" : {
+              "ja" : "静音",
+              "en" : "Silent"
+            }
+          }, {
+            "edt" : "0x23",
+            "name" : "washDryHeavilySoiled",
+            "descriptions" : {
+              "ja" : "汚れ大",
+              "en" : "Heavily soiled clothes"
+            }
+          }, {
+            "edt" : "0x24",
+            "name" : "washDryHardToRemove",
+            "descriptions" : {
+              "ja" : "しつこい汚れ",
+              "en" : "Hard-to-remove stains"
+            }
+          }, {
+            "edt" : "0x25",
+            "name" : "washDryPresoaking",
+            "descriptions" : {
+              "ja" : "つけおき",
+              "en" : "Presoaking"
+            }
+          }, {
+            "edt" : "0x26",
+            "name" : "washDryBlankets",
+            "descriptions" : {
+              "ja" : "毛布",
+              "en" : "Blankets"
+            }
+          }, {
+            "edt" : "0x27",
+            "name" : "washDrySoft",
+            "descriptions" : {
+              "ja" : "ソフト",
+              "en" : "Soft"
+            }
+          }, {
+            "edt" : "0x28",
+            "name" : "washDryDrymark",
+            "descriptions" : {
+              "ja" : "ドライ",
+              "en" : "Dry"
+            }
+          }, {
+            "edt" : "0x29",
+            "name" : "washDryCleanRinsing",
+            "descriptions" : {
+              "ja" : "清潔すすぎ",
+              "en" : "Clean rinsing"
+            }
+          }, {
+            "edt" : "0x2D",
+            "name" : "washDryDisinfection",
+            "descriptions" : {
+              "ja" : "除菌",
+              "en" : "Disinfection"
+            }
+          }, {
+            "edt" : "0x2E",
+            "name" : "washDryOilStrains",
+            "descriptions" : {
+              "ja" : "油汚れ",
+              "en" : "Oil stains"
+            }
+          }, {
+            "edt" : "0x2F",
+            "name" : "washDryMemory",
+            "descriptions" : {
+              "ja" : "メモリー",
+              "en" : "Memory"
+            }
+          }, {
+            "edt" : "0x30",
+            "name" : "washDryDetergentSaving",
+            "descriptions" : {
+              "ja" : "省洗剤",
+              "en" : "Detergent saving"
+            }
+          }, {
+            "edt" : "0x31",
+            "name" : "washDryLightlySoiled",
+            "descriptions" : {
+              "ja" : "汚れ少",
+              "en" : "Lightly soiled clothes"
+            }
+          }, {
+            "edt" : "0x32",
+            "name" : "washDrySmallAmountQuick",
+            "descriptions" : {
+              "ja" : "少量短時間",
+              "en" : "Quick wash of small amount of laundry"
+            }
+          }, {
+            "edt" : "0x3F",
+            "name" : "washDryTankCleaning",
+            "descriptions" : {
+              "ja" : "槽洗浄",
+              "en" : "Tank cleaning"
+            }
+          } ]
+        }
+      }
+    },
+    "0xE5" : {
+      "data" : {
+        "oneOf" : [ {
+          "type" : "object",
+          "properties" : [ {
+            "shortName" : "absolute",
+            "elementName" : {
+              "ja" : "絶対値指定",
+              "en" : "Absolute setting"
+            },
+            "element" : {
+              "unit" : "minute",
+              "maximum" : 1439,
+              "type" : "number",
+              "minimum" : 0
+            }
+          } ]
+        }, {
+          "type" : "object",
+          "properties" : [ {
+            "shortName" : "relative",
+            "elementName" : {
+              "ja" : "自動からの相対指定 (0は自動設定)",
+              "en" : "Relative setting relative to the automatic setting (0 means Automatic setting)"
+            },
+            "element" : {
+              "unit" : "minute",
+              "maximum" : 60,
+              "type" : "number",
+              "minimum" : -60
+            }
+          } ]
+        } ]
+      }
+    },
+    "0xDC" : {
+      "data" : {
+        "oneOf" : [ {
+          "unit" : "minute",
+          "maximum" : 15299,
+          "type" : "number",
+          "minimum" : 0
+        }, {
+          "size" : 2,
+          "type" : "state",
+          "enum" : [ {
+            "edt" : "0xFF",
+            "name" : "unknown",
+            "descriptions" : {
+              "ja" : "残り時間不明",
+              "en" : "Remaining time unknown"
+            }
+          } ]
+        } ]
+      }
+    },
+    "0xED" : {
+      "data" : {
+        "oneOf" : [ {
+          "unit" : "minute",
+          "maximum" : 15299,
+          "type" : "number",
+          "minimum" : 0
+        }, {
+          "size" : 2,
+          "type" : "state",
+          "enum" : [ {
+            "edt" : "0xFF",
+            "name" : "unknown",
+            "descriptions" : {
+              "ja" : "残り時間不明",
+              "en" : "Remaining time unknown"
+            }
+          } ]
+        } ]
+      }
+    },
+    "0xDB" : {
+      "data" : {
+        "oneOf" : [ {
+          "unit" : "minute",
+          "maximum" : 15299,
+          "type" : "number",
+          "minimum" : 0
+        }, {
+          "size" : 2,
+          "type" : "state",
+          "enum" : [ {
+            "edt" : "0xFF",
+            "name" : "unknown",
+            "descriptions" : {
+              "ja" : "残り時間不明",
+              "en" : "Remaining time unknown"
+            }
+          } ]
+        } ]
+      }
+    },
+    "0x92" : {
+      "data" : {
+        "multipleOf" : 1,
+        "unit" : "minute",
+        "maximum" : 15359,
+        "type" : "number",
+        "minimum" : 0
+      }
+    },
+    "0xDF" : {
+      "data" : {
+        "unit" : "minute",
+        "maximum" : 15359,
+        "type" : "number",
+        "minimum" : 0
+      }
+    }
+  },
+  "0x03D4" : {
+    "0xFF" : {
+      "note" : {
+        "ja" : "WebAPIの'devices'で管理されている機器のIDおよびその'deviceType'を記述",
+        "en" : "Describe the ID of the device managed in 'devices' of WebAPI and its 'deviceType'."
+      },
+      "data" : {
+        "type" : "array",
+        "items" : {
+          "type" : "object",
+          "properties" : [ {
+            "shortName" : "deviceId",
+            "element" : {
+              "type" : "raw"
+            }
+          }, {
+            "shortName" : "deviceType",
+            "element" : {
+              "type" : "raw"
+            }
+          } ]
+        }
+      },
+      "propertyName" : {
+        "ja" : "グループ内デバイスリスト",
+        "en" : "List of devices in group"
+      },
+      "shortName" : "groupDeviceList",
+      "validRelease" : {
+        "from" : "X",
+        "to" : "latest"
+      },
+      "accessRule" : {
+        "inf" : "notApplicable",
+        "set" : "notApplicable",
+        "get" : "optional"
+      },
+      "descriptions" : {
+        "ja" : "系統連系状態のタイプを示す",
+        "en" : "This property indicates the status of interconnection with the system."
+      }
+    }
+  },
+  "0x05FF" : {
+    "0xC2" : {
+      "shortName":"deviceList",
+      "note" : {
+        "ja" : "EPC=0xC2, C3, C4, C6, C7に対応した値をobjectのarrayで表現する",
+        "en" : "This property deals with info from 0xC2, C3, C4, C6 and 0xC7 altogether."
+      },
+      "data" : {
+        "minItems" : 0,
+        "maxItems" : 65533,
+        "type" : "array",
+        "items" : {
+          "type" : "object",
+          "properties" : [ {
+            "shortName" : "deviceId",
+            "element" : {
+              "type" : "raw"
+            }
+          }, {
+            "shortName" : "deviceType",
+            "element" : {
+              "type" : "raw"
+            }
+          }, {
+            "shortName" : "connection",
+            "element" : {
+              "size" : 4,
+              "type" : "state",
+              "enum" : [ {
+                "edt" : "0x41",
+                "name" : "connected",
+                "descriptions" : {
+                  "ja" : "接続中",
+                  "en" : "Connected"
+                }
+              }, {
+                "edt" : "0x42",
+                "name" : "disconnected",
+                "descriptions" : {
+                  "ja" : "離脱中",
+                  "en" : "Disconnected"
+                }
+              }, {
+                "edt" : "0x43",
+                "name" : "notRegistered",
+                "descriptions" : {
+                  "ja" : "未登録",
+                  "en" : "Not registered"
+                }
+              }, {
+                "edt" : "0x44",
+                "name" : "deleted",
+                "descriptions" : {
+                  "ja" : "削除",
+                  "en" : "Deleted"
+                }
+              } ]
+            }
+          }, {
+            "shortName" : "manufactureCode",
+            "element" : {
+              "type" : "raw"
+            }
+          } ]
+        }
+      },
+      "propertyName" : {
+        "ja" : "機器情報リスト",
+        "en" : "List of device information"
+      },
+      "validRelease" : {
+        "from" : "G",
+        "to" : "latest"
+      },
+      "accessRule" : {
+        "inf" : "optional",
+        "set" : "notApplicable",
+        "get" : "optional"
+      },
+      "descriptions" : {
+        "ja" : "機器リストのインデックスを示す",
+        "en" : "This property indicates the index of the device list"
+      }
+    }
+  },
+  "0x0602" : {
+    "0xB2" : {
+      "data" : {
+        "type" : "object",
+        "properties" : [ {
+          "shortName" : "ansiX34Equipped",
+          "element" : {
+            "size" : 0,
+            "type" : "state",
+            "enum" : [ {
+              "edt" : "0x00",
+              "name" : "false",
+              "descriptions" : {
+                "ja" : "非搭載",
+                "en" : "Not implemented"
+              }
+            }, {
+              "edt" : "0x01",
+              "name" : "true",
+              "descriptions" : {
+                "ja" : "搭載",
+                "en" : "Implemented"
+              }
+            } ]
+          }
+        }, {
+          "shortName" : "shiftJisEquipped",
+          "element" : {
+            "size" : 0,
+            "type" : "state",
+            "enum" : [ {
+              "edt" : "0x00",
+              "name" : "false",
+              "descriptions" : {
+                "ja" : "非搭載",
+                "en" : "Not implemented"
+              }
+            }, {
+              "edt" : "0x01",
+              "name" : "true",
+              "descriptions" : {
+                "ja" : "搭載",
+                "en" : "Implemented"
+              }
+            } ]
+          }
+        }, {
+          "shortName" : "jisEquipped",
+          "element" : {
+            "size" : 0,
+            "type" : "state",
+            "enum" : [ {
+              "edt" : "0x00",
+              "name" : "false",
+              "descriptions" : {
+                "ja" : "非搭載",
+                "en" : "Not implemented"
+              }
+            }, {
+              "edt" : "0x01",
+              "name" : "true",
+              "descriptions" : {
+                "ja" : "搭載",
+                "en" : "Implemented"
+              }
+            } ]
+          }
+        }, {
+          "shortName" : "japaneseEucEquipped",
+          "element" : {
+            "size" : 0,
+            "type" : "state",
+            "enum" : [ {
+              "edt" : "0x00",
+              "name" : "false",
+              "descriptions" : {
+                "ja" : "非搭載",
+                "en" : "Not implemented"
+              }
+            }, {
+              "edt" : "0x01",
+              "name" : "true",
+              "descriptions" : {
+                "ja" : "搭載",
+                "en" : "Implemented"
+              }
+            } ]
+          }
+        }, {
+          "shortName" : "ucs4Equipped",
+          "element" : {
+            "size" : 0,
+            "type" : "state",
+            "enum" : [ {
+              "edt" : "0x00",
+              "name" : "false",
+              "descriptions" : {
+                "ja" : "非搭載",
+                "en" : "Not implemented"
+              }
+            }, {
+              "edt" : "0x01",
+              "name" : "true",
+              "descriptions" : {
+                "ja" : "搭載",
+                "en" : "Implemented"
+              }
+            } ]
+          }
+        }, {
+          "shortName" : "ucs2Equipped",
+          "element" : {
+            "size" : 0,
+            "type" : "state",
+            "enum" : [ {
+              "edt" : "0x00",
+              "name" : "false",
+              "descriptions" : {
+                "ja" : "非搭載",
+                "en" : "Not implemented"
+              }
+            }, {
+              "edt" : "0x01",
+              "name" : "true",
+              "descriptions" : {
+                "ja" : "搭載",
+                "en" : "Implemented"
+              }
+            } ]
+          }
+        }, {
+          "shortName" : "latin1Equipped",
+          "element" : {
+            "size" : 0,
+            "type" : "state",
+            "enum" : [ {
+              "edt" : "0x00",
+              "name" : "false",
+              "descriptions" : {
+                "ja" : "非搭載",
+                "en" : "Not implemented"
+              }
+            }, {
+              "edt" : "0x01",
+              "name" : "true",
+              "descriptions" : {
+                "ja" : "搭載",
+                "en" : "Implemented"
+              }
+            } ]
+          }
+        }, {
+          "shortName" : "utf8Equipped",
+          "element" : {
+            "size" : 0,
+            "type" : "state",
+            "enum" : [ {
+              "edt" : "0x00",
+              "name" : "false",
+              "descriptions" : {
+                "ja" : "非搭載",
+                "en" : "Not implemented"
+              }
+            }, {
+              "edt" : "0x01",
+              "name" : "true",
+              "descriptions" : {
+                "ja" : "搭載",
+                "en" : "Implemented"
+              }
+            } ]
+          }
+        } ]
+      }
+    }
+  }
+}

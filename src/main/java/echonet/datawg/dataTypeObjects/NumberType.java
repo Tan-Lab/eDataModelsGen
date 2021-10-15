@@ -91,8 +91,10 @@ public class NumberType extends DataType{
 	public ObjectNode toWebAPIDeviceDescription() {
 		ObjectMapper mapper = new ObjectMapper();
 		ObjectNode rootNode = mapper.createObjectNode();
+		if(this.getDescription() != null) {
+			rootNode.set(Constants.KEYWORD_DESCRIPTIONS, toDescription());
+		}
 		rootNode.put(eConstants.KEYWORD_TYPE, eConstants.TYPE_NUMBER);
-
 		if(unit != null && !unit.equals(""))
 			rootNode.put(eConstants.KEYWORD_UNIT, unit);
 		if(minimum != null) {
@@ -139,9 +141,6 @@ public class NumberType extends DataType{
 				arrayNode.add(coefficient[i]);
 			}
 			rootNode.set(eConstants.KEYWORD_COEFFICIENT, arrayNode);
-		}
-		if(this.getDescription() != null) {
-			rootNode.set(Constants.KEYWORD_DESCRIPTIONS, toDescription());
 		}
 		return rootNode;
 	}
@@ -419,7 +418,7 @@ public class NumberType extends DataType{
 						BigDecimal bigMultiple = new BigDecimal(multiple.intValue());
 						BigDecimal bigMultipleOf = new BigDecimal(multipleOf.intValue());
 						BigDecimal intMultipleIntMultipleOf = val.multiply(bigMultipleOf).multiply(bigMultiple);
-						node.put(keyword, intMultipleIntMultipleOf);
+						node.put(keyword, intMultipleIntMultipleOf.intValue());
 					} else {
 						BigDecimal bigMultiple = new BigDecimal(multiple.intValue());
 						BigDecimal intMultipleFloatMultipleOf = val.scaleByPowerOfTen(powerOfTen(multipleOf)).multiply(bigMultiple);
@@ -443,7 +442,7 @@ public class NumberType extends DataType{
 				if(multiple.floatValue() >= 1) {
 					BigDecimal bigMultiple = new BigDecimal(multiple.intValue());
 					BigDecimal intMultipleNoMultipleOf = val.multiply(bigMultiple);
-					node.put(keyword, intMultipleNoMultipleOf);
+					node.put(keyword, intMultipleNoMultipleOf.intValue());
 				} else {
 					BigDecimal floatMultipleNoMultipleOf = val.scaleByPowerOfTen(powerOfTen(multiple));		
 					int scale = scaleFromNumber(multiple);
@@ -455,7 +454,7 @@ public class NumberType extends DataType{
 				if(multipleOf >=1) {
 					BigDecimal bigMultipleOf = new BigDecimal(multipleOf.intValue());
 					BigDecimal noMultipleIntMultipleOf = val.multiply(bigMultipleOf);
-					node.put(keyword, noMultipleIntMultipleOf);
+					node.put(keyword, noMultipleIntMultipleOf.intValue());
 				} else {
 					BigDecimal noMultiplefloatMultipleOf = val.scaleByPowerOfTen(powerOfTen(multipleOf));	
 					int scale = scaleFromNumber(multipleOf);
@@ -484,8 +483,8 @@ public class NumberType extends DataType{
 		ObjectNode rs = null;
 		if(this.getDescription()!=null) {
 			rs = mapper.createObjectNode();
-			rs.put(Constants.KEYWORD_EN, this.getDescription().getEN());
 			rs.put(Constants.KEYWORD_JA, this.getDescription().getJP());
+			rs.put(Constants.KEYWORD_EN, this.getDescription().getEN());
 		}
 		return rs;
 	}
