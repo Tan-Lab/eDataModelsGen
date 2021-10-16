@@ -100,7 +100,7 @@ public class DDExporter {
 	}
 	public static void loadFileContents() {
 		
-		String default_definition_File_Name = "0427mraDefinition.json";
+		String default_definition_File_Name = "20211014definitions.json";
 		
 		if(!full_MRA_File_Name.equals("")) {
 			if(!definition_File_Name.equals("")) {
@@ -120,7 +120,7 @@ public class DDExporter {
 			System.out.println("No device definition file");
 		}
 		if(!MC_Rules_File_Name.equals("")) {
-			mcRules = FilesParser.mcFromFile(MC_Rules_File_Name);
+			mcRules = FilesParser.mcFromFileV1(MC_Rules_File_Name);
 		}
 	}
 	public static void fileTypeFromNames() {

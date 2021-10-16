@@ -15,11 +15,18 @@ public class WoTConstants {
 	public static final String KEYWORD_MIN_ITEM="minItems";
 	public static final String KEYWORD_MAX_ITEM="maxItems";
 	public static final String KEYWORD_ITEMS="items";
+	public static final String KEYWORD_INPUT="input";
+	public static final String KEYWORD_OUTPUT="output";
 	
+	public static final String KEYWORD_READ_ONLY="readOnly";
+	public static final String KEYWORD_WRITE_ONLY="writeOnly";
+	public static final String KEYWORD_OBSERVABLE="observable";
 	public static final String KEYWORD_ACTIONS ="actions";
 	public static final String KEYWORD_EVENTS ="events";
+	public static final String KEYWORD_TYPE="type";
 	
-	
-	
-
+	public static final String KEYWORD_SUCESS="success";
+	public static final String KEYWORD_MESSAGE="message";
 }
+	
+	

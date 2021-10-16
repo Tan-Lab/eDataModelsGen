@@ -29,12 +29,15 @@ public class DataTypeDefinitionParser {
 	}
 	List<DataType> predefinedTypes;
 	private  DataType predefinedTypeFromName(String name) {
+		DataType rs = null;
 		for(DataType type: predefinedTypes) {
 			if(type.getName().equals(name)) {
-				return type;
+				System.out.println(type.toWebAPIDeviceDescription().toString());
+				rs = type;
+				break;
 			} 
 		}
-		return null;	
+		return rs;	
 	}
 	public DataType toDataDefinition(JSONObject obj) {
 		DataType rs = null;	
@@ -129,11 +132,7 @@ public class DataTypeDefinitionParser {
 			if(data.getClass().equals(NumberType.class)) {
 				NumberType number = (NumberType) data;
 				NumberType numberWithUnit = new NumberType();
-				numberWithUnit.setName(number.getName());
-				numberWithUnit.setEnumValue(number.getEnumValue());
-				numberWithUnit.setFormat(number.getFormat());
-				numberWithUnit.setMaximum(number.getMaximum());
-				numberWithUnit.setMinimum(number.getMinimum());
+				numberWithUnit = number;
 				if(multipleOf != null) {
 					numberWithUnit.setMultipleOf(multipleOf);
 				}
@@ -156,6 +155,7 @@ public class DataTypeDefinitionParser {
 			}
 		}
 		return rs;
+
 		
 	}
 	private DataType toObjectType(JSONObject jsonObj) {

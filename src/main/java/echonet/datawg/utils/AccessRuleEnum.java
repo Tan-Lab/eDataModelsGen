@@ -3,7 +3,7 @@ package echonet.datawg.utils;
 public enum AccessRuleEnum {
 	
 	optional("optional"),required("required"),notApplicable("notApplicable"),
-	require_c("required_c");
+	require_c("required_c"),require_o("required_o");
 	private  String name;       
 
     AccessRuleEnum(String s) {

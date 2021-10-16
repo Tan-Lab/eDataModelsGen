@@ -73,6 +73,9 @@ public class DDGenerator {
 									if(mcEPC.getType() != null) {
 										epc.setDataRestrictions(mcEPC.getType());
 									}
+									if(mcEPC.getShortName() != null) {
+										epc.setShortName(mcEPC.getShortName());
+									}
 								}
 								
 							}

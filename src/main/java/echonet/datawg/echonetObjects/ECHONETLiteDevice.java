@@ -111,10 +111,12 @@ public class ECHONETLiteDevice {
 		ObjectNode languageNode = mapper.createObjectNode();
 		languageNode.put(WoTConstants.KEYWORD_LANGUAGE, WoTConstants.EN_LANGUAGE);
 		contextNode.add(WoTConstants.LD_CONTEXT);
+		contextNode.add(mapper.createObjectNode().put("echonet","https://echonet.jp/"));
 		contextNode.add(languageNode);
 		rootNode.set(WoTConstants.KEYWORD_CONTEXT, contextNode);
 		//id node
 		rootNode.put(WoTConstants.KEYWORD_ID, "");
+		rootNode.put("echonet:eoj", this.getCode());
 		// title node
 		rootNode.put(WoTConstants.KEYWORD_TITLE, this.getShortName());
 		// titles node
@@ -136,12 +138,13 @@ public class ECHONETLiteDevice {
 		Collections.sort(properties, Collections.reverseOrder());
 		for(ECHONETLiteProperty pp : properties) {
 			if(!pp.isReservedForFutureUse() && !pp.isDELProperty() && !pp.isContainDELProperty()){
-				if(pp.isSetOnly()) {
-					
-				} else if (pp.isINFOnly()) {
-					
-				} else if(pp.isMCProperty()) {
-					
+				if (pp.isINFOnly()) {
+					eventNode.set(pp.getShortName(), pp.toEvent());
+				} else if (pp.isSetOnly()) {
+					actionNode.set(pp.getShortName(), pp.toAction());
+				}
+				else if(pp.isMCProperty()) {
+					ppNode.set(pp.getShortName().replace("(MC)", ""), pp.toThingDescriptionJSONObjectNode());
 				} else {
 					ppNode.set(pp.getShortName(), pp.toThingDescriptionJSONObjectNode());
 				} 	
@@ -156,6 +159,21 @@ public class ECHONETLiteDevice {
 			rootNode.set(WoTConstants.KEYWORD_EVENTS, eventNode);
 		return rootNode;
 		
+	}
+	public void addProperties(List<ECHONETLiteProperty> properties) {
+		List<ECHONETLiteProperty> ppToAdd = new ArrayList<ECHONETLiteProperty>();
+		for(ECHONETLiteProperty newPP : properties) {
+			for(ECHONETLiteProperty currentPP : this.getProperties()) {
+				if(!newPP.getShortName().equals(currentPP.getShortName())) {
+					ppToAdd.add(newPP);
+				}
+			}
+		}
+		if(ppToAdd.size() > 0) {
+			for(ECHONETLiteProperty newPP : ppToAdd) {
+				this.addAProperty(newPP);
+			}
+		}
 	}
 	public ObjectNode toFIWAREJSON() {
 		return null;

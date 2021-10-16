@@ -1,5 +1,6 @@
 package echonet.datawg.dataTypeObjects;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.text.CaseUtils;
@@ -22,6 +23,12 @@ public class ObjectProperty {
 	private EnJAStatement note;
 	public String getName() {
 		return name;
+	}
+	public void setDataType(DataType dataType) {
+		if(this.element == null) {
+			element = new ArrayList<DataType>();
+		}
+		this.element.add(dataType);
 	}
 	public String toPropertyNameLowerCamel() {
 		return CaseUtils.toCamelCase(name, false, ' ');
@@ -74,27 +81,64 @@ public class ObjectProperty {
 			if(descNode != null) {
 				rootNode.set(Constants.KEYWORD_DESCRIPTIONS, descNode);
 			}
+			rootNode.setAll(getElement().get(0).toWebAPIDeviceDescription());
 			if( noteNode != null) {
 				rootNode.set(Constants.KEYWORD_NOTE, noteNode);
 			}
-			rootNode.setAll(getElement().get(0).toWebAPIDeviceDescription());	
 		} else if(this.getElement().size() > 1) {
+			if(descNode != null) {
+				rootNode.set(Constants.KEYWORD_DESCRIPTIONS, descNode);
+			}
+			
 			ArrayNode oneOf = mapper.createArrayNode();
 			for(DataType type : this.getElement()) {
 				oneOf.add(type.toWebAPIDeviceDescription());
 			}
 			ObjectNode multipleTypePropertyNode = mapper.createObjectNode();
 			multipleTypePropertyNode.set(eConstants.KEYWORD_ONEOF, oneOf);
-			if(descNode != null) {
-				rootNode.set(Constants.KEYWORD_DESCRIPTIONS, descNode);
-			}
+
+			rootNode.setAll(multipleTypePropertyNode);
 			if( noteNode != null) {
 				rootNode.set(Constants.KEYWORD_NOTE, noteNode);
 			}
-			rootNode.setAll(multipleTypePropertyNode);
 		} 
 		
 		return rootNode;
+	}
+	public ObjectNode toPPDescription() {
+		ObjectMapper mapper = new ObjectMapper();
+		ObjectNode rootNode = mapper.createObjectNode();
+		ObjectNode descNode = toDescription();
+		ObjectNode noteNode = toNote();
+		if (this.getElement().size() == 1){
+			
+			if(descNode != null) {
+				rootNode.set(Constants.KEYWORD_DESCRIPTIONS, descNode);
+			}
+			rootNode.setAll(getElement().get(0).toWebAPIDeviceDescription());
+			if( noteNode != null) {
+				rootNode.set(Constants.KEYWORD_NOTE, noteNode);
+			}
+		} else if(this.getElement().size() > 1) {
+			if(descNode != null) {
+				rootNode.set(Constants.KEYWORD_DESCRIPTIONS, descNode);
+			}
+			
+			ArrayNode oneOf = mapper.createArrayNode();
+			for(DataType type : this.getElement()) {
+				oneOf.add(type.toWebAPIDeviceDescription());
+			}
+			ObjectNode multipleTypePropertyNode = mapper.createObjectNode();
+			multipleTypePropertyNode.set(eConstants.KEYWORD_ONEOF, oneOf);
+
+			rootNode.setAll(multipleTypePropertyNode);
+			if( noteNode != null) {
+				rootNode.set(Constants.KEYWORD_NOTE, noteNode);
+			}
+		} 
+		ObjectNode rs = mapper.createObjectNode();
+		rs.set(this.getName(), rootNode);
+		return rs;
 	}
 	public ObjectNode toJSONTDPropertySchema() {
 		ObjectMapper mapper = new ObjectMapper();

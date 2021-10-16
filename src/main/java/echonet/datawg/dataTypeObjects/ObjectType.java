@@ -1,5 +1,6 @@
 package echonet.datawg.dataTypeObjects;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -9,6 +10,7 @@ import com.github.owlcs.ontapi.jena.model.OntClass;
 import com.github.owlcs.ontapi.jena.model.OntModel;
 import com.github.owlcs.ontapi.jena.model.OntObjectProperty;
 
+import echonet.datawg.echonetObjects.EnJAStatement;
 import echonet.datawg.inputParsers.SarefOntologyParser;
 import echonet.datawg.utils.Constants;
 import echonet.datawg.utils.SAREFConstants;
@@ -25,13 +27,19 @@ public class ObjectType extends DataType{
 	}
 	private List<ObjectProperty> properties;
 	private boolean isONE_OF;
-	
+	private EnJAStatement description;
 	
 	public List<ObjectProperty> getProperties() {
 		return properties;
 	}
 	public void setProperties(List<ObjectProperty> properties) {
 		this.properties = properties;
+	}
+	public void setProperty(ObjectProperty property) {
+		if(this.properties == null) {
+			this.properties = new ArrayList<ObjectProperty>();
+		}
+		this.properties.add(property);
 	}
 	@Override
 	public ObjectNode toWebAPIDeviceDescription() {
@@ -41,12 +49,12 @@ public class ObjectType extends DataType{
 		
 		ObjectNode propertyNode = mapper.createObjectNode();
 		ObjectNode oneOfNode = mapper.createObjectNode();
+		ArrayNode oneOf =mapper.createArrayNode();
 		for(ObjectProperty pp : properties) {
 			if(!pp.isReservedForFutureUse() && !pp.isDELProperty() && !pp.isDELProperty2()) {
 				if(isONE_OF) {
-					ArrayNode oneOf =mapper.createArrayNode();
-					propertyNode.set(pp.getName(),  pp.toJSONObjDescription());
-					oneOf.add(propertyNode);
+					
+					oneOf.add(pp.toPPDescription());
 					oneOfNode.set(eConstants.KEYWORD_ONEOF, oneOf);
 				} else {
 					propertyNode.set(pp.getName(),  pp.toJSONObjDescription());
@@ -131,6 +139,10 @@ public class ObjectType extends DataType{
 		ObjectMapper mapper = new ObjectMapper();
 		ObjectNode rootNode = mapper.createObjectNode();
 		rootNode.put(eConstants.KEYWORD_TYPE, this.type);
+		if(this.description != null) {
+			rootNode.put(Constants.KEYWORD_DESCRIPTION, description.getEN());
+			rootNode.set(eConstants.KEYWORD_DESCRIPTIONS, toDescription());
+		}
 		
 		ObjectNode propertyNode = mapper.createObjectNode();
 		ObjectNode oneOfNode = mapper.createObjectNode();
@@ -152,6 +164,22 @@ public class ObjectType extends DataType{
 			rootNode.set(eConstants.KEYWORD_PROPERTIES, oneOfNode);
 		}
 		return rootNode;
+	}
+	public EnJAStatement getDescription() {
+		return description;
+	}
+	public void setDescription(EnJAStatement description) {
+		this.description = description;
+	}
+	public ObjectNode toDescription() {
+		ObjectMapper mapper = new ObjectMapper();
+		ObjectNode rs = null;
+		if(this.getDescription()!=null) {
+			rs = mapper.createObjectNode();
+			rs.put(Constants.KEYWORD_EN, this.getDescription().getEN());
+			rs.put(Constants.KEYWORD_JA, this.getDescription().getJP());
+		}
+		return rs;
 	}
 
 }
