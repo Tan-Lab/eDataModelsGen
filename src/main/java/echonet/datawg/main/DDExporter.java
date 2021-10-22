@@ -100,7 +100,7 @@ public class DDExporter {
 	}
 	public static void loadFileContents() {
 		
-		String default_definition_File_Name = "20211014definitions.json";
+		String default_definition_File_Name = "20211022definitions.json";
 		
 		if(!full_MRA_File_Name.equals("")) {
 			if(!definition_File_Name.equals("")) {

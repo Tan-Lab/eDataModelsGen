@@ -15,8 +15,18 @@ public class DateType extends DataType{
 	public DateType() {
 		this.type  = "date";
 	}
+	public DateType(String name) {
+		this.type  = "date";
+		this.name = name;
+	}
 	private Integer size;
-	
+	private String name;
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	public Integer getSize() {
 		return size;
 	}

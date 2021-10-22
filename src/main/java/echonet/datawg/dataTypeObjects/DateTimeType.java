@@ -16,8 +16,18 @@ public class DateTimeType extends DataType{
 	public DateTimeType() {
 		this.type  = Constants.KEYWORD_DATE_TIME;
 	}
+	public DateTimeType(String name) {
+		this.type  = Constants.KEYWORD_DATE_TIME;
+		this.name = name;
+	}
 	private Integer size;
-	
+	private String name;
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	public Integer getSize() {
 		return size;
 	}

@@ -29,6 +29,9 @@ public class Constants {
 	public static final String TYPE_NUMBER ="number";
 	public static final String TYPE_STATE ="state";
 	public static final String TYPE_RAW ="raw";
+	public static final String TYPE_TIME ="time";
+	public static final String TYPE_DATE ="date";
+	public static final String TYPE_DATE_TIME ="date-time";
 	public static final String TYPE_NULL ="null";
 	public static final String TYPE_BOOLEAN ="boolean";
 	public static final String TYPE_OBJECT ="object";

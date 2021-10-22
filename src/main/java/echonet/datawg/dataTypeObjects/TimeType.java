@@ -17,10 +17,21 @@ public class TimeType extends DataType{
 	public TimeType() {
 		this.type  = Constants.KEYWORD_TIME;
 	}
+	public TimeType(String name) {
+		this.type  = Constants.KEYWORD_TIME;
+		this.name = name;
+	}
 	private Integer size;
+	private String name;
 	
 	public Integer getSize() {
 		return size;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 	public void setSize(Integer size) {
 		this.size = size;

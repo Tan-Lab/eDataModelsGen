@@ -22,6 +22,7 @@ import echonet.datawg.dataTypeObjects.StateType;
 import echonet.datawg.dataTypeObjects.TimeType;
 import echonet.datawg.echonetObjects.EnJAStatement;
 import echonet.datawg.utils.Constants;
+import echonet.datawg.utils.eConstants;
 
 public class SimpleDataTypeParser {
 	public static DataType toTypeDefinition(String key, JSONObject jsonObj) {
@@ -44,6 +45,15 @@ public class SimpleDataTypeParser {
 				break;
 			case Constants.TYPE_BOOLEAN:
 				rs = toBooleanType(key, jsonObj);
+				break;
+			case Constants.TYPE_DATE_TIME:
+				rs = toDateTimeType(key, jsonObj);
+				break;
+			case Constants.TYPE_DATE:
+				rs = toDateType(key, jsonObj);
+				break;
+			case eConstants.TYPE_TIME:
+				rs = toTimeType(key, jsonObj);
 				break;
 			default:
 				rs = null;
@@ -215,6 +225,24 @@ public class SimpleDataTypeParser {
 	}
 	public static DataType toDateType(JSONObject jsonObj) {
 		DateType dateType = new DateType();
+		if(jsonObj.get(Constants.KEYWORD_SIZE) != null)
+			dateType.setSize(Integer.valueOf(jsonObj.get(Constants.KEYWORD_SIZE).toString()));
+		return dateType;
+	}
+	public static DataType toTimeType(String key, JSONObject jsonObj) {
+		TimeType timeType = new TimeType(key);
+		if(jsonObj.get(Constants.KEYWORD_SIZE) != null)
+			timeType.setSize(Integer.valueOf(jsonObj.get(Constants.KEYWORD_SIZE).toString()));
+		return timeType;
+	}
+	public static DataType toDateTimeType(String key, JSONObject jsonObj) {
+		DateTimeType dateTimeType = new DateTimeType(key);
+		if(jsonObj.get(Constants.KEYWORD_SIZE) != null)
+			dateTimeType.setSize(Integer.valueOf(jsonObj.get(Constants.KEYWORD_SIZE).toString()));
+		return dateTimeType;
+	}
+	public static DataType toDateType(String key, JSONObject jsonObj) {
+		DateType dateType = new DateType(key);
 		if(jsonObj.get(Constants.KEYWORD_SIZE) != null)
 			dateType.setSize(Integer.valueOf(jsonObj.get(Constants.KEYWORD_SIZE).toString()));
 		return dateType;

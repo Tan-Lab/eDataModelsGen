@@ -34,6 +34,18 @@ public class NumberType extends DataType{
 		this.type = Constants.KEYWORD_NUMBER;
 		this.name = name;
 	}
+	public NumberType(NumberType newNumber) {
+		this.type = newNumber.getType();
+		this.format = newNumber.getFormat();
+		this.minimum = newNumber.getMinimum();
+		this.maximum = newNumber.getMaximum();
+		this.unit = newNumber.getUnit();
+		this.multipleOf = newNumber.getMultipleOf();
+		this.multiple = newNumber.getMultiple();
+		this.coefficient = newNumber.getCoefficient();
+		this.enumValue = newNumber.getEnumValue();
+		this.description = newNumber.getDescription();
+	}
 	private String format;
 	private BigDecimal minimum;
 	private BigDecimal maximum;

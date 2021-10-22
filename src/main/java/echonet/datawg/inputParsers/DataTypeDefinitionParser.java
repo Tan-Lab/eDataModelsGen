@@ -7,6 +7,7 @@ import java.util.List;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+
 import echonet.datawg.dataTypeObjects.ArrayType;
 import echonet.datawg.dataTypeObjects.Bitmap;
 import echonet.datawg.dataTypeObjects.BitmapPosition;
@@ -131,8 +132,7 @@ public class DataTypeDefinitionParser {
 		if(data != null) {
 			if(data.getClass().equals(NumberType.class)) {
 				NumberType number = (NumberType) data;
-				NumberType numberWithUnit = new NumberType();
-				numberWithUnit = number;
+				NumberType numberWithUnit = new NumberType(number);
 				if(multipleOf != null) {
 					numberWithUnit.setMultipleOf(multipleOf);
 				}
