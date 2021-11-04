@@ -33,7 +33,6 @@ public class DataTypeDefinitionParser {
 		DataType rs = null;
 		for(DataType type: predefinedTypes) {
 			if(type.getName().equals(name)) {
-				System.out.println(type.toWebAPIDeviceDescription().toString());
 				rs = type;
 				break;
 			} 

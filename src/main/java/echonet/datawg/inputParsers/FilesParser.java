@@ -127,18 +127,16 @@ public class FilesParser {
 		}
 		return rs;
 	}
-	public static List<ECHONETLiteDevice> deviceDefinitionFromFile(String fileName, List<DataType> preDefinedDataTypes){
+	public static ECHONETLiteDevice deviceDefinitionFromFile(String fileName, List<DataType> preDefinedDataTypes){
 		BufferedReader reader;
 		JSONObject obj;		
 		JSONParser parser = new JSONParser();
-		List<ECHONETLiteDevice> rs = new ArrayList<ECHONETLiteDevice>();
+		ECHONETLiteDevice device = null;
 		try {
 			reader = new BufferedReader(new InputStreamReader(new FileInputStream(fileName), "UTF-8"));
 			obj = (JSONObject) parser.parse(reader);
 			String key = StringUtils.left(FilenameUtils.getName(fileName),6);
-			ECHONETLiteDevice device = new DeviceDefinitionParser(preDefinedDataTypes).toDeviceDefinitions(key,obj);
-				if(device != null)
-					rs.add(device);
+			device = new DeviceDefinitionParser(preDefinedDataTypes).toDeviceDefinitions(key,obj);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -146,7 +144,7 @@ public class FilesParser {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return rs;
+		return device;
 	}
 	public static List<ManualCode> mcFromFile(String fileName){
 		BufferedReader reader;
@@ -205,6 +203,27 @@ public class FilesParser {
 			e.printStackTrace();
 		}
 		return rs;
+	}
+	public static ManualCode mcFromFileV1_oneMC(String fileName){
+		BufferedReader reader;
+		JSONParser parser = new JSONParser();
+		ManualCode mc = null;
+		try {
+			reader = new BufferedReader(new InputStreamReader(new FileInputStream(fileName), "UTF-8"));
+			Object inputObj = parser.parse(reader);
+			
+			
+			if(inputObj != null) {
+				mc = ManualCodeParser.toManualCodeV1((JSONObject)inputObj);
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return mc;
 	}
 
 }
