@@ -5,7 +5,7 @@
 ## About The Tool
 
   
-
+![Overview](https://github.com/Tan-Lab/eDataModelsGen/blob/main/Diagrams/overview.png)
 This tool aims to generate various data models for the ECHONET Lite protocol from the <a  href="https://echonet.jp/spec_object_rm_en/">APPENDIX Detailed Requirements for ECHONET Device Objects</a>.
 
 * Input: A JSON version of the Appendix (Machine Readable Appendix) provided by the Web API Working Group of the ECHONET Consortium.
@@ -27,7 +27,7 @@ Clone the project and follow the instructions.
 ### Installation
 - mvn install
 ### Usage
-
+![Usage information](https://github.com/Tan-Lab/eDataModelsGen/blob/main/Diagrams/usage.png)
  - Pattern 1: Load **unstructured** MRA files as input:
 	 `java -jar {combined-jar-file.jar} -i {input [.json] files} -o  {output directory}  -g {to enable GUI app}`
 	 - *input files*:
