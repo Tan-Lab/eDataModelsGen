@@ -22,7 +22,7 @@ This tool aims to generate various data models for the ECHONET Lite protocol fro
 ## Getting Started
 Clone the project and follow the instructions.
 ### Prerequisites
- - Java  > 1.8
+ - Java  >= 1.8
 - Maven
 ### Installation
 - mvn install
@@ -33,7 +33,7 @@ Clone the project and follow the instructions.
 	 - *input files*:
 		 -	***Full MRA file***  [xxxmra.json]
 		 -	***A device object file***  [0xxxx.json]
-		 -	 ***MC rule file***  [xxxMCRules.json]
+		 -	 ***MC rule file***  [xxx_mcrule.json]
 		 -	***definition file***  [xxxdefinitions.json]
 	 - *output directory*:
 		 -	If not specified, take the current folder as the root, generated result is at **currentDir/webapi_dd** folder
@@ -47,9 +47,9 @@ Clone the project and follow the instructions.
 		 -	If not specified, take the current folder as the root, generated result is at **currentDir/webapi_dd** folder
 
 				 MRA Folder Structure [*root folder*]
-					 - definition [*folder]*
+					 - definition [*folder*]
 						 - definitions.json [*file*]
-					 - device [*folder]*
+					 - device [*folder*]
 						 - 0x02A1.json[*file*]
 						 - ...
 					- MCRules[*folder*]
@@ -64,7 +64,7 @@ Clone the project and follow the instructions.
 
 *  ***No GUI***
 
-`java -jar {combined-jar-file.jar} -i 0x0000.json 0x0001.json 0x0003.json 0x0000_MCRules.json definitions.json -o /home`
+`java -jar {combined-jar-file.jar} -i 0x0000.json 0x0001.json 0x0003.json 0x0000_mcrule.json definitions.json -o /home`
 
 *  *** With GUI***
 

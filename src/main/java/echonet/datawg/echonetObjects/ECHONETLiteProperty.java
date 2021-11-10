@@ -106,8 +106,6 @@ public ECHONETLiteProperty(String code) {
 			rootNode.setAll(toUrlParameterJSON());
 		}
 		if(data.size() == 1) {
-			System.out.println(propertyName.getEN());
-			//System.out.println( data.get(0).toWebAPIDeviceDescription().toPrettyString());
 			rootNode.set(eConstants.KEYWORD_SCHEMA, data.get(0).toWebAPIDeviceDescription());
 		} else if(data.size() > 1) {
 			ArrayNode arrayNode = mapper.createArrayNode();

@@ -23,7 +23,11 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.util.DefaultIndenter;
+import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
+import com.fasterxml.jackson.core.util.Separators;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import echonet.datawg.dataTypeObjects.DataType;
@@ -121,6 +125,8 @@ public class DDGenerator {
 		}
 	}
 	public void toDDFile(String filePath) {
+		DefaultPrettyPrinter pp = new DefaultPrettyPrinter().
+				withoutSpacesInObjectEntries();
 		if(elDevices.size() > 0) {
 			for(ECHONETLiteDevice dev: elDevices) {
 				try (Writer file = new OutputStreamWriter(
@@ -128,7 +134,7 @@ public class DDGenerator {
 									StandardCharsets.UTF_8)) { 
 					if(dev.toDDWebAPIJSON() != null) {
 						ObjectMapper mapper = new ObjectMapper();
-						file.write(mapper.writerWithDefaultPrettyPrinter().writeValueAsString(dev.toDDWebAPIJSON()));
+						file.write(mapper.writer(pp).writeValueAsString(dev.toDDWebAPIJSON()));
 					}
 						
 		        } catch (IOException e) {
@@ -140,6 +146,9 @@ public class DDGenerator {
 		}
 	}
 	public void toTDFile(String filePath) {
+		DefaultPrettyPrinter pp = new DefaultPrettyPrinter().
+				withoutSpacesInObjectEntries();
+		//pp.withRootSeparator(": ");
 		if(elDevices.size() > 0) {
 			for(ECHONETLiteDevice dev: elDevices) {
 				try (Writer file = new OutputStreamWriter(
@@ -147,7 +156,7 @@ public class DDGenerator {
 									StandardCharsets.UTF_8)) { 
 					if(dev.toThingDescriptionJSON() != null) {
 						ObjectMapper mapper = new ObjectMapper();
-						file.write(mapper.writerWithDefaultPrettyPrinter().writeValueAsString(dev.toThingDescriptionJSON()));
+						file.write(mapper.writer(pp).writeValueAsString(dev.toThingDescriptionJSON()));
 					}
 						
 		        } catch (IOException e) {
