@@ -27,7 +27,7 @@ Clone the project and follow the instructions.
 ### Installation
 - mvn install
 ### Usage
-![Usage information](https://github.com/Tan-Lab/eDataModelsGen/blob/main/Diagrams/usage.png)
+![Usage information](Diagrams/usage.png)
  - Pattern 1: Load **unstructured** MRA files as input:
 	 `java -jar {combined-jar-file.jar} -i {input [.json] files} -o  {output directory}  -g {to enable GUI app}`
 	 - *input files*:
