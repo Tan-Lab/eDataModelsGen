@@ -15,6 +15,7 @@ import echonet.datawg.dataTypeObjects.DataType;
 import echonet.datawg.dataTypeObjects.ObjectProperty;
 import echonet.datawg.dataTypeObjects.ObjectType;
 import echonet.datawg.dataTypeObjects.RawType;
+import echonet.datawg.main.DDExporter;
 import echonet.datawg.utils.AccessRuleEnum;
 import echonet.datawg.utils.Constants;
 import echonet.datawg.utils.WoTConstants;
@@ -82,6 +83,13 @@ public ECHONETLiteProperty(String code) {
 		ObjectMapper mapper = new ObjectMapper();
 		ObjectNode rootNode = mapper.createObjectNode();
 		//0xFF is a non EPC code
+		if(DDExporter.exportFF) {
+			rootNode.put(eConstants.KEYWORD_EPC, code);
+		} else {
+			if(!code.equals("0xFF")) {
+				rootNode.put(eConstants.KEYWORD_EPC, code);
+			}
+		}
 		if(!code.equals("0xFF")) {
 			rootNode.put(eConstants.KEYWORD_EPC, code);
 		}

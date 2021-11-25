@@ -46,6 +46,7 @@ public class DDExporter {
 	protected static String outputWoTDir;
 	protected static String[] inputFiles;
 	protected static boolean isGUI = false;
+	public static boolean exportFF = false;
 	protected static String full_MRA_File_Name;
 	protected static String aDevice_File_Name;
 	protected static String MC_Rules_File_Name;
@@ -191,7 +192,7 @@ public class DDExporter {
 		try {
 			cmd = parser.parse(option, args);
 		} catch (ParseException e) {			//e.printStackTrace();
-			help.printHelp("Usaged:", buildOpts());
+			help.printHelp("Available options:", buildOpts());
 			System.exit(1);
 		}
 		
@@ -213,8 +214,11 @@ public class DDExporter {
 		if(cmd.hasOption("wot-output-directory")) {
 			outputWoTDir = cmd.getOptionValue("wot-output-directory").trim();
 		}
-		if(cmd.hasOption("display-GUI")) {
+		if(cmd.hasOption("enable-GUI")) {
 			isGUI = true;
+		}
+		if(cmd.hasOption("export-ff")) {
+			exportFF = true;
 		}
 		
 	}
@@ -246,6 +250,8 @@ public class DDExporter {
 		
 		Option GUI = new Option("g", "enable-GUI", false, "Enable GUI App");
 		options.addOption( GUI);
+		Option exportFF = new Option("f", "export-ff", false, "Export specified 0xFF EPCs");
+		options.addOption( exportFF);
 		
 		
 		
