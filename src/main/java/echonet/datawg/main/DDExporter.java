@@ -217,7 +217,7 @@ public class DDExporter {
 		if(cmd.hasOption("enable-GUI")) {
 			isGUI = true;
 		}
-		if(cmd.hasOption("export-ff")) {
+		if(cmd.hasOption("output-ff")) {
 			exportFF = true;
 		}
 		
@@ -250,7 +250,7 @@ public class DDExporter {
 		
 		Option GUI = new Option("g", "enable-GUI", false, "Enable GUI App");
 		options.addOption( GUI);
-		Option exportFF = new Option("f", "export-ff", false, "Export specified 0xFF EPCs");
+		Option exportFF = new Option("f", "output-ff", false, "Output EPC:0xFF to DD for special cases");
 		options.addOption( exportFF);
 		
 		
