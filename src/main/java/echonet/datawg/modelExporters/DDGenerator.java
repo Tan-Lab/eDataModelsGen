@@ -129,6 +129,7 @@ public class DDGenerator {
 				withoutSpacesInObjectEntries();
 		if(elDevices.size() > 0) {
 			for(ECHONETLiteDevice dev: elDevices) {
+				System.out.println("--Exporting Device: " + dev.getShortName());
 				try (Writer file = new OutputStreamWriter(
 									new FileOutputStream( filePath + File.separator + dev.getShortName()+".json"),
 									StandardCharsets.UTF_8)) { 

@@ -144,6 +144,7 @@ public class StateType extends DataType{
 	}
 	@Override
 	public ObjectNode toWebAPIDeviceDescription() {
+		System.out.println("------Exporting Data Type: " + this.type + " Name: " + this.name);
 		ObjectNode rootNode  = null;
 		boolean isBooleanType = false;
 		for(StateEnumValue e : this.getENumValue()) {

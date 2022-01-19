@@ -159,7 +159,6 @@ public class DDExporter {
 			}
 		}
 		
-		dataTypes = FilesParser.definedDataTypeFromMRA(definition_File_Name);
 		for(final File file :  deviceObjectsFolder.listFiles()) {
 			if(file.isFile()) {
 				if(FilenameUtils.getExtension(file.getAbsolutePath()).equals("json")) {

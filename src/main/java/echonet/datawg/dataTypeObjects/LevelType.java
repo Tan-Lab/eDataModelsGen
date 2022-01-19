@@ -89,6 +89,7 @@ public class LevelType extends DataType{
 	}
 	@Override
 	public ObjectNode toWebAPIDeviceDescription() {
+		System.out.println("------Exporting Data Type: " + this.type + " Name: " + this.name);
 		return toNumberType();
 	}
 	

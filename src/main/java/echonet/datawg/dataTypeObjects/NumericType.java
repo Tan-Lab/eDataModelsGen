@@ -45,6 +45,7 @@ public class NumericType extends DataType{
 
 	@Override
 	public ObjectNode toWebAPIDeviceDescription() {
+		System.out.println("------Exporting Data Type: " + this.type + " Name: " + this.name);
 		ObjectMapper mapper = new ObjectMapper();
 		ObjectNode rootNode = mapper.createObjectNode();
 		rootNode.put(eConstants.KEYWORD_TYPE, eConstants.TYPE_NUMBER);

@@ -29,7 +29,7 @@ Clone the project and follow the instructions.
 ### Usage
 ![Usage information](Diagrams/usage.png)
  - Pattern 1: Load **unstructured** MRA files as input:
-	 `java -jar {combined-jar-file.jar} -i {input [.json] files} -o  {output directory}  -g {to enable GUI app}`
+	 `java -jar {combined-jar-file.jar} -i {input [.json] files} -o  {output directory}  -g {to enable GUI app} -f {to export EPC=0xFF for special cases}`
 	 - *input files*:
 		 -	***Full MRA file***  [xxxmra.json]
 		 -	***A device object file***  [0xxxx.json]
@@ -39,7 +39,7 @@ Clone the project and follow the instructions.
 		 -	If not specified, take the current folder as the root, generated result is at **currentDir/webapi_dd** folder
 		 
  - Pattern 2: Load structured MRA folder as input:
-	 `java -jar {combined-jar-file.jar}  -mra  {input folder} -o {output folder}  `
+	 `java -jar {combined-jar-file.jar}  -mra  {input folder} -o {output folder} -f {to export EPC=0xFF for special cases} `
 	 
 	 - *input folder*: can not be empty
 		 -	**.** (dot) means current folder, otherwise, specific the MRA folder

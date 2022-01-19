@@ -101,6 +101,7 @@ public class NumberType extends DataType{
 	}
 	@Override
 	public ObjectNode toWebAPIDeviceDescription() {
+		System.out.println("------Exporting Data Type: " + this.type + " Name: " + this.name);
 		ObjectMapper mapper = new ObjectMapper();
 		ObjectNode rootNode = mapper.createObjectNode();
 		if(this.getDescription() != null) {

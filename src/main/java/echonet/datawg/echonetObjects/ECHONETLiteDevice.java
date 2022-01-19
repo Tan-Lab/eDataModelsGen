@@ -87,13 +87,16 @@ public class ECHONETLiteDevice {
 		for(ECHONETLiteProperty pp : properties) {
 			if(!pp.isReservedForFutureUse() && !pp.isDELProperty() && !pp.isContainDELProperty()){
 				if(pp.isSetOnly()) {
+					System.out.println("----Exporting Action: " + pp.getShortName());
 					if(actionNode == null) {
 						actionNode = mapper.createObjectNode();
 					}
 					actionNode.set(pp.getShortName(), pp.toDDWebAPIJSONObjectNodeReadOnly());
 				} else if (pp.isMCProperty()){
+					System.out.println("----Exporting MC property: " + pp.getShortName());
 					ppNode.set(pp.getShortName().replace("(MC)", ""), pp.toDDWebAPIJSONObjectNode());
 				} else {
+					System.out.println("----Exporting property: " + pp.getShortName());
 					ppNode.set(pp.getShortName(), pp.toDDWebAPIJSONObjectNode());
 				}
 			} 
