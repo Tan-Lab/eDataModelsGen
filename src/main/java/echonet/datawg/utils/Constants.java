@@ -55,7 +55,7 @@ public class Constants {
 	public static final String KEYWORD_INF =  "inf";
 	public static final String KEYWORD_NOTE =  "note";
 	public static final String KEYWORD_REF =  "$ref";
-	public static final String KEYWORD_REF_PREFIX = "#/definitions/";
+	public static final String KEYWORD_REF_PREFIX = "../definitions/definitions.json#";
 	public static final String KEYWORD_URL_PARAM = "urlParameters";
 	
 	public static final String KEYWORD_MULTIPLE = "multiple";
