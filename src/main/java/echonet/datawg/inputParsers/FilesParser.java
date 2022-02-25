@@ -8,6 +8,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.logging.Logger;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -23,6 +24,7 @@ import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.StringUtils;
 
 public class FilesParser {
+	static Logger LOGGER = Logger.getLogger(FilesParser.class.getName());
 	public static List<DataType> definedDataTypeFromJSON(JSONObject obj) {
 		JSONObject objType = null;
 		List<DataType> dataTypes = new ArrayList<DataType>();
@@ -186,14 +188,24 @@ public class FilesParser {
 			if( arrayObj != null) {
 				for(int i = 0; i < arrayObj.size(); i ++) {
 					ManualCode mc = ManualCodeParser.toManualCodeV1((JSONObject)arrayObj.get(i));
-					if(mc != null)
+					if(mc != null) {
 						rs.add(mc);
+					} else {
+						LOGGER.severe(String.format("Could not load MC Rule correctly! from %s", fileName));
+						System.exit(1);
+					}
+						
 				}
 			}
 			if(oneObj != null) {
 				ManualCode mc = ManualCodeParser.toManualCodeV1(oneObj);
-				if(mc != null)
+				if(mc != null) {
 					rs.add(mc);
+				} else {
+					LOGGER.severe(String.format("Could not load MC Rule correctly! from %s", fileName));
+					System.exit(1);
+				}
+					
 			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

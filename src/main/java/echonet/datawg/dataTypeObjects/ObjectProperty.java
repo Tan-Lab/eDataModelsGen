@@ -2,6 +2,7 @@ package echonet.datawg.dataTypeObjects;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 import org.apache.commons.text.CaseUtils;
 
@@ -14,6 +15,7 @@ import echonet.datawg.utils.Constants;
 import echonet.datawg.utils.eConstants;
 
 public class ObjectProperty {
+	static Logger LOGGER = Logger.getLogger(ObjectProperty.class.getName());
 	public ObjectProperty() {
 		
 	}
@@ -81,7 +83,14 @@ public class ObjectProperty {
 			if(descNode != null) {
 				rootNode.set(Constants.KEYWORD_DESCRIPTIONS, descNode);
 			}
-			rootNode.setAll(getElement().get(0).toWebAPIDeviceDescription());
+			DataType type = getElement().get(0);
+			if(type != null) {
+				rootNode.setAll(type.toWebAPIDeviceDescription());
+			} else {
+				LOGGER.severe(String.format("******Could not load data type of object type of %s", this.name));
+				System.exit(1);
+			}
+			
 			if( noteNode != null) {
 				rootNode.set(Constants.KEYWORD_NOTE, noteNode);
 			}
@@ -92,7 +101,13 @@ public class ObjectProperty {
 			
 			ArrayNode oneOf = mapper.createArrayNode();
 			for(DataType type : this.getElement()) {
-				oneOf.add(type.toWebAPIDeviceDescription());
+				if(type != null) {
+					oneOf.add(type.toWebAPIDeviceDescription());
+				} else {
+					LOGGER.severe(String.format("******Could not load data type of object type of %s", this.name));
+					System.exit(1);
+				}
+				
 			}
 			ObjectNode multipleTypePropertyNode = mapper.createObjectNode();
 			multipleTypePropertyNode.set(eConstants.KEYWORD_ONEOF, oneOf);

@@ -3,6 +3,7 @@ package echonet.datawg.echonetObjects;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.logging.Logger;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -14,6 +15,7 @@ import echonet.datawg.utils.WoTConstants;
 import echonet.datawg.utils.eConstants;
 
 public class ECHONETLiteDevice {
+	Logger LOGGER = Logger.getLogger(ECHONETLiteDevice.class.getName());
 	public ECHONETLiteDevice(String code) {
 		this.code = code;
 	}
@@ -85,21 +87,38 @@ public class ECHONETLiteDevice {
 		ObjectNode ppNode = mapper.createObjectNode();
 		Collections.sort(properties, Collections.reverseOrder());
 		for(ECHONETLiteProperty pp : properties) {
-			if(!pp.isReservedForFutureUse() && !pp.isDELProperty() && !pp.isContainDELProperty()){
+			if(pp == null) {
+				LOGGER.severe(String.format("****Could not export a property at %s (%s)",
+						this.getShortName(), this.getCode()));
+				System.exit(1);
+			} else if(!pp.isReservedForFutureUse() && !pp.isDELProperty() && !pp.isContainDELProperty()){
 				if(pp.isSetOnly()) {
-					System.out.println("----Exporting Action: " + pp.getShortName());
+					LOGGER.info(String.format("----Exporting Action: %s",pp.getShortName()));
 					if(actionNode == null) {
 						actionNode = mapper.createObjectNode();
 					}
-					actionNode.set(pp.getShortName(), pp.toDDWebAPIJSONObjectNodeReadOnly());
+					ObjectNode actionNodeContent= pp.toDDWebAPIJSONObjectNodeReadOnly();
+					if(actionNodeContent != null) {
+						actionNode.set(pp.getShortName(),	actionNodeContent );
+					}
+					
 				} else if (pp.isMCProperty()){
-					System.out.println("----Exporting MC property: " + pp.getShortName());
-					ppNode.set(pp.getShortName().replace("(MC)", ""), pp.toDDWebAPIJSONObjectNode());
+					LOGGER.info(String.format("----Exporting MC property: %s",pp.getShortName()));
+					ObjectNode mcNodeContent = pp.toDDWebAPIJSONObjectNode();
+					if(mcNodeContent != null) {
+						ppNode.set(pp.getShortName().replace("(MC)", ""), mcNodeContent);
+					}
 				} else {
-					System.out.println("----Exporting property: " + pp.getShortName());
-					ppNode.set(pp.getShortName(), pp.toDDWebAPIJSONObjectNode());
+					LOGGER.info(String.format("----Exporting a property: %s",pp.getShortName()));
+					ObjectNode ppNodeContent = pp.toDDWebAPIJSONObjectNode();
+					if(ppNodeContent != null) {
+						ppNode.set(pp.getShortName(),ppNodeContent );
+					} 
+
 				}
-			} 
+			
+			}
+		
 		}
 		rootNode.set(eConstants.KEYWORD_PROPERTIES, ppNode);
 		if(actionNode !=null)

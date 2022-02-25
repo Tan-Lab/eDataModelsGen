@@ -1,8 +1,8 @@
 package echonet.datawg.echonetObjects;
 
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -22,6 +22,7 @@ import echonet.datawg.utils.WoTConstants;
 import echonet.datawg.utils.eConstants;
 
 public class ECHONETLiteProperty implements Comparable<Object>{
+	static Logger LOGGER = Logger.getLogger(ECHONETLiteProperty.class.getName());
 	public ECHONETLiteProperty() {
 	}
 public ECHONETLiteProperty(String code) {
@@ -113,12 +114,28 @@ public ECHONETLiteProperty(String code) {
 		if(this.getUrlParameters() != null && this.getUrlParameters().size() > 0) {
 			rootNode.setAll(toUrlParameterJSON());
 		}
-		if(data.size() == 1) {
-			rootNode.set(eConstants.KEYWORD_SCHEMA, data.get(0).toWebAPIDeviceDescription());
+		else if(data.size() == 1) {
+			DataType type =  data.get(0);
+			if(type != null) {
+				rootNode.set(eConstants.KEYWORD_SCHEMA, type.toWebAPIDeviceDescription());
+			} else {
+				LOGGER.severe(String.format("****Could not export data type correctly at %s(%s)",
+						this.getShortName(), this.getCode()));
+				System.exit(1);
+			}
+			
 		} else if(data.size() > 1) {
 			ArrayNode arrayNode = mapper.createArrayNode();
 			for(DataType type : data) {
-				arrayNode.add(type.toWebAPIDeviceDescription());
+
+				if(type != null) {
+					arrayNode.add(type.toWebAPIDeviceDescription());
+				} else {
+					LOGGER.severe(String.format("****Could not export data type correctly at %s(%s):%s",
+							this.getShortName()));
+					System.exit(1);
+				}
+				
 			}
 			ObjectNode oneOfNode = mapper.createObjectNode();
 			oneOfNode.set(eConstants.KEYWORD_ONEOF, arrayNode);

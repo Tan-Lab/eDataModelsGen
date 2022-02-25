@@ -2,6 +2,7 @@ package echonet.datawg.dataTypeObjects;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
@@ -10,6 +11,7 @@ import com.github.owlcs.ontapi.jena.model.OntClass;
 import com.github.owlcs.ontapi.jena.model.OntModel;
 import com.github.owlcs.ontapi.jena.model.OntObjectProperty;
 
+import echonet.datawg.echonetObjects.ECHONETLiteProperty;
 import echonet.datawg.echonetObjects.EnJAStatement;
 import echonet.datawg.inputParsers.SarefOntologyParser;
 import echonet.datawg.utils.Constants;

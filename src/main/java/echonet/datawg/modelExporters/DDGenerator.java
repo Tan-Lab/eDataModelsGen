@@ -1,35 +1,24 @@
 package echonet.datawg.modelExporters;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-
-import org.apache.jena.atlas.lib.FileOps;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-
-import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.util.DefaultIndenter;
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
-import com.fasterxml.jackson.core.util.Separators;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import echonet.datawg.dataTypeObjects.DataType;
 import echonet.datawg.echonetObjects.ECHONETLiteDevice;
 import echonet.datawg.echonetObjects.ECHONETLiteProperty;
@@ -41,6 +30,7 @@ import echonet.datawg.inputParsers.SimpleDataTypeParser;
 import echonet.datawg.utils.Constants;
 
 public class DDGenerator {
+	static Logger LOGGER = Logger.getLogger(DDGenerator.class.getName());
 	public DDGenerator(List<ECHONETLiteDevice> devices) {
 		this.elDevices = devices;
 	}
@@ -129,13 +119,16 @@ public class DDGenerator {
 				withoutSpacesInObjectEntries();
 		if(elDevices.size() > 0) {
 			for(ECHONETLiteDevice dev: elDevices) {
-				System.out.println("--Exporting Device: " + dev.getShortName());
+				LOGGER.info(String.format("--Converting %s to %s ...",dev.getCode(), dev.getShortName()));
 				try (Writer file = new OutputStreamWriter(
 									new FileOutputStream( filePath + File.separator + dev.getShortName()+".json"),
 									StandardCharsets.UTF_8)) { 
 					if(dev.toDDWebAPIJSON() != null) {
 						ObjectMapper mapper = new ObjectMapper();
 						file.write(mapper.writer(pp).writeValueAsString(dev.toDDWebAPIJSON()));
+					} else {
+						LOGGER.log(Level.SEVERE, String.format("----Could not load the %s:%s from MRA correctly", dev.getCode(), dev.getShortName()));
+						System.exit(1);
 					}
 						
 		        } catch (IOException e) {
@@ -143,13 +136,12 @@ public class DDGenerator {
 		        }
 			}
 		}else {
-			System.out.println("Nothing to show");
+			LOGGER.info("----Could not load any device from the MRA!!");
 		}
 	}
 	public void toTDFile(String filePath) {
 		DefaultPrettyPrinter pp = new DefaultPrettyPrinter().
 				withoutSpacesInObjectEntries();
-		//pp.withRootSeparator(": ");
 		if(elDevices.size() > 0) {
 			for(ECHONETLiteDevice dev: elDevices) {
 				try (Writer file = new OutputStreamWriter(
@@ -165,7 +157,7 @@ public class DDGenerator {
 		        }
 			}
 		}else {
-			System.out.println("Nothing to show");
+			LOGGER.info("----Could not load any device from the MRA!!");
 		}
 	}
 

@@ -6,11 +6,9 @@ import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
@@ -59,6 +57,7 @@ public class DDExporter {
 	public static List<ECHONETLiteDevice> elDevices;
 	public static List<DataType> dataTypes = null;
 	public static  String currentDir;
+	static Logger LOGGER = Logger.getLogger(DDExporter.class.getName());
 	
 	public static void main(String[] args) {
 		full_MRA_File_Name = "";
@@ -93,9 +92,8 @@ public class DDExporter {
 	}
 	public static void writeOutput() {
 		if(elDevices.size() > 0) {
-			System.out.println("DD Contents loaded " + elDevices.size() + " DD found");
+			
 			if(mcRules.size() >0) {
-				System.out.println("MC rules loaded " + mcRules.size() + " MC rules");
 				ddHandler = new DDGenerator(elDevices,mcRules);
 			} else {
 				ddHandler = new DDGenerator(elDevices);
@@ -106,14 +104,12 @@ public class DDExporter {
 		        	ddDir.mkdir();   
 		        }
 				ddHandler.toDDFile(outputDir);
-				System.out.println("DD exported!! Check " + outputDir + " directory for results");
 			} 
 			if (!outputWoTDir.equals("")){
 				ddHandler.toTDFile(outputWoTDir);
-				System.out.println("TD exported!! Check " + outputWoTDir + " directory for results");
 			} 
 		} else {
-			System.out.println ("Can not load device object!!");
+			LOGGER.severe("Can not load device object!!");
 			System.exit(1);
 		}
 	}
@@ -136,7 +132,7 @@ public class DDExporter {
 			}
 			elDevices.add(FilesParser.deviceDefinitionFromFile(aDevice_File_Name, dataTypes));
 		} else {
-			System.out.println("No device definition file");
+			LOGGER.severe("**** Could not load device object!!");
 		}
 		if(!MC_Rules_File_Name.equals("")) {
 			mcRules = FilesParser.mcFromFileV1(MC_Rules_File_Name);
